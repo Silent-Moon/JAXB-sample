@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.customer.ssec" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.customer.ssec" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="SharingValueType_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				Indicates the SSEC Rule Sharing Value Type type.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="GLOBAL"/>
+			<xsd:enumeration value="REGIONAL"/>
+			<xsd:enumeration value="CUSTOMER"/>
+			<xsd:enumeration value=""/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SharingValue_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				Indicates the SSEC Rule Sharing Value value. According to the conversion 
+				it ca be string(10), string(3) and number(20). Took common denominator.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SharingRuleType_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				Indicates the SSEC Rule Sharing Type value as an enumeration. The following have been 
+				provided by application. 
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="AFFILIATES"/>
+			<xsd:enumeration value="NAMED_ACCOUNT"/>
+			<xsd:enumeration value="USER_ID"/>
+			<xsd:enumeration value="CUSTOMER_GROUP"/>
+			<xsd:enumeration value="SALES_CODE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

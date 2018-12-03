@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:include schemaLocation="EquipmentEnumTypes_V1.xsd"/>
+	<xsd:complexType name="EquipmentSearch_V1">
+		<xsd:sequence>
+			<xsd:element name="AtLocIncoming" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AuthorizationNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CheckDigit" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ContractNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ControlParty" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EqpAssociation" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EqpFromNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EqpId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EqpNum" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EqpOpzone" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EqpPrefix" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EqpState" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EqpToNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EqpType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EquipmentIdList" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="FacilityCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FullEmptyIndicator" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IdleDays" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LicenceNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LicenceState" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Owner" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RelationshipStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RuIndicator" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RuLabelName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SizeTypeCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SizeTypeGroupCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="UsageCondition" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="UsageSubCondition" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="GPS" type="GPSDevice" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Specify the GPS device to filter equipments </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LoanRef" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

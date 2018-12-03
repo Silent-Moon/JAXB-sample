@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.customer.call" 
+			xmlns:common="http://com.oocl.schema.common"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns:fwdt="http://com.oocl.frm.common.date.dto/"
+            targetNamespace="http://com.oocl.schema.customer.call" 
+            elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd"/>
+	<xsd:include schemaLocation="RecordingID_V1.xsd"/>
+	<xsd:include schemaLocation="CallSessionID_V1.xsd"/>
+	<xsd:simpleType name="RecordingBookmarkLabel_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				This is Label of the Voice Recording Bookmark.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="50"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="CustomerCallVoiceRecording_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents Customer Call Voice Recording in AIO CSU.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RecordingID" type="RecordingID_V1" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the Recording ID.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CallSessionID" type="CallSessionID_V1" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the Call Session ID.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RecordingStartDateTimeGmt" type="fwdt:FWAbsoluteDateTimeDTO" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is DateTime of Call Recording Start.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RecordingDuration" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is Duration (Second) of the Voice Recording.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int">
+						<xsd:minInclusive  value="-1"/>
+						<xsd:maxInclusive value="99999999"/> 
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="InstrumentID" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Instrument ID is the agent phone number.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="8"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="InternalUserID" type="common:UserID_V1" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is Agent Domain ID.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerCallVoiceRecordingBookmark" type="CustomerCallVoiceRecordingBookmark_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is customer call voice recording book mark.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerCallVoiceRecordingBookmark_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is voice recording book mark.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="BookmarkDateTimeGmt" type="fwdt:FWAbsoluteDateTimeDTO" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is DateTime of the Voice Recording Bookmark.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BookmarkLabel" type="RecordingBookmarkLabel_V1" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is Label of the Voice Recording Bookmark.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by David Li (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="LocationName_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about the name of a location.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="LocalName" type="EntityLocationName_V1" minOccurs="0"/>
+			<xsd:element name="EnglishName" type="EntityLocationName_V1" minOccurs="0"/>
+			<xsd:element name="FullyQualifiedName" type="FullyQualifiedName_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

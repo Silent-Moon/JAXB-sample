@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://com.oocl.schema.eqm">
+	<xsd:simpleType name="EquipmentNumber_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

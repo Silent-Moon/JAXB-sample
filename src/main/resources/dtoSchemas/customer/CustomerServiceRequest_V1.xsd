@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with Stylus Studio 2008 by VARMA CHINTALAPATI (OOCL (USA) INC) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://com.oocl.schema.customer" xmlns:csuview="http://com.oocl.schema.customer.csuview" xmlns:common="http://com.oocl.schema.common" xmlns:fwdt="http://com.oocl.frm.common.date.dto/" xmlns:dsh="http://com.oocl.schema.dashboard" targetNamespace="http://com.oocl.schema.customer" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!--xsd:import namespace="http://com.oocl.schema.dashboard" schemaLocation="../dashboard/Activity_V1.xsd"/-->
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/StringKeyValuePair_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ServiceRequest_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ExternalUserType_V1.xsd"/>
+	<xsd:complexType name="CustomerServiceRequest_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the customer submitted request thru ACZ web channel</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="common:ServiceRequest_V1">
+				<xsd:sequence>
+					<xsd:element name="Description" type="common:NonStructuredText_V1" nillable="true" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A short description of the Service Request</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="RequestDate" type="fwdt:FWAbsoluteDateTimeDTO">
+						<xsd:annotation>
+							<xsd:documentation>Date the service request was sent by the customer</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Submitter" type="common:ExternalUserType_V1">
+						<xsd:annotation>
+							<xsd:documentation>User who submitted the customer request</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Reference" type="common:StringKeyValuePair_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Reference type and number provided</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="InternalTaskName" type="common:NonStructuredText_V1" nillable="true">
+						<xsd:annotation>
+							<xsd:documentation>dashboard task name associated with this SR</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="InternalTaskDetails" type="common:LongBasicDescription_V1" nillable="true">
+						<xsd:annotation>
+							<xsd:documentation>dashboard task details</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CardinalDirection_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/DeliveryMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TradeLaneCode_V1.xsd"/>
+	<xsd:include schemaLocation="AB_Commodity_V1.xsd"/>
+	<xsd:include schemaLocation="AB_Route_V1.xsd"/>
+	<xsd:include schemaLocation="AB_VolumeGroup_V1.xsd"/>
+	<xsd:include schemaLocation="AbstractAB_Rate_V1.xsd"/>
+	<xsd:include schemaLocation="ServiceSimpleTypes_V1.xsd"/>
+	<xsd:include schemaLocation="AB_OracleTypes_V1.xsd"/>
+	<xsd:complexType name="RateRemark_V1">
+		<xsd:annotation>
+			<xsd:documentation>Rate remark</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Indicator" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Remark type indicator using bit map:
+1 - is rate related
+2 - is customer service related
+4 - is operation related
+8 - is show in doc
+16 - additional remark(offer remark)
+32 - general/regional remark(offer remark)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Text" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomizedInlandRefs_V1">
+		<xsd:annotation>
+			<xsd:documentation>Complex object to group references to any customized inland rates</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OB1" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Departing OB Leg IDs (IHLs)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OB2" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Middle OB Leg IDs (ARBs)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IB1" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Arriving IB Leg IDs (IHDs)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IB2" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Middle IB Leg IDs (ARDs)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OceanOfferRate_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents an AB ocean rate</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="AbstractAB_Rate_V1">
+				<xsd:sequence>
+					<xsd:element name="Origins" type="LocationID_Collection_V1">
+						<xsd:annotation>
+							<xsd:documentation>Collection of the NP unique IDs corresponding to the Point Of Receipt Origin GeoLocations</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Destinations" type="LocationID_Collection_V1">
+						<xsd:annotation>
+							<xsd:documentation>Collection of the NP unique IDs corresponding to the Findal Destination GeoLocations</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="BaseOrigins" type="LocationID_Collection_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Collection of the NP unique IDs corresponding to the  Origin GeoLocations of the base rate before any outbound add-on rates have been added on to create a different set of Point of Receipt Origins</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="BaseDestinations" type="LocationID_Collection_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Collection of the NP unique IDs corresponding to the  Destination GeoLocations of the base rate before any inbound add-ons create a different set of Final Destinations</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="OriginRegions" type="OfficeCodeCollection_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Collection of the NP unique Regions corresponding to the Point Of Receipt Origin GeoLocations</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="DestinationRegions" type="OfficeCodeCollection_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Collection of the NP unique Regions corresponding to the Point Of Receipt Destination GeoLocations</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="OriginTerritory" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Origin GeoLocations Territory</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="DestinationTerritory" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Destination GeoLocations Territory</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="DeliveryMode" type="common:DeliveryMode_V1">
+						<xsd:annotation>
+							<xsd:documentation>One of four delivery modes, DD, YY, DY, YD</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="EndToEndDeliveryMode" type="common:DeliveryMode_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>One of four delivery modes, DD, YY, DY, YD</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="TradeLane" type="tnm:TradeLaneCode_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Trade lane code which the rate is applicable to</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Direction" type="common:CardinalDirectionCode_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Shipment direction of the rate</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="RouteCollection" type="RouteCollection_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Predefined a set of routing rules that has to be followed to amke the rate applicable</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Commodity" type="AB_Commodity_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Predefined commodity info that the rate is applicable to</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="VolumeGroupInfo" type="BasicVolumeGroupInfo_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Volume group applied to the rate</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="TransitTime" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Transit time of shipment that the rate offered</xsd:documentation>
+						</xsd:annotation>
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:maxLength value="20"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="RateLevel" type="xsd:int">
+						<xsd:annotation>
+							<xsd:documentation>Rate level used in guideline rate</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="GuidelineRateReference" type="GuidelineRateReference_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Guideline rate that is coming rate build</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CustomizedInlandRefs" type="CustomizedInlandRefs_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>References to any customized inland rates</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="BLReleaseLoc" type="common:ID_LongNumeric_V1" minOccurs="0"/>
+					<xsd:element name="Remarks" type="RateRemark_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of remarks defined in the rate</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IgnoredSVCTypes" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="Wording" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="OceanOfferRate" type="OceanOfferRate_V1"/>
+</xsd:schema>

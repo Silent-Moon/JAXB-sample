@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<!--  Created Oct 10, 2007  -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="PaymentTerm_V1.xsd"/>
+	<xsd:include schemaLocation="CustomizableSurchargeDetails_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="RateTable_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a rate's classification Base, Inland or Inland surcharge and also holds on to the unique name per type, applicable tariffs and scope locations which a rate can use.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ID" type="cmn:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate table unique identifier(Oracle ID)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UUID" type="cmn:UUID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate table unique identifier(CP uuid)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TableName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the name of the RateTable, which will be unique with the rate type.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateType" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the type Base Rate, Inland Rate or Inland surcharge of the RateTable.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ScopeLocations" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Holds on to the geological scope of the rate table, when a rate with the rate table is created then the geo locations of the rate much be with in the scope locations defined on the rate table.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Tariffs" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Holds on to the tariff codes of the rate table, when a rate with a rate table is created then the rate can only use one of the tariffs defined on the rate table.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ColumnOrdering" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Represents the user defined column ordering for all rates per rate table on the client.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PaymentTerm" type="PaymentTerm_V1" minOccurs="0">
+			    <xsd:annotation>
+			        <xsd:documentation>Payment term, can be prepaid or collect</xsd:documentation>
+			    </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ABCustomizableSchrgDetails" type="CustomizableSurchargeDetails_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>RateTable level AB Customizable Surchagre details</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

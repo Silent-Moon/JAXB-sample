@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="DDType_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Detention"/>
+			<xsd:enumeration value="Demurrage"/>
+			<xsd:enumeration value="DDCombo"/>
+			<xsd:enumeration value="QuayRent"/>
+			<xsd:enumeration value="Rmc"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DayType_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Working"/>
+			<xsd:enumeration value="Calendar"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ClockType_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Start"/>
+			<xsd:enumeration value="End"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BountType_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Outbound"/>
+			<xsd:enumeration value="Inbound"/>
+			<xsd:enumeration value="InTransit"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DDMilestoneType_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ContainerLoaded"/>
+			<xsd:enumeration value="ContainerDischarge"/>
+			<xsd:enumeration value="CargoAvailability"/>
+			<xsd:enumeration value="CargoCutoff"/>
+			<xsd:enumeration value="EmptyGateIn"/>
+			<xsd:enumeration value="EmptyGateOut"/>
+			<xsd:enumeration value="FullGateIn"/>
+			<xsd:enumeration value="FullGateOut"/>
+			<xsd:enumeration value="FreeTimeExpired"/>
+			<xsd:enumeration value="LastContainerDischarge"/>
+			<xsd:enumeration value="LastFullGateIn"/>
+			<xsd:enumeration value="VesselArrival"/>
+			<xsd:enumeration value="VesselDeparture"/>
+			<xsd:enumeration value="VesselCompleteDischarge"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DDFreeTimeType_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ByContainer"/>
+			<xsd:enumeration value="ByBL"/>
+			<xsd:enumeration value="ByShipment"/>
+			<xsd:enumeration value="ByVoyage"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DDChargeRateType_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="FlatRate"/>
+			<xsd:enumeration value="TierRate"/>
+			<xsd:enumeration value="PercentageFlatRate"/>
+			<xsd:enumeration value="PercentageTierRate"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ServiceType_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="DetentionDemurrage"/>
+			<xsd:enumeration value="ChassisProvision"/>
+			<xsd:enumeration value="CYCFS"/>
+			<xsd:enumeration value="DelayInTransit"/>
+			<xsd:enumeration value="EmptyPickupReturn"/>
+			<xsd:enumeration value="Equalization"/>
+			<xsd:enumeration value="EquipmentSubstitution"/>
+			<xsd:enumeration value="MultipleStopOff"/>
+			<xsd:enumeration value="NonStandardCustomsClearance"/>
+			<xsd:enumeration value="NonStandardGateway"/>
+			<xsd:enumeration value="NonStandardOther"/>
+			<xsd:enumeration value="NonStandardRouting"/>
+			<xsd:enumeration value="NonStandardServiceLoop"/>
+			<xsd:enumeration value="NonStandardTransportMode"/>
+			<xsd:enumeration value="NonStandardVendor"/>
+			<xsd:enumeration value="NonStandardVia"/>
+			<xsd:enumeration value="OverweightContainersRehandling"/>
+			<xsd:enumeration value="Route"/>
+			<xsd:enumeration value="ShippersPool"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ServiceActivationStatus_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="Incomplete"/>
+			<xsd:enumeration value="Sending"/>
+			<xsd:enumeration value="Sent"/>
+			<xsd:enumeration value="Active"/>
+			<xsd:enumeration value="Expired"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ServiceApprovalStatus_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="NotValidated"/>
+			<xsd:enumeration value="ApprovalPending"/>
+			<xsd:enumeration value="Approved"/>
+			<xsd:enumeration value="Rejected"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:csuview="http://com.oocl.schema.customer.csuview" xmlns:customer="http://com.oocl.schema.customer" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.customer.csuview" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/AuthUserProfile_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/StringKeyValuePair_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.customer" schemaLocation="../../customer/ContentTransfer_V1.xsd"/>
+	<xsd:complexType name="AIOCSUInteractionLogRecord_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is used to capture the Interactions performed by a CSU User in AIO CSU</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="InteractionDate" type="iodt:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>date and time when the interaction was performed</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InternalUser" type="common:AuthUserProfile_V1">
+				<xsd:annotation>
+					<xsd:documentation>the internal user i.e. csu user performing the interaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExternalUser" type="common:AuthUserProfile_V1">
+				<xsd:annotation>
+					<xsd:documentation>the external user who made the enquiry call to OOCL</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InteractionType" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>the type of interaction i.e. create booking</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerID" type="common:SAP_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>the external users company sapid </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Reference" type="common:StringKeyValuePair_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>the interaction tag info such as booking# as key and value info</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Content" type="customer:ContentTransfer_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>information to manage the transfer of content</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

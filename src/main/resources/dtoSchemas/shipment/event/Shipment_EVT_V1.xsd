@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Josie Tapas (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:shipment="http://com.oocl.schema.shipment" targetNamespace="http://com.oocl.schema.shipment" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="../ShipmentNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:element name="Shipment_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event whenever any part of TRCKG_GRP data changes (insert, update, delete)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="UUID" type="common:UUID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the Shipment Unique ID which is equivalent to TRCKG_GRP.TRCKG_GRP_UUID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ReferenceCode" type="shipment:ShipmentNumber_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the Shipment Number  which is equivalent to TRCKG_GRP.TRCKG_GRP_REF_CDE</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="BookingOfficeCode" type="common:EntityCode_V1">
+					<xsd:annotation>
+						<xsd:documentation>The value is taken from CUST_ORDER.BKG_OFCE_CDE</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

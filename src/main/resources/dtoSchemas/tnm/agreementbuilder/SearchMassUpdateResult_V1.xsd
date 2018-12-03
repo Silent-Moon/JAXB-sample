@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Praveena (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fwd="http://com.oocl.frm.common.date.dto/" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Currency_V1.xsd"/>
+	<xsd:complexType name="SearchMassUpdateResultRow_V1">
+		<xsd:annotation>
+			<xsd:documentation>Result row containing search previous mass update results</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="UserRefID" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>user ref Id</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Status" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RequestedDateTime" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Prev mass update requested date time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Requester" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Requester</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Description" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Description</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdatedRecordCount" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Total number of records updated in this massupdate request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MarkupOrPercentage" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Display whether request was markup or percentage</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GRI20" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>GRI for 20 container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GRI40" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>GRI for 40 container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GRI40H" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>GRI for 40H container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GRI45" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>GRI for 45 container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Currency" type="common:CurrencyCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Currency of GRI.  If IsPercentage is true, then currency is not specified. If IsPercentage is false, and currency is not specifie, the GRI number will go with base rate currency</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsPercentage" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>GRI is percentage. If true, the number in GRI is %</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsMarkUp" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>GRI is markup or new rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveFrom" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Mass update new effective from</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveTo" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Mass update new effective to</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SkipSending" type="xsd:string"/>
+			<xsd:element name="isSVI" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SearchMassUpdateResult_V1">
+		<xsd:sequence>
+			<xsd:element name="SearchMassUpdateResults" type="SearchMassUpdateResultRow_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="IsSuccessful" type="xsd:boolean"/>
+			<xsd:element name="Exception" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

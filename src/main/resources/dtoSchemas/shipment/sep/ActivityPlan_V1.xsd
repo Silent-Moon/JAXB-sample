@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Narasimha Puvvada (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment.sep" xmlns:common="http://com.oocl.schema.common" xmlns:shipment="http://com.oocl.schema.shipment" xmlns:frm="http://com.oocl.frm.common.date.dto/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.shipment.sep" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/ShipmentNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/PackageReferenceCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/Milestone_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/URI_V1.xsd"/>
+	<xsd:include schemaLocation="RequestType_V1.xsd"/>
+	<xsd:element name="ActivityPlan_V1" type="ActivityPlan_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents Activiity Plan information </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="ActivityPlan_V1">
+		<xsd:sequence>
+			<xsd:element name="RequestType" type="RequestType_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents the type of Requestor like "Shipment", "Service"</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RequestID" type="common:ID_String_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Unique ID of requestor such as ShipmentPlan, ServicePlan, AdHocServicePlan like (ServiceRequestId or ShipmentNumber)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReferenceCode" type="shipment:PackageReferenceCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is Container Package Reference Code which is equivalent to CONTAINER_PACKAGE.INTERNAL_SHMT_NUM</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MilestoneCode" type="common:ID_String_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents the milestone name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Type" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>This is the Activity type like "Task","Exception" </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Code" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Activity code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActivityID" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>A unique activity ID which is composed by workflow ID + 3 digits sequence no.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShipmentNumber" type="shipment:ShipmentNumber_V1">
+				<xsd:annotation>
+					<xsd:documentation>This is the Shipment Number  which is equivalent to TRCKG_GRP.TRCKG_GRP_REF_CDE</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShipmentStatus" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the commit status of the shipment "Cancelled", "Confirmed", "No Show", "Pended", "PreBooking", "Rejected", "Terminated", "Wait Listed" </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UUID" type="common:UUID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the Entity UUID which is equivalent to TRCKG_GRP_UUID or PACKAGE_UUID </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Status" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Milestone activity status. </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SendOnDate" type="frm:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>Send On Date of milestone Activity.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DueDate" type="frm:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>DueDate of milestone met.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PlannedDate" type="frm:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Planned Date of milestone.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdateDate" type="frm:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Actual Date of milestone met.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LocationID" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>location id of milestone .</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="URL" type="common:URI_StringFormat_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>URL is the open up service request in CCSC.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Instruction" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Instruction for Activity. </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActivityRequestID" type="common:UUID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the Approval Request Unique ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="RouteEditerID" type="common:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the last route editer for broken route</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>				
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

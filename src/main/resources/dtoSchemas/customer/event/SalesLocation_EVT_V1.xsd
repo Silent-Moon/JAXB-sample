@@ -1,0 +1,30 @@
+<!--  edited with XMLSpy v2008 (http://www.altova.com) by abrudho (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.customer.event" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.customer.event" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/OrganizationLevel_V1.xsd"/>
+	<xsd:element name="SalesLocation_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event for SSEC Location data change (insert, delete)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="UserID" type="common:UserID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the User ID which is equivalent to SSEC_OFCE_REGN_ASSGMT.USER_ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="LocationType" type="common:OrganizationLevel_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the Location Type  which corresponds to SSEC_OFCE_REGN_ASSGMT.LOCATION_TYPE</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="LocationCode" type="common:EntityLocationCode_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the Location Code which is equivalent to SSEC_OFCE_REGN_ASSGMT.LOCATION_CDE</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

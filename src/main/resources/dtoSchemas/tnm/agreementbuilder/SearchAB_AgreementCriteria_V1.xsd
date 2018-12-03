@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 (x64) (http://www.altova.com) by HUJI (Orient Overseas Container Line Limited) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ServiceLoopCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementStatus_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementReference_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TariffCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TradeLaneDirection_V1.xsd"/>
+	<xsd:include schemaLocation="AB_SimpleTypes_V1.xsd"/>
+	<xsd:include schemaLocation="ServiceSimpleTypes_V1.xsd"/>
+	<xsd:include schemaLocation="GetAgreementSimpleData_V1.xsd"/>
+	<xsd:complexType name="AgreementSearchCriteria_V1">
+		<xsd:sequence>
+			<xsd:element name="AgreementTypes" type="tnm:AgreementType_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AgreementStatuses" type="tnm:AgreementStatus_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="CommodityGroupName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ServiceLoop" type="common:ServiceLoopCode_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RateSearchCriteria_V1">
+		<xsd:sequence>
+			<xsd:element name="OfferID" type="common:ID_String_V1" minOccurs="0"/>
+			<xsd:element name="ActivationStatus" type="OfferRateStatus_V1" minOccurs="0"/>
+			<xsd:element name="ApprovalStatus" type="OfferRateApprovalStatus_V1" minOccurs="0"/>
+			<xsd:element name="SearchOceanRate" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="IsPCT" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="IsCommittedRateStatus" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="TLINumber" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ServiceSearchCriteria_V1">
+		<xsd:sequence>
+			<xsd:element name="ActivationStatus" type="ServiceActivationStatus_V1" minOccurs="0"/>
+			<xsd:element name="ApprovalStatus" type="ServiceApprovalStatus_V1" minOccurs="0"/>
+			<xsd:element name="ServiceType" type="ServiceType_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SearchAB_AgreementCriteria_V1">
+		<xsd:sequence>
+			<xsd:element name="CustomerSAP_ID" type="common:SAP_ID_V1" minOccurs="0"/>
+			<xsd:element name="AgreementNumber" type="tnm:AgreementID_V1" minOccurs="0"/>
+			<xsd:element name="CSOSC_ID" type="tnm:AgreementID_V1" minOccurs="0"/>
+			<xsd:element name="ItemID" type="common:ID_Integer_V1" minOccurs="0"/>
+			<xsd:element name="Tariff" type="tnm:TariffCode_V1" minOccurs="0"/>
+			<xsd:element name="TradeLaneDirection" type="tnm:TradeLaneDirection_V1" minOccurs="0"/>
+			<xsd:element name="CargoNature" type="common:CargoNatureCode_V1" minOccurs="0"/>
+			<xsd:element name="OutboundLocation" type="common:ID_LongNumeric_V1" minOccurs="0"/>
+			<xsd:element name="OutboundLocationSearchType" type="GeoSearchType_V1" minOccurs="0"/>
+			<xsd:element name="InboundLocation" type="common:ID_LongNumeric_V1" minOccurs="0"/>
+			<xsd:element name="InboundLocationSearchType" type="GeoSearchType_V1" minOccurs="0"/>
+			<xsd:element name="OriginTerritory" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DestinationTerritory" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="OriginRegion" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DestinationRegion" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CreatedBy" type="common:UserID_V1" minOccurs="0"/>
+			<xsd:element name="LastUpdatedBy" type="common:UserID_V1" minOccurs="0"/>
+			<xsd:element name="SalesOffice" type="common:OfficeCode_V1" minOccurs="0"/>
+			<xsd:element name="DateCategory1" type="SearchDateType_V1" minOccurs="0"/>
+			<xsd:element name="Comparator1" type="SearchDateComparator_V1" minOccurs="0"/>
+			<xsd:element name="ActualDate1" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="DateCategory2" type="SearchDateType_V1" minOccurs="0"/>
+			<xsd:element name="Comparator2" type="SearchDateComparator_V1" minOccurs="0"/>
+			<xsd:element name="ActualDate2" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="DateCategory3" type="SearchDateType_V1" minOccurs="0"/>
+			<xsd:element name="Comparator3" type="SearchDateComparator_V1" minOccurs="0"/>
+			<xsd:element name="ActualDate3" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="UserId" type="common:UserID_V1" minOccurs="0"/>
+			<xsd:element name="AgreementCriteria" type="AgreementSearchCriteria_V1" minOccurs="0"/>
+			<xsd:element name="RateCriteria" type="RateSearchCriteria_V1" minOccurs="0"/>
+			<xsd:element name="ServiceCriteria" type="ServiceSearchCriteria_V1" minOccurs="0"/>
+			<xsd:element name="IsAgreementSearch" type="xsd:boolean"/>
+			<xsd:element name="IsRateSearch" type="xsd:boolean"/>
+			<xsd:element name="IsServiceSearch" type="xsd:boolean"/>
+			<xsd:element name="IsForIR4" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="SimpleQueryCriteria" type="SimpleQueryCriteria_V1" minOccurs="0"/>
+			<xsd:element name="CarrierGroupId" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

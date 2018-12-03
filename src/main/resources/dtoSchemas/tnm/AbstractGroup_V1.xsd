@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/AbstractCommonFields_V1.xsd"/>
+	<xsd:complexType name="AbstractGroup_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the reusable group attributes!</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="common:AbstractCommonFields_V1">
+				<xsd:sequence>
+					<xsd:element name="ID" type="common:ID_LongNumeric_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The volume group's unique identifier</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Name" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The name of the group (like '10 to 20 TEU')</xsd:documentation>
+						</xsd:annotation>
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:maxLength value="50"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="InUse" type="xsd:boolean" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>If the group is in use by any rates (true/false).</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="BaseRateTables" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>BaseRate table names, if any, which use this group.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="InlandRateTables" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>InlandRate table names, if any, which use this group.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="InlandSurchargeTables" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>InlandSurcharge table names, if any, which use this group.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="DeletedInfoIDs" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Deleted GroupInfo IDs if any.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IsPublic" type="xsd:boolean" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Specifies if the group is for public use.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:include schemaLocation="RestrictedUseLabelBookMatch_V1.xsd" />
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:include schemaLocation="EquipmentNumber_V1.xsd" />
+	<xsd:simpleType name="UsagePlanNumber_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the usage plan number.  Max. length is 23.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="23"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FlowInstruction_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents the flow instruction of the usage plan</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="4"/>
+			<xsd:enumeration value="FRPK"/>
+			<xsd:enumeration value="PKRU"/>
+			<xsd:enumeration value="PKDR"/>
+			<xsd:enumeration value="TORU"/>
+			<xsd:enumeration value="RUDR"/>
+			<xsd:enumeration value="TODR"/>
+			<xsd:enumeration value="NOPL"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SPPMContactID_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the ContactID in SPPM.  Max. length is 15.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ContactPerson_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the contact person.  Max. length is 100.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Address_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the address.  Max. length is 250.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="250"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AddressName_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the name of the address of a facility or a contact.  Max. length is 100.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="UsagePlanInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about an usage plan in EQM</xsd:documentation>
+		</xsd:annotation>	 
+		<xsd:sequence>
+			<xsd:element name="ContainerNumber" type="EquipmentNumber_V1" nillable="true"/>
+			<xsd:element name="EqpSizeType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="UsagePlanNumber" type="UsagePlanNumber_V1" minOccurs="0"/>
+			<xsd:element name="FlowInstruction" type="FlowInstruction_V1" minOccurs="0"/>
+			<xsd:element name="RU_Label" type="RestrictedUseLabelBookMatch_V1" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+			<xsd:element name="IsSideDoor" type="xsd:boolean" nillable="true"/>
+			<xsd:element name="IsDoubleDoor" type="xsd:boolean" nillable="true"/>
+			<xsd:element name="IsDoubleTens" type="xsd:boolean" nillable="true"/>
+			<xsd:element name="IsBulk" type="xsd:boolean" nillable="true"/>
+			<xsd:element name="IsPalletWide" type="xsd:boolean" nillable="true"/>
+			<xsd:element name="IsWithGarmentTracks" type="xsd:boolean" nillable="true"/>
+			<xsd:element name="IsVentilated" type="xsd:boolean" nillable="true"/>
+			<xsd:element name="PickupFacilityCde" type="common:EntityLocationCode_V1" nillable="true"/>
+			<xsd:element name="PickupSupplierContactID" type="SPPMContactID_V1" nillable="true"/>
+			<xsd:element name="PickupContactPerson" type="ContactPerson_V1" nillable="true"/>
+			<xsd:element name="PickupAddressName" type="AddressName_V1" nillable="true"/>
+			<xsd:element name="PickupAddress" type="Address_V1" nillable="true"/>
+			<xsd:element name="PickupCityName" type="common:EntityLocationName_V1" nillable="true"/>
+			<xsd:element name="PickupEmail" type="xsd:string" nillable="true"/>
+			<xsd:element name="PickupPhoneNumber" type="xsd:string" nillable="true"/>
+			<xsd:element name="PickupFaxNumber" type="xsd:string" nillable="true"/>
+			<xsd:element name="PickupAuthorizationNum" type="xsd:string" nillable="true"/>
+			<xsd:element name="ExternalPickupReference" type="xsd:string" nillable="true"/>
+			<xsd:element name="EarliestFirstTripPickupDate" type="iodt:FWAbsoluteDateTimeDTO" nillable="true"/>
+			<xsd:element name="LastFirstTripPickupDate" type="iodt:FWAbsoluteDateTimeDTO" nillable="true"/>
+			<xsd:element name="DropOffFacilityCde" type="common:EntityLocationCode_V1" nillable="true"/>
+			<xsd:element name="DropOffSupplierContactId" type="SPPMContactID_V1" nillable="true"/>
+			<xsd:element name="DropOffEmail" type="xsd:string" nillable="true"/>
+			<xsd:element name="DropOffPhoneNumber" type="xsd:string" nillable="true"/>
+			<xsd:element name="DropOffFaxNumber" type="xsd:string" nillable="true"/>
+			<xsd:element name="DropOffContactPerson" type="ContactPerson_V1" nillable="true"/>
+			<xsd:element name="DropOffAddress" type="Address_V1" nillable="true"/>
+			<xsd:element name="DropOffCityName" type="common:EntityLocationName_V1" nillable="true"/>
+			<xsd:element name="DropOffAddressName" type="AddressName_V1" nillable="true"/>
+			<xsd:element name="DropOffReference" type="xsd:string" nillable="true"/>
+			<xsd:element name="DropOffReferenceExpiryDate" type="iodt:FWAbsoluteDateTimeDTO" nillable="true"/>
+			<xsd:element name="PlannedTerminationDate" type="iodt:FWAbsoluteDateTimeDTO" nillable="true"/>
+			<xsd:element name="ContractNumber" type="xsd:string" nillable="true"/>				
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

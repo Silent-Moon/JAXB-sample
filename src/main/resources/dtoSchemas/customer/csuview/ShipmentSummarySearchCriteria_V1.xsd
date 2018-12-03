@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by VIJAY KODALI (OOCL (USA) INC) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://com.oocl.schema.customer.csuview" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.customer.csuview" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:complexType name="ShipmentSummarySearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents shipments search request with mandatory and optional search criteria</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerID" type="common:SAP_ID_V1">
+				<xsd:annotation>
+					<xsd:documentation>The Customer Id is the SAP ID passed by CSU Agent to search for shp summary</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OptionSelected" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>The option is the text selected from the drop down list of outbound or Inbound</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

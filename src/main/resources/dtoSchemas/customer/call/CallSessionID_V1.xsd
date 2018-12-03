@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.customer.call" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.customer.call" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="CallSessionID_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				This is the Call Session ID.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="256"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

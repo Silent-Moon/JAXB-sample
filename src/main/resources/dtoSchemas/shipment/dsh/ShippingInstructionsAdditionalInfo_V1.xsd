@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment.dsh" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:shp="http://com.oocl.schema.shipment" xmlns:customer="http://com.oocl.schema.customer" xmlns:ns1="http://com.oocl.schema.common" xmlns:tns="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.shipment.dsh" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Port_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/TrafficMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/BillOfLadingType_V1.xsd"/>
+	<xsd:complexType name="ShippingInstructionsAdditionalInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Shipment Additional Information for Mail SI Creation</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TS_Port" type="ns1:Port_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Transhipment port</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AMS_Need" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>AMS Reuqired or not</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Traffic_Mode" type="ns1:TrafficModeCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Traffic Mode</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POD_Arrival" type="tns:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Estimate POD arrival date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TS_Arrival" type="tns:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Estimate Transshipment port vessels arrival date </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BL_CargoNature" type="ns1:CargoNatureCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Cargo Nature </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BL_CTVolume" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>BL Container Volume </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TASK_Cutoffdate" type="tns:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Task Cut Off Date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SI_MailPath" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Path for SI Creation Mail located in target folder </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BL_Status" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>BL Status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BL_Type" type="ns1:BillOfLadingType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>BL Type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POL_Arrival" type="tns:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ETA of Loading Port</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POL_Arrival_LocalTime" type="tns:FWLocalizedDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ETA of Loading Port Local Time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POD_Arrival_LocalTime" type="tns:FWLocalizedDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ETA of Discharge Port Local Time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TS_Arrival_LocalTime" type="tns:FWLocalizedDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ETA of TS Port Port Local Time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Loading_SVVD_SailingDate_LocalTime" type="tns:FWLocalizedDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Sailing date of loading port, local time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="CargoCutoff_LocalTime" type="tns:FWLocalizedDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Date by which the cargo has to be picked, local time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="TSA_Remark" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Remark for Task Generation History</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="TSA_SI_ReceiveDate" type="tns:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>SI mail receive date, local time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

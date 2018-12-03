@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Kent Williamson (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="CommonTypes_V1.xsd"/>
+	<xsd:complexType name="BasicScaleOfMeasure_V1">
+		<xsd:annotation>
+			<xsd:documentation>Scale represents the terms used with a type of unit for example (Millimeter applies to Length)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Abbreviation" type="xsd:string"/>
+			<xsd:element name="EnglisName" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LocalizedScale_V1">
+		<xsd:annotation>
+			<xsd:documentation>Basic Scale with Localized names added</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="BasicScaleOfMeasure_V1">
+				<xsd:sequence>
+					<xsd:element name="LocalizedNames" type="LocalizedName_V1" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

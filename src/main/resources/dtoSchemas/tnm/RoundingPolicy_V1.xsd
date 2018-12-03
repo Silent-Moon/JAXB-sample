@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Kent Williamson (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" xmlns:eqm="http://com.oocl.schema.eqm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="RoundingPolicy_V1">
+		<xsd:annotation>
+			<xsd:documentation>Dictates how to round after applying a percentage markup or markdown</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Rule" type="tnm:RoundingRuleType_V1">
+				<xsd:annotation>
+					<xsd:documentation>The rounding rule to use.  U is to round Up to the nearest multiple, D means round down and N means round to the nearest multiple</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Multiple" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>The multiple to consider along with the rule when applying a rounding policy</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="RoundingRuleType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Indicates the rule to use.  Up, Down or Nearest</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="U">
+				<xsd:annotation>
+					<xsd:documentation>Round Up</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="D">
+				<xsd:annotation>
+					<xsd:documentation>Round Down</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="N">
+				<xsd:annotation>
+					<xsd:documentation>Round to Nearest Multiple</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

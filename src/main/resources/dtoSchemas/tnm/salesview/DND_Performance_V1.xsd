@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Mai Pham (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.salesview" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:shipment="http://com.oocl.schema.shipment" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:salesview="http://com.oocl.schema.tnm.salesview" targetNamespace="http://com.oocl.schema.tnm.salesview" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- note to make sure the right way to import framework dependencies -->
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ShipmentBound_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/DND_Type_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Region_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../Tariff_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CargoNature_V1.xsd"/>
+	<xsd:complexType name="DND_Performance_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				DND Performance.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="DND_Type" type="common:DND_Type_V1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					    DND type is demurrage, detention types, quayrent or 2-in-1.
+				   </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Region" type="common:Region_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					    Region Code
+				   </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Bound" type="common:ShipmentBoundCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Inbound/Outbound
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Tariff" type="tnm:Tariff_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Tariff information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNature" type="common:CargoNatureCode_V1" minOccurs="0" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation> CargoNatureCode</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumberOfContainers" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="TariffFreeTime" type="xsd:float" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Value is in days</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementFreeTime" type="xsd:float" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Value is in days</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AverageUsageTime" type="xsd:float" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Value is in days</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalDaysAbsorbedBeyondTariff" type="xsd:float" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Value is in days</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

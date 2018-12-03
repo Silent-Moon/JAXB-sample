@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created by Venus 2011-03-07  -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Region_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/OpZone_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/Facility_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../tnm/TradeCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<!--	<xsd:include schemaLocation="ContainerSize_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerType_V1.xsd"/> -->
+	<xsd:include schemaLocation="ContainerSizeType_V1.xsd"/>
+	<xsd:include schemaLocation="EquipmentEnumTypes_V1.xsd"/>
+	<xsd:complexType name="EmptyContainerInventoryViewRequest_V1">
+		<xsd:annotation>
+			<xsd:documentation> This is the WS request for the Empty Container Inventory View Report (For both Region/Opzone and Facility/City).</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Region" type="common:Region_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation> The region to filter report data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OpZone" type="common:OpZone_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>  The opzone to filter report data </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="City" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The city to filter data (Only has value for the Facility/City view )</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Facility" type="common:Facility_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The facility to filter data (Only has value for the Facility/City view )</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Grading" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The grading to filter data (Only has value for the Facility/City view ). 
+					Possible values are: A, B, C NORMAL
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GPS" type="GPSDevice" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Specify the GPS device to filter containers (Only has value for the Facility/City view ). 
+					Possible values are: 2G, 3G, 2G_SATELLITE, 3G_SATELLITE, SATELLITE</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Conditional" type="isConditional" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Specify whether the container is conditional or unconditional. (Only has value for the Facility/City view )
+						Possible values are: Y, N
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--			<xsd:element name="EqpSize" type="ContainerSize_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>  The eqp size to filter report data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EqpType" type="ContainerType_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>  The eqp type to filter report data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+-->
+			<xsd:element name="EqpSizeType" type="ContainerSizeType_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>  The eqp size type to filter report data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradePool" type="tnm:TradeCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>  The trade that was initiated by this overuse record. Trade includes: TPT; AET; TAT; AUT; IAT; IET; CLG. (Only has value for the Region/Opzone view )  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FromWeek" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation> This is relative to current week. Possible values are: -3, -2, -1, 0   </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ToWeek" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation> This is relative to current week. Possible values are: 0, 1, 2, 3, 4, 5   </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Grouping" type="EmptyContainerInventoryGrouping">
+				<xsd:annotation>
+					<xsd:documentation> This specifies the grouping of the report.
+					 </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DisplayDetail" type="EmptyContainerInventoryDisplayDetail" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation> Specifies what information to display. This can be multiple. 
+					Possible Values are:  OPENING_BALANCE, EMPTY_RELEASE, EMPTY_RETURN, REPO_IN_REQUEST, REPO_OUT_REQUEST, 
+													REPO_IN_PLANNED, REPO_OUT_PLANNED, ENDING_BALANCE
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AggregateBy" type="EmptyContainerInventoryAggregateByType">
+				<xsd:annotation>
+					<xsd:documentation> This determines the option to view forecast by Sales Prospect or Booking or Both. Possible Values are: SALES_PROSPECT, BOOKING, BOTH
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+<!-- Added by Venus 2011-09-12-->
+			<xsd:element name="RecordCount" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation> This dertermines wheather the web service should get the number of records or the actual inventory data. Possible Values are: Y, N
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

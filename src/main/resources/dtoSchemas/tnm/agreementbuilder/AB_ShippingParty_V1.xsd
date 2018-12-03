@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Kent Williamson (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:customer="http://com.oocl.schema.customer" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.customer" schemaLocation="../../customer/Customer_V1.xsd"/>
+	<xsd:include schemaLocation="AB_SimpleTypes_V1.xsd"/>
+	<xsd:complexType name="AB_ShippingParty_V1">
+		<xsd:annotation>
+			<xsd:documentation>Customer's roles in a shipment, like shipper, consignee, etc</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerHolder" type="CustomerHolder_V1"/>
+			<xsd:element name="ShippingRoleGroupID" type="ShippingPartyRoleGroup_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerHolder_V1">
+		<xsd:annotation>
+			<xsd:documentation>A place holder where a new customer was created or modified in agreement builder</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SAP_ID" type="common:SAP_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Customer SapID if it is an existing customer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Name" type="common:CompanyName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>New customer name that is created during agreement builder creation(customer does not exist in NewCPF)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ModifiedContacts" type="customer:CustomerContact_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited by Natalie Yeung -->
+<xsd:schema xmlns="http://com.oocl.schema.customer.im" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.customer.im" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="SkillGroup_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents a skill group in a support center or call center. e.g. SIN_BKG</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="32"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

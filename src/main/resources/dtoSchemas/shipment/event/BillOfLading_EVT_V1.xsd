@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Josie Tapas-->
+<xsd:schema xmlns="http://com.oocl.schema.shipment" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://com.oocl.schema.common" xmlns:shipment="http://com.oocl.schema.shipment"
+	targetNamespace="http://com.oocl.schema.shipment" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="../BillOfLadingNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:element name="BillOfLading_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event whenever any part of BL_BASIC data changes (insert, update, delete)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="UUID" type="common:UUID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the Bill Of Lading Unique ID which is equivalent to BL_BASIC.BL_BASIC_UUID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ReferenceCode" type="shipment:BillOfLadingNumber_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the Bill Of Lading Reference Code which is equivalent to BL_BASIC.BL_REF_CDE</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

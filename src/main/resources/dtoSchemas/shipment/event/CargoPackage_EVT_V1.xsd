@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Jo Ann Venzon (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment.event" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:shipment="http://com.oocl.schema.shipment" targetNamespace="http://com.oocl.schema.shipment.event" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../PackageReferenceCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:element name="CargoPackage_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event whenever any part of ODS data changes (insert, update, delete). These ODS tables are CGO_PACKAGE, SHMT_RTE, TRUNK_LEG, OB_DOOR_LEG, OB_INTMDL_LEG, IB_INTMDL_LEG, IB_DOOR_LEG and BL_CGO_PACKG for LCL shipment cases</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="UUID" type="common:UUID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the Cargo Package Unique ID which is equivalent to CGO_PACKAGE.PACKAGE_UUID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ReferenceCode" type="shipment:PackageReferenceCode_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is Cargo Package Reference Code which is equivalent to CGO_PACKAGE.INTERNAL_SHMT_NUM</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

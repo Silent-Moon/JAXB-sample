@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="BasicOfficeInformation_V1.xsd"/>
+	<xsd:include schemaLocation="PersonName_V1.xsd"/>
+	<xsd:include schemaLocation="ContactInformation_V1.xsd"/>
+	<xsd:complexType name="Location_V1">
+		<xsd:annotation>
+			<xsd:documentation>Location Information</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="Office" minOccurs="0"/>
+			<xsd:element name="DepartmentCode" type="DepartmentCode_V1" minOccurs="0"/>
+			<xsd:element name="Timezone" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UserProfile_V1">
+		<xsd:annotation>
+			<xsd:documentation>User Profile information</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="User_V1">
+				<xsd:sequence>
+					<xsd:element name="Location" type="Location_V1" minOccurs="0"/>
+					<xsd:element ref="EmailAddress" minOccurs="0"/>
+					<xsd:element ref="PhoneNumber" minOccurs="0"/>
+					<xsd:element ref="MobilePhoneNumber" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="User_V1">
+		<xsd:annotation>
+			<xsd:documentation>Basic User information</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="PersonName_V1">
+				<xsd:sequence>
+					<xsd:element name="UserName" type="Username_V1" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:simpleType name="DepartmentCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>Department Code from MSAD</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="16"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Username_V1">
+		<xsd:annotation>
+			<xsd:documentation>Username from MSAD.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="User" type="User_V1"/>
+	<xsd:element name="Office" type="BasicOfficeInformation_V1"/>
+	<xsd:element name="EmailAddress" type="EmailAddress_V1"/>
+	<xsd:element name="PhoneNumber" type="PhoneNumber_V1"/>
+	<xsd:element name="UserProfile" type="UserProfile_V1"/>
+	<xsd:element name="MobilePhoneNumber" type="PhoneNumber_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is the Mobile Phone number</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

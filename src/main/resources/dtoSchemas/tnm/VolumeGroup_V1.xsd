@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" xmlns:eqm="http://com.oocl.schema.eqm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:include schemaLocation="AbstractGroup_V1.xsd"/>
+	<xsd:complexType name="VolumeGroup_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a range of volume which can be associated with a guideline rate.  For example, 100 TEU per week and above gets our best rate!</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="tnm:AbstractGroup_V1">
+				<xsd:sequence>
+					<xsd:element name="FromVolume" type="xsd:int" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Starting point of the volume range</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ToVolume" type="xsd:int" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Ending point of the volume range</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Basis" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Unit of measure for time.  Not yet implemented</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

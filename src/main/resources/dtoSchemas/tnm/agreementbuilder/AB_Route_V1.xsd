@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../PricingTransportMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ServiceLoopCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonContainerSizeTypes_V1.xsd"/>
+	<xsd:include schemaLocation="AB_SimpleTypes_V1.xsd"/>
+	<xsd:complexType name="AB_Route_V1">
+		<xsd:annotation>
+			<xsd:documentation>AB routes associated with container rate</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SizeType" type="common:Liner_ContainerSizeTypes_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>container sise and type that the rate is applicable
+</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceCollection" type="ServiceCollection_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>a set of routing sepecifications</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Flags" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>A set of boolean flags implemented through bitwise logic. Currently implemented boolean indicator is IS_GUIDEline_ROUTE</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RouteCollection_V1">
+		<xsd:sequence>
+			<xsd:element name="Routes" type="AB_Route_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ServiceCollection_V1">
+		<xsd:sequence>
+			<xsd:element name="Services" type="RouteService_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RouteService_V1">
+		<xsd:annotation>
+			<xsd:documentation>route service specification</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Type" type="RouteServiceCode_V1"/>
+			<xsd:element name="RouteLocations" type="RouteLocation_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Loops" type="RouteServiceLoop_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>a collect of service loop codes</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Legs" type="RouteLeg_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>a collection of route legs</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RouteLocation_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a geo location linked to a rate as part of a route service.  (For example, this rate requires a transshipment in Singapore)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="LocationID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>This is the NP Geo Master ID of the location</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Options" type="OptionFlags_V1">
+				<xsd:annotation>
+					<xsd:documentation>Optional settings that use binary masking to represent one or more options, as follows:
+0 - No options
+1 - IsCustomerPreferred - A customer preference
+2 - IsNotSurchargeDriver - Not to be used for surcharge calculation
+4 - IsNotRateConstraint - Does not require a match with shipment for rate to apply (e.g. suggested customer preference)
+8 - Reserved for future expansion
+16 - Reserved for future expansion</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RouteServiceLoop_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a service loop linked to a rate as part of a route service.  (For example, this rate is only valid if departing loop is KTX2)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Code" type="common:ServiceLoopCode_V1"/>
+			<xsd:element name="Options" type="OptionFlags_V1">
+				<xsd:annotation>
+					<xsd:documentation>Optional settings that use binary masking to represent one or more options, as follows:
+0 - No options
+1 - IsCustomerPreferred - A customer preference
+2 - IsNotSurchargeDriver - Not to be used for surcharge calculation
+4 - IsNotRateConstraint - Does not require a match with shipment for rate to apply (e.g. suggested customer preference)
+8 - Reserved for future expansion
+16 - Reserved for future expansion</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RouteLeg_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents an intermodal leg which must match with the shipment in order for the rate to apply</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="StartIDs" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>start geo location uuids</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EndIDs" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>end geo location uuids</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RelatedPortID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>port geo location uid</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TransportType" type="tnm:PricingTransportMode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>transport type specified for the leg</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Options" type="OptionFlags_V1">
+				<xsd:annotation>
+					<xsd:documentation>Optional settings that use binary masking to represent one or more options, as follows:
+0 - No options
+1 - IsCustomerPreferred - A customer preference
+2 - IsNotSurchargeDriver - Not to be used for surcharge calculation
+4 - IsNotRateConstraint - Does not require a match with shipment for rate to apply (e.g. suggested customer preference)
+8 - Reserved for future expansion
+16 - Reserved for future expansion</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Kent Williamson (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="LinerContainerTypes_V1">
+		<xsd:annotation>
+			<xsd:documentation>Container types supported by Liner</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="2"/>
+			<xsd:enumeration value="AC"/>
+			<xsd:enumeration value="BK"/>
+			<xsd:enumeration value="FL"/>
+			<xsd:enumeration value="GP"/>
+			<xsd:enumeration value="GX"/>
+			<xsd:enumeration value="HG"/>
+			<xsd:enumeration value="HH"/>
+			<xsd:enumeration value="HQ"/>
+			<xsd:enumeration value="HX"/>
+			<xsd:enumeration value="IH"/>
+			<xsd:enumeration value="LQ"/>
+			<xsd:enumeration value="MU"/>
+			<xsd:enumeration value="OS"/>
+			<xsd:enumeration value="OT"/>
+			<xsd:enumeration value="PL"/>
+			<xsd:enumeration value="RF"/>
+			<xsd:enumeration value="RQ"/>
+			<xsd:enumeration value="SJ"/>
+			<xsd:enumeration value="TF"/>
+			<xsd:enumeration value="TK"/>
+			<xsd:enumeration value="VT"/>
+			<xsd:enumeration value="XX"/>
+			<xsd:enumeration value="OQ"/> 	   
+			<xsd:enumeration value="FQ"/> 	   
+			<xsd:enumeration value="SR"/> 			
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OLL_ContainerTypes_V1">
+		<xsd:annotation>
+			<xsd:documentation>Container types supported by Logistics</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="2"/>
+			<xsd:enumeration value="AC"/>
+			<xsd:enumeration value="BK"/>
+			<xsd:enumeration value="FL"/>
+			<xsd:enumeration value="GP"/>
+			<xsd:enumeration value="HG"/>
+			<xsd:enumeration value="HQ"/>
+			<xsd:enumeration value="PL"/>
+			<xsd:enumeration value="RF"/>
+			<xsd:enumeration value="RQ"/>
+			<xsd:enumeration value="XX"/>
+			<xsd:enumeration value="CF"/>
+			<xsd:enumeration value="FB"/>
+			<xsd:enumeration value="FR"/>
+			<xsd:enumeration value="HS"/>
+			<xsd:enumeration value="HT"/>
+			<xsd:enumeration value="HW"/>
+			<xsd:enumeration value="AR"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TMS_ContainerTypes_V1">
+		<xsd:annotation>
+			<xsd:documentation>Container types supported by TMS</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="2"/>
+			<xsd:enumeration value="HW"/>
+			<xsd:enumeration value="HG"/>
+			<xsd:enumeration value="GP"/>
+			<xsd:enumeration value="TK"/>
+			<xsd:enumeration value="RF"/>
+			<xsd:enumeration value="PF"/>
+			<xsd:enumeration value="OT"/>
+			<xsd:enumeration value="HC"/>
+			<xsd:enumeration value="FR"/>
+			<xsd:enumeration value="HT"/>
+			<xsd:enumeration value="RQ"/>
+			<xsd:enumeration value="HQ"/>
+			<xsd:enumeration value="AR"/>
+			<xsd:enumeration value="BK"/>
+			<xsd:enumeration value="CF"/>
+			<xsd:enumeration value="FB"/>
+			<xsd:enumeration value="FL"/>
+			<xsd:enumeration value="FS"/>
+			<xsd:enumeration value="HB"/>
+			<xsd:enumeration value="HS"/>
+			<xsd:enumeration value="IH"/>
+			<xsd:enumeration value="OS"/>
+			<xsd:enumeration value="TF"/>
+			<xsd:enumeration value="HI"/>
+			<xsd:enumeration value="HH"/>
+			<xsd:enumeration value="HX"/>
+			<xsd:enumeration value="MU"/>
+			<xsd:enumeration value="SJ"/>
+			<xsd:enumeration value="XX"/>
+			<xsd:enumeration value="AC"/>
+			<xsd:enumeration value="LQ"/>
+			<xsd:enumeration value="PL"/>
+			<xsd:enumeration value="GX"/>
+			<xsd:enumeration value="VT"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="WMS_ContainerTypes_V1">
+		<xsd:annotation>
+			<xsd:documentation>Container types supported by TMS</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="2"/>
+			<xsd:enumeration value="AR"/>
+			<xsd:enumeration value="BK"/>
+			<xsd:enumeration value="CF"/>
+			<xsd:enumeration value="FL"/>
+			<xsd:enumeration value="GP"/>
+			<xsd:enumeration value="HB"/>
+			<xsd:enumeration value="HC"/>
+			<xsd:enumeration value="HG"/>
+			<xsd:enumeration value="HQ"/>
+			<xsd:enumeration value="OT"/>
+			<xsd:enumeration value="PF"/>
+			<xsd:enumeration value="RF"/>
+			<xsd:enumeration value="RQ"/>
+			<xsd:enumeration value="XX"/>
+			<xsd:enumeration value="TK"/>
+			<xsd:enumeration value="FB"/>
+			<xsd:enumeration value="FR"/>
+			<xsd:enumeration value="FS"/>
+			<xsd:enumeration value="HS"/>
+			<xsd:enumeration value="HT"/>
+			<xsd:enumeration value="HW"/>
+			<xsd:enumeration value="ST"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

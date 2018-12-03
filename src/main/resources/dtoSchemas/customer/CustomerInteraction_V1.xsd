@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://com.oocl.schema.customer" xmlns:cmn="http://com.oocl.schema.common" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.customer" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/StringKeyValuePair_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ExternalUserType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/AuthUserProfile_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/SAP_ID_V1.xsd"/>
+	<xsd:include schemaLocation="ContentTransfer_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:complexType name="CustomerInteraction_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the oocl interaction object</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="InteractionUUID" type="cmn:UUID_V1" nillable="false">
+				<xsd:annotation>
+					<xsd:documentation>Unique id which identifies an interaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>		
+			<xsd:element name="Application" type="cmn:ID_String_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the application where the interaction occurred</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InteractionDate" type="fwd:FWAbsoluteDateTimeDTO" nillable="false">
+				<xsd:annotation>
+					<xsd:documentation>Date the interaction occurred</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InteractionType" type="cmn:NonStructuredText_V1" nillable="false">
+				<xsd:annotation>
+					<xsd:documentation>the type of interaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="Description" type="cmn:LongBasicDescription_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Description of the interaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Channel" type="cmn:ID_String_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Channel where the interaction was performed</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CompanyName" type="cmn:EntityBriefName_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the user company who performed the interaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerUser" type="cmn:ExternalUserType_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Customer user who performed the interaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InternalUser" type="cmn:AuthUserProfile_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>the CSU user performing the interaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="CustomerID" type="cmn:SAP_ID_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>the external users company sap id </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="Reference" type="cmn:StringKeyValuePair_V1" nillable="true" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Reference type and number saved when the interaction log is created</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceRequestID" type="cmn:UUID_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The service request number saved when the interaction log for a service request is created</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerTaskID" type="cmn:UUID_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The customer task tracking number saved when the interaction log for a customer task is created</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Content" type="ContentTransfer_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>information to manage the transfer of content</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common.lookup" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common.lookup" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../UpdateResult_V1.xsd"/>
+	<xsd:include schemaLocation="ServiceLoopLookupElement_V1.xsd"/>
+	<xsd:complexType name="ServiceLoopLookupResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the service loop look up search result containing service loops and validation errors if any.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ServiceLoopInformation" type="ServiceLoopLookupElement_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Service Loop information - Service Loop abbreviation, name, trade code and trade lane.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LookupResult" type="common:UpdateResult_V1">
+				<xsd:annotation>
+					<xsd:documentation>Search result information.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

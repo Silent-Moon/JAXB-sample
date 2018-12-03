@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/UpdateResult_V1.xsd"/>
+  <xsd:include schemaLocation="Authorization_V1.xsd"/>
+  <xsd:include schemaLocation="SaleAuthorizationDetail_V1.xsd"/>
+
+  <xsd:complexType name="SaleAuthorization_V1">
+    <xsd:sequence>
+      <xsd:element name="Authorization" type="Authorization_V1" minOccurs="0"/>
+      <xsd:element name="SaleAuthDetailList" type="SaleAuthorizationDetail_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="UpdateResult" type="common:UpdateResult_V1" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

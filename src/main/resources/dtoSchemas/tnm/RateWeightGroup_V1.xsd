@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Currency_V1.xsd"/>
+	<xsd:simpleType name="RateType_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="4"/>
+			<xsd:minLength value="4"/>
+			<xsd:enumeration value="20GP"/>
+			<xsd:enumeration value="40GP"/>
+			<xsd:enumeration value="40HQ"/>
+			<xsd:enumeration value="45HQ"/>
+			<xsd:enumeration value="20RF"/>
+			<xsd:enumeration value="40RQ"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="RateWeightGroup_V1">
+		<xsd:annotation>
+			<xsd:documentation>Rate type, amount and ID of the corresponding Weight Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RateType" type="RateType_V1">
+				<xsd:annotation>
+					<xsd:documentation>Rate type based on container size type with possible values 20GP, 40GP, 40HQ, 45HQ, 20RF and 40RQ</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CurrencyCode" type="common:CurrencyCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Currency code </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateAmount" type="xsd:decimal">
+				<xsd:annotation>
+					<xsd:documentation>Charge rate for the given rate type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WeightGroupID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The ID of a corresponding WeightGroup_V1</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateUuid" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The Inland Rate UUID of a corresponding Rate Amoiunt</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

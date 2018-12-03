@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by tusha (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="ColumnOrderingSearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a column ordering search request for a particular rate table and type.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RateType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Represents the type of the rate.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TableName" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Represents the table name of a particular rate.
+					</xsd:documentation>
+				</xsd:annotation>			
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

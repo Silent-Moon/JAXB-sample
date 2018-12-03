@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+  <xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/UpdateResult_V1.xsd"/>
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/DBUpdateUserID_V1.xsd"/>
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/CommonRestrictions_V1.xsd"/>
+  <xsd:include schemaLocation="ReuseHubInfo_V1.xsd"/>
+
+  <xsd:complexType name="ReuseHub_V1">
+    <xsd:sequence>
+      <xsd:element name="UsagePlanID" type="xsd:long" minOccurs="1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Represents the usage plan id</xsd:documentation>
+				</xsd:annotation>
+      </xsd:element>
+	  <xsd:element name="MaxReuseHubLevel" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Max Reuse Hublevel</xsd:documentation>
+				</xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ReuseHubInfo" type="ReuseHubInfo_V1" nillable="true" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Represents the assigned reuse hub city</xsd:documentation>
+				</xsd:annotation>
+      </xsd:element>
+      <xsd:element name="UpdateBy" type="common:DBUpdateUserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the user who updates this suspension</xsd:documentation>
+				</xsd:annotation>
+      </xsd:element>
+      <xsd:element name="UpdateDateTimeGMT" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the data ant time when the user updates the suspension request</xsd:documentation>
+				</xsd:annotation>
+      </xsd:element>
+      <xsd:element name="UpdateResult" type="common:UpdateResult_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the update result</xsd:documentation>
+				</xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

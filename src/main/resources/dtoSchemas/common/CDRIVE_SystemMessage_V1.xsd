@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Juvy Centeno (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="CDRIVE_SystemMessage_V1">
+		<xsd:sequence>
+			<xsd:element name="IsSystemAvailable" type="xsd:boolean"/>
+			<xsd:element name="Message" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

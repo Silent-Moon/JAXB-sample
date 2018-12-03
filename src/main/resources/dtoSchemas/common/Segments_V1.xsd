@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="Segments_V1">
+		<xsd:annotation>
+			<xsd:documentation>Segments/biz lable types associated a customer</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="50"/>
+			<xsd:enumeration value="InternationalNVOCC"/>
+			<xsd:enumeration value="LargeBCO"/>
+			<xsd:enumeration value="LocalNVOCC"/>
+			<xsd:enumeration value="SME_BCO"/>
+			<xsd:enumeration value="ConnectingCarrier"/>
+			<xsd:enumeration value="ShipperAssociation"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

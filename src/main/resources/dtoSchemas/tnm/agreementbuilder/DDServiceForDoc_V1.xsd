@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fw="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="DDChargeRuleForDoc_V1.xsd"/>
+	<xsd:complexType name="DDServiceForDoc_V1">
+		<xsd:sequence>
+			<xsd:element name="DDRule" type="DDChargeRuleForDoc_V1"/>
+			<xsd:element name="IsAdditionalDays" type="xsd:boolean"/>
+			<xsd:element name="IsDiscountRates" type="xsd:boolean"/>
+			<xsd:element name="Vendor" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by David Li (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="CardinalDirectionCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>A list of voyage code direction.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="N">
+				<xsd:annotation>
+					<xsd:documentation source="North"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="S">
+				<xsd:annotation>
+					<xsd:documentation source="South"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="E">
+				<xsd:annotation>
+					<xsd:documentation source="East"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="W">
+				<xsd:annotation>
+					<xsd:documentation source="West"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CardinalDirectionName_V1">
+		<xsd:annotation>
+			<xsd:documentation>A list of voyage name direction.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="North"/>
+			<xsd:enumeration value="South"/>
+			<xsd:enumeration value="East"/>
+			<xsd:enumeration value="West"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

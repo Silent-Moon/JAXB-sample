@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Kalyan Padhiloju (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common.tsm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common.tsm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	
+	<xsd:include schemaLocation="TSM_AppError_V1.xsd"/>
+	<xsd:element name="TSM_Error_V1">
+		<xsd:annotation>
+			<xsd:documentation>TSM project uses this payload to publish messages to EMS Exception Queue</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ProcessID" type="common:ID_LongNumeric_V1">
+					<xsd:annotation>
+						<xsd:documentation>This represents the process id assigned by TIBCO engine</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ProjectName" type="common:BasicDescription_V1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>This represents project name assigned by application</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="EngineName" type="common:BasicDescription_V1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>This represents the server name</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="CustomID" type="common:BasicDescription_V1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>This represents custom id assigned by application</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element ref="TSM_AppError_V1" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

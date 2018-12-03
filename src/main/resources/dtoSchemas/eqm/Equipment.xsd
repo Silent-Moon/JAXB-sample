@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.eqm">
+	<xsd:include schemaLocation="AuthorizationRequest_V1.xsd"/>
+	<xsd:include schemaLocation="ContractHeader_V1.xsd"/>
+	<xsd:include schemaLocation="CustomerPatternRequest_V1.xsd"/>
+	<xsd:include schemaLocation="CustomerPattern_V1.xsd"/>
+	<xsd:include schemaLocation="EquipmentForSaleRequest_V1.xsd"/>
+	<xsd:include schemaLocation="EquipmentInventoryDetailSearch_V1.xsd"/>
+	<xsd:include schemaLocation="EquipmentInventoryDetail_V1.xsd"/>
+	<xsd:include schemaLocation="EquipmentInventorySummarySearch_V1.xsd"/>
+	<xsd:include schemaLocation="EquipmentInventorySummary_V1.xsd"/>
+	<xsd:include schemaLocation="EquipmentProfile_V1.xsd"/>
+	<xsd:include schemaLocation="EquipmentSearch_V1.xsd"/>
+	<xsd:include schemaLocation="Equipment_V1.xsd"/>
+	<xsd:include schemaLocation="Facility_V1.xsd"/>
+	<xsd:include schemaLocation="Invoice_V1.xsd"/>
+	<xsd:include schemaLocation="LeaseContract_V1.xsd"/>
+	<xsd:include schemaLocation="OnHireAuthorization_V1.xsd"/>
+	<xsd:include schemaLocation="QuotaCounterRequest_V1.xsd"/>
+	<xsd:include schemaLocation="QuotaCounter_V1.xsd"/>
+	<xsd:include schemaLocation="ReportTemplateActivation_V1.xsd"/>
+	<xsd:include schemaLocation="ReportTemplateSubscription_V1.xsd"/>
+	<xsd:include schemaLocation="ReportTemplate_V1.xsd"/>
+	<xsd:include schemaLocation="RestrictedUseLabelBasicInfo_V1.xsd"/>
+	<xsd:include schemaLocation="RestrictedUseLabelCreate_V1.xsd"/>
+	<xsd:include schemaLocation="RestrictedUseLabelFullInfo_V1.xsd"/>
+	<xsd:include schemaLocation="RestrictedUseLabelHistoryRequest_V1.xsd"/>
+	<xsd:include schemaLocation="RestrictedUseLabelHistory_V1.xsd"/>
+	<xsd:include schemaLocation="RestrictedUseLabelLocationRequest_V1.xsd"/>
+	<xsd:include schemaLocation="RestrictedUseLabelLocation_V1.xsd"/>
+	<xsd:include schemaLocation="RestrictedUseLabelRequest_V1.xsd"/>
+	<xsd:include schemaLocation="RestrictedUseLabelUpdate_V1.xsd"/>
+	<xsd:include schemaLocation="ReuseHubInfo_V1.xsd"/>
+	<xsd:include schemaLocation="ReuseHub_V1.xsd"/>
+	<xsd:include schemaLocation="SaleContract_V1.xsd"/>
+	<xsd:include schemaLocation="SearchLeaseContractCriteria_V1.xsd"/>
+	<xsd:include schemaLocation="SearchReportTemplateRequest_V1.xsd"/>
+	<xsd:include schemaLocation="SupplierProfile_V1.xsd"/>
+	<xsd:include schemaLocation="TerminateEquipment_V1.xsd"/>
+	<xsd:include schemaLocation="UsagePlanRequest_V1.xsd"/>
+	<xsd:include schemaLocation="UsagePlan_V1.xsd"/>
+	<xsd:include schemaLocation="SuspendOffHireLocRequest_V1.xsd"/>
+	<xsd:include schemaLocation="SuspendOffHireLoc_V1.xsd"/>
+	<xsd:include schemaLocation="InventoryViewSummaryRequest_V1.xsd"/>
+	<xsd:include schemaLocation="InventoryViewSummary_V1.xsd"/>
+	<!-- Added by Venus 20101202 -->
+	<xsd:include schemaLocation="InventoryViewDrillDownRequest_V1.xsd"/>
+	<xsd:include schemaLocation="InventoryViewDrillDownActualRepo_V1.xsd"/>
+	<xsd:include schemaLocation="InventoryViewDrillDownActualEmpty_V1.xsd"/>
+	<xsd:include schemaLocation="InventoryViewDrillDownPlannedRepo_V1.xsd"/>
+	<!-- Added by Venus 20110314-->
+	<xsd:include schemaLocation="ContainerOveruseTrackingRequest_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerOveruseTrackingResponse_V1.xsd"/>
+	<xsd:include schemaLocation="EmptyContainerInventoryViewRequest_V1.xsd"/>
+	<xsd:include schemaLocation="EmptyContainerInventoryViewResponse_V1.xsd"/>
+	<xsd:include schemaLocation="ValidateContainerResponse_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerNumber_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerCheckDigit_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerISOCode_V1.xsd"/>
+	<!-- Added by Shuna 20111024-->
+	<xsd:include schemaLocation="RestrictedUseInventoryRequest_V1.xsd"/>
+	<xsd:include schemaLocation="RestrictedUseInventoryResponse_V1.xsd"/>
+	<!-- Added by Shuna 20111109-->
+	<xsd:include schemaLocation="InventoryDrillDownRequest_V1.xsd"/>
+	<xsd:include schemaLocation="InventoryDrillDownResponse_V1.xsd"/>
+	<xsd:include schemaLocation="InventoryDrillDownMTADetailRequest_V1.xsd"/>
+	<xsd:include schemaLocation="InventoryDrillDownMTADetailResponse_V1.xsd"/>
+	<xsd:include schemaLocation="InventoryDrillDownRepoInDetailRequest_V1.xsd"/>
+	<xsd:include schemaLocation="InventoryDrillDownRepoInDetailResponse_V1.xsd"/>
+	<xsd:include schemaLocation="InventoryDrillDownMTRtnDetailRequest_V1.xsd"/>
+	<xsd:include schemaLocation="InventoryDrillDownMTRtnDetailResponse_V1.xsd"/>
+	<xsd:include schemaLocation="InventoryDrillDownOffhireDetailRequest_V1.xsd"/>
+	<xsd:include schemaLocation="InventoryDrillDownOffhireDetailResponse_V1.xsd"/>
+	<!-- Added by Venus 20111111-->
+	<xsd:include schemaLocation="CalendarWeek_V1.xsd"/>
+	<xsd:include schemaLocation="RestrictedUseInventory_V1.xsd"/>
+	<!-- added by Venus 2012-02-15 -->
+	<xsd:include schemaLocation="BCR_InventoryForecastRequest_V1.xsd"/>
+	<xsd:include schemaLocation="BCR_InventoryForecast_V1.xsd"/>
+	<xsd:include schemaLocation="BCR_InventoryForecastResponse_V1.xsd"/>
+	<!-- added by Venus 2012-04-24 [CM2.0R1] -->
+	<xsd:include schemaLocation="ContainerInventoryForecast_V1.xsd"/>
+	<xsd:include schemaLocation="OpzoneDetailInventoryRequest_V1.xsd"/>
+	<xsd:include schemaLocation="InventoryImbalance_V1.xsd"/>
+	<xsd:include schemaLocation="InventoryImbalanceRequest_V1.xsd"/>
+	<xsd:include schemaLocation="InventoryImbalanceResponse_V1.xsd"/>
+	<!-- added by Shuna 2012-08-1 -->
+	<xsd:include schemaLocation="GenericReportRequest_V1.xsd"/>
+	<xsd:include schemaLocation="GenericReportResponse_V1.xsd"/>
+	<!-- added by Anthony 2012-09-28 -->
+	<xsd:include schemaLocation="SearchRU_V1.xsd"/>
+	<xsd:include schemaLocation="RUEquipment_V1.xsd"/>
+	<xsd:include schemaLocation="RUEquipmentDetails_V1.xsd"/>
+	<xsd:include schemaLocation="ValidateCTEventDTO_V1.xsd"/>
+	<xsd:include schemaLocation="EquipmentForOPSCriteria_V1.xsd"/>
+	<xsd:include schemaLocation="FreeUseDetail_V1.xsd"/>
+	<xsd:include schemaLocation="FreeUseSummary_V1.xsd"/>
+	<!-- Added by Fai 2016-11-30 -->
+	<xsd:include schemaLocation="SearchRepoCostAndPotentialSavingRequest_V1.xsd"/>
+	<xsd:include schemaLocation="SearchRepoCostAndPotentialSavingResponse_V1.xsd"/>
+</xsd:schema>

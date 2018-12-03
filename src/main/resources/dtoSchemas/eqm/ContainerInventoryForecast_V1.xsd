@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2012 rel. 2 (x64) (http://www.altova.com) by OOCL (Orient Overseas Container Line Ltd.) -->
+<!-- Created by Venus 2012-04-10   -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Region_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/OpZone_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Facility_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../tnm/TradeCode_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerSizeType_V1.xsd"/>
+	<xsd:complexType name="ContainerInventoryForecast_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is the XSD storing information for the empty container inventory forecast used in the Opzone Detail Inventory Forecast UI. 
+This is encapsulated in EmptyContainerInventoryViewResponse.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Year" type="common:Year_V1">
+				<xsd:annotation>
+					<xsd:documentation>   Year for the empty container inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Week" type="common:Week_V1">
+				<xsd:annotation>
+					<xsd:documentation>   Week for the empty container inventory. (1-53)  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Region" type="common:Region_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> The region for the empty container inventory   </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OpZone" type="common:OpZone_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   The opzone for the empty container inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="City" type="common:BasicLocationInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The city for the empty container inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Facility" type="common:Facility_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The facility for the empty container inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EqpSizeType" type="ContainerSizeType_V1">
+				<xsd:annotation>
+					<xsd:documentation>The size type for the empty container inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Trade" type="tnm:TradeCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>  The trade for this inventory forecast record</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeLane" type="tnm:TradeCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>  The tradelane for this inventory forecast record</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MTACount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Current week = Current MTA
+Future weeks = MT available at location at beginning of week (i.e. ending balance of previous week)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmptyReleaseCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Current Week = outstanding MT RLS (forecast) of this week
+Today forecast + end of the week
+Future Weeks = CM MT Release forecast result
+</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmptyReturnCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Current Week = outstanding MT RTN (forecast) of this week
+Today forecast + end of the week
+Future Weeks = CM MT Return forecast result (Incoming laden + Booking)
+</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OnOffHireCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The number of contains expected to be on hire/off hire that week in that opzone
+</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SubstituteCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The subsititue count if needs to subsitute by another size type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RepoInCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MT containers recorded in system, expected to arrive at location </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="COD_In_Count" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MT containers rerouted to this location from their original destination
+COD plan destination is the same as the selected opzone and size type
+</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="COD_Out_Count" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MT containers rerouted from this location to a new destination 
+COD plan origin is the same as the selected opzone and size type
+</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OrginalPlannedRepoInCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Planned MT repositioning into the location - actual plan</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PlannedRepoInCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Planned MT repositioning into the location - remaining plans to be executed</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OrginalPlannedRepoOutCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Planned MT repositioning out of the location - actual plan</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PlannedRepoOutCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Planned MT repositioning out of the location - remaining plans to be executed</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WeeklyBalanceCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The balance is calculated by: Starting balance (MTA) – MT RLS + MT RTN + On/Offhire + Subst + Incoming MT + COD In – COD Out + Repo In – Repo Out</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OffHireCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> MTA, MT Incoming, and Incoming Laden containers that can be off hired at this location. </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Added by Venus 2012-07-16 -->
+			<xsd:element name="OriginalCODInCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> The original planned COD IN quantity (either the confirmed or planned qty, if confirmed qty is not null, then take confirmed qty, otherwise planned qty)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<xsd:element name="OriginalCODOutCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> The original planned COD OUT quantity (either the confirmed or planned qty, if confirmed qty is not null, then take confirmed qty, otherwise planned qty)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="FreightMTRepoInCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> The quantity of MT containers (Freight MT) expected to arrive at the location</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<xsd:element name="RemainingFreightMTRepoInCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> Remaining qty to be exucted for a Freight Empty repo plan going to a location</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="PlannedFreightMTRepoInCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> The planned quantity going to a location for a Freight Empty repo plan </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="RemainingFreightMTRepoOutCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> Remaining qty to be exucted for a Freight Empty repo plan leaving a location </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<xsd:element name="PlannedFreightMTRepoOutCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> The planned quantity leaving a location for a Freight Empty repo plan </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BSRatio" type="xsd:float" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="ESI" type="xsd:long" minOccurs="0">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

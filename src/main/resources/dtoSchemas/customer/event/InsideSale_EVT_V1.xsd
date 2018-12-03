@@ -1,0 +1,23 @@
+<!--  edited with XMLSpy v2008 (http://www.altova.com) by abrudho (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.customer.event" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.customer.event" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd"/>
+	<xsd:element name="InsideSale_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event for SSEC Inside Sale data change (insert, delete)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="UserID" type="common:UserID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the User ID which is equivalent to SSEC_INSIDE_SALES_ASSGMT.USR_ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="SharerUserID" type="common:UserID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the Inside Sales User ID  which is equivalent to SSEC_INSIDE_SALES_ASSGMT.INSIDE_SALES_USER_ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

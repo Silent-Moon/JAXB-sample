@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com)  -->
+<xsd:schema xmlns="http://com.oocl.schema.iris2cp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.iris2cp" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="TMIS_HierarchySearchResultDetail_V1.xsd"/>
+	<xsd:complexType name="TMIS_HierarchySearchResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is a TMIS_HierarchySearchResult_V1 data type which contains a list of TMIS_HierarchySearchResultDetail_V1</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TMIS_HierarchySearchResultDetail" type="TMIS_HierarchySearchResultDetail_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This is TMIS Hierarchy Search Result  Detail</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

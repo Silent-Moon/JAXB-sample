@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fwk="http://com.oocl.frm.common.date.dto/" xmlns:cmn="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.dashboard" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:include schemaLocation="DSH_CommonTypes_V1.xsd"/>
+	<xsd:include schemaLocation="Escalation_V1.xsd"/>
+	<xsd:element name="ActivityUpdate" type="ActivityUpdate_V1">
+		<xsd:annotation>
+			<xsd:documentation>Root element for Activity Request </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="ActivityUpdate_V1">
+		<xsd:annotation>
+			<xsd:documentation>Elements defining an activity request</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Type" type="ActivityType_V1">
+				<xsd:annotation>
+					<xsd:documentation>Type of activity (Task, Exception or Notification)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Code" type="ActivityCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Some form of a code - for ex: BKG_APPRV</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Group" type="ActivityGroup_V1">
+				<xsd:annotation>
+					<xsd:documentation>Grouping of activities - for example Shipment, Agreement etc.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ID" type="ActivityID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Unique Identifier for an activity - This must be present for all messages sent to Activity organizer - this is based on the assumption that the activity monitor generates unique id per activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActivityDueDate" type="fwk:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>When should this activity be completed - Note: This is in GMT and is NOT relative to which office </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RequestorID" type="ActivityCreatorID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Identifiying information about the creator of the activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EscalationLevel" type="EscalationLevel_V1">
+				<xsd:annotation>
+					<xsd:documentation>What is the level of escalation now? If this is not an escalation then set level to be 0 - Currently we are limiting levels of escalation to 3. The model can supported unlimited number of levels of escalation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Status" type="ActivityStatus_V1" nillable="false" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Status of the activity in its lifecycle (New, In Progress, Completed, Cancelled etc.,)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Priority" type="ActivityPriority_V1" nillable="false" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Priority of this activity - Currently at the schema level this is limited to 10 levels</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Version" type="ActivityDefinitionVersion_V1" nillable="false" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Version of definition to be used - Note: If this is not present, the latest version will always be used</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShortDescription" type="ShortDescription_V1" nillable="false" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Desription to show on screen</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Remarks" type="Remarks_V1" nillable="false" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Remarks captured by user updating this activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Escalations" type="EscalationInfo_V1" nillable="false" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Information about the escalation level times if the group assigned to handle the task </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

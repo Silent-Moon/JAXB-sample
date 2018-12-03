@@ -1,0 +1,267 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by HUJI (Orient Overseas Container Line Ltd) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" xmlns:eqm="http://com.oocl.schema.eqm" xmlns:iris2cp="http://com.oocl.schema.iris2cp" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../eqm/ContainerType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../eqm/ContainerSize_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.iris2cp" schemaLocation="../iris2cp/CP_CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/TrafficMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/DeliveryMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Currency_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonMeasurement_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ServiceLoopCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/HSCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:include schemaLocation="TNMCommonTypes_V1.xsd"/>
+	<xsd:include schemaLocation="ChargeLevel_V1.xsd"/>
+	<xsd:include schemaLocation="TariffCode_V1.xsd"/>
+	<xsd:include schemaLocation="SurchargeType_V1.xsd"/>
+	<xsd:include schemaLocation="TradeTerm_V1.xsd"/>
+	<xsd:include schemaLocation="TradeCode_V1.xsd"/>
+	<xsd:include schemaLocation="PricingTransportMode_V1.xsd"/>
+	<xsd:include schemaLocation="PaymentTerm_V1.xsd"/>
+	<xsd:complexType name="OceanSurchargeRate_V1">
+		<xsd:annotation>
+			<xsd:documentation>Surcharge charge rate specification</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ChargeLevel" type="ChargeLevel_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Charge level, can be cargo, container, or BL</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TrafficMode" type="AgreementTrafficMode_V1" minOccurs="0"/>
+			<xsd:element name="Currency" type="common:CurrencyCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Currency code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Amount" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Charge amount</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Percent" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Charge percentage</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MinimumAmount" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Minimum charge amount</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MaximumAmount" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Maximum charge amount</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PerUnit" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Charge per unit</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EquipmentSize" type="eqm:ContainerSize_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Equipment size</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EquipmentType" type="eqm:ContainerType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Equipment type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNature" type="iris2cp:CP_CargoNatureCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Cargo nature code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IMO_Classes" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of IMO classes(IMO classification of dangerous goods. Here IMO stands for International Maritime Organization)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="UN_Numbers" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of UN numbers(UN numbers are intenational standard codes to identify dangerous and hazardous cargos. Here UN stands for United Nation)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TransportModes" type="PricingTransportMode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of transport modes, like feeder, rail, truck, etc.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WeightRange" type="common:WeightRange_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Weight range</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsSOC" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Is shipper owned container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OceanSurcharge_V1">
+		<xsd:annotation>
+			<xsd:documentation>Ocean surcharge OOCL charges in addition to base rate</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RateID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>Rate ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SurchargeTypeCode" type="SurchargeCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Surcharge type code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TariffCode" type="TariffCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Tariff code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveFrom" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Effective date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveTo" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Expiry date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeTerm" type="TradeTerm_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Trade term, can CIF or FOB</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PaymentTerm" type="PaymentTerm_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Payment term, can be prepaid or collect</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Origins" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of origin locations</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExclusiveOrigins" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of exclusive origin locations</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Destinations" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of destination locations</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExclusiveDestinations" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of exclusive destination locations</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POLs" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of POL locations</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExclusivePOLs" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of exclusive POL locations</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PODs" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of POD locations</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExclusivePODs" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of exclusive POD locations</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Transport" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of transshipment port locations</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExclusiveTransport" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of exclusive transshipment port locations</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<xsd:element name="Svcs" type="common:ServiceLoopCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of service loops</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExclusiveSvcs" type="common:ServiceLoopCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of exclusive service loops</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IncludedHSCodes" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Included HS codes</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExcludedHSCodes" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Excluded HS codes</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Facilities" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of facility locations that surcharge must apply</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BLReleaseLocations" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of BL release locations that surcharge must apply</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChargeRates" type="OceanSurchargeRate_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Surcharge charge rates</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Indicators" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>INDICATORS MAP -	Lots of room for future expansion
+BITS		FUNCTION
+============================
+1-2			originDoorSymbol (#Any (00) or #Door(01) or #CY(10)  (11) for future use)
+3-4			destinationDoorSymbol (#Any (00) or #Door(01) or #CY(10)  (11) for future use)
+5 			isOptional
+6			requiresElectronicShippingInstructions - 1st bit	(#Yes (10) or #No (01) or #Any (00))
+7			isHouseChargeAdditional
+8			perRailCharge
+9			requiresAtLeastOneRail
+10			requiresElectronicShippingInstructions - 2nd bit
+11			isSeasonal
+12			includeInExport
+13			appliesNonAMSPerHouse  (added for COSCON)
+14			appliesAMSPerHouse (added for COSCON)
+15			isTariffSurchargeAdjustment
+16-17		requiresElectronicBooking	(#Yes (10) or #No (01) or #Any (00))
+18-30		Available for future use</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="OceanSurcharge" type="OceanSurcharge_V1"/>
+</xsd:schema>

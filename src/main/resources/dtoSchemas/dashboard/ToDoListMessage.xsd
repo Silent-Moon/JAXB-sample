@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.dashboard" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:element name="ToDoListMessage">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Message" type="ToDoListMessage_V1" maxOccurs="unbounded"/>
+				<xsd:element name="JVM_Timezone" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="ToDoListMessage_V1">
+		<xsd:annotation>
+			<xsd:documentation>Schema for items to show on the To Do List item</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="bookingNo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="blNo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="bookingPartyName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="brokerName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="cargoControlPartyName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="cargoNature" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="commodityDesc" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="consigneeName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="containerNo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contractNo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dischargeSVVD" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="fndName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="forwarderName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="itemDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="itemID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="lastEscalatedToUsers" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="latestMemoContent" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="latestStatusCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="loadingSVVD" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="notifyingPartyName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="officeCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ownerFirstName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ownerID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="paymentPartyName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="podName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="polName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="porName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="shipperName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="taskName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="taskType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tradeCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="milestone" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="estRequireTime" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="lastUpdatedDate" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="plannedDateTime" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="receiveDateTime" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="snoozeDateTime" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="containerStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="service" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="taskResult" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="completeByUser" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="mySupervision" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="loadingSVVDDate" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="cargoCutoffDate" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="bookingCreatorUserID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="outboundHaulageType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="inboundHaulageType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="screenLink" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="agrmntCtrlPartyName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ownerLastName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="detectionDateTime" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="dueDateTime" type="xsd:dateTime" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

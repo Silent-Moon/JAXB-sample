@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by David Li (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="CommonRestrictions_V1.xsd"/>
+	<xsd:include schemaLocation="CardinalDirection_V1.xsd"/>
+	<xsd:include schemaLocation="ServiceLoopCode_V1.xsd"/>
+	<xsd:complexType name="BasicVoyageInformation_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about the basic information of a voyage.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ServiceLoopAbbreviation" type="ServiceLoopCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>A three or four character code represents the business key for service loop.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="VesselCode" type="EntityCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>A three character code vessel abbreviation.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="VoyageNumber" type="EntityCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Identification of the ordered sequence of stops.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="VoyageDirection" type="CardinalDirectionName_V1">
+				<xsd:annotation>
+					<xsd:documentation>The direction in which the vessel is traveling.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

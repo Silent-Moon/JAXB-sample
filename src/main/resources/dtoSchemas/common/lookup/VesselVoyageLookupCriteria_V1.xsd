@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common.lookup" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common.lookup" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../ArrivalDepartureIndicator_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../BasicVoyageLookup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../DateRange_V1.xsd"/>
+	<xsd:complexType name="VesselVoyageLookupCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a vessel voyage look up search request with mandatory and optional search criteria.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="VoyageInformation" type="common:BasicVoyageLookup_V1">
+				<xsd:annotation>
+					<xsd:documentation>Basic voyage search information - Service Loop abbreviation, vessel code, voyage number and direction.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="VesselName" type="common:EntityName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Vessel name. Max. length is 65.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PortID" type="common:ID_String_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>An unique ID or a list of unique ID that identifies ports.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ArrivalDepartureIndicator" type="common:ArrivalDepartureIndicator_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>An indicator of arrival and or departure.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DateRange" type="common:DateRange_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>A range of localized date time from start date to end date.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

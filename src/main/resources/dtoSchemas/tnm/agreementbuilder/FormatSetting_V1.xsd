@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:include schemaLocation="AB_OracleTypes_V1.xsd"/>
+	<xsd:include schemaLocation="AB_SimpleTypes_V1.xsd"/>
+	<xsd:complexType name="FormatSettings_V1">
+		<xsd:annotation>
+			<xsd:documentation>Agreement format setting specification</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TemplateName" type="common:EntityBriefName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Predefined format template</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OptionalContentIDs" type="StringWrapper_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Optional contents</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="StandardRemarkIDs" type="ID_Wrapper_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Standard remarks specified by each region/office</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="StandardDisclaimerID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Standard disclaimer specified by each region/office</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShowSurcharges" type="ShowSurchargeType_V1">
+				<xsd:annotation>
+					<xsd:documentation>Specifies how surcharges are shown in the offering document, can be show prepaid only, collect only or all</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PrimaryContactID" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The user ID of the primary OOCL sales contact responsible for the quote  Usually this is the ID of the Outside Sales user.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SecondaryContactID" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The user ID of the secondary OOCL sales contact responsible for the quote.  Usually this is the ID of the Inside Sales user.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShowLocations" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This will specify whether to show locations in rate document or not .</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AdditionalRemarks" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The user captures text for any additional remarks at terms and conditions.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AdditionalNotes" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The user captures text for any additional Notes at Cover.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

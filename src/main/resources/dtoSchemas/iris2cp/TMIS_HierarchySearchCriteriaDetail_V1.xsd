@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com)   -->
+<xsd:schema xmlns="http://com.oocl.schema.iris2cp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.iris2cp" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="TMIS_HierarchySearchCriteriaDetail_V1">
+		<xsd:annotation>
+			<xsd:documentation>The TMIS Hierarchy Search Criteria Detail contains a searching string and a searching type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SearchString" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>TMIS Hierarchy Search Criteria Content</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchType" type="TMIS_HierarchySearchType_V1">
+				<xsd:annotation>
+					<xsd:documentation>TMIS Hierarchy Search Criteria Type must be one of types defined in TMIS_HierarchySearchType_V1</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="TMIS_HierarchySearchType_V1">
+		<xsd:annotation>
+			<xsd:documentation>this is a TMIS Hierarchy Search Type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="RegionType">
+				<xsd:annotation>
+					<xsd:documentation>Region Type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RegionCode">
+				<xsd:annotation>
+					<xsd:documentation>Region Code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RegionName">
+				<xsd:annotation>
+					<xsd:documentation>Region Name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TerritoryCode">
+				<xsd:annotation>
+					<xsd:documentation>Territory Code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TerritoryName">
+				<xsd:annotation>
+					<xsd:documentation>Territory Name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="OfficeCode">
+				<xsd:annotation>
+					<xsd:documentation>Office Code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="OfficeName">
+				<xsd:annotation>
+					<xsd:documentation>Office Name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="OpZoneCode">
+				<xsd:annotation>
+					<xsd:documentation>OpZone Code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="OpZoneName">
+				<xsd:annotation>
+					<xsd:documentation>OpZone Name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CityCode">
+				<xsd:annotation>
+					<xsd:documentation>City Code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CityName">
+				<xsd:annotation>
+					<xsd:documentation>City Name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

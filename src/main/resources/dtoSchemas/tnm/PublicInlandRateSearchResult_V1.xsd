@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="ChargeGroup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ValidationError_V1.xsd"/>
+	<xsd:complexType name="PublicInlandRateSearchResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents an inland rate search result containing one rate information or validation errors if any. For more info on inland rate, refer to InlandRate_V1. (Note: The inland rate search is applicable only to a specific set of inland rate tables which is to be provided for production rollout.)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Location" type="common:BasicLocationInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Matched Origin and/or Destination location information.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ConnectingOverLocation" type="common:BasicLocationInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Matched Connecting Over Location information.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValidationErrors" type="common:ValidationError_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Optional collection of validation errors when no rate is found. See ValidationError for more details.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CurrencyCode" type="common:CurrencyCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Currency code </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Rate20GP" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Charge rate for 20 foot GP container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Rate40GP" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Charge rate for 40 foot GP container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Rate40HQ" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Charge rate for 40 HQ container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Rate45HQ" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Charge rate for 45 HQ container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Rate20RF" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Charge rate for 20 RF container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Rate40RQ" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Charge rate for 40 RQ container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

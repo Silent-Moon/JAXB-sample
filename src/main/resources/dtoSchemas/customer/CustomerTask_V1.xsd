@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with Stylus Studio 2008 by VARMA CHINTALAPATI (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.customer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:fwdt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.customer" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/StringKeyValuePair_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ExternalUserType_V1.xsd"/>
+	<xsd:include schemaLocation="CustomerTaskStatus_V1.xsd"/>
+	<xsd:complexType name="CustomerTask_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the task customer need to act on so that his SR is processed successfully</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Application" type="common:ID_String_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the application to which the customer task is related</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SentDate" type="fwdt:FWAbsoluteDateTimeDTO" nillable="false">
+				<xsd:annotation>
+					<xsd:documentation>Date the task was sent to the customer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DueDate" type="fwdt:FWAbsoluteDateTimeDTO" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Date the customer has to complete the task</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Status" type="CustomerTaskStatus_V1" nillable="false" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Current status of the customer task</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Reference" type="common:StringKeyValuePair_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Reference type and number saved with the customer task including the SR# associated with this task</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Recipient" type="common:ExternalUserType_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>User who should receive the task</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceRequestID" type="common:UUID_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The service request number saved when the interaction log for a service request is created</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerTaskID" type="common:UUID_V1" nillable="false">
+				<xsd:annotation>
+					<xsd:documentation>The customer task tracking number generated when a customer task is created.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Description" type="common:LongBasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Description of the customer task</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

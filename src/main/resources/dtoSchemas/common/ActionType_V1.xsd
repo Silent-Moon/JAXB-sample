@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="ActionTypeCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents Databae Action Type Code</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="1"/>
+			<xsd:enumeration value="C"/>
+			<xsd:enumeration value="U"/>
+			<xsd:enumeration value="D"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ActionTypeName_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents Databae Action Type Name</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CREATE"/>
+			<xsd:enumeration value="UPDATE"/>
+			<xsd:enumeration value="DELETE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

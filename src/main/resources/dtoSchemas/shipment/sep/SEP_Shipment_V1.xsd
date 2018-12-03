@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Narasimha Puvvada (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment.sep" xmlns:common="http://com.oocl.schema.common" xmlns:shipment="http://com.oocl.schema.shipment" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.shipment.sep" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/ShipmentNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/PackageReferenceCode_V1.xsd"/>
+	<xsd:element name="SEP_Shipment_V1" type="SEP_Shipment_V1">
+		<xsd:annotation>
+			<xsd:documentation>Shipment data for Milestone Plan</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="SEP_Shipment_V1">
+		<xsd:annotation>
+			<xsd:documentation>Shipment data for Milestone Templates matching</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ShipmentDetail" type="ShipmentContext_V1">
+				<xsd:annotation>
+					<xsd:documentation>This contains the basic information of a shipment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerPackages" type="ContainerPackageContext_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This contains the basic information of container package within a shipment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ShipmentContext_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents the shipment details</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="UUID" type="common:UUID_V1">
+				<xsd:annotation>
+					<xsd:documentation>This is the Shipment Unique ID which is equivalent to TRCKG_GRP.TRCKG_GRP_UUID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShipmentNumber" type="shipment:ShipmentNumber_V1">
+				<xsd:annotation>
+					<xsd:documentation>This is the Shipment Number  which is equivalent to TRCKG_GRP.TRCKG_GRP_REF_CDE</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShipmentStatus" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>This represents the commit status of the shipment "Cancelled", "Confirmed", "No Show", "Pended", "PreBooking", "Rejected", "Terminated", "Wait Listed" </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BookingOfficeCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Booking Office and mapped from CUST_ORDER.BKG_OFCE_CDE.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BookingRegionCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Region Code for which the Booking Office belongs to.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BookingTerritoryCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Territory Code for which the Booking Region belongs to.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsRegulatedTrade" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Regulated Trade and If agreement is CSO, check tariff associated to shipment will indicate if Regulated or not.".</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TariffItem" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the tariff item in a shipment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="QuoteNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Quotation Number and mapped from TRCKG_GRP_EXT_REF.Quotation_Number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OB_TrafficMode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Outbound Traffic Mode like FCL,LCL.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IB_TrafficMode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Inbound Traffic Mode like FCL,LCL.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsBookingApprovalRequired" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents if Booking Approval  is required or not</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNatures" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Cargo Nature and mapped from CGO_BASIC</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContainerPackageContext_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents the Containers details of Shipment</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="UUID" type="common:UUID_V1">
+				<xsd:annotation>
+					<xsd:documentation>This is the Container Package Unique ID which is equivalent to CONTAINER_PACKAGE.PACKAGE_UUID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReferenceCode" type="shipment:PackageReferenceCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents the container reference code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsOB_Haulage" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represent the outbound haulage and mapped to OB_DR_LEG.CARRIER_HAULAGE</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsIB_Haulage" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the inbound haulage and mapped to IB_DR_LEG.CARRIER_HAULAGE</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsSOC" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>This indicates whether the container is shipper owned container.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsOB_Triangulation" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This indicates the container is OB triangulated</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsIB_Triangulation" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the container is IB triangulated</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OB_Trade" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the trade code of the first trunk service loop.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IB_Trade" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the trade code of the last trunk service loop.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OB_Direction" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the OB direction of container package.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IB_Direction" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the IB direction of container package.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IB_ControlOfficeCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the IB Control office and mapped from BL_BASIC.IB_CTRL_OFCE.  If BL is not yet created then use the FND of a shipment to lookup the IB Control Office</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IB_ControlRegionCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Region of IB Control Office.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IB_ControlTerritoryCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Territory of IB Control Region.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

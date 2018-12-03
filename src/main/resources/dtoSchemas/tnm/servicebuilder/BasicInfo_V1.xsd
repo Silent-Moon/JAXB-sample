@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 sp1 U (http://www.xmlspy.com) by Rick Vera (OOCL (USA), Inc.) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="../Tariff_V1.xsd"/>
+	<xsd:include schemaLocation="../Trade_V1.xsd"/>
+	<xsd:include schemaLocation="../TradeLane_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Template_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/DateRange_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CardinalDirection_V1.xsd"/>
+	<xsd:complexType name="BasicInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>A list of fields in Tailored Service, including Template Info, all possible reference data, Offering and Application Period. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TemplateID" type="common:Template_ID_V1" minOccurs="0"/>
+			<xsd:element name="TemplateVersion" type="xsd:short" minOccurs="0"/>
+			<xsd:element name="TailoredServiceName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TailoredServiceVersion" type="xsd:short" minOccurs="0"/>
+			<xsd:element name="Status" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Trade" type="tnm:Trade_V1" minOccurs="0"/>
+			<xsd:element name="TradeLane" type="tnm:TradeLane_V1" minOccurs="0"/>
+			<xsd:element name="Direction" type="common:CardinalDirectionName_V1" minOccurs="0"/>
+			<xsd:element name="Tariffs" type="tnm:Tariff_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="OfferingPeriod" type="common:DateRange_V1" minOccurs="0"/>
+			<xsd:element name="ApplicablePeriod" type="common:DateRange_V1" minOccurs="0"/>
+			<xsd:element name="CargoNatures" type="common:CargoNatureCode_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="CorporateLevelUsageGuide" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1000"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TradeLevelUsageGuide" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1000"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="WorkspaceURL" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="WrittenVerbalStatus" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

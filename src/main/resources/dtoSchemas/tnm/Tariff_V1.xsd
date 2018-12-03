@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="TariffCode_V1.xsd"/>
+	<xsd:include schemaLocation="Trade_V1.xsd"/>
+	<xsd:include schemaLocation="TradeLane_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CardinalDirection_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/BasicLocationInformation_V1.xsd"/>
+	<xsd:include schemaLocation="SurchargeType_V1.xsd"/>
+	<xsd:complexType name="Tariff_V1">
+		<xsd:annotation>
+			<xsd:documentation>Predefined shipment regions</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Code" type="TariffCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Tariff code that uniquely identify a tariff, which will be OOCL Tariff Code - 001,002....etc</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Description" type="common:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Brief description of the tariff usually has the region, trade and direction information it serves.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Trade" type="Trade_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Trade the tariff serves.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeLanes" type="TradeLane_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>TradeLanes the tariff serves.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Direction" type="common:CardinalDirectionName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Direction associated with the tariff.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OceanSurchargeCodes" type="SurchargeType_V1" nillable="true" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of current ocean surcharge codes defined for this tariff.  Used by RateBuilder.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeLevelSurchargeCodes" type="SurchargeType_V1" nillable="true" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>May be obsolete:  List of pricing aware surcharge codes to be considered when marking a surcharge as included/subject to on a base rate in RateBuilder.  Latest direction from biz is that OceanSurchargeCodes will be used instead</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Origins" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of Origins appplicable for this Tariff</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Destinations" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of Desinations appplicable for this Tariff</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ViaPorts" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of ViaPorts appplicable for this Tariff</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExcludedViaPorts" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of Excluded Via Ports appplicable for this Tariff</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RoundingNumber" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rounding policy: nearest rounding number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsRoundingUp" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rounding policy: is rounding up/down</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Indicators" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>1-2	rate date (#receiveDate (00) or #sailingDate(01) or #onBoardDate(10) or #obAppointmentDate (11))
+3-4	prorating basis (#M (00) or #W (01)) ( (10) and  (11) open for future access date)
+5	canUseStandardRate
+6	isOKToSaveSelectToFile
+7	canUseAutoRating
+8	hasMinimumRateGuidelines
+9	shouldCheckForwarderFMCNumber
+10	isOKToCreateTariffServiceAgreement
+11	allowPartialMatchWithNoRestriction
+12	allowPartialMatchWithHubRestriction
+13	shouldCheckOriginArbitrary
+14 	shouldCheckDestinationArbitrary
+15-16	roundingInterval
+17	isActive
+18	canIgnoreHSChecking
+19	isOkToRejectForwarderForUseOfSC
+20	allowExactMatchOnly
+21	allowExactOrPortMatch
+22	allowExactOrPortOrHubMatch
+23	generateBlankAddOnRate
+24	isOKToSaveApproveToFile
+25-30	available for future use
+</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CarrierId" type="xsd:byte" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Tariff CarrierId</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Tariff" type="Tariff_V1"/>
+</xsd:schema>

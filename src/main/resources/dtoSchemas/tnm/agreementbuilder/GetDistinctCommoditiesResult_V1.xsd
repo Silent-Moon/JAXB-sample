@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" xmlns:fw="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="CommodityWithTariffAndCargoNature_V1">
+		<xsd:sequence>
+			<xsd:element name="Description" type="xsd:string"/>
+			<xsd:element name="TariffCode" type="xsd:string"/>
+			<xsd:element name="CargoNatureGroupID" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GetDistinctCommoditiesResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Return type for WS operation getDistinctCommodities</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Commodities" type="CommodityWithTariffAndCargoNature_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="IsSuccessful" type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

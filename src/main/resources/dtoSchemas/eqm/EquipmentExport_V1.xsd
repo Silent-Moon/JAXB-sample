@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:complexType name="EquipmentExport_V1">
+		<xsd:annotation>
+			<xsd:documentation> This is the general WS response for all export requests. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ExportText" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Export result in text format</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="2621440"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ExportZipFile" type="xsd:base64Binary" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Export Result in zip format</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

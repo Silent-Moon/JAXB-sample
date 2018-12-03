@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fode="http://com.oocl.frm.fode.schema.messaging/" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Address_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/BasicOfficeInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Company_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.fode.schema.messaging/" schemaLocation="../../../framework/FODE_Messaging.xsd"/>
+	<xsd:include schemaLocation="FormatSetting_V1.xsd"/>
+	<xsd:include schemaLocation="RateWithSurcharge_V1.xsd"/>
+	<xsd:include schemaLocation="CustomerContactGroup_V1.xsd"/>
+	<xsd:include schemaLocation="ServiceOfferDoc_V1.xsd"/>
+	<xsd:complexType name="OfferToCustomer_V1">
+		<xsd:annotation>
+			<xsd:documentation>Send To  Customer Offer record.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="fodeReportRequest" type="fode:FODEReportRequestType"/>
+			<xsd:element name="IsService" type="xsd:boolean"/>
+			<xsd:element name="IsForOOCL" type="xsd:boolean"/>
+			<xsd:element name="TemplateId" type="common:ID_String_V1"/>
+			<xsd:element name="Identifier" type="tnm:AgreementID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Agreement ID that is involved in the offer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SinceOOClDT" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the SinceOOClDT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OfferID" type="common:ID_String_V1">
+				<xsd:annotation>
+					<xsd:documentation>Unique ID consists of year plus a running number. Format: yy-nnn, where yy is last two digits of year, nnn is offer running number.Using ID_String_V1, because it is OfferID is an ID.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InlandOfferRates" type="RateWithSurcharge_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of Outbound,Inbound and other inland rates included in the offer sent.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OceanOfferRates" type="RateWithSurcharge_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of OceanOfferRates included in the offer sent.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceOffers" type="ServiceOfferDoc_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of service offer included in the offer sent.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FormatSettings" type="FormatSettings_V1">
+				<xsd:annotation>
+					<xsd:documentation>Offer format when sent to customer.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ControlPartyName" type="common:CompanyName_V1">
+				<xsd:annotation>
+					<xsd:documentation>Control Party Name.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ControlPartyAddress" type="common:Address_V1">
+				<xsd:annotation>
+					<xsd:documentation>Control Party Address.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PrimaryContactName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>This is the PrimaryContact's Name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PrimaryContactEmailAddress" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>This is the PrimaryContact's Email Address Information.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PrimaryContactPhoneNumber1" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>This is the PrimaryContact's Phone number Information.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PrimaryContactPhoneNumber2" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>This is the PrimaryContact's Mobile Numner Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SecondaryContactName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>This is the SecondaryContact's Name. Also called "Document Preparer" information.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SecondaryContactEmailAddress" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>This is the SecondaryContact's Email Address Information.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SecondaryContactPhoneNumber1" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>This is the SecondaryContact's Phone number Information.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SecondaryContactPhoneNumber2" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>This is the SecondaryContact's Mobile Number Information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Affiliates" type="AB_Affiliates_V1">
+				<xsd:annotation>
+					<xsd:documentation>Holds the affilaites for the agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NamedCustomers" type="AB_NamedCustomer_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Holds the named customers for teh agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DefaultCustomer" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>This is the Default customer for the agreement.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SalesOffice" type="common:BasicOfficeInformation_V1">
+				<xsd:annotation>
+					<xsd:documentation>This is the OOCL Sales Office address.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IssuedDate" type="common:NonStructuredText_V1">
+				<xsd:annotation>
+					<xsd:documentation>Offer Issued Date.Using NonStructuredText_V1 because it is string form of date with length around 50 characters</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FormattedEffectiveFrom" type="common:NonStructuredText_V1">
+				<xsd:annotation>
+					<xsd:documentation>Effective From Date formatted as string to display.Using NonStructuredText_V1 because it is string form of date with length around 50 characters</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FormattedEffectiveTo" type="common:NonStructuredText_V1">
+				<xsd:annotation>
+					<xsd:documentation>Effective To Date formatted as string to display.Using NonStructuredText_V1 because it is string form of date with length around 50 characters</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FormattedFiledEffectiveFrom" type="common:NonStructuredText_V1">
+				<xsd:annotation>
+					<xsd:documentation>Effective Filed From Date formatted as string to display.Using NonStructuredText_V1 because it is string form of date with length around 50 characters</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FormattedFiledEffectiveTo" type="common:NonStructuredText_V1">
+				<xsd:annotation>
+					<xsd:documentation>Effective Filed To Date formatted as string to display.Using NonStructuredText_V1 because it is string form of date with length around 50 characters</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FormattedValidityExpiration" type="common:NonStructuredText_V1">
+				<xsd:annotation>
+					<xsd:documentation>Offer validity Expiration Date formatted as string to display.Using NonStructuredText_V1 because it is string form of date with length around 50 characters</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="StandardRemarks" type="AB_StandardRemarks_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of standard remarks specific for the quote depending on all the settings and conditions.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Flags" type="OptionFlags_V1"/>
+			<xsd:element name="LocationsInvolvedInExport" type="Locations_Details_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of geolocations involved in Offer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TariffsNCountriesInvolvedInExport" type="TariffCountryDetailsForDoc_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="CustomizedOceanSurcharges" type="DerivedSurcharge_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Derived Surcharges per type per size type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TariffOceanSurcharges" type="DerivedSurcharge_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Derived Surcharges per type per size type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InlandAddOnsSurcharges" type="DerivedSurcharge_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Derived Surcharges per type per size type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomizedInlandSurcharges" type="DerivedSurcharge_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Derived Surcharges per type per size type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AllRateRemarks" type="AB_Remarks_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Standard remarks specific for the quote depending on all the settings and conditions.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AB_Affiliates_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the affilaites names,roles,addresses</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Affiliate" type="Affiliate_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>ID of the rate.  Unique only in the context of a specific Agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Affiliate_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents each affilaites name,roles,address</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Name of the affiliate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Address" type="common:Address_V1">
+				<xsd:annotation>
+					<xsd:documentation>Address of the affiliate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AffiliateRoles" type="AB_AffiliateRoles_V1">
+				<xsd:annotation>
+					<xsd:documentation>Roles list of the affiliate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AB_AffiliateRoles_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents each affilaites roles</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AffiliateRole" type="AffiliateRole_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Roles of the affiliate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AffiliateRole_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents each affilaites roles</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Name of the affiliate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Code" type="AffiliateRoleCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Name of the affiliate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AB_NamedCustomer_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents each affilaites name,roles,address</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Name of the affiliate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Address" type="common:Address_V1">
+				<xsd:annotation>
+					<xsd:documentation>Address of the affiliate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BookingConditions" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Roles list of the affiliate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BLConditions" type="BLConditionsDesc_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Roles list of the affiliate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AB_StandardRemarks_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents each standard remark and remarksCode</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="StandardRemark" type="AB_Remarks_V1">
+				<xsd:annotation>
+					<xsd:documentation>Standard remarks specific for the quote depending on all the settings and conditions.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SubRemarks" type="AB_Remarks_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Classify Remarks</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AB_Remarks_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents each standard remark and remarksCode</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Remark" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Standard remarks specific for the quote depending on all the settings and conditions.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RemarksCode" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Classify Remarks</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RemarkIndex" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>This index is used for the BIP Template to arrange them in order</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Locations_Details_V1">
+		<xsd:annotation>
+			<xsd:documentation>Contains Location short and full name details</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ItemIndex" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Location Item Index</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShortName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Location Short name which is Location local name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FullName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Location Full name </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TariffCountryDetailsForDoc_V1">
+		<xsd:annotation>
+			<xsd:documentation>Continent as well as Country Details for the missing origins and destinations</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SeqNo" type="xsd:string"/>
+			<xsd:element name="TariffStr" type="xsd:string"/>
+			<xsd:element name="CountryStr" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="OfferToCustomer" type="OfferToCustomer_V1"/>
+</xsd:schema>

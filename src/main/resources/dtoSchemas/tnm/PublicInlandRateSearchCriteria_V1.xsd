@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Orlando Palis (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ShipmentBound_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/SingleEndDeliveryMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:complexType name="PublicInlandRateSearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents an inland rate search request. For more info on inland rate, refer to  InlandRate_V1. (Note: The inland rate search is applicable only to a specific set of inland rate tables which is to be provided for production rollout.)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Location" type="common:BasicLocationInformation_V1">
+				<xsd:annotation>
+					<xsd:documentation>Location used for matching Origin and/or Destination.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ConnectingOverLocation" type="common:BasicLocationInformation_V1">
+				<xsd:annotation>
+					<xsd:documentation>Location used for matching over location of the connecting legs (directly or indirectly)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Bound" type="common:ShipmentBoundCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Used for matching inland rate's shipment bound which can be blank. IB matches IB and blank. OB matches OB and blank.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchDate" type="fwd:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>Search date - YYYY-MM-DD format (example '2007-01-30').</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DeliveryMode" type="common:SingleEndDeliveryMode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Used for matching inland rate's delivery mode (CY or Door).</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

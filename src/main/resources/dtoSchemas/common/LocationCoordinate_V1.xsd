@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by David Li (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="LocationCoordinate_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about a physical geographical location.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="LatitudeDegreesMeasure" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="EntityBriefName_V1">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LongitudeDegreesMeasure" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="EntityBriefName_V1">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

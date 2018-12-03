@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../OceanRate_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../SurchargeType_V1.xsd"/>
+	<xsd:complexType name="ApplicableSurchargeSearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents search criteria for applicable surcharge by ocean rate with a list of surcharge types.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="BaseRate" type="tnm:OceanRate_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Base (ocean) rate containing the rates used in the applicable surcharge search.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SurchargeType" type="tnm:SurchargeType_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>A list of surcharge type used in the applicable surcharge search.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

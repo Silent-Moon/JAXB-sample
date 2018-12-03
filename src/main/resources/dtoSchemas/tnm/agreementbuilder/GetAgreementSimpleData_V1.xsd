@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 (x64) (http://www.altova.com) by HUJI (Orient Overseas Container Line Limited) -->
+<xs:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="KeyValue_V1.xsd"/>
+	<xs:include schemaLocation="NestedKeyValue_V1.xsd"/>
+	<xs:complexType name="SimpleQueryCriteria_V1">
+		<xs:sequence>
+			<xs:element name="QueryType" type="xs:string"/>
+			<xs:element name="QueryCriteria" type="KeyValue_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SimpleQueryResult_V1">
+		<xs:sequence>
+			<xs:element name="QueryResults" type="NestedKeyValue_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

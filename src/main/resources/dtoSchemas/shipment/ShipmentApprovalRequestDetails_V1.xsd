@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by VIJAY KODALI (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.shipment" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ApprovalStatus_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:include schemaLocation="ShipmentNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/SVVD_V1.xsd"/>
+	<xsd:complexType name="ShipmentApprovalRequestDetails_V1">
+		<xsd:annotation>
+			<xsd:documentation>Approval details of a shipment</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ShipmentNumber" type="ShipmentNumber_V1"/>
+			<xsd:element name="ApprovalStatus" type="common:ApprovalStatus_V1">
+				<xsd:annotation>
+					<xsd:documentation>The status of the approval request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Origin" type="common:EntityLocationCode_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Facility Code of the origin of the voyage leg</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Destination" type="common:EntityLocationCode_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Facility Code of the destination of the voyage leg</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LoadVoyage" type="common:SVVD_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Vessel Voyage Code of the Voyage Leg</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CallNumber" type="common:ID_Integer_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Load call number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

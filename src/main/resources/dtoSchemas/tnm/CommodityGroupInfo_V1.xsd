@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" xmlns:eqm="http://com.oocl.schema.eqm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommodityReportGroup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:include schemaLocation="AbstractTariffGroupInfo_V1.xsd"/>
+	<xsd:complexType name="CommodityGroupInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a grouping of commodity information for the purposes of associating with applicable guideline rates</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="tnm:AbstractTariffGroupInfo_V1">
+				<xsd:sequence>
+					<xsd:element name="ReportCodes" type="common:AlphaCode_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>An optional list of associated CommodityReportGroup alpha codes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ReportGroups" type="common:CommodityReportGroup_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>An optional list of associated CommodityReportGroups</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Description" type="common:BasicDescription_V1"  minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Commodity Group Description</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

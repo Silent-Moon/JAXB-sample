@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common.lookup" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.common.lookup" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../ServiceLoopCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../ServiceLoopName_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/TradeCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/TradeLaneCode_V1.xsd"/>
+	<xsd:complexType name="ServiceLoopLookupCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a service loop look up search request with mandatory and optional search criteria.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Codes" type="common:ServiceLoopCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Service Loop abbreviation. Max. length is 4.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Names" type="common:ServiceLoopName_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Service Loop name. Max. length is 80.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeCode" type="tnm:TradeCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Trade code. Max. length is 3.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeLane" type="tnm:TradeLaneCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Trade Lane code. Max. length is 3.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
+

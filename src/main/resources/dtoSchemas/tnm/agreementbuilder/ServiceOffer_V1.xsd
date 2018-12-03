@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by HUJI (Orient Overseas Container Line Ltd) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fw="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TNMCommonTypes_V1.xsd"/>
+	<xsd:include schemaLocation="RegularService_V1.xsd"/>
+	<xsd:include schemaLocation="DDService_V1.xsd"/>
+	<xsd:include schemaLocation="AB_Commodity_V1.xsd"/>
+	<xsd:include schemaLocation="Attachment_V1.xsd"/>
+	<xsd:complexType name="ServiceOffer_V1">
+		<xsd:sequence>
+			<xsd:element name="ObjectID" type="xsd:long"/>
+			<xsd:element name="AgreementID" type="xsd:string"/>
+			<xsd:element name="ServiceID" type="xsd:int"/>
+			<xsd:element name="ServiceType" type="ServiceType_V1"/>
+			<xsd:element name="TrafficMode" type="tnm:AgreementTrafficMode_V1"/>
+			<xsd:element name="ServiceDesc" type="xsd:string"/>
+			<xsd:element name="EffectiveFrom" type="xsd:dateTime"/>
+			<xsd:element name="EffectiveTo" type="xsd:dateTime"/>
+			<xsd:element name="ActivationStatus" type="ServiceActivationStatus_V1"/>
+			<xsd:element name="ApprovalStatus" type="ServiceApprovalStatus_V1"/>
+			<xsd:element name="Flags" type="xsd:long"/>
+			<xsd:element name="TariffCodes" type="xsd:string" maxOccurs="unbounded"/>
+			<xsd:element name="CargoNatureGroup" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="CommodityDesc" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Commodities" type="CommodityDetail_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Commodity" type="AB_Commodity_V1" minOccurs="0"/>
+			<xsd:element name="LinkedReferences" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="LinkedCustomers" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Origins" type="xsd:long" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Destinations" type="xsd:long" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="OriginRegions" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="DestinationRegions" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="OriginTerritory" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DestinationTerritory" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Memo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Remark" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Justification" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AdditionalRemark" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Approver" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ApproverRemark" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="OfflineApprovers" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="OfflineApproverRemark" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CreatedOn" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="CreatedBy" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SalesOffice" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SalesPerson" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LastUpdated" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="LastUpdatedBy" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Previous" type="xsd:long" minOccurs="0"/>
+			<xsd:element name="Next" type="xsd:long" minOccurs="0"/>
+			<xsd:element name="LockStamp" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DDService" type="DDService_V1" minOccurs="0"/>
+			<xsd:element name="RegularService" type="RegularService_V1" minOccurs="0"/>
+			<xsd:element name="LastSentOfferID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LastSentMCCI_ID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LastSentDate" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="Attachments" type="Attachment_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ServiceOffer" type="ServiceOffer_V1"/>
+</xsd:schema>

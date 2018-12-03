@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="http://com.oocl.schema.customer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:shipment="http://com.oocl.schema.shipment" xmlns:framework="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.customer" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="InvoiceType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/MonetaryAmount_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/SAP_ID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ShipmentBound_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../tnm/Trade_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../shipment/BillOfLadingNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:complexType name="Invoice_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This represents an Invoice.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ReferenceCode" type="InvoiceReferenceCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>The invoice number.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PayerSAP_ID" type="common:SAP_ID_V1">
+				<xsd:annotation>
+					<xsd:documentation>The payer SAP ID of the invoice.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InvoiceTypeCode" type="InvoiceTypeCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>The type of invoice which is one of the following:  SF, SN, NS. </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HasDND" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicates that the invoice has DND charges.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsCombined" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicates that the invoice is a combined invoice.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PaymentDueDate" type="framework:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>The date that the invoice is due.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalAmountInInvoiceCurrency" type="common:MonetaryAmount_V1">
+				<xsd:annotation>
+					<xsd:documentation>The total amount, in invoice currency, that has to be settled.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OutstandingBalanceInInvoiceCurrency" type="common:MonetaryAmount_V1">
+				<xsd:annotation>
+					<xsd:documentation>The remaining amount of the total amount, in invoice currency, that hasn't been settled yet.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalAmountInLocalCurrency" type="common:MonetaryAmount_V1">
+				<xsd:annotation>
+					<xsd:documentation>The total amount, in local currency, that has to be settled.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OutstandingAmountInLocalCurrency" type="common:MonetaryAmount_V1">
+				<xsd:annotation>
+					<xsd:documentation>The remaining amount of the total amount, in local currency, that hasn't been settled yet.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShipmentBoundCode" type="common:ShipmentBoundCode_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The shipment bound that the invoice covers.  This could be null for non-shipment related invoices.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeCode" type="tnm:TradeCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The trade code to which the invoice is applied.  This is null for non-shipment related invoices.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BL_Numbers" type="shipment:BillOfLadingNumber_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The associated BLs for the invoice.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="InvoiceReferenceCode_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			 Defines the invoice reference code. An invoice reference code is also called invoice number
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="InvoiceStatus_V1">
+		<xsd:annotation>
+			<xsd:documentation> This represents the Current Status information of the Invoice. The values can be Internet Upload, Draft, Internet Print, Internet Amendment, Confirmed, Cancelled, Printed, Internet Reject, Faxed or Internet Reprint</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="19"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

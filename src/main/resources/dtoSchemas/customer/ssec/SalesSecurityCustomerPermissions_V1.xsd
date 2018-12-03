@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="http://com.oocl.schema.customer.ssec" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ssec="http://com.oocl.schema.customer.ssec" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.customer.ssec" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:include schemaLocation="SalesSecurityApplicationAccess_V1.xsd"/>
+	<xsd:include schemaLocation="SalesAssignmentRestriction_V1.xsd"/>
+	<xsd:complexType name="SalesSecurityCustomerPermissions_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				Sales Security Permissions -  contains a collection of permissions/rights associated to a given user for a customer that user will be accessing.
+				User may have rights to either sensitive or non-sensitive information for a given category/application.
+				In addition, a list of restriction based on Trade, Trade Lane, Bound and Cargo Nature group is also provided.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="forUserID" type="common:UserID_V1" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">User ID associated to the returned customer permission/s.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SAP_ID" type="common:SAP_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">SAP ID represents the customer that will be accessed.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ApplicationRights" type="ssec:SalesSecurityApplicationAccess_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Application rights - is a collection of permissions per application/category associated with the customer information being accessed.  The assumption is that if permission is not granted for a given application/category name, result will not include any entry for the said application.  Only applications/categories with explicit access to either sensitive or non-sensitive data will be included</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SalesAssignmentRestrictions" type="ssec:SalesAssignmentRestriction_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Sales Assignment restriction is a collection of Trade-Trade Lane-Bound-Cargo Nature Group combination that can be applied on top of the Application Rights.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

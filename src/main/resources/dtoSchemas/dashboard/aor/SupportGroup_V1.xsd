@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard.aor" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.dashboard.aor" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="SupportGroup_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Supervisor"/>
+			<xsd:enumeration value="Escalation"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

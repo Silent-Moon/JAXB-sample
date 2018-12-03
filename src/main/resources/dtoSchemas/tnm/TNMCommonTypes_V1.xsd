@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by HUJI (Orient Overseas Container Line Ltd) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="AgreementTrafficMode_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="FF"/>
+			<xsd:enumeration value="FL"/>
+			<xsd:enumeration value="LF"/>
+			<xsd:enumeration value="LL"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

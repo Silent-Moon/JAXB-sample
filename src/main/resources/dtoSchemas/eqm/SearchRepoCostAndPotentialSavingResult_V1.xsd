@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2016 sp1 (x64) (http://www.altova.com) by Orient Overseas Container Line Limited (Orient Overseas Container Line Limited) -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:include schemaLocation="OpzoneLabel_V1.xsd"/>
+	<xsd:complexType name="SearchRepoCostAndPotentialSavingResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the Repo Cost &amp; Potential Saving Search Result</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RequestId">
+				<xsd:annotation>
+					<xsd:documentation>Represents the ID of the Request</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="256"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Backhaul" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicates if the CMTX Inputs are backhaul business or not</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmptyReleaseOpzone" type="SearchRepoCostAndPotentialSavingResultOpzoneDetail_V1">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Empty Release Opzone</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmptyReturnOpzone" type="SearchRepoCostAndPotentialSavingResultOpzoneDetail_V1">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Empty Return Opzone</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InventoryLabel" type="SearchRepoCostAndPotentialSavingResultInventoryLabel_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Inventory Label</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RepoCost" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Repo Cost</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PotentialSaving" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Potential Saving</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SearchRepoCostAndPotentialSavingResultCostBreakdown_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the Cost Breakdown</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Total" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Total Cost</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Base" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Base Cost</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Additional" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Additional Cost</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SearchRepoCostAndPotentialSavingResultInventoryLabel_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the Inventory Label</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="On" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Inventory Label Indicator</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Apply" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Inventory Label Application</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MarginalCost" type="SearchRepoCostAndPotentialSavingResultCostBreakdown_V1">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Marginal Cost After Inventory Label Logic</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SearchRepoCostAndPotentialSavingResultOpzoneDetail_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the Opzone Detail</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OpzoneCode" type="common:EntityCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Geo Location Code of the Opzone</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OpzoneLabel" type="OpzoneLabel_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Opzone Label</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OpzoneValue" type="SearchRepoCostAndPotentialSavingResultCostBreakdown_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Opzone Value</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MarginalCost" type="SearchRepoCostAndPotentialSavingResultCostBreakdown_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Marginal Cost</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IntraOpzoneCost" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Intra Opzone Cost</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProjectedVolume" type="SearchRepoCostAndPotentialSavingResultProjectedVolume_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Projected Volume</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DataPeriod" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Data Period</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="6"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SearchRepoCostAndPotentialSavingResultProjectedVolume_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the Projected Volume</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Outbound" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Projected Outbound Volume</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Inbound" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Projected Inbound Volume</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Imbalance" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Projected Volume Imbalance</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm.salesview" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:salesview="http://com.oocl.schema.tnm.salesview" targetNamespace="http://com.oocl.schema.tnm.salesview" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="BKG_PerformanceSummaryDetail_V1.xsd"/>
+	<xsd:include schemaLocation="SalesViewAggregateStatus_V1.xsd"/>	
+	<xsd:complexType name="BKG_PerformanceSummary_V1">
+		<xsd:annotation>
+			<xsd:documentation>
+				Contains BKG Performance Summary associated to the queried customer.
+				AggregateStatus indicates if data aggregated, Summary has aggregated BKG Summary data.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AggregateStatus" type="salesview:SalesViewAggregateStatus_V1">
+				<xsd:annotation>
+					<xsd:documentation>Indicates status of DND aggregation for queried customer.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Summary" type="salesview:BKG_PerformanceSummaryDetail_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Contains a collection of detailed information associated to the performance summary</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

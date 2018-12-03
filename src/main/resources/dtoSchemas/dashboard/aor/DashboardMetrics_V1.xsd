@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard.aor" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fwk="http://com.oocl.frm.common.date.dto/" xmlns:dsh="http://com.oocl.schema.dashboard" targetNamespace="http://com.oocl.schema.dashboard.aor" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.dashboard" schemaLocation="../DSH_CommonTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.dashboard" schemaLocation="../Escalation_V1.xsd"/>
+	<xsd:complexType name="ActivityMetric_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Type" type="dsh:ActivityType_V1"/>
+			<xsd:element name="Code" type="dsh:ActivityCode_V1"/>
+			<xsd:element name="Group" type="dsh:ActivityGroup_V1">
+				<xsd:annotation>
+					<xsd:documentation>Grouping of activities - for example Shipment, Agreement etc.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Version" type="dsh:ActivityDefinitionVersion_V1"/>
+			<xsd:element name="ActivityID" type="dsh:ActivityID_V1"/>
+			<xsd:element name="ActionType">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="New"/>
+						<xsd:enumeration value="Update"/>
+						<xsd:enumeration value="Terminate"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Remarks" type="xsd:string"/>
+			<xsd:element name="CompletionExpectedDate" type="fwk:FWAbsoluteDateTimeDTO"/>
+			<xsd:element name="RequestorID" type="dsh:ActivityCreatorID_V1"/>
+			<xsd:element name="IsSuccessful" type="xsd:boolean"/>
+			<!--<xsd:element name="Assignments" type="dsh:Assignment_V1" minOccurs="0" maxOccurs="unbounded"/>-->
+			<xsd:element name="ErrorMessage" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Reason for failure </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShortDescription" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Desription to show on screen</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EscalationLevel" type="dsh:EscalationLevel_V1" minOccurs="0"/>
+			<xsd:element name="Owner" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CoOwner" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Reminder" type="fwk:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ActivityMetric" type="ActivityMetric_V1">
+		<xsd:annotation>
+			<xsd:documentation>Root Element of Activity Metrics</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

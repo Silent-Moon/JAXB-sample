@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Windy OR (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.epa" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:framework="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.epa" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonContainerSizeTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:element name="InventoryBalanceUpdate_V1">
+		<xsd:annotation>
+			<xsd:documentation>Define the event for InventoryBalanceUpdate</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="INV_DT_TM" type="framework:FWAbsoluteDateTimeDTO">
+					<xsd:annotation>
+						<xsd:documentation>Inventory datetime</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="INV_DT_TZ">
+					<xsd:annotation>
+						<xsd:documentation>Timezone</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="100"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="MTY_PICKUP_FCIL" type="common:EntityLocationCode_V1">
+					<xsd:annotation>
+						<xsd:documentation>Empty pickup facility</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="EQP_SIZE_TYPE" type="common:TMS_ContainerSizeTypes_V1">
+					<xsd:annotation>
+						<xsd:documentation>Equipment size type</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ACT_UNCOND_MTA" type="xsd:int" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Empty availanle for uncond containers</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="MR" type="xsd:int" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Maintenance and repair</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="MR_DAILY" type="xsd:int" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Maintenance and repair (daily input)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="MR_DEFAULT" type="xsd:double" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Maintenance and repair (default ratio)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="MR_EXCEPTION" type="xsd:double" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Maintenance and repair (exception ratio)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="UNCOND_REPO_IN" type="xsd:int" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Repo in for uncond containers</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="PLAN_REPO_IN" type="xsd:int" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Plan repo in</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="PLAN_REPO_IN_INPUT" type="xsd:double" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Plan repo in ratio</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="COD_IN" type="xsd:int" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>COD in</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="COD_IN_INPUT" type="xsd:double" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>COD in ratio</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="COD_OUT" type="xsd:int" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>COD out</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="COD_OUT_INPUT" type="xsd:double" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>COD out ratio</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="UNCOND_IB_RTN" type="xsd:double" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Uncond inbound return</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="UNCOND_IB_RTN_MAP" type="xsd:double" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Uncond inbound return map</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="UNCOND_IB_RTN_ORG" type="xsd:integer" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Uncond inbound return (original facility)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ONHIRE_INPUT" type="xsd:int" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Oustanding onhire containers</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="PLAN_REPO_OUT" type="xsd:int" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Plan repo out</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="PLAN_REPO_OUT_INPUT" type="xsd:double" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Plan repo out ratio</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="MANUAL_EST" type="xsd:int" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Manual estimation</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="APPOINTED_QUANTITY_AA" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>Quantity of AA containers appointed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="APPOINTED_QUANTITY_NORMAL" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>Quantity of normal containers appointed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="INVENTORY" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>Total inventory</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="INVENTORY_BALANCE" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>Remaining inventory</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ModifiedDatetimeGMT" type="framework:FWAbsoluteDateTimeDTO">
+					<xsd:annotation>
+						<xsd:documentation>Modified datetime (GMT)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

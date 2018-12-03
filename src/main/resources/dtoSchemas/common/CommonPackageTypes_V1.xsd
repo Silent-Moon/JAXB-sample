@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="OOCL_PackageTypeCodes_V1">
+		<xsd:annotation>
+			<xsd:documentation>UOM Codes for Package Types used in OOCL</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="AS"/>
+			<xsd:enumeration value="BAG"/>
+			<xsd:enumeration value="BALE"/>
+			<xsd:enumeration value="BAR"/>
+			<xsd:enumeration value="BARE"/>
+			<xsd:enumeration value="BG"/>
+			<xsd:enumeration value="BOX"/>
+			<xsd:enumeration value="BULK"/>
+			<xsd:enumeration value="BUNDLE"/>
+			<xsd:enumeration value="BX"/>
+			<xsd:enumeration value="CAN"/>
+			<xsd:enumeration value="CASE"/>
+			<xsd:enumeration value="CHEST"/>
+			<xsd:enumeration value="COIL"/>
+			<xsd:enumeration value="CONE"/>
+			<xsd:enumeration value="CRADLE"/>
+			<xsd:enumeration value="CRATE"/>
+			<xsd:enumeration value="CTN"/>
+			<xsd:enumeration value="DD"/>
+			<xsd:enumeration value="DE"/>
+			<xsd:enumeration value="DOZ"/>
+			<xsd:enumeration value="DRUM"/>
+			<xsd:enumeration value="DZ"/>
+			<xsd:enumeration value="EA"/>
+			<xsd:enumeration value="FT"/>
+			<xsd:enumeration value="JAR"/>
+			<xsd:enumeration value="KIT"/>
+			<xsd:enumeration value="LOT"/>
+			<xsd:enumeration value="M"/>
+			<xsd:enumeration value="PACK"/>
+			<xsd:enumeration value="PAIL"/>
+			<xsd:enumeration value="PAIR"/>
+			<xsd:enumeration value="PCS"/>
+			<xsd:enumeration value="PKG"/>
+			<xsd:enumeration value="PLT"/>
+			<xsd:enumeration value="PW"/>
+			<xsd:enumeration value="RACK"/>
+			<xsd:enumeration value="REEL"/>
+			<xsd:enumeration value="ROLL"/>
+			<xsd:enumeration value="SACK"/>
+			<xsd:enumeration value="SET"/>
+			<xsd:enumeration value="SHEET"/>
+			<xsd:enumeration value="SKID"/>
+			<xsd:enumeration value="SPOO"/>
+			<xsd:enumeration value="SQ. METER"/>
+			<xsd:enumeration value="ST"/>
+			<xsd:enumeration value="STACK"/>
+			<xsd:enumeration value="SUIT"/>
+			<xsd:enumeration value="TANK"/>
+			<xsd:enumeration value="TONNE"/>
+			<xsd:enumeration value="TRAY"/>
+			<xsd:enumeration value="UNIT"/>
+			<xsd:enumeration value="W/CASE"/>
+			<xsd:enumeration value="YARD"/>
+			<xsd:enumeration value="YD"/>
+			<xsd:enumeration value="MCT"/>
+			<xsd:enumeration value="BOT"/>
+			<xsd:enumeration value="BG"/>
+			<xsd:enumeration value="BOT"/>
+			<xsd:enumeration value="BX"/>
+			<xsd:enumeration value="CT"/>
+			<xsd:enumeration value="PK"/>
+			<xsd:enumeration value="RL"/>
+			<xsd:enumeration value="UNIT"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

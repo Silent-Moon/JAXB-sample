@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="GeoLocationTypeString_V1">
+		<xsd:annotation>
+			<xsd:documentation>Geo location type - Autonomous Community, Canton, City, City District, CityDistrict Suburb, Country, County, Department, District, Emirate, Facility, Governorate, Island, Municipality, Nation State, Parish, Port, Prefecture, Province, Region, State. Max. length is 20.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>
+

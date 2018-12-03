@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementVersion_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementID_V1.xsd"/>
+	<xsd:include schemaLocation="AB_Volume_V1.xsd"/>
+	<xsd:complexType name="BasicVolumeGroupInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Basic volume group info derived from group itself</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" type="common:ID_String_V1">
+				<xsd:annotation>
+					<xsd:documentation>Volume group name unique within agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ObjectID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>System generated object id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Description" type="common:BasicDescription_V1">
+				<xsd:annotation>
+					<xsd:documentation>Volume group description derived from its contents</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AB_VolumeGroup_V1">
+		<xsd:annotation>
+			<xsd:documentation>Volume group definition in AB</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="GroupInfo" type="BasicVolumeGroupInfo_V1">
+				<xsd:annotation>
+					<xsd:documentation>Volume group info</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Volumes" type="AB_Volume_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of volume specifications</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementID" type="tnm:AgreementID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Agreement ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementVersion" type="tnm:AgreementVersion_V1">
+				<xsd:annotation>
+					<xsd:documentation>Agreement version</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SharedRateIDs" type="common:ID_Integer_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of Rate IDs that share the volume group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SharedRateOIDs" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of Rate OIDs that share the volume group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Formatting" type="VolumeFormatting_V1">
+				<xsd:annotation>
+					<xsd:documentation>Volume group display format setting</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ParentName" type="common:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Parent volume group name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastUpdated" type="AB_DateTime_V1">
+				<xsd:annotation>
+					<xsd:documentation>Time of the last update</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastUpdatedBy" type="common:UserID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Person who made the last update</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="VolumeGroup" type="AB_VolumeGroup_V1"/>
+</xsd:schema>

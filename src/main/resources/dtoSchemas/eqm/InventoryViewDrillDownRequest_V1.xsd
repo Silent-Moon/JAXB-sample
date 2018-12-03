@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/OpZone_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Facility_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Region_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerSizeType_V1.xsd"/>
+	<xsd:complexType name="InventoryViewDrillDownRequest_V1">
+		<xsd:annotation>
+			<xsd:documentation>Search criteria for the drill down report in Inventory View Summary. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Date" type="iodt:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation> Drill down search date </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EqpSizeType" type="ContainerSizeType_V1">
+				<xsd:annotation>
+					<xsd:documentation>Drill down eqp size type </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Region" type="common:Region_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Searching criteria to provide the Region Code and Region Name for the drill down </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Facility" type="common:Facility_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Searching criteria to provide the Facility Name and Facility Code for the drill down</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OpZone" type="common:OpZone_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Searching criteria to provide the Opzone Code and Opzone name for the drill down</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="City" type="common:BasicLocationInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Searching criteria to provide the City ID and City Name for the drill down</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DrillDownColumn">
+				<xsd:annotation>
+					<xsd:documentation>The drill down column name</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+						<xsd:enumeration value="ACT_REPO_OUT"/>
+						<xsd:enumeration value="UNCOND_REPO_IN"/>
+						<xsd:enumeration value="COND_REPO_IN"/>
+						<xsd:enumeration value="ACT_UNCOND_MTA"/>
+						<xsd:enumeration value="ACT_COND_MTA"/>
+						<xsd:enumeration value="ACT_RESERVED"/>
+						<xsd:enumeration value="ACT_MNR"/>
+						<xsd:enumeration value="PLANNED_REPO_OUT"/>
+						<xsd:enumeration value="PLANNED_REPO_IN"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

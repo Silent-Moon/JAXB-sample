@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm.saleshierarchy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.saleshierarchy" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="VisibilityRelationship_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a list of sales hierarchy visibility relationships</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Action" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Action to be taken on this record</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ViewerID" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Login ID for the user who is the Viewer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ViewerLastName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Last name for the user who is the Viewer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ViewerFirstName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Last name for the user who is the Viewer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ViewerRole" type="VisibilityRole_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Role code for the user who is the Viewer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SharerID" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Login ID for the user who is the Sharer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SharerLastName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Last name for the user who is the Sharer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SharerFirstName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Last name for the user who is the Sharer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SharerRole" type="VisibilityRole_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Role code for the user who is the Sharer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ViewerOfficeCode" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Office code for the user who is the Viewer</xsd:documentation>
+					</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ViewerRegionCode" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Region code for the user who is Viewer</xsd:documentation>
+					</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ViewerTerritoryCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Territory code for the user who is Viewer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SharerOfficeCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Office code for the user who is Sharer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SharerRegionCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Region code for the user who is Sharer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SharerTerritoryCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Territory code for the user who is Sharer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="VisibilityRole_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="RD"/>
+			<xsd:enumeration value="SM"/>
+			<xsd:enumeration value="SP"/>
+			<xsd:enumeration value="IS"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

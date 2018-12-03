@@ -1,0 +1,24 @@
+<!--  edited with XMLSpy v2008 (http://www.altova.com) by abrudho (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common.event" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common.event" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../ZIP_Code_V1.xsd"/>
+	<xsd:element name="GSPPostalCode_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event for GSP Postal Code data change (insert, update, delete)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="GSP_CityUUID" type="common:ID_Integer20_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the City UUID which is equivalent to GSP_POSTAL_CDE_RVW.GSP_CITY_UUID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="GSP_PostalCode" type="common:ZIP_Code_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the GSP Postal Code which is equivalent to GSP_POSTAL_CDE_RVW.POSTAL_CDE</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

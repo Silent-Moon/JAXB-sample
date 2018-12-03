@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:simpleType name="PricingTransportMode_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents possible modes of transports or combinations of modes of transport for the purposes of pricing and rates</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Rail"/>
+			<xsd:enumeration value="Truck"/>
+			<xsd:enumeration value="Vessel"/>
+			<xsd:enumeration value="Barge"/>
+			<xsd:enumeration value="Feeder"/>
+			<xsd:enumeration value="TruckFeeder"/>
+			<xsd:enumeration value="TruckRail"/>
+			<xsd:enumeration value="TruckBarge"/>
+			<xsd:enumeration value="BargeRail"/>
+			<xsd:enumeration value="FeederRail"/>
+			<xsd:enumeration value="TruckBargeRail"/>
+			<xsd:enumeration value="TruckFeederRail"/>
+			<xsd:enumeration value="TruckBargeFeederRail"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Kalyan (OOCL (USA) INC) -->
+  <xsd:schema xmlns="http://com.oocl.schema.common.tsm"  xmlns:common="http://com.oocl.schema.common" xmlns:frm="http://com.oocl.frm.common.date.dto/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common.tsm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:element name="VoyageStop_V1" type="VoyageStop_V1">
+		<xsd:annotation>
+			<xsd:documentation>This Represents Voyage Stop of Voyage.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="VoyageStop_V1">
+		<xsd:annotation>
+			<xsd:documentation>This Represents Voyage Stop of Voyage. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FacilityCode" type="common:EntityLocationCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Voyage Stop Facility Code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CallNumber" type="common:ID_Integer_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Voyage Stop Call Number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PortCode" type="common:EntityLocationCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Voyage Stop Port Code.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

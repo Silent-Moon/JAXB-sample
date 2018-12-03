@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by tusha (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="PhoneNumber_V1.xsd"/>
+	<xsd:include schemaLocation="PersonName_V1.xsd"/>
+	<xsd:include schemaLocation="EmailAddress_V1.xsd"/>
+	<xsd:include schemaLocation="BasicOfficeInformation_V1.xsd"/>
+	<xsd:complexType name="SalesRepresentative_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This defines a Sales Representative data type.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Code" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SalesRepName" type="PersonName_V1" minOccurs="0"/>
+			<xsd:element name="SalesOffice" type="BasicOfficeInformation_V1" minOccurs="0"/>
+			<xsd:element name="EmailAddress" type="EmailAddress_V1" minOccurs="0"/>
+			<xsd:element name="PhoneNumber" type="PhoneNumber_V1" minOccurs="0"/>
+			<xsd:element name="IsActive" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="DepartmentCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MobilePhoneNumber" type="PhoneNumber_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

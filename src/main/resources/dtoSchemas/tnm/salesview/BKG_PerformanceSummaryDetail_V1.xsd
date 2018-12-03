@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm.salesview" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:shipment="http://com.oocl.schema.shipment" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:salesview="http://com.oocl.schema.tnm.salesview" targetNamespace="http://com.oocl.schema.tnm.salesview" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- note to make sure the right way to import framework dependencies -->
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/Trade_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ShipmentBound_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementVersion_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CardinalDirection_V1.xsd"/>
+	<xsd:complexType name="BKG_PerformanceSummaryDetail_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">BKG Performance.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TradeCode" type="tnm:TradeCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Trade Code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Direction" type="common:CardinalDirectionCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Direction Code. Valid values are: N, S, E, W</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Bound" type="common:ShipmentBoundCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Bound</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementNumber" type="tnm:AgreementID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Unique identifier for a specific agreement.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementVersion" type="tnm:AgreementVersion_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Version associated to the agreement.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementType" type="tnm:AgreementType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Identifies whether the agreement is a Service Contract or Customized Service Offering
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PortOfReceipt" type="common:EntityLocationName_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Port of Receipt</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PortOfReceipt_UUID" type="common:UUID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the Entity UUID which is equivalent to POR_UUID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FinalDestination" type="common:EntityLocationName_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Final Destination</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FinalDestination_UUID" type="common:UUID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the Entity UUID which is equivalent to FND_UUID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WeeklyDetails" type="BKG_PerformancePerWeek_V1" nillable="true" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>contains a collection of booking performance summary details expressed in weeks.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BKG_PerformancePerWeek_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">contains booking performance summary information for a given year/week</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Year" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Year of week associated to the booking performance</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Week" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Week Number associated to the booking performance</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ConfirmedTEU" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Number of TEUs that booking status is acknowledged with firm acceptance.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalTEU" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Total TEU count regardless of commit status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NoShowTEU" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>TEU Count for shipments with No Show status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ConfirmedContainerPackageNumberList" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Contains list of container package numbers with Confirmed status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NoShowContainerPackageNumberList" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Contains list of container package numbers with No Show status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalContainerPackageNumberList" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Contains list of container package numbers regardless of commit status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerToSVVMap" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Map containing SVC/VSL/VOY and associated containers</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

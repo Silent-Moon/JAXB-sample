@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) 
+TMIS Hierarchy Region Level xsd has two values: Region and SubRegion  -->
+<xsd:schema xmlns="http://com.oocl.schema.iris2cp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.iris2cp" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="TMIS_HierarchyRegionLevel_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is a TMIS Hierarchy Region Level xsd</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Region">
+				<xsd:annotation>
+					<xsd:documentation>This is a Region</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SubRegion">
+				<xsd:annotation>
+					<xsd:documentation>This is  a SubRegion</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

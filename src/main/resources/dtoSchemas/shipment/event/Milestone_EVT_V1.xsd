@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Josie Tapas (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:frm="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.shipment" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:include schemaLocation="../Milestone_V1.xsd"/>
+	<xsd:element name="Milestone_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents the milestone reached events of shipment or container package</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Label_UUID" type="common:UUID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This represents MILESTONE_LABEL.MilestoneLabelUUID column </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Entity_UUID" type="common:UUID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This represents shipment UUID if Level = Shipment or container package UUID if Level = Container</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Level" type="MilestoneLevel_V1">
+					<xsd:annotation>
+						<xsd:documentation>This represents the milestone  level (shipment-level or container-level)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Code" type="MilestoneCode_V1">
+					<xsd:annotation>
+						<xsd:documentation>This represents milestone code</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ActivityDateTime" type="frm:FWAbsoluteDateTimeDTO">
+					<xsd:annotation>
+						<xsd:documentation>This represents the date time of milestone activity in GMT</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="IsComplete" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>This represents milestone completed indicator</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../GuidelineRateSearchCriteria_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../GuidelineRateSearchResult_V1.xsd"/>
+	<xsd:complexType name="GuidelineRateSearchInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a pair of guideline rate search criteria and result.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Criteria" type="tnm:GuidelineRateSearchCriteria_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Criteria used for the search.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Result" type="tnm:GuidelineRateSearchResult_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Corresponding result of the search.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>		
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

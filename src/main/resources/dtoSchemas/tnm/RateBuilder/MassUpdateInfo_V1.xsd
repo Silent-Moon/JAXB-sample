@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by tusha (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="MassUpdateInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>A complex type that represents the details of the update process, like errors, ID of the rate table that got updated, reason for failures, total number of records updated etc.,</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Errors" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Represents the errors occured during the update process.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="2000"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsCompleted" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Specifies if the process has completed or not.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FailureReason" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Specifies the reason for the failure of the process.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="200"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LastUpdated" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Specifies the information regarding when the record was last updated.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ID_RateTable" type="common:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Specified the ID of the Rate Table that got updated.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalRecordCount" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Specifies the count of the total number of records.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CompletedRecordCount" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Specifies the total number of records that got updated by the update process.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdatedBy" type="common:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Specifies the information about who updated the table.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

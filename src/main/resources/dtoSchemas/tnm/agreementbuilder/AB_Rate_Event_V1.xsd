@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementID_V1.xsd"/>
+	<xsd:element name="AB_Rate_Event_V1">
+		<xsd:annotation>
+			<xsd:documentation>This event is generated when the rate information associated with an agreement changes (insert, update, delete)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="RateObjectID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>This is the unique ID of an AB Rate - Oracle sequence generated</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateID" type="common:ID_Integer_V1">
+				<xsd:annotation>
+					<xsd:documentation>ID of the rate.  Unique in the context of a specific Agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementID" type="tnm:AgreementID_V1">
+				<xsd:annotation>
+					<xsd:documentation>ID of the rate.  Unique in the context of a specific Agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

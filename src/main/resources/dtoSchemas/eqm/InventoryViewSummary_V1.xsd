@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/OpZone_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/Facility_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/Region_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerSizeType_V1.xsd"/>
+	<xsd:complexType name="InventoryViewSummary_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information for the Inventory summary result return and show in client side UI.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="InvDt" type="iodt:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>Date of inventory summary</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InvFacility" type="common:Facility_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Facility for the searching result</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InvCity" type="common:BasicLocationInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>City of the inventory summary searching result</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InvRegion" type="common:Region_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Region of the inventory summary searching result</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InvOpzone" type="common:OpZone_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>OpZone of the inventory summary searching result</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EqpSizeType" type="ContainerSizeType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Container Size Type of the inventory summary searching result</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActUncondMTA" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container for the status  Actual Unconditional MTA</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActCondMTA" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container for the status  Actual Conditional MTA</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActReserved" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container for the status Actual Reserved</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActMNR" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container for the status Actual MNR</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActRepoOut" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container for the status Actual Repo Out</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActRepoIn" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container for the status Actual Repo In</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CondRepoIn" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container for the status Conditional Repo In</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UncondRepoIn" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container for the status Unconditional Repo In</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PlanRepoOut" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container belongs to the status Planned Repo Out</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PlanRepoIn" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container belongs to the status Planned Repo In</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UncondIbRtn" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container belongs to the status Unconditional Inbound Return</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CondIbRtn" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container belongs to the status Conditional Inbound Return</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OsOnhire" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container belongs to the status O/S Onhire</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OpenBooking" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container belongs to the status Open Booking</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PlanDrop" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container belongs to the status Planned Drop</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CodIn" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container belongs to the status CodIn</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CodOut" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container belongs to the status CodOut</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActMtRel" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container belongs to the status Actual MT Release</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProjMtRel" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of container belongs to the status Projected MT Release</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

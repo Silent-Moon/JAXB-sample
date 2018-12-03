@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Kent Williamson (OOCL (USA) INC) -->
+<!--  Created Oct 10, 2007  -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="RateTable_V1.xsd"/>
+	<xsd:complexType name="TradeDirectionWithTables_V1">
+		<xsd:annotation>
+			<xsd:documentation>-see AlertDTO</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Trade" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Direction" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tables" type="tnm:RateTable_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

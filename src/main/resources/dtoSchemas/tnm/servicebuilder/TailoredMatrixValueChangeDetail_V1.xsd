@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 sp1 U (http://www.xmlspy.com) by Rick Vera (OOCL (USA), Inc.) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:eqm="http://com.oocl.schema.eqm" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ServiceLoopCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Port_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/ContainerSize_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/ContainerType_V1.xsd"/>
+	<xsd:complexType name="TailoredMatrixValueChangeDetail_V1">
+		<xsd:annotation>
+			<xsd:documentation>Tailored Service Matrix Change Details</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ServiceLoop" type="common:ServiceLoopCode_V1" minOccurs="0"/>
+			<xsd:element name="LoadPort" type="common:Port_V1" minOccurs="0"/>
+			<xsd:element name="DischargePorts" type="common:Port_V1" minOccurs="0"/>
+			<xsd:element name="ContainerSizes" type="eqm:ContainerSize_V1" minOccurs="0"/>
+			<xsd:element name="ContainerCount" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="200"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ContainerTypes" type="eqm:ContainerType_V1" minOccurs="0"/>
+			<xsd:element name="TEU" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="200"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ServiceCharge" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="200"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CustomerPenalty" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="200"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CarrierPenalty" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="200"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ValidWeeks" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1000"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

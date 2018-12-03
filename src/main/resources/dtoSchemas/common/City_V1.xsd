@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by David Li (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="CommonRestrictions_V1.xsd"/>
+	<xsd:include schemaLocation="BasicFacilityInformation_V1.xsd"/>
+	<xsd:include schemaLocation="BasicLocationInformation_V1.xsd"/>
+	<xsd:include schemaLocation="CityLevel_V1.xsd"/>
+	<xsd:include schemaLocation="CustomerGroupRegion_V1.xsd"/>
+	<xsd:include schemaLocation="LocationCoordinate_V1.xsd"/>
+	<xsd:include schemaLocation="LocationShippingAttribute_V1.xsd"/>
+	<xsd:include schemaLocation="OpZone_V1.xsd"/>
+	<xsd:complexType name="City_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about a city with shipping and operation info.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CityInformation" type="CityLevel_V1"/>
+			<xsd:element name="TimezoneName" type="EntityBriefName_V1" minOccurs="0"/>
+			<xsd:element name="CustomerGroupRegion" type="CustomerGroupRegion_V1" minOccurs="0"/>
+			<xsd:element name="OpZone" type="OpZone_V1" minOccurs="0"/>
+			<xsd:element name="LocationShippingAttribute" type="LocationShippingAttribute_V1" minOccurs="0"/>
+			<xsd:element name="DefaultEmptyPickupFacility" type="BasicFacilityInformation_V1" minOccurs="0"/>
+			<xsd:element name="DefaultEmptyReturnFacility" type="BasicFacilityInformation_V1" minOccurs="0"/>
+			<xsd:element name="LocationCoordinate" type="LocationCoordinate_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

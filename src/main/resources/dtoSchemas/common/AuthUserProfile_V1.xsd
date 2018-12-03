@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="AuthorizationTypes_V1.xsd"/>
+	<xsd:include schemaLocation="HomepageTypes_V1.xsd"/>
+	<xsd:include schemaLocation="UserProfileTypes_V1.xsd"/>
+	<xsd:element name="ClientStartup" type="StartupClientReturn_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information required when client starts up.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="StartupClientReturn_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information required when client starts up.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="UserProfile" minOccurs="0"/>
+			<xsd:element name="UserPermissions" type="UserPermissionSnapshot_V1" minOccurs="0"/>
+			<xsd:element name="HomepagePreferences" type="HomepagePreference_V1" minOccurs="0"/>
+			<xsd:element name="AuthorizationFeatures" type="AuthorizationFeature_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AuthUserProfile_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about a CDRIVE user account</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="UserName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Email" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LastName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FirstName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Department" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="OfficeCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Phone" type="xsd:string" minOccurs="0"/>
+			<!--
+	TODO-DTO elements with no representation (pending topdown updates by Common team)
+	private String				_timezone;
+	private PrefUserPreferencesDTO _homepagePreference;
+-->
+			<xsd:element name="MobilePhoneNumber" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

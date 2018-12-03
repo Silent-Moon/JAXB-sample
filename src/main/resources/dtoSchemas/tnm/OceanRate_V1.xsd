@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by HSING-FU TSAI (Orient Overseas Container Line Limited) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:tnm.ratebuilder="http://com.oocl.schema.tnm.ratebuilder" xmlns:fwd="http://com.oocl.frm.common.date.dto/" xmlns:eqm="http://com.oocl.schema.eqm" xmlns:ab="http://com.oocl.schema.tnm.agreementbuilder" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="Tariff_V1.xsd"/>
+	<xsd:include schemaLocation="ChargeGroup_V1.xsd"/>
+	<xsd:include schemaLocation="CargoNatureGroup_V1.xsd"/>
+	<xsd:include schemaLocation="CargoControlParty_V1.xsd"/>
+	<xsd:include schemaLocation="GuidelineSurcharge_V1.xsd"/>
+	<xsd:include schemaLocation="SurchargeType_V1.xsd"/>
+	<xsd:include schemaLocation="PricingTransportMode_V1.xsd"/>
+	<xsd:include schemaLocation="PaymentTerm_V1.xsd"/>
+	<xsd:include schemaLocation="PublishedRate_V1.xsd"/>
+	<xsd:include schemaLocation="TieredCommodity_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/AbstractCommonFields_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CustomerSegment_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/DateRange_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../eqm/ContainerType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/DeliveryMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ServiceLoopCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/LocationName_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/NameAndIdentifier_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm.ratebuilder" schemaLocation="./RateBuilder/PricingMetricsBasicInfo_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm.agreementbuilder" schemaLocation="agreementbuilder/AB_SimpleTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm.agreementbuilder" schemaLocation="agreementbuilder/AB_Commodity_V1.xsd"/>
+	<xsd:complexType name="OceanRate_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a base (ocean) rate from one location (origin) to another (destination)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="common:AbstractCommonFields_V1">
+				<xsd:sequence>
+					<xsd:element name="RateID" type="common:ID_LongNumeric_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>An automatically generated running number when a new rate is added/appended/inserted into the respective rate tables.  This id will be a unique key of rates within a rate table.  With this, user will be able to upload rate changes for a portion of a rate table.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="LinkedRateID" type="common:ID_LongNumeric_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>ID of the rate that this rate is created from.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="TariffCode" type="tnm:TariffCode_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The 3 digit code of the tariff governing the ocean rate (e.g. 016)</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IncludedCharges" type="tnm:SurchargeCode_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>A list of surcharge codes which do not have to be paid by the customer as they have been factored into the base rate.  For public rates this collection should always be empty. Overall list of Subject to surcharge codes can be derived from subtracting this list from the list of subject to codes on the Tariff plus adding any surcharges found on any InlandRates</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Description" type="common:BasicDescription_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>An optional text description of the Ocean Rate containing from, to and other qualifier info</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="DeliveryMode" type="common:DeliveryMode_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>2 char string representing the delivery mode associated with the rate.  YY for example is a Container Yard to Container Yard move, whereas DD is a door to door move.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Origins" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of the NP unique IDs corresponding to the Origin GeoLocations</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="POL" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of the NP unique IDs corresponding to the POL GeoLocations</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Destinations" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of the NP unique IDs corresponding to the Destination GeoLocations</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="POD" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of the NP unique IDs corresponding to the POD GeoLocations</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="OriginVias" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of the NP unique IDs corresponding to the Origin via GeoLocations.  Origin via locations must be present on the outbound shipment route for the rate to be applicable.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="DestinationVias" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of the NP unique IDs corresponding to the Destination via GeoLocations.  Destination via locations must be present on the inbound shipment route for the rate to be applicable.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="TransshipmentPorts" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of transshipment port codes which must be found on the shipment route for the rate to be applicable</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="OriginTransportModes" type="tnm:PricingTransportMode_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of transport modes which must be found on the outbound shipment route for the rate to be applicable</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="DestinationTransportModes" type="tnm:PricingTransportMode_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of transport modes which must be found on the inbound shipment route for the rate to be applicable</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ServiceLoopCodes" type="common:ServiceLoopCode_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of service loop codes which must be found on the shipment route for the rate to be applicable</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ExcludedServiceLoopCodes" type="common:ServiceLoopCode_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of service loop codes which must be excluded on the shipment route for the rate to be applicable</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="SpecialContainerTypes" type="eqm:ContainerType_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of container type codes which must be found on the shipment size type for the rate to be applicable</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IsSOC" type="xsd:boolean" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Ocean rate is applicable only for Shipper Owned Containers when this is true. and may only apply to container owned containers when this is false.   When absent, the rate may apply to both shipper owned containers and carrier owned containers</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="AllowsOriginAddon" type="xsd:boolean" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Inland or Port Arbitrary rates may be added on to the origin side of this rate when true to create a connecting end to end rate with a different origin</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="AllowsDestinationAddon" type="xsd:boolean" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Inland or Port Arbitrary rates may be added on to the destination side of this rate when true to create a connecting end to end rate with a different destination</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CargoNatureGroupID" type="CargoNatureGroupID_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The ID of a corresponding CargoNatureGroup_V1 type which specifies rate applicability for different cargo natures</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CommodityGroupID" type="common:ID_LongNumeric_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The ID of a corresponding CommodityGroup_V1 type which specifies rate applicability for different cargo commodities (This old version is retained for Public Tariff use)</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CommodityGroup" type="common:NameAndIdentifier_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The Name and ID of a corresponding TieredCommodity_V1 type which specifies rate applicability for different cargo commodities</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="VolumeGroupID" type="common:ID_LongNumeric_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The ID of a corresponding VolumeGroup_V1 type which specifies rate applicability for a specific volume tiers (This old version is retained for Public Tariff use)</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="VolumeGroup" type="common:NameAndIdentifier_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The Name and ID of a corresponding VolumeGroup_V1 type which specifies rate applicability for a specific volume tiers</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="WeightGroupID" type="common:ID_LongNumeric_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The ID of a corresponding WeightGroup_V1 type which specifies rate applicability for a specific weight tier (This old version is retained for Public Tariff use)</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="WeightGroup" type="common:NameAndIdentifier_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The Name and ID of a corresponding WeightGroup_V1 type which specifies rate applicability for a specific weight tier</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="RateFormulaGroupID" type="common:ID_LongNumeric_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The ID of a corresponding RateFormulaGroup_V1 type which specifies applicable formulas for determining rates for other dimensions and rate levels</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="SurchargeOverrideGroupID" type="common:ID_LongNumeric_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The ID of a corresponding SurchargeOverrideGroup_V1 type which specifies any surcharge overrides which should be applied on top of normal tariff surcharge applicability rules</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Charges" type="tnm:ChargeGroup_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>The list of charge groups which contain the actual guideline rates per container dimension and rate level.  For ACZone, this collection will be of size 1 only containing a single ChargeGroup object having level 4 rates.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Surcharges" type="tnm:GuidelineSurcharge_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>The list of applicable included and subject to surcharges.  This information may be computed from IRIS-2 ocean surcharges.  Included surcharges are sourced from Rate Builder.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="EffectiveDateRange" type="common:DateRange_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The effective period of the ocean rate (YYYY-MM-DD format)</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ValidityDays" type="xsd:int" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Represents the number of calendar days that quotes made based on this guideline may be valid before the customer needs to seek another quote</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CargoControlPartyRole" type="tnm:CargoControlParty_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The party assigned as the Cargo Control Party - maybe this can be common and renamed to CargoControlPartyRole.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CargoNatureGroup" type="CargoNatureGroup_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>CargoNatureGroup which specifies rate applicability for different cargo natures.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="PaymentTerm" type="PaymentTerm_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Payment term, one of prepaid or collect to which rate is applicable. Absence indicates it is applicable to both</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CustomerSegments" type="common:CustomerSegment_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Customer segment to which the rate applies. Absence indicates applicable to all segments</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Remarks" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Will have the remarks like Weight/Volume information</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ABCustomizableSchrgGroupID" type="common:ID_LongNumeric_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The ID of a corresponding ABCustomizableSchrgGroup_V1 type which specifies any surcharges with minimum rate guideline which can be customized in AB</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="RateTableName" type="common:BasicDescription_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Name of the rate table to which the rate is associated to</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="AllOriginLocations" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of all the Origin Geographic Locations</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="AllDestinationLocations" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of all the Destination Geographic Locations</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="AllOriginViaLocations" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of all the Origin Via Geographic Locations</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="AllDestinationViaLocations" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of all the Destination Via Geographic Locations</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="PricingMetricsBasicInfo" type="tnm.ratebuilder:PricingMetricsBasicInfo_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The pricing metrics basic information for this base rate.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="QuoteEffectiveDateRange" type="common:DateRange_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The Quote effective period of the ocean rate (YYYY-MM-DD HH:MM:SS format)</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Flags" type="ab:OptionFlags_V1">
+						<xsd:annotation>
+							<xsd:documentation>Bit map integer to be used for various attribute flags related to rate. </xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="PublishedRate" type="PublishedRate_V1" minOccurs="0"/>
+					<xsd:element name="AwkwardCommodity" type="ab:AwkwardCommodity_V1" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="Wording" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="ArriveServiceLoopCodes" type="common:ServiceLoopCode_V1" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="ExcludedArriveServiceLoopCodes" type="common:ServiceLoopCode_V1" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="IsSubjectToOnly" type="xsd:boolean" minOccurs="0"/>
+
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="OceanRate" type="OceanRate_V1">
+		<xsd:annotation>
+			<xsd:documentation>This element is needed for java object creation</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

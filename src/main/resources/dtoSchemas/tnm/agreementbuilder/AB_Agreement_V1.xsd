@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ContactInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementStatus_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementVersion_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TradeTerm_V1.xsd"/>
+	<xsd:include schemaLocation="AB_SimpleTypes_V1.xsd"/>
+	<xsd:include schemaLocation="AB_ShippingParty_V1.xsd"/>
+	<xsd:include schemaLocation="NamedCustomer_V1.xsd"/>
+	<xsd:include schemaLocation="FormatSetting_V1.xsd"/>
+	<xsd:include schemaLocation="OceanOfferRate_V1.xsd"/>
+	<xsd:include schemaLocation="ShippingPartyGroup_V1.xsd"/>
+	<xsd:include schemaLocation="CustomerContactGroup_V1.xsd"/>
+	<xsd:include schemaLocation="NamedCustomerGroup_V1.xsd"/>
+	<xsd:include schemaLocation="InlandOfferRate_V1.xsd"/>
+	<xsd:include schemaLocation="CollectiveActivationSetting_V1.xsd"/>
+	<xsd:include schemaLocation="ServiceOffer_V1.xsd"/>
+	<xsd:complexType name="AB_Agreement_V1">
+		<xsd:annotation>
+			<xsd:documentation>Top root node of agreement builder object model</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ObjectID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>System(Oracle) generated unique id for the rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Identifier" type="tnm:AgreementID_V1">
+				<xsd:annotation>
+					<xsd:documentation>agreement/quote identifier</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Version" type="tnm:AgreementVersion_V1">
+				<xsd:annotation>
+					<xsd:documentation>agreement/quote version number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsLatestVersion" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>indicator if quote is the latest version</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FMC_Version" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>version number of FMC submission (SC Only)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Status" type="tnm:AgreementStatus_V1">
+				<xsd:annotation>
+					<xsd:documentation>agreement/quote status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Flags" type="OptionFlags_V1"/>
+			<xsd:element name="AgreementType" type="tnm:AgreementType_V1"/>
+			<xsd:element name="ValidityDays" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>number of days for which the quote offer is valid</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Justification" type="common:LongBasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>explanation of justification of the rate offer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeTerm" type="tnm:TradeTerm_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>trade term of the offer, either FOB or CIF</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SalesOfficeCodes" type="OfficeCodeCollection_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>sales office code where the offer is generated</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Approver" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>the person's inital who approved the offer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CASettings" type="CollectiveActivationSetting_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collective Activation Settings</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CommencementDate" type="AB_DateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Effective from of the first version of the agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveFrom" type="AB_DateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>effective start date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveTo" type="AB_DateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>effective end date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShippingPartyGroups" type="ShippingPartyGroup_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>a collection of shipping party groups</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NamedCustomerGroups" type="NamedCustomerGroup_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>a collection of special customers whom the offer is created for, along with booking and BL conditions</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerContactGroups" type="CustomerContactGroup_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>a collection of customer contact groups</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="VolumeGroupInfos" type="BasicVolumeGroupInfo_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Volume groups defined at agreeemnt level</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PrimaryContactID" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The user ID of the primary OOCL sales contact responsible for the quote  Usually this is the ID of the Outside Sales user.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SecondaryContactID" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The user ID of the secondary OOCL sales contact responsible for the quote.  Usually this is the ID of the Inside Sales user.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FormatSettings" type="FormatSettings_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>a collection of the offer documentation format settings</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Created" type="AB_DateTime_V1">
+				<xsd:annotation>
+					<xsd:documentation>Time of creation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreatedBy" type="common:UserID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Person who made initial version of agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastUpdated" type="AB_DateTime_V1">
+				<xsd:annotation>
+					<xsd:documentation>Time of the last update</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastUpdatedBy" type="common:UserID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Person who made the last update</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NextRateID" type="common:ID_Integer_V1">
+				<xsd:annotation>
+					<xsd:documentation>Next available rate ID to be used</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NextServiceID" type="common:ID_Integer_V1">
+				<xsd:annotation>
+					<xsd:documentation>Next available service ID to be used</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NextVolumeID" type="common:ID_Integer_V1">
+				<xsd:annotation>
+					<xsd:documentation>Next available volume group ID to be used</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NextSentOfferID" type="common:ID_String_V1">
+				<xsd:annotation>
+					<xsd:documentation>Next available sent offer ID to be used. The format is YYXXX, where YY is two digit year and XXX is integer running number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LockStamp" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Stamp generated every time when any OI under it or itself changed. Used for optimistic locking</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OceanOfferRates" type="OceanOfferRate_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The set of OceanOfferRates (aka Point Pair rates) offered for this quote</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InlandOfferRates" type="InlandOfferRate_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The set of InlandOfferRates offered for this quote</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceOffers" type="ServiceOffer_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The set of OceanOfferRates (aka Point Pair rates) offered for this quote</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Agreement" type="AB_Agreement_V1"/>
+</xsd:schema>

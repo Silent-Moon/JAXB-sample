@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Jeffrey Feliciano (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="CargoNatureCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>The classification code of cargo for special stowage arrangement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2"/>
+			<xsd:enumeration value="AD">
+				<xsd:annotation>
+					<xsd:documentation>Awkward Dangerous</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>							
+			<xsd:enumeration value="AW">
+				<xsd:annotation>
+					<xsd:documentation>Awkward</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DG">
+				<xsd:annotation>
+					<xsd:documentation>Dangerous</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="GC">
+				<xsd:annotation>
+					<xsd:documentation>General Cargo</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RD">
+				<xsd:annotation>
+					<xsd:documentation>Reefer Dangerous</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>				
+			<xsd:enumeration value="RF">
+				<xsd:annotation>
+					<xsd:documentation>Reefer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CargoNatureName_V1">
+		<xsd:annotation>
+			<xsd:documentation>The classification name of cargo for special stowage arrangement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="AwkwardDangerous"/>
+			<xsd:enumeration value="Awkward"/>
+			<xsd:enumeration value="Dangerous"/>
+			<xsd:enumeration value="GeneralCargo"/>
+			<xsd:enumeration value="ReeferDangerous"/>
+			<xsd:enumeration value="Reefer"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

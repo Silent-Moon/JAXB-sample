@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with Stylus Studio 2008 by VARMA CHINTALAPATI (OOCL (USA) INC) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://com.oocl.schema.customer.csuview" xmlns:cust="http://com.oocl.schema.customer" xmlns:comm="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.customer.csuview" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.customer" schemaLocation="../CustomerNotification_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common"   schemaLocation="../../common/UpdateResult_V1.xsd" />
+	<xsd:complexType name="CustomerNotificationLookupResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the result DTO of customer notification search</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerNotifications" type="cust:CustomerNotification_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>set of CustomerNotification_V1 objects that matched the search criteria</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LookupResult" type="comm:UpdateResult_V1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Search result information.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns="http://com.oocl.schema.ivr" xmlns:tns="http://com.oocl.schema.ivr" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://com.oocl.schema.ivr" elementFormDefault="qualified">
+	<xsd:complexType name="CallCenterLoginInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a complex type that defines the content of Call Center Login Info which will be used by
+			call representative clients. AgentID , Universal password , and also the instance name and ID of the
+			corresponding Hotline would be included. 
+		</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AgentID" type="AgentID_V1"/>
+			<xsd:element name="UniversalPassword" type="UniversalPassword_V1"/>
+			<xsd:element name="Hotlines" type="Hotline_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Hotline_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a complex type that defines the information of Hotline. A flag namely IsBackupHotline is used for indicating whether
+			the hotline is a backup hotline or not. The instanceMap of the hotline is also included.
+	  	</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="HotlineNumber" type="TelephoneNumber_V1"/>
+			<xsd:element name="IsBackupHotline" type="xsd:boolean"/>
+			<xsd:element name="InstanceMaps" type="InstanceMap_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InstanceMap_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a complex type that defines the information of InstanceMap. InstanceID and Instanename would be included in this type, which 
+			is used for displaying customer 's navigation in the call flow used by call representative clients. 
+	  	</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="InstanceID" type="InstanceID_V1"/>
+			<xsd:element name="InstanceName" type="InstanceName_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="AgentID_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a simple type that defines the length of AgentID
+	    	</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="8"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="UniversalPassword_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a simple type that defines the length of Universal Password
+	  	</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="16"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TelephoneNumber_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a simple type that defines the length of Hotline
+	    	</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="8"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="InstanceID_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a simple type that defines the length of InstanceID
+	    	</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="11"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="InstanceName_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a simple type that defines the length of Instance Name
+	    	</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="50"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by HUJI (Orient Overseas Container Line Ltd) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fw="http://com.oocl.frm.common.date.dto/" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:ns1="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:complexType name="ServiceCommodityDetail_V1">
+		<xsd:sequence>
+			<xsd:element name="CargoNature" type="xsd:string"/>
+			<xsd:element name="HSCode" type="xsd:string"/>
+			<xsd:element name="DGProperName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DGUNNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AWLength" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AWWidth" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AWHeight" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AWNetWeight" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AWGrossWeight" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SpaceTEU" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ServiceRecoveryDetail_V1">
+		<xsd:sequence>
+			<xsd:element name="ShippingUnit" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Recovery" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Cost" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Competitor" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CompetitorRate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SubjectTo" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NonDDServiceSpecDetail_V1">
+		<xsd:sequence>
+			<xsd:element name="Name" type="xsd:string"/>
+			<xsd:element name="Value" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NonDDServiceInfo_V1">
+		<xsd:sequence>
+			<xsd:element name="ServiceDesc" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ShippingUnits" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ServiceRecoveries" type="ServiceRecoveryDetail_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ServiceSpecs" type="NonDDServiceSpecDetail_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DDServiceSpecDetail_V1">
+		<xsd:sequence>
+			<xsd:element name="CargoNatures" type="xsd:string"/>
+			<xsd:element name="IsSOC" type="xsd:boolean"/>
+			<xsd:element name="ContainerSizes" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ContainerTypes" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TransportTypes" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FreeTimeSpecs" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ChargeRateSpecs" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DDServiceInfo_V1">
+		<xsd:sequence>
+			<xsd:element name="DDType" type="xsd:string"/>
+			<xsd:element name="IsAdditionalDays" type="xsd:boolean"/>
+			<xsd:element name="IsDiscountRates" type="xsd:boolean"/>
+			<xsd:element name="IsOrigin" type="xsd:boolean"/>
+			<xsd:element name="IsDestination" type="xsd:boolean"/>
+			<xsd:element name="IsCarrier" type="xsd:boolean"/>
+			<xsd:element name="IsMerchant" type="xsd:boolean"/>
+			<xsd:element name="IsReceivable" type="xsd:boolean"/>
+			<xsd:element name="IsCollectible" type="xsd:boolean"/>
+			<xsd:element name="Locations" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Vendor" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ChargeSpecs" type="DDServiceSpecDetail_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ServiceInfo_V1">
+		<xsd:sequence>
+			<xsd:element name="DDService" type="DDServiceInfo_V1" minOccurs="0"/>
+			<xsd:element name="RegularService" type="NonDDServiceInfo_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LinkedQI_V1">
+		<xsd:sequence>
+			<xsd:element name="ID" type="xsd:string"/>
+			<xsd:element name="ActivationStatus" type="xsd:string"/>
+			<xsd:element name="ApprovalStatus" type="xsd:string"/>
+			<xsd:element name="Description" type="xsd:string"/>
+			<xsd:element name="Commodity" type="xsd:string"/>
+			<xsd:element name="EffectiveFrom" type="fw:FWAbsoluteDateTimeDTO"/>
+			<xsd:element name="EffectiveTo" type="fw:FWAbsoluteDateTimeDTO"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SIApprovalInfo_V1">
+		<xsd:sequence>
+			<xsd:element name="ObjectID" type="xsd:long"/>
+			<xsd:element name="AgreementID" type="xsd:string"/>
+			<xsd:element name="ServiceID" type="xsd:int"/>
+			<xsd:element name="ServiceType" type="xsd:string"/>
+			<xsd:element name="EffectiveFrom" type="fw:FWAbsoluteDateTimeDTO"/>
+			<xsd:element name="EffectiveTo" type="fw:FWAbsoluteDateTimeDTO"/>
+			<xsd:element name="QuoteExpirationDate" type="fw:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>Date when the quote expires. It is used in dashboard task only for now.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActivationStatus" type="xsd:string"/>
+			<xsd:element name="ApprovalStatus" type="xsd:string"/>
+			<xsd:element name="OfflineApprover" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="OfflineApproverRemark" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Approver" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ApproverRemark" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Justification" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AdditionalRemark" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Remark" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Memo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tariffs" type="xsd:string" maxOccurs="unbounded"/>
+			<xsd:element name="Trades" type="xsd:string" maxOccurs="unbounded"/>
+			<xsd:element name="TrafficMode" type="xsd:string"/>
+			<xsd:element name="CargoNatures" type="xsd:string" maxOccurs="unbounded"/>
+			<xsd:element name="CommodityDescription" type="xsd:string"/>
+			<xsd:element name="CommodityDetails" type="ServiceCommodityDetail_V1" maxOccurs="unbounded"/>
+			<xsd:element name="Origins" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Destinations" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="OriginRegions" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="DestinationRegions" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Customer" type="xsd:string"/>
+			<xsd:element name="SalesPerson" type="xsd:string"/>
+			<xsd:element name="SalesOffice" type="xsd:string"/>
+			<xsd:element name="SalesRegion" type="xsd:string"/>
+			<xsd:element name="ApprovalRequestor" type="xsd:string"/>
+			<xsd:element name="ServiceInfo" type="ServiceInfo_V1"/>
+			<xsd:element name="LockStamp" type="xsd:string"/>
+			<xsd:element name="Flags" type="xsd:long"/>
+			<xsd:element name="IsPCT" type="xsd:boolean"/>
+			<xsd:element name="IsDD" type="xsd:boolean"/>
+			<xsd:element name="EqpTypes" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="LinkedReferences" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="LinkedCustomers" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="LinkedQIs" type="LinkedQI_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="LinkedQIOIDs" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SIApprovalInfo" type="SIApprovalInfo_V1"/>
+</xsd:schema>

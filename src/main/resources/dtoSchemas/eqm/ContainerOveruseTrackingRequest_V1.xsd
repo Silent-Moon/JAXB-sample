@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<!-- Created by Venus 2011-03-07
+  -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Region_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/OpZone_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../tnm/TradeCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<!--	<xsd:include schemaLocation="ContainerSize_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerType_V1.xsd"/> -->
+	<xsd:include schemaLocation="ContainerSizeType_V1.xsd"/>
+	<xsd:include schemaLocation="EquipmentEnumTypes_V1.xsd"/>
+	<xsd:complexType name="ContainerOveruseTrackingRequest_V1">
+		<xsd:annotation>
+			<xsd:documentation> This is the WS request for the Container Overuse Tracking Report (Used for both summary and detail).</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Region" type="common:Region_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation> The region to filter report data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OpZone" type="common:OpZone_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>  The opzone to filter report data </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EqpSizeType" type="ContainerSizeType_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>  The eqp size type to filter report data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FromTrade" type="tnm:TradeCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>  The trade that was initiated by this overuse record. Trade includes: TPT; AET; TAT; AUT; IAT; IET; CLG and ALL (select all trade)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ToTrade" type="tnm:TradeCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>  The trade that initiated this overuse record. Trade includes: TPT; AET; TAT; AUT; IAT; IET; CLG and ALL (select all trade)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReportType" type="EmptyContainerInventoryReportType">
+				<xsd:annotation>
+					<xsd:documentation> This specifies the grouping of the report, whether to group by Day, Week, Month etc..  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FromDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> Search from date  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ToDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>  Search to date </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FromWeek" type="common:Week_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   Search from week (1-53)  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ToWeek" type="common:Week_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   Search to week (1-53)  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FromMonth" type="common:Month_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   Search From Month (1-12) </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ToMonth" type="common:Month_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>  Search To Month (1-12)  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FromQuarter" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   Search From Quarter (1-4) </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ToQuarter" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>  Search To Quarter (1-4)  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FromYear" type="common:Year_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   Search from year </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ToYear" type="common:Year_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   Search to year </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="StartIndex" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>  This specifies which row the system should return the data from for paging purposes </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RowSize" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>  This specifies the number of records system should return for paging purposes  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Added by Venus 2011-09-09 -->
+			<xsd:element name="FromTradeLane" type="tnm:TradeCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>  The tradelane that was initiated by this overuse record.   </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ToTradeLane" type="tnm:TradeCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>  The tradelane that initiated this overuse record.  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--Added by Venus 2011-10-12-->
+			<xsd:element name="InterchangeStatus" type="InterchangeStatus" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The interchange log status. User can select multiple</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExportFormat" type="ExportFormat" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Specifies the export format</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

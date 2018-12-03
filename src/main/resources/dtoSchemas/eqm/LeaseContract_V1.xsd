@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/UpdateResult_V1.xsd"/>
+  <xsd:include schemaLocation="ContractHeader_V1.xsd"/>
+  <xsd:include schemaLocation="LeaseEquipment_V1.xsd"/>
+  <xsd:include schemaLocation="OffHireDetail_V1.xsd"/>
+  <xsd:include schemaLocation="OffHireQuotaRefreshRule_V1.xsd"/>
+  <xsd:include schemaLocation="OnHireAuthorization_V1.xsd"/>
+
+  <xsd:complexType name="LeaseContract_V1">
+    <xsd:sequence>
+      <xsd:element name="ActionType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ContractHeader" type="ContractHeader_V1" minOccurs="0"/>
+      <xsd:element name="FinanceBank" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FreeDay" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="IsSharedContract" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LeaseEquipments" type="LeaseEquipment_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="MinOnhireDays" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="OffHireCalculation" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="OffHireDetails" type="OffHireDetail_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="OffHireQuotaRefreshRules" type="OffHireQuotaRefreshRule_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="OnHireAuthorizations" type="OnHireAuthorization_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="SharedContractList" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="SharedContractNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="UpdateResult" type="common:UpdateResult_V1" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

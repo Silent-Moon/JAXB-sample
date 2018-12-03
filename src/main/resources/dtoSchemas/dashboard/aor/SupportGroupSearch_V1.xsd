@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard.aor" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.dashboard.aor" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="SupportGroup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import/>
+	<xsd:complexType name="SupportGroupSearch_V1">
+		<xsd:annotation>
+			<xsd:documentation>Used for search Support Groups</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Identifier" type="xsd:long" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Name" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the support group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsNameExact" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="Type" type="SupportGroup_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Escalation or Supervisor</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Member" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of user Ids to search for that belongs to the support group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SupportGroupResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>These are the results of the Support Group search</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ID" type="cmn:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>Support Group Id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Name" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Name of the Support Group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Type" type="SupportGroup_V1">
+				<xsd:annotation>
+					<xsd:documentation>whelther this is supervisor or escalation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Members" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of users that belongs to the group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SupportGroupSearch" type="SupportGroupSearch_V1"/>
+	<xsd:element name="SupportGroupResult" type="SupportGroupResult_V1"/>
+</xsd:schema>

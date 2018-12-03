@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by HUJI (Orient Overseas Container Line Ltd) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:tns="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementVersion_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementStatus_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TariffCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TNMCommonTypes_V1.xsd"/>
+	<xsd:include schemaLocation="AB_Surcharge_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerRate_V1.xsd"/>
+	<xsd:include schemaLocation="GuidelineRateReference_V1.xsd"/>
+	<xsd:include schemaLocation="Attachment_V1.xsd"/>
+	<xsd:complexType name="AbstractAB_Rate_V1">
+		<xsd:annotation>
+			<xsd:documentation>Abstract AB rate</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ObjectID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>System(Oracle) generated unique id for the rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateID" type="common:ID_Integer_V1">
+				<xsd:annotation>
+					<xsd:documentation>ID of the rate.  Unique only in the context of a specific Agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementID" type="tnm:AgreementID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Agreement ID which the rate belongs to</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="StartingVersion" type="tnm:AgreementVersion_V1">
+				<xsd:annotation>
+					<xsd:documentation>Version number of the agreement the offer rate was created or approved under.  If status is not an approved status, then the number is the version the rate was created under.  Once the rate is accepted, the number can change to a later agreement version (if the agreement version incremented since the rate was created and the rate was not approved at that time)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EndingVersion" type="tnm:AgreementVersion_V1">
+				<xsd:annotation>
+					<xsd:documentation>Uses -1 for no ending version defined</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveFrom" type="AB_DateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>effective start date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveTo" type="AB_DateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>effective end date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateStatus" type="OfferRateStatus_V1" minOccurs="0"/>
+			<xsd:element name="ApprovalStatus" type="OfferRateApprovalStatus_V1" minOccurs="0"/>
+			<xsd:element name="Flags" type="OptionFlags_V1">
+				<xsd:annotation>
+					<xsd:documentation>Bit map integer to be used for various attribute flags related to AB rate. The first bit is for SOC</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Justification" type="common:LongBasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Comments that explains the justification of the rate offer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Notes" type="common:LongBasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>User provided notes about the rate which are to be displayed in Bkg / Doc during auto-rating.  A good place to put unstructured usage constraints.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EscalationReasons" type="EscalationReason_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of escalation reasons</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OfflineApprovers" type="common:UserID_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="OfflineApproverRemark" type="common:LongBasicDescription_V1" minOccurs="0"/>
+			<xsd:element name="Approver" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>User who approved the rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ApproverRemark" type="common:LongBasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Approver's remark</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExternalReference" type="common:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>External reference, it can be CSO number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TrafficMode" type="tnm:AgreementTrafficMode_V1" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>When absent, traffic mode is FCL/FCL</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Tariffs" type="tnm:TariffCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Tariff codes</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BaseRates" type="ContainerRate_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Ocean/Inland rate specifications</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Surcharges" type="AB_Surcharge_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Customerized ocean/inland surcharges that override standard ocean/inland surcharges</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShippingPartyGroupName" type="common:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Shipping party group name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerContactGroupName" type="common:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Customer contact group name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NamedCustomerGroupName" type="common:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Named customer group name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WeightGroupID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Weight restriction applied to the rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastSentOfferID" type="common:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Offer ID of last sent offer rate was included on. Format: yynnn, where yy is last two digits of year, nnn is offer running number.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastSentMCCI_ID" type="common:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The MCCI ID of the e-mail containing the generated offer as an attachment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastSentDate" type="AB_DateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Date when the rate is sent to customer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValidityDays" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Number of days offer rate is valid after it is sent</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValidityExpirationDate" type="AB_DateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Date when the offer rate is expired</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreatedOn" type="AB_DateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Time the rate is created</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreatedBy" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>User who creates the rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SalesPerson" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Customer assigned sales person</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SalesOffice" type="common:OfficeCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Sales office of the sales person</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastUpdated" type="AB_DateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Time of the last update</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FiledDate" type="AB_DateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Time of the Rate Filed</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FiledEffectiveFrom" type="AB_DateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Time of the Regulated Rate Effective From </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FiledEffectiveTo" type="AB_DateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Time of the Regulated Rate Effective To</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastUpdatedBy" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>User who last updated the rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Previous" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Previous OI's object ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LockStamp" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Stamp generated every time when any OI under it or itself changed. Used for optimistic locking</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Attachments" type="Attachment_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="TaskID" type="common:Global_UUID_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

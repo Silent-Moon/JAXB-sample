@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.csal" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common"  xmlns:customer="http://com.oocl.schema.customer" targetNamespace="http://com.oocl.schema.tnm.csal" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="CustomerSpaceAllocationDetail_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.customer" schemaLocation="../../customer/CustomerBasicInformation_V1.xsd"/>
+	<xsd:element name="CustomerSpaceAllocation_V1" type="CustomerSpaceAllocation_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is Customer Space Allocation payload</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="CustomerSpaceAllocation_V1">
+		<xsd:annotation>
+			<xsd:documentation> this is a schema for Customer Customer Space Allocation </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CSAL_Customer" type="customer:CustomerBasicInformation_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents CSAL owner Customer information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerSpaceAllocationDetail" type="CustomerSpaceAllocationDetail_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This represents Customer Space Allocation Detail</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard.aor" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.dashboard.aor" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="SkillGroupInheritance_V1">
+		<xsd:sequence>
+			<xsd:element name="InheritanceType" type="SkillGroupInheritanceType_V1"/>
+			<xsd:element name="OldId" type="xsd:long"/>
+			<xsd:element name="NewId" type="xsd:long"/>
+			<xsd:element name="EscalationLevel" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="SkillGroupInheritanceType_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is used to determine the inheritance type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="SupervisorGroup"/>
+			<xsd:enumeration value="EscalationGroup"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

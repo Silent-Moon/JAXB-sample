@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- edited with XMLSpy v2008 (http://www.altova.com) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ccp"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 targetNamespace="http://com.oocl.schema.tnm.ccp"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:simpleType name="CCP_ControlPartyRoleCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is Cargo Control Party (CCP)  Control Party Role Code</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="SR001"/>
+			<xsd:enumeration value="SR002"/>
+			<xsd:enumeration value="SR003"/>
+			<xsd:enumeration value="SR004"/>
+			<xsd:enumeration value="SR005"/>
+			<xsd:enumeration value="SR006"/>
+			<xsd:enumeration value="SR007"/>
+			<xsd:enumeration value="SR008"/>
+			<xsd:enumeration value="SR009"/>
+			<xsd:enumeration value="SR010"/>
+			<xsd:enumeration value="SR011"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CCP_ControlPartyRoleName_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is Cargo Control Party (CCP)  Control Party Role Name</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CSO"/>
+			<xsd:enumeration value="ISC"/>
+			<xsd:enumeration value="CCP"/>
+			<xsd:enumeration value="Freight_Payer"/>
+			<xsd:enumeration value="Shpr/Cnee_:_Frt_Payer"/>
+			<xsd:enumeration value="Booking_Party"/>
+			<xsd:enumeration value="Shipper"/>
+			<xsd:enumeration value="Consignee"/>
+			<xsd:enumeration value="Forwarder"/>
+			<xsd:enumeration value="Notify_Party"/>
+			<xsd:enumeration value="Also_Notify_Party"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

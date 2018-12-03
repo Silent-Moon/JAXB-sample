@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ServiceLoopCode_V1.xsd"/>
+	<xsd:complexType name="PricingMetricsCostInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents pricing metric cost details for a split base rate per container size.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RPO_Cost" type="common:ID_DoubleNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>RPO cost</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NRPO_Cost" type="common:ID_DoubleNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>NRPO cost</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceLoops" type="common:ServiceLoopCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Applicable Service loops</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerContributionID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>Container contribution ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastDischargePort" type="common:EntityLocationName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Port of discharge</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FirstLoadPort" type="common:EntityLocationName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Port of load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PricingMetricsCostInfo" type="PricingMetricsCostInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>This element is needed for java object creation</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

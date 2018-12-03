@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common.lookup" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common.lookup" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../CountryCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../GeoLocationStatus_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../LocationShippingAttribute_V1.xsd"/>
+	<xsd:complexType name="GeoLocationLookupElement_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the element of a geographical location search result.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="LocationInformation" type="common:BasicLocationInformation_V1">
+				<xsd:annotation>
+					<xsd:documentation>Type, ID, UUID, code and name of a geographical location.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FullyQualifiedEnglishName" type="common:FullyQualifiedName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Fully qualified English name. For Facility/Port, it is an English name of Facility/Port. For other location, it is the path of geographical location.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CountryCode" type="common:CountryCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Country code.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Status" type="common:GeoLocationStatus_V1.xsd" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Status. 0 is inactive and 1 is active.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PostalCodes" type="common:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>A postal code or multiple postal codes with comma as delimiter.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShippingInfo" type="common:LocationShippingAttribute_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Shipping information of a location. Tells whether a location is a shipping point and if it supports Container Yard and/or Door delivery mode.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
+

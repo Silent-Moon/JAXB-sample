@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Orlando Palis (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/BasicLocationInformation_V1.xsd"/>
+	<xsd:complexType name="InlandRateCountryLocations_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents country and associated origin/destination location IDs (LocationIDs) and over location IDs defined for an inland rate.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Country" type="common:BasicLocationInformation_V1">
+				<xsd:annotation>
+					<xsd:documentation>Location information of a country associated to an inland rate.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LocationIDs" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of the NP unique IDs corresponding to the Origin/Destination Geo Locations</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OverLocationIDs" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of the NP unique IDs corresponding to the Over Location Geo Locations</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

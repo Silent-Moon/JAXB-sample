@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Template_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Agreement_ID_V1.xsd"/>
+	<xsd:include schemaLocation="TailoredServiceName_V1.xsd"/>
+	<xsd:complexType name="FeedbackSearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Feedback search criteria infomation, including serviceTemplateId, customerSapId, tailoredServiceName, agreementID.. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ServiceTemplateID" type="common:Template_ID_V1" minOccurs="0"/>
+			<xsd:element name="CustomerSapID" type="common:SAP_ID_V1" minOccurs="0"/>
+			<xsd:element name="TailoredServiceName" type="tnm:TailoredServiceName_V1" minOccurs="0"/>
+			<xsd:element name="AgreementID" type="common:Agreement_ID_V1" minOccurs="0"/>
+			<xsd:element name="UserID" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MaxResultSize" type="xsd:int" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

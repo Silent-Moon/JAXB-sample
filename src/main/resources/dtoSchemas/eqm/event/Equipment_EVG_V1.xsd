@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  edited with XMLSpy v2008 (http://www.altova.com) by Terry Lam (OOCL (USA) INC) 
+  -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="EventID_V1.xsd"/>
+	<xsd:element name="Equipment_EVG_V1">
+		<xsd:annotation>
+			<xsd:documentation>This message defines the structure of the event that will be processed by Equipment Profile and Usage Plan</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="EventID" type="EventID_V1">
+					<xsd:annotation>
+						<xsd:documentation>The unique identifier of the event. It is the EQM_EQP_STAGING.EQP_STG_ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common.tsm" xmlns:frm="http://com.oocl.frm.common.date.dto/" xmlns:common="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common.tsm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+
+
+	
+	<xsd:element name="TSM_AppError_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents the detail information of messages that will be published to EMS Exception Queue</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="OccurredOn" type="frm:FWAbsoluteDateTimeDTO"> 
+					<xsd:annotation>
+						<xsd:documentation>This represents the date and time when the error encountered</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ID" type="common:BasicDescription_V1">
+					<xsd:annotation>
+						<xsd:documentation>This represents the business key value for support at the time the error encountered</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Type" type="common:ID_String_V1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>This represents the message type, possible values are error, warning, info, debug </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Code" type="common:ID_String_V1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>This represents the message code</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Message" type="common:BasicDescription_V1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>This represents the description of message</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="StackTrace" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>This represents some of error descriptions in the stack trace</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

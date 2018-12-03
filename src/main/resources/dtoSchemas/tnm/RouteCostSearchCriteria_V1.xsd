@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Eloisa Borlaza (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iris2cp="http://com.oocl.schema.iris2cp" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/DeliveryMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.iris2cp" schemaLocation="../iris2cp/CP_CargoNature_V1.xsd"/>
+	<xsd:complexType name="RouteCostSearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Route Cost search criteria</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Origin_UUID" type="common:UUID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Origin City UUID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Destination_UUID" type="common:UUID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Destination City UUID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DeliveryMode" type="common:DeliveryMode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Delivery mode, can be DD, DY, YD or YY</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNatures" type="iris2cp:CP_CargoNatureCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Cargo Nature, can be AD, AW, DG, GC, RD, or RF</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

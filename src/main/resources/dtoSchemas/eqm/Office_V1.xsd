@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+  <xsd:include schemaLocation="OfficeHierarchy_V1.xsd"/>
+
+  <xsd:complexType name="Office_V1">
+    <xsd:sequence>
+      <xsd:element name="CompanyCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CompanyName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FaxNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="OfficeCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="OfficeHierarchy" type="OfficeHierarchy_V1" minOccurs="0"/>
+      <xsd:element name="OfficeName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="OfficeType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="PhoneNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SupplierOfficeAddress1" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SupplierOfficeAddress2" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SupplierOfficeAddress3" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SupplierOfficeAddress4" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SupplierOfficeAddress5" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="UnitType" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

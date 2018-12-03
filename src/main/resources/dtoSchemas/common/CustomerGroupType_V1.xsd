@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="CustomerGroupType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Groups associated a customer</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+			<xsd:enumeration value="Global"/>
+			<xsd:enumeration value="Regional"/>
+			<xsd:enumeration value="Customer"/>			
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

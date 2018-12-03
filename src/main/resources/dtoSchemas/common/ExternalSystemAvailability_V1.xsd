@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="ExternalSystemAvailability_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				   Provides information on the availability of the external system where application has dependency to.
+		</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="IsAvailable" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Indicator used to identify availability of external system accessed.
+					   A true value indicates that it is available.
+					   A false value indicates that it is not available.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UnavailableMessage" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Returns appropriate message to explain external system's unavailability.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

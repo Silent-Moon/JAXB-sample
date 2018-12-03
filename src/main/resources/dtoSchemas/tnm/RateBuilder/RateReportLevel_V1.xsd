@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<!--  Created Oct 10, 2007  -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TNM_SimpleTypes_V1.xsd"/>
+	<xsd:complexType name="RateReportLevel_V1">
+		<xsd:annotation>
+			<xsd:documentation>RateReport object, represents the rates and surcharges for a particular access level</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Level" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Rate20" type="tnm:RateString_V1" minOccurs="0"/>
+			<xsd:element name="Rate40" type="tnm:RateString_V1" minOccurs="0"/>
+			<xsd:element name="Rate40H" type="tnm:RateString_V1" minOccurs="0"/>
+			<xsd:element name="Rate45" type="tnm:RateString_V1" minOccurs="0"/>
+			<xsd:element name="InclusiveSurcharges" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

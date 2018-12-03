@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.customer.callerid" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:framework="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.customer.callerid" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CargoSmart_ID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:simpleType name="CustomerCallerID_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				This is a simple type that defines Customer Caller ID.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CustomerCallerID_AssociationType_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				This is a simple type that defines type of Customer Caller ID Association Information.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CreateUpdateParty_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				This is a simple type that defines Create Update Party.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CreateUpdateClientID_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				This is a simple type that defines Create Update Client ID.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="65"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="CustomerCallerID_Association_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				Customer Caller Id Association datatype contains UUID, Customer Caller ID, SAP ID, CargoSmart ID, etc.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CallerID_RefUUID" type="common:Global_UUID_V1" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the UUID of the Customer Caller Id Association.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerCallerID" type="CustomerCallerID_V1" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is Customer Caller ID.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SAP_ID" type="common:SAP_ID_V1" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is SAP ID.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CS_UserID" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the CargoSmart User ID.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CS_ID" type="common:CargoSmart_ID_V1" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the CargoSmart ID.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AssociationCount" type="xsd:int" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the Association Count of Customer Caller ID Association.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsActive" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the flag for the Association is Active not Inactive.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreateBy" type="CreateUpdateParty_V1" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the party who create the association.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreateDateTimeGmt" type="framework:FWAbsoluteDateTimeDTO" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is a simple type that defines the association create datetime.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreateClientID" type="CreateUpdateClientID_V1" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the Client ID that create the association.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdateBy" type="CreateUpdateParty_V1" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the party who update the association.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdateDateTimeGmt" type="framework:FWAbsoluteDateTimeDTO" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is a simple type that defines the association last update datetime.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdateClientID" type="CreateUpdateClientID_V1" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the Client ID that update the association.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerCallerID_AssociationSet_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				This is set of Customer Caller ID Association Information.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AssociationRecordCount" type="xsd:int" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the Count of Customer Caller Id Association record(s), if smaller then 0 means error occured.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerCallerID_AssociationType" type="CustomerCallerID_AssociationType_V1" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is type of Customer Caller ID Association Information.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerCallerID_Association" type="CustomerCallerID_Association_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is Customer Caller ID Association Information.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerCallerID_AssociationRequest_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				This is request of Customer Caller ID Association Information.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerCallerID" type="CustomerCallerID_V1" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is Customer Caller ID.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerCallerID_AssociationType" type="CustomerCallerID_AssociationType_V1" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is type of Customer Caller ID Association Information.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

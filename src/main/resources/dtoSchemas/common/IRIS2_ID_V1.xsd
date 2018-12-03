@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="IRIS2_ID_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			   IRIS2 ID is another customer identifier within the IRIS2 Application.  Its value may be common to a group of IRIS2 Customers
+			</xsd:documentation>
+		</xsd:annotation>	
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="7"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

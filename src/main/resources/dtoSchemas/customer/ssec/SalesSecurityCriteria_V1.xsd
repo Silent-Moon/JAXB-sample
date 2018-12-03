@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="http://com.oocl.schema.customer.ssec" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ssec="http://com.oocl.schema.customer.ssec" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.customer.ssec" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd"/>
+	<xsd:complexType name="SalesSecurityCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				Sales Security Criteria.  Criteria passed to sales security API to enable return of associated customer permissions.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="User_ID" type="common:UserID_V1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">User ID value should be a valid CDRIVE login id.  This represents the user that will access the customer information and to whom the permissions are ultimately assigned.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SAP_ID" type="common:SAP_ID_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">SAP ID is the unique identifier for a given Customer in reference to SAP Application.
+					Sales security uses this criteria to return permissios/rights associated to the user accessing this customer.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IncludeAllPermissionReasons" type="xsd:boolean" default="false">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Use to indicate whether search result will include list of all reasons for granting user permission for a given customer.
+					default = false, will return only the primary reason (reason providing highest access) for gaining permission.  A value of true will list all the reasons.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

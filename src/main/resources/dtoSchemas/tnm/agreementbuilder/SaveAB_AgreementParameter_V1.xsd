@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementVersion_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ValidationError_V1.xsd"/>
+	<xsd:include schemaLocation="AB_SimpleTypes_V1.xsd"/>
+	<xsd:complexType name="SaveAgreementPayload_V1">
+		<xsd:annotation>
+			<xsd:documentation>Agreement XML</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AgreementXML" type="common:XML_Payload">
+				<xsd:annotation>
+					<xsd:documentation>Agreement XML string</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SaveActionType" type="SaveAB_Type_V1">
+				<xsd:annotation>
+					<xsd:documentation>Save agreement type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementID" type="tnm:AgreementID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Agreement ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementOID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>Agreement object ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LockStamp" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement lock stamp</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CarrierIds" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement Carrier Ids</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SaveRatePayload_V1">
+		<xsd:annotation>
+			<xsd:documentation>Offer rate XML, along with its associated agreement ID and starting and ending versions</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RateXML" type="common:XML_Payload">
+				<xsd:annotation>
+					<xsd:documentation>Rate XML string</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SaveActionType" type="SaveAB_Type_V1">
+				<xsd:annotation>
+					<xsd:documentation>Save rate type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateOID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>Rate object ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LockStamp" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate lock stamp</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="QIApprovalInfoXML" type="common:XML_Payload" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SaveServicePayload_V1">
+		<xsd:annotation>
+			<xsd:documentation>Service offer XML, along with its associated agreement ID and starting and ending versions</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ServiceXML" type="common:XML_Payload">
+				<xsd:annotation>
+					<xsd:documentation>Service XML string</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SaveActionType" type="SaveAB_Type_V1">
+				<xsd:annotation>
+					<xsd:documentation>Save action type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceOID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>Service object ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LockStamp" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Service lock stamp</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SIApprovalInfoXML" type="common:XML_Payload" minOccurs="0"/>
+			<xsd:element name="CarrierIds" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Service Carrier Ids</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SaveVolumePayload_V1">
+		<xsd:annotation>
+			<xsd:documentation>Volume XML, along with its associated agreement/rate OID</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="VolumeXML" type="common:XML_Payload">
+				<xsd:annotation>
+					<xsd:documentation>Volume XML string</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SaveActionType" type="SaveAB_Type_V1">
+				<xsd:annotation>
+					<xsd:documentation>Save volume type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="VolumeOID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>Volume object ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LockStamp" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Volume lock stamp</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SaveAB_AgreementParameter_V1">
+		<xsd:annotation>
+			<xsd:documentation>Save quote parameter passed onto server with XML string for the quote and its offer rates, along with their ID, version and other data</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Agreement" type="SaveAgreementPayload_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement to be saved</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OceanRates" type="SaveRatePayload_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of offer rates to be saved</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InlandRates" type="SaveRatePayload_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of offer rates to be saved</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceOffers" type="SaveServicePayload_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of service offer to be saved</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Volumes" type="SaveVolumePayload_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of volumes to be saved</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementOID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>Agreement object ID used in optimistic locking</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementID" type="tnm:AgreementID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Agreement ID used in QI/SI conflict checking</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateTableNameToPublish" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>If Save_ABType_V1 type is Update and Publish, then use this to set the rateTableName for RB rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IgnoredWarnings" type="common:ValidationError_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of warnings that can be ignored during server validation.  This collection should have already been presented to the user and user has confirmed to proceed with the operation.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

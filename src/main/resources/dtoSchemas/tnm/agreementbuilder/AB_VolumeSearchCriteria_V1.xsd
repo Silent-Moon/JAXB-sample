@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:cmn="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementVersion_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="AB_VolumeSearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>AB volume search criteria</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AgreementID" type="tnm:AgreementID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementVersion" type="tnm:AgreementVersion_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement version</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="VolumeOIDs" type="cmn:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of volume OIDs, when retrieve by group OIDs</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="VolumeGroupNames" type="cmn:ID_String_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of volume group names, when retrieve by group names</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

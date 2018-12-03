@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Windy OR (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.epa" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.epa" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonContainerSizeTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:include schemaLocation="AppointmentID_V1.xsd"/>
+	<xsd:include schemaLocation="AppointmentPickupInfo_V1.xsd"/>
+	<xsd:complexType name="AppointmentInfo_V1">
+		<xsd:sequence>
+			<xsd:element name="AppointmentNumber" type="AppointmentID_V1"/>
+			<xsd:element name="AppointmentQuality" type="xsd:string" nillable="true"/>
+			<xsd:element name="AppointmentSizeType" type="common:TMS_ContainerSizeTypes_V1" nillable="true"/>
+			<xsd:element name="AppointmentPickupDateTimeGMT" type="iodt:FWAbsoluteDateTimeDTO" nillable="true"/>
+			<xsd:element name="AppointmentPickupInfoList" type="AppointmentPickupInfo_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

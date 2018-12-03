@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Josie Tapas (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:shipment="http://com.oocl.schema.shipment" targetNamespace="http://com.oocl.schema.shipment" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="../BillOfLadingNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Company_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:element name="BL_LegalParty_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event whenever any part of BL_LEGAL_PARTY data changes (insert, update, delete)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="UUID" type="common:UUID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the Bill of Lading Legal Party Unique ID which is equivalent to BL_LEGAL_PARTY.BL_LEGAL_PARTY_UUID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="BL_UUID" type="common:UUID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the Bill of Lading Basic Unique ID which is equivalent to BL_LEGAL_PARTY.BL_BASIC_UUID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="BL_ReferenceCode" type="shipment:BillOfLadingNumber_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is equivalent to BL_LEGAL_PARTY.BL_REF_CDE</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="SAP_ID" type="common:SAP_ID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is equivalent to BL_LEGAL_PARTY.LEGAL_PARTY, this may be optional element to some consumers</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="PartyRole" type="common:CompanyRoleName_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is equivalent to BL_LEGAL_PARTY.TYPE, this may be optional element to some consumers</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

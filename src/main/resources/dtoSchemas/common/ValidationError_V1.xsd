@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xsd:complexType name="ValidationError_V1">
+    <xsd:annotation>
+      <xsd:documentation>Validation error info</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Name of the UI field or variable.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="RecordID" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Zero-based index pointer to the offending object.  For updates involving a collection of objects, recordID identifies the index of the submitted collection holding the submitted object having a validation error.  For example, a collection of 10 items having a validation error on the 3rd item will have '2' as the value</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="AssociatedField" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Added for client</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ErrorCode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The pre defined error code.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="OriginalValue" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>The original value of the UI field or the variable.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="OptionError" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>If optionError is false then no legalValues else will have legal values for Eg: If searching for a location and the original value is "Long Beach" then the optionError will be true and the legalValues will be of size 3 with "Long Beach, Harrison, Mississippi, United States", "Long Beach, Los Angeles, California, United States" and "Long Beach, Nassau, New York, United States"</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="LegalValues" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>legal values will be a collection of legal values which match the original value, if the original value returns multiple selections, refer to the Eg in optionError documentation.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="http://com.oocl.schema.customer.ssec" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ssec="http://com.oocl.schema.customer.ssec" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.customer.ssec" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="SalesSecurityApplicationRight_V1.xsd"/>
+	<xsd:include schemaLocation="SalesSecuritySharingMeans_V1.xsd"/>
+	<xsd:complexType name="SalesSecurityApplicationAccess_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				Sales Security Application Rights contain security information on a per category  including whether these permissions are to be applied depending on whether a customer is an Affiliate, a Named Account or not.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SalesTo">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">SalesTo is an element that indicates how the permissions will be applied.  
+						"Customer"			- pertains to the permissions a user has to a given SAP ID.  
+						"Affiliate"    			- pertains to the permissions a user has when the SAP ID plays an affiliate role
+						"NamedAccount" - pertains to the permissions a user has when the SAP ID is a Named Account. </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Customer"/>
+						<xsd:enumeration value="Affiliate"/>
+						<xsd:enumeration value="NamedAccount"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ApplicationNames" type="ssec:SalesSecurityApplicationRight_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">provides the security information on a per application basis</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PermissionReasons" type="ssec:SalesSecuritySharingMeans_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">provides reasons for </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

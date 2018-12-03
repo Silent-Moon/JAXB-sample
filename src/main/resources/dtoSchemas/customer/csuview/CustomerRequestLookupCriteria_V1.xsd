@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with Stylus Studio 2008 by VARMA CHINTALAPATI (OOCL (USA) INC) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://com.oocl.schema.customer.csuview" xmlns:common="http://com.oocl.schema.common" xmlns:cust="http://com.oocl.schema.customer" xmlns:fwdt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.customer.csuview" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/StringKeyValuePair_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/BasicVoyageInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ServiceAction_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:complexType name="CustomerRequestLookupCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the search criteria to lookup customer submitted service requests (SR)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="StartDate" type="fwdt:FWAbsoluteDateTimeDTO" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Service Request creation date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EndDate" type="fwdt:FWAbsoluteDateTimeDTO" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Service Request creation date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Reference" type="common:StringKeyValuePair_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Reference type and number provided</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SVVD" type="common:BasicVoyageInformation_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>SVVD information provided to search an SR</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Status" type="common:ServiceRequestAction_V1" nillable="true" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Status of the Service Request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UserID" type="common:ID_String_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>CargoSmart UserID who submitted the service request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CompanyID" type="common:UUID_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>CargoSmartID of the user who submitted the service request.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ResultSize" type="common:ID_Integer_V1">
+				<xsd:annotation>
+					<xsd:documentation>contains 20 for the default search and -1 for advanced search.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

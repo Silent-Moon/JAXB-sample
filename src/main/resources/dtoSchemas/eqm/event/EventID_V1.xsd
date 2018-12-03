@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://com.oocl.schema.eqm"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 targetNamespace="http://com.oocl.schema.eqm"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:simpleType name="EventID_V1">
+		<xsd:annotation>
+			<xsd:documentation>The ID of equipment event that is EQM_EQP_STAGING.EQP_STG_ID.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:long"/>
+	</xsd:simpleType>
+</xsd:schema>

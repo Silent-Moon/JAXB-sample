@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementReference_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:complexType name="SentOfferSearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Sent offer search criteria</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="MCCIID" type="common:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Search criteria on offer doc uuid</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ObjectID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Search criteria on offer object id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OfferID" type="common:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Search criteria on offer ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementID" type="tnm:AgreementID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Search criteria on agreement ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OfferItemIDs" type="common:ID_Integer_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Search criteria on the offer item ID (like 1, 2, 3, etc)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsRateItem" type="xsd:boolean"/>
+			<xsd:element name="CustomerSAP_ID" type="common:SAP_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Search criteria on Sap ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SentBy" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Search criteria on user who sent the offer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SentTo" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Search criteria on customer contact whom the offer was sent to</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SentDateFrom" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Search criteria on sent date from</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SentDateTo" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Search criteria on sent date to</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

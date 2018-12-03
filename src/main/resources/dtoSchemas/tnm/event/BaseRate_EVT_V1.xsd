@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.event" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:element name="BaseRate_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event whenever any part of BASE_RATE data changes (insert, update, delete)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="BaseRate_ID" type="common:ID_LongNumeric_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the Base Rate Unique ID which is equivalent to RGM_BASE_RATE.BASE_RATE_ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

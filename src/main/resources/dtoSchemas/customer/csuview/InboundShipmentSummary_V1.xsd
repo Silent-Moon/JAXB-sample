@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by VIJAY KODALI (OOCL (USA) INC) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://com.oocl.schema.customer.csuview" xmlns:common="http://com.oocl.schema.common" xmlns:eqm="http://com.oocl.schema.eqm" xmlns:customer="http://com.oocl.schema.customer" xmlns:fwd="http://com.oocl.frm.common.date.dto/" xmlns:shipment="http://com.oocl.schema.shipment" targetNamespace="http://com.oocl.schema.customer.csuview" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/EquipmentNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/BasicVoyageInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Company_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/BillOfLadingType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/BillOfLadingNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/ShipmentNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.customer" schemaLocation="../Invoice_V1.xsd"/>
+	<xsd:complexType name="InboundShipmentSummary_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the inbound shipment summary info displayed to the customer in UI</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="BL_Number" type="shipment:BillOfLadingNumber_V1"/>
+			<xsd:element name="BL_Type" type="common:BillOfLadingType_V1" minOccurs="0"/>
+			<xsd:element name="Shipper" type="common:CompanyName_V1" minOccurs="0"/>
+			<xsd:element name="Forwarder" type="common:CompanyName_V1" minOccurs="0"/>
+			<xsd:element name="Consignee" type="common:CompanyName_V1" minOccurs="0"/>
+			<xsd:element name="ContainerNumber" type="eqm:EquipmentNumber_V1" minOccurs="0"/>
+			<xsd:element name="Origin" type="common:EntityLocationName_V1" minOccurs="0"/>
+			<xsd:element name="PortOfLoad" type="common:EntityLocationName_V1" minOccurs="0"/>
+			<xsd:element name="FirstVesselVoyage" type="common:BasicVoyageInformation_V1" minOccurs="0"/>
+			<xsd:element name="LastVesselVoyage" type="common:BasicVoyageInformation_V1" minOccurs="0"/>
+			<xsd:element name="PortOfDischarge" type="common:EntityLocationName_V1" minOccurs="0"/>
+			<xsd:element name="Destination" type="common:EntityLocationName_V1" minOccurs="0"/>
+			<xsd:element name="BookingNumber" type="shipment:ShipmentNumber_V1" minOccurs="0"/>
+			<xsd:element name="CargoNature" type="common:CargoNatureCode_V1" minOccurs="0"/>
+			<xsd:element name="ContainerQuantity" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="OutstandingIssues" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the reasons for the cargo not released to the customer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DemurrageFreeStartDateAtFND" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="DemurrageLastFreeDateAtFND" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="DoorDeliveryAtDestination" type="common:EntityLocationName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Location name for Cargo delivery</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmptyReturnDepotAtFND" type="common:EntityLocationCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Location where the empty container is returned</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InvoiceNumber" type="customer:InvoiceReferenceCode_V1" minOccurs="0"/>
+			<xsd:element name="InvoiceType" type="customer:InvoiceTypeCode_V1" minOccurs="0"/>
+			<xsd:element name="InvoiceDueDate" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="DND_Charges" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents Detention and Demurrage charges</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerDefaultSettings" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Client UI display default settings carried over from server</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

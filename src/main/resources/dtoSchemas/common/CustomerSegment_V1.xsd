@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- created by Kalyani Gundepalli (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="CustomerSegment_V1">
+		<xsd:annotation>
+			<xsd:documentation>The classification of Customer segments</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="LargeBCO">
+				<xsd:annotation>
+					<xsd:documentation>Customer Basic Segment - Large BCO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SME_BCO">
+				<xsd:annotation>
+					<xsd:documentation>Customer Basic Segment - SME BCO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="InternationalNVOCC">
+				<xsd:annotation>
+					<xsd:documentation>Customer Basic Segment - International Nvocc</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LocalNVOCC">
+				<xsd:annotation>
+					<xsd:documentation>Customer Basic Segment - Local Nvocc</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LocalNVOCC_Other">
+				<xsd:annotation>
+					<xsd:documentation>Customer Sub Segment - Local Nvocc Other</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LocalNVOCC_Tier1">
+				<xsd:annotation>
+					<xsd:documentation>Customer Sub Segment - Local Nvocc Tier 1</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LocalNVO">
+				<xsd:annotation>
+					<xsd:documentation>Local NVO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TradeManagedNVO">
+				<xsd:annotation>
+					<xsd:documentation>Trade Managed NVO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Tier1NVO">
+				<xsd:annotation>
+					<xsd:documentation>Tier 1 NVO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CoreBCO">
+				<xsd:annotation>
+					<xsd:documentation>Core BCO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LocalBCO">
+				<xsd:annotation>
+					<xsd:documentation>Local BCO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Tier1BCO">
+				<xsd:annotation>
+					<xsd:documentation>Tier 1 BCO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Unclassified">
+				<xsd:annotation>
+					<xsd:documentation>Unclassified</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

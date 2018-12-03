@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by HUJI (Orient Overseas Container Line Ltd) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fw="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:complexType name="LinkageCommodity_V1">
+		<xsd:annotation>
+			<xsd:documentation>Linkage commodity</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CargoNatures" type="xsd:string" maxOccurs="unbounded"/>
+			<xsd:element name="HSCode" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LinkageCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Single rate/service lookup criteria</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ObjectID" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Used to match it to the object id in result</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveFrom" type="fw:FWAbsoluteDateTimeDTO"/>
+			<xsd:element name="EffectiveTo" type="fw:FWAbsoluteDateTimeDTO"/>
+			<xsd:element name="TariffCodes" type="xsd:string" maxOccurs="unbounded"/>
+			<xsd:element name="TrafficMode" type="xsd:string"/>
+			<xsd:element name="CommodityDesc" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LinkageCommodities" type="LinkageCommodity_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Origins" type="xsd:long" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Use geo uuid if IsRateToServiceLookup is true; otherwise use geo id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Destinations" type="xsd:long" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Use geo uuid if IsRateToServiceLookup is true; otherwise use geo id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LinkedRFs" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Hold the linked RF numbers to the SI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LinkageResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Single rate/service lookup result</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ObjectID" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Used to match it to the object id in criteria</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ResultXMLs" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Result applicable RI/SI XMLs</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LinkageLookupCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Applicable rate/service lookup criteria</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AgreementID" type="xsd:string"/>
+			<xsd:element name="IsRateToServiceLookup" type="xsd:boolean"/>
+			<xsd:element name="LinkageCriterias" type="LinkageCriteria_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LinkageLookupResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Applicable rate/service lookup result</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="LinkageResults" type="LinkageResult_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Exception" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsSuccessful" type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

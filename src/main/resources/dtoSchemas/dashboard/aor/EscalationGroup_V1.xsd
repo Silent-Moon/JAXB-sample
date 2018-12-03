@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard.aor" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.dashboard.aor" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/NameAndIdentifier_V1.xsd"/>
+	<xsd:complexType name="EscalationGroup_V1">
+		<xsd:sequence>
+			<xsd:element name="ID" type="cmn:ID_LongNumeric_V1" minOccurs="0"/>
+			<xsd:element name="Name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Level" type="xsd:int"/>
+			<xsd:element name="EscalationGroupInheritFrom" type="cmn:NameAndIdentifier_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the skill group which contains the  escalation group which this skillgroup inherited from.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

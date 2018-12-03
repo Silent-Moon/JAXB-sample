@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common.lookup" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common.lookup" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../OrganizationLevel_V1.xsd"/>
+	<xsd:complexType name="OrganizationLookupCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents an organization look up search request with mandatory and optional search criteria.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SearchType" type="common:OrganizationLevel_V1">
+				<xsd:annotation>
+					<xsd:documentation>Organization type, Region or Office. Max. length is 6.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Code" type="common:EntityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Organization code. Max. length is 3.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Name" type="common:EntityBriefName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Organization name. Max. length is 35.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Hierarchy" type="common:EntityName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Hierarchy type. Max. length is 20.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TerritoryCode" type="common:EntityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Territory code. Max. length is 3.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RegionCode" type="common:EntityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Region code. Max. length is 3.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CountryCode" type="common:EntityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Country code. Max. length is 3 but use 2.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CityID" type="common:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Unique ID that identifies city in string format.  Max. length is 15.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
+

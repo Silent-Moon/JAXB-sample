@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.csal" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:frm="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.csal" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="LocationCriteriaCategory_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is Location Criteria Category</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="POR"/>
+			<xsd:enumeration value="FND"/>
+			<xsd:enumeration value="POL"/>
+			<xsd:enumeration value="POD"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocationCriteriaType_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is Location Criteria Type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Geo_Location"/>
+			<xsd:enumeration value="TMIS_Region"/>
+			<xsd:enumeration value="TMIS_SubRegion"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

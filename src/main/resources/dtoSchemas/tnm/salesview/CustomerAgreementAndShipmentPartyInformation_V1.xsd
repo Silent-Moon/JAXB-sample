@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by tusha (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.salesview" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:framework="http://com.oocl.frm.common.date.dto/" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:common="http://com.oocl.schema.common" xmlns:customer="http://com.oocl.schema.customer" targetNamespace="http://com.oocl.schema.tnm.salesview">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementStatus_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementVersion_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.customer" schemaLocation="../../customer/Customer_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ExternalSystemAvailability_V1.xsd"/>	
+	<xsd:include schemaLocation="AgreementShipmentParty_V1.xsd"/>
+	<xsd:include schemaLocation="AgreementPerformance_V1.xsd"/>
+	<xsd:complexType name="CustomerAgreementAndShipmentPartyInformation_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This Type contains the Agreement Performance details as well as the collection of Shipment and Agreement Parties associated to a specific agreement version.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AgreementPerformance" type="AgreementPerformanceResult_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Contains the Agreement Performance details associated to a given agreement version
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementShipmentParties" type="customer:Customer_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Contains the collection of Shipment and Agreement Parties associated to a specific agreement version.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AgreementPerformanceResult_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This Type contains the Agreement Performance details associated to a specific agreement version with additional elements containing status of web service availability
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Agreements" type="AgreementPerformance_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Contains collection of agreement objects associated to a given SAP ID.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExternalApplicationStatus" type="common:ExternalSystemAvailability_V1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					    Provides CPRS availability.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

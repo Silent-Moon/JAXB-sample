@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by David Li (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="CommonRestrictions_V1.xsd"/>
+	<xsd:simpleType name="GeoLocationType_V1">
+		<xsd:annotation>
+			<xsd:documentation>A list of geo location types. Use GeoLocationTypeString_V1 for data type retrieved from DB.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="AutonomousCommunity"/>
+			<xsd:enumeration value="Canton"/>
+			<xsd:enumeration value="City"/>
+			<xsd:enumeration value="CityDistrict"/>
+			<xsd:enumeration value="CityDistrictSuburb"/>
+			<xsd:enumeration value="Country"/>
+			<xsd:enumeration value="County"/>
+			<xsd:enumeration value="Department"/>
+			<xsd:enumeration value="District"/>
+			<xsd:enumeration value="Emirate"/>
+			<xsd:enumeration value="Facility"/>
+			<xsd:enumeration value="Governorate"/>
+			<xsd:enumeration value="Island"/>
+			<xsd:enumeration value="Municipality"/>
+			<xsd:enumeration value="NationState"/>
+			<xsd:enumeration value="Parish"/>
+			<xsd:enumeration value="Port"/>
+			<xsd:enumeration value="Prefecture"/>
+			<xsd:enumeration value="Province"/>
+			<xsd:enumeration value="Region"/>
+			<xsd:enumeration value="State"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:include schemaLocation="RateAndSurchargeReference_V1.xsd"/>
+	<xsd:complexType name="GuidelineRateReference_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a guideline rate containing an ocean rate and up to 4 inland/port arbitrary add-on rates</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OB1" type="RateAndSurchargeReference_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The first outbound inland rate.  If present, the location of this rate is always the point of receipt.  Otherwise the point of receipt is (one of) the Trunk origin(s).  The over location must match with either OB2 Location or Trunk Origin (if OB2 is not present)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OB2" type="RateAndSurchargeReference_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>An optional outbound inland rate.  If present, the location must match with the over location of OB1 and the over location of this rate must match with the origin of the Trunk.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Trunk" type="RateAndSurchargeReference_V1">
+				<xsd:annotation>
+					<xsd:documentation>The Trunk = base rate / ocean rate.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IB1" type="RateAndSurchargeReference_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The inbound rate connecting to the destination of the trunk.  If there is only one inbound rate (IB2 is not present), then this rate will have the final destination.  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IB2" type="RateAndSurchargeReference_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>A second inbound rate which connects to the first inbound rate to arrive at a final destination.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

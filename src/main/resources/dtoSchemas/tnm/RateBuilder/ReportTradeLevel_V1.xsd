@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Kent Williamson (OOCL (USA) INC) -->
+<!--  Created Oct 10, 2007  -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+  <xsd:complexType name="ReportTradeLevel_V1">
+<xsd:annotation>
+<xsd:documentation>Represents a named RateReport, used for filtering by permission/trade</xsd:documentation>
+</xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="TradeCode" type="xsd:string">
+      </xsd:element>
+      <xsd:element name="ReportName" type="xsd:string">
+      </xsd:element>
+      <xsd:element name="ReportId" type="xsd:string">
+      </xsd:element>
+      <xsd:element name="MinAuthLevel" type="xsd:string">
+      </xsd:element>
+      <xsd:element name="ReportType" type="xsd:string">
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
+

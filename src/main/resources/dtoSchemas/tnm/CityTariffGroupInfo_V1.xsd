@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Prashant Gupta (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/BasicLocationInformation_V1.xsd"/>
+	<xsd:include schemaLocation="AbstractTariffGroupInfo_V1.xsd"/>
+	<xsd:complexType name="CityTariffGroupInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a grouping of Cities/City Districts with tariffs per a particular effective period</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="tnm:AbstractTariffGroupInfo_V1">
+				<xsd:sequence>
+					<xsd:element name="Locations" type="common:BasicLocationInformation_V1"  minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Locations hold city/ city districts or combination of both</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>					
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

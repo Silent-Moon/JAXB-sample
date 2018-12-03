@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="SAP_ID_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			   SAP ID is the unique identifier for a given Customer in reference to SAP Application.  
+			</xsd:documentation>
+		</xsd:annotation>	
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

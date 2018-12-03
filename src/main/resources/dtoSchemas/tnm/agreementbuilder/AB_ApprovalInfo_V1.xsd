@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 (x64) (http://www.altova.com) by HUJI (Orient Overseas Container Line Limited) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ab="http://com.oocl.schema.tnm.agreementbuilder" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:common="http://com.oocl.schema.common" xmlns:fw="http://com.oocl.frm.common.date.dto/" xmlns:customer="http://com.oocl.schema.customer" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.customer" schemaLocation="../../customer/Customer_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/DeliveryMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/LocationName_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Region_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../CargoControlParty_V1.xsd"/>
+	<xsd:include schemaLocation="AB_SimpleTypes_V1.xsd"/>
+	<xsd:simpleType name="LegType_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="IHL"/>
+			<xsd:enumeration value="ARB"/>
+			<xsd:enumeration value="Ocean"/>
+			<xsd:enumeration value="ARD"/>
+			<xsd:enumeration value="IHD"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RateType_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="AB"/>
+			<xsd:enumeration value="RB"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="RateAmountInfo_V1">
+		<xsd:sequence>
+			<xsd:element name="SizeType" type="xsd:string"/>
+			<xsd:element name="Amounts" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="RateType" type="RateType_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RateInfo_V1">
+		<xsd:sequence>
+			<xsd:element name="PointPairDesc" type="xsd:string"/>
+			<xsd:element name="Rates" type="RateAmountInfo_V1" maxOccurs="unbounded"/>
+			<xsd:element name="LegType" type="LegType_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OtherInfo_V1">
+		<xsd:sequence>
+			<xsd:element name="SizeType" type="xsd:string"/>
+			<xsd:element name="Volume" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CMTX_RPO" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CMTX_NRPO" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EstimatedTotal" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SurchargeInfo_V1">
+		<xsd:sequence>
+			<xsd:element name="SurchargeCode" type="xsd:string"/>
+			<xsd:element name="SurchargeDesc" type="xsd:string"/>
+			<xsd:element name="ChargeAmount" type="xsd:string"/>
+			<xsd:element name="GuidelineMinimumChargeAmount" type="xsd:string"/>
+			<xsd:element name="TariffChargeAmount" type="xsd:string"/>
+			<xsd:element name="SurchargeType" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Subject to/Included</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PaymentType" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Prepaid/Collect/To be decided</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsOptional" type="xsd:string"/>
+			<xsd:element name="InlandDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EffectiveFrom" type="fw:FWAbsoluteDateTimeDTO" nillable="true" minOccurs="0"/>
+			<xsd:element name="EffectiveTo" type="fw:FWAbsoluteDateTimeDTO" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RouteInfo_V1">
+		<xsd:sequence>
+			<xsd:element name="RouteType" type="xsd:string"/>
+			<xsd:element name="RouteDesc" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CommodityInfo_V1">
+		<xsd:sequence>
+			<xsd:element name="CommodityDescription" type="xsd:string"/>
+			<xsd:element name="GuidelineCommodityDescription" type="xsd:string"/>
+			<xsd:element name="IsPCT_Rate" type="xsd:boolean"/>
+			<xsd:element name="ExcludedHSCodes" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CommodityDetails" type="CommodityDetailInfo_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CommodityDetailInfo_V1">
+		<xsd:sequence>
+			<xsd:element name="CargoNature" type="xsd:string"/>
+			<xsd:element name="HSCode" type="xsd:string"/>
+			<xsd:element name="DGProperName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DGUNNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AWSizeType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AWLength" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AWWidth" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AWHeight" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AWNetWeight" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AWGrossWeight" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SpaceTEU" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RemarkInfo_V1">
+		<xsd:sequence>
+			<xsd:element name="Type" type="xsd:string"/>
+			<xsd:element name="Remark" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CmtxInfo_V1">
+		<xsd:sequence>
+			<xsd:element name="CMTXParameter" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LinkedSI_V1">
+		<xsd:sequence>
+			<xsd:element name="ID" type="xsd:string"/>
+			<xsd:element name="ActivationStatus" type="xsd:string"/>
+			<xsd:element name="ApprovalStatus" type="xsd:string"/>
+			<xsd:element name="Description" type="xsd:string"/>
+			<xsd:element name="Commodity" type="xsd:string"/>
+			<xsd:element name="EffectiveFrom" type="fw:FWAbsoluteDateTimeDTO"/>
+			<xsd:element name="EffectiveTo" type="fw:FWAbsoluteDateTimeDTO"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AB_ApprovalInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information to be passed for AB dashboard task</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RateObjectID" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Unique identifier for the AB rate </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateID" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Offer Item ID. Unique only in the context of a specific Agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementID" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Agreement ID which the rate belongs to</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveFrom" type="fw:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>Efffective start date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveTo" type="fw:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>Effective end date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AutoApproved" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicator of auto approval</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ApprovalStatus" type="OfferRateApprovalStatus_V1">
+				<xsd:annotation>
+					<xsd:documentation>Rate approval status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OfflineApprovers" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="OfflineApproverRemark" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Approver" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>User who approved the rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ApproverRemark" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Approver's remark. Also used to capture rejection reason if the rate was rejected by the user</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActivationStatus" type="OfferRateStatus_V1">
+				<xsd:annotation>
+					<xsd:documentation>Rate activation status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EscalationReasons" type="xsd:string" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Escalation reasons</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EscalationCodes" type="xsd:int" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Escalation codes</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ApprovalType" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Approval type: either trade or region </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Tariff" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Tariff of the OI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Trade" type="tnm:TradeCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Trade of the OI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeLane" type="tnm:TradeLaneCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>TradeLane of the OI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Direction" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Direction of the OI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateLevel" type="xsd:int"/>
+			<xsd:element name="CCPRole" type="tnm:CargoControlParty_V1">
+				<xsd:annotation>
+					<xsd:documentation>Cargo control party role</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Origins" type="common:LocationName_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>One or more origin locations</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Destinations" type="common:LocationName_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>One or more destination locations</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TrafficMode" type="xsd:string"/>
+			<xsd:element name="DeliveryMode" type="common:DeliveryMode_V1">
+				<xsd:annotation>
+					<xsd:documentation>One of four delivery modes, DD, YY, DY, YD</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BaseDeliveryMode" type="common:DeliveryMode_V1">
+				<xsd:annotation>
+					<xsd:documentation>One of four delivery modes, DD, YY, DY, YD</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValidityExtensionDays" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Number of days more than the guideline validity extension - needed for skill group calculation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Justification" type="common:LongBasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Comments that explains the justification of the rate offer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SurchargeCodes" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Customized ocean/inland surcharges that override standard ocean/inland surcharges</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CommodityDescription" type="common:LongBasicDescription_V1">
+				<xsd:annotation>
+					<xsd:documentation>Commodity specified in the offer, customized or from the guideline</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNatures" type="xsd:string" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of cargo natures thathe rate is applicable to</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsSOC" type="xsd:boolean"/>
+			<xsd:element name="IsPCTRate" type="xsd:boolean"/>
+			<xsd:element name="IsRegulatedRate" type="xsd:boolean"/>
+			<xsd:element name="IsFiled" type="xsd:boolean"/>
+			<xsd:element name="BizNature" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Biz Nature can be either Open or Committed</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="QuoteExpirationDate" type="fw:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>Date when the quote expires</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Customer" type="customer:Customer_V1">
+				<xsd:annotation>
+					<xsd:documentation>Customer and sales rep assignments of the Agreement Control Party</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SalesPerson" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Sales rep of the OI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ApprovalRequestor" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Approval requestor</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OriginRegions" type="common:Region_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Origin Region belonging to ACP Sales</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestinationRegions" type="common:Region_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Destination Region belonging to ACP Sales</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Region" type="common:Region_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Region belonging to ACP Sales</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RegionalManager" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Regional manager for ACP sales</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateInfo" type="RateInfo_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Rate related info</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherInfo" type="OtherInfo_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Volume/CMTX info</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="VolumeTEUInfo" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>TEU level volume info</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SurchargeInfo" type="SurchargeInfo_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Customized surcharge info</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InlandSurchargeInfo" type="SurchargeInfo_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="RouteInfo" type="RouteInfo_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Customized surcharge info</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CommodityInfo" type="CommodityInfo_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Customized commodity info</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RemarkInfo" type="RemarkInfo_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Rate remarks</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CmtxInfo" type="CmtxInfo_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate CMTX</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="QILockStamp" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Rate lock stamp</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BaseLocationsNotMatchingGuideline" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Flags" type="xsd:int"/>
+			<xsd:element name="LinkedSIs" type="LinkedSI_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="LinkedSIOIDs" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IgnoredSVCTypes" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Wording" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SurchargeSummary" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ApprovalInfo" type="AB_ApprovalInfo_V1"/>
+</xsd:schema>

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Juvy Centeno (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.salesview" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.salesview" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CardinalDirection_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/Trade_V1.xsd"/>
+	<xsd:complexType name="TEUKPISummary_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">This Type defines the actual number of TEUs that has been booked for a given trade in a given period.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TradeCode" type="tnm:TradeCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>TradeCode - This is the trade code to which the KPI applies. Definition is derived from Trade xsd.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DirectionCode" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>DirectionCode - a one character direction code.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="common:CardinalDirectionCode_V1"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ActualTEU" type="xsd:decimal">
+				<xsd:annotation>
+					<xsd:documentation>ActualTEU - the actual number of TEUs that were used.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="YearNumber" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>YearNumber - the year number in 4 digit format i.e. CCYY</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int">
+						<xsd:totalDigits value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MonthNumber" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MonthNumber - the month number from 1 to 12. </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int">
+						<xsd:minInclusive value="1"/>
+						<xsd:maxInclusive value="12"/>
+						<xsd:totalDigits value="12"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="QuarterInYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>QuarterInYear - the quarter number in a year.  Range is from 1 to 4.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int">
+						<xsd:minInclusive value="1"/>
+						<xsd:maxInclusive value="4"/>
+						<xsd:totalDigits value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TEUKPISummaryBySAP_ID_V1">
+		<xsd:annotation>
+			<xsd:documentation>This Type defines the actual number of TEUs that has been booked by a customer for a given trade and direction in a given period.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="TEUKPISummary_V1">
+				<xsd:sequence>
+					<xsd:element name="SAP_ID" type="common:SAP_ID_V1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

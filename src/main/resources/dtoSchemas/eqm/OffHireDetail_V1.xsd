@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+  <xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+  <xsd:include schemaLocation="Contact_V1.xsd"/>
+
+  <xsd:complexType name="OffHireDetail_V1">
+    <xsd:sequence>
+      <xsd:element name="ActionType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="AuthDtlId" type="xsd:long"/>
+      <xsd:element name="AuthNum" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CityId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CityName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Contact" type="Contact_V1" minOccurs="0"/>
+      <xsd:element name="CreatedBy" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CreationDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="DropOffCharge" type="xsd:double"/>
+      <xsd:element name="DropOffCredit" type="xsd:double"/>
+      <xsd:element name="DropoffAddrName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EffectiveDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="ExpiryDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="ExtRefAuthNum" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="HandlingCharge" type="xsd:double"/>
+      <xsd:element name="LastUpdateDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="LastUpdatedBy" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="OffHireDetailId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="OnHireAuthorizationNo" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Quantity" type="xsd:int"/>
+      <xsd:element name="SizeType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="UseDefaultExpiryDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SuspendIndicator" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LessorOffhireContactEmail" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LessorOffhireContactTel" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

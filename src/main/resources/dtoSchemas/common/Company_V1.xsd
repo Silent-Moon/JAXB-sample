@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by tusha (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="CompanyAddress_V1.xsd"/>
+	<xsd:simpleType name="CompanyName_V1">
+		<xsd:annotation>
+			<xsd:documentation>Name of a Company
+This is used to denote the information about an organization which may not be a Customer</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="105"/>
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CompanyRoleName_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CargoControlParty"/>
+			<xsd:enumeration value="Consignee"/>
+			<xsd:enumeration value="Forwarder"/>
+			<xsd:enumeration value="NotifyParty"/>
+			<xsd:enumeration value="Shipper"/>
+			<xsd:enumeration value="SignatureParty"/>
+			<xsd:enumeration value="Associate"/>
+			<xsd:enumeration value="Broker"/>
+			<xsd:enumeration value="FreightPayer"/>
+			<xsd:enumeration value="ShipmentControlParty"/>
+			<xsd:enumeration value="BookingParty"/>
+			<xsd:enumeration value="ActualConsignee"/>
+			<xsd:enumeration value="FirstNotify"/>
+			<xsd:enumeration value="SecondNotify"/>
+			<xsd:enumeration value="Affliate"/>
+			<xsd:enumeration value="ShipToParty"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CompanyRoleCode_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CCP">
+				<xsd:annotation>
+					<xsd:documentation>Cargo Control Party</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CON">
+				<xsd:annotation>
+					<xsd:documentation>Consignee</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FOR">
+				<xsd:annotation>
+					<xsd:documentation>Forwarder</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="NOT">
+				<xsd:annotation>
+					<xsd:documentation>Notify Party</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SHP">
+				<xsd:annotation>
+					<xsd:documentation>Shipper</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SIG">
+				<xsd:annotation>
+					<xsd:documentation>Signature Party</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ASC">
+				<xsd:annotation>
+					<xsd:documentation>Associate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="BRO">
+				<xsd:annotation>
+					<xsd:documentation>Broker</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FRE">
+				<xsd:annotation>
+					<xsd:documentation>Freight Payer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SCP">
+				<xsd:annotation>
+					<xsd:documentation>Shipment Control Party</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="BKP">
+				<xsd:annotation>
+					<xsd:documentation>Booking Party</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ACN">
+				<xsd:annotation>
+					<xsd:documentation>Actual Consignee</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FNP">
+				<xsd:annotation>
+					<xsd:documentation>First Notify</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SNP">
+				<xsd:annotation>
+					<xsd:documentation>Second Notify</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AFF">
+				<xsd:annotation>
+					<xsd:documentation>Affliate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="Company_V1">
+		<xsd:sequence>
+			<xsd:element name="Name" type="CompanyName_V1"/>
+			<xsd:element name="Address" type="CompanyAddress_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Aliases" type="CompanyName_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Role" type="CompanyRoleName_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Windy OR (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.ivr" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.ivr" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="CallSessionInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Define parameters for CallSessionInfo</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CallSessionInfoKey">
+				<xsd:annotation>
+					<xsd:documentation>Call session info key</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CallSessionInfoValue">
+				<xsd:annotation>
+					<xsd:documentation>Call session info value</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

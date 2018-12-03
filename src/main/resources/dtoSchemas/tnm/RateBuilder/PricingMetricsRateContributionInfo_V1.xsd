@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Orlando Palis (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="PricingMetricsRateInfo_V1.xsd"/>
+	<xsd:include schemaLocation="PricingMetricsWeeklyContributionAmounts_V1.xsd"/>
+	<xsd:complexType name="PricingMetricsRateContributionInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents rate information and corresponding weekly contribution amounts for General Market, Specific Market and MRG contributions.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RateInfo" type="PricingMetricsRateInfo_V1" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The rate information of the contribution. It may be for base rate level or split rate level.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GeneralMarketContributions" type="PricingMetricsWeeklyContributionAmounts_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>A list of weekly contribution amounts for General Market.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SpecificMarketContributions" type="PricingMetricsWeeklyContributionAmounts_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>A list of weekly contribution amounts for Specific Market.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MRG_Contributions" type="PricingMetricsWeeklyContributionAmounts_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>A list of weekly contribution amounts for MRG.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

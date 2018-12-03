@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Prashant Gupta (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/AbstractCommonFields_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/DateRange_V1.xsd"/>
+	<xsd:include schemaLocation="TariffCode_V1.xsd"/>
+	<xsd:complexType name="AbstractTariffGroupInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the reusable group attributes!</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="common:AbstractCommonFields_V1">
+				<xsd:sequence>
+					<xsd:element name="GroupInfoID" type="common:ID_LongNumeric_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The group info's unique identifier</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="GroupID" type="common:ID_LongNumeric_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The unique ID of the group where the group info belongs to</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="InUse" type="xsd:boolean" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>If the group is in use by any rates (true/false).</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="TariffCodes" type="tnm:TariffCode_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Holds the tariff codes, 001, 002...etc</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="EffectiveDateRange" type="common:DateRange_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Effective start and end dates for the group info.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

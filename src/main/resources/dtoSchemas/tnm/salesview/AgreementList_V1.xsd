@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm.salesview" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:framework="http://com.oocl.frm.common.date.dto/" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.salesview">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ExternalSystemAvailability_V1.xsd"/>
+	<xsd:include schemaLocation="AgreementPerformance_V1.xsd"/>
+	<xsd:complexType name="AgreementList_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This Type contains the list of Agreements associated to a given SAP ID.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AgreementList" type="AgreementPerformance_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   AgreementList is a collection of agreement performance associated to a given SAP ID.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExternalApplicationStatus" type="common:ExternalSystemAvailability_V1" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					    Provides CPRS availability.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

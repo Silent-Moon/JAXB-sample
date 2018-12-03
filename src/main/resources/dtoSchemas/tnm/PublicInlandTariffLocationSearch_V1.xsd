@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Orlando Palis (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm.ratebuilder="http://com.oocl.schema.tnm.ratebuilder" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ValidationError_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm.ratebuilder" schemaLocation="./RateBuilder/InlandRateCountryLocations_V1.xsd"/>
+	<xsd:complexType name="PublicInlandTariffLocationSearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the inland tariff locations search criteria.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Countries" type="common:BasicLocationInformation_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>One or more countries used to match the countries associated to the locations (origins/destinations) and over locations (gateways) found in the inland tariff tables.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchForLocations" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicates whether or not inland rate locations (origin/destination) should be searched.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchForOverLocations" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicates whether or not inland rate over locations (gateways) should be searched.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PublicInlandTariffLocationSearchResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents countries with associated location and over locations available for public inland tariff search.  This includes validation error(s) encountered in the search if any.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CountryLocations" type="tnm.ratebuilder:InlandRateCountryLocations_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of country ID with associated location IDs and over location IDs</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReferencedLocations" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Details for locations referenced by LocationIDs and OverLocationsIDs in CountryLocations field</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValidationErrors" type="common:ValidationError_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Optional collection of validation errors when no data is found. See ValidationError for more details.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

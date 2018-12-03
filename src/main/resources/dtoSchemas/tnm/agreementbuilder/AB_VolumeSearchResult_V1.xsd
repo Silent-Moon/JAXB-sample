@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="AB_VolumeSearchResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>AB volume search result</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="VolumeXMLs" type="common:XML_Payload" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of volume XMLs returned</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Exception" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Exception returned if server exception encountered</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsSuccessful" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Is search successful boolean indicator</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

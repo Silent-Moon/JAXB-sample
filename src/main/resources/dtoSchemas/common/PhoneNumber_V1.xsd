@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by tusha (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="PhoneNumberType_V1.xsd"/>
+	<xsd:include schemaLocation="CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="PhoneNumber_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				PhoneNumber is a common type that defines generic structure of a phone number object. 
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PhoneID" type="UUID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						PhoneID holds the unique ID.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CountryCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						CountryCode holds on the country code value.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AreaCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						AreaCode holds on the area code value.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Number" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Number holds on the number value.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Extension" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Extension holds on the phone number extension, if applicable
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Type" type="PhoneNumberType_V1" default="Unspecified" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Type refers to the contact number type associated to the contact number.
+						May include: Business Phone/Fax, Home Phone/Fax, Mobile Phone, Pager, Telex or Unspecified					
+						Default value is Unspecified.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

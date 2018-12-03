@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/BasicLocationInformation_V1.xsd"/>
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/CommonRestrictions_V1.xsd"/>
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/ShipmentNumber_V1.xsd"/>
+  
+  <xsd:complexType name="ReuseHubInfo_V1">
+    <xsd:sequence>
+
+	<xsd:element name="Action" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the action type requested by user</xsd:documentation>
+				</xsd:annotation>
+        <xsd:simpleType>
+				  <xsd:restriction base="xsd:string">
+					  <xsd:maxLength value="8"/>
+					  <xsd:enumeration value="CREATE"/>
+					  <xsd:enumeration value="EDIT"/>
+					  <xsd:enumeration value="DELETE"/>
+					  <xsd:enumeration value="UNCHANGE"/>
+				  </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="LevelID" type="common:ID_LongNumeric_V1" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Represents the level ID</xsd:documentation>
+				</xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ReuseHubCity" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Represents the reuse hub city</xsd:documentation>
+				</xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Remark" minOccurs="0"> 
+				<xsd:annotation>
+					<xsd:documentation>Represents the remark of reuse hub city</xsd:documentation>
+				</xsd:annotation>
+        <xsd:simpleType>
+				  <xsd:restriction base="xsd:string">
+					  <xsd:maxLength value="250"/>
+				  </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="ShipmentNumber" type="common:ShipmentNumber_V1" minOccurs="0"> 
+				<xsd:annotation>
+					<xsd:documentation>Represents the Current Shipment Reference Number</xsd:documentation>
+				</xsd:annotation>
+      </xsd:element>	  
+	</xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

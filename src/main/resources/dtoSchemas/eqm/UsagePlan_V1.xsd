@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/UpdateResult_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/CommonRestrictions_V1.xsd"/>
+	<xsd:include schemaLocation="UsagePlanAssnContract_V1.xsd"/>
+	<xsd:include schemaLocation="UsagePlanShipmentInfo_V1.xsd"/>
+	<xsd:complexType name="UsagePlan_V1">
+		<xsd:sequence>
+			<xsd:element name="ActualAvailabilityAtReuseHub" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+						<xsd:documentation>Is used to notate when the eqpt needs arriving the re-use hub location for final trip to Drop-off location. It is the EQM_EQP_STAGING.ACT_AVAIL_RHUB_DT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActualLastDropCity" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+						<xsd:documentation>The actual dropoff city. It is the convert from EQM_EQP_STAGING.ACT_LAST_DROP_CITY_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActualLastDropCityID" type="xsd:long">
+				<xsd:annotation>
+						<xsd:documentation>The actual dropoff city ID. It is the EQM_EQP_STAGING.ACT_LAST_DROP_CITY_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActualLastDropCityUUID" type="xsd:long">
+				<xsd:annotation>
+						<xsd:documentation>The actual dropoff city UUID. It is the convert from EQM_EQP_STAGING.ACT_LAST_DROP_CITY_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActualOffhireConfirmDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The actual offhire confirmation date for pick up. It is the EQM_USAGE_PLAN.ACT_OFFHIRE_CONFIRM_DT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="ActualPickupDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The actual date for pick up. It is the EQM_USAGE_PLAN.ACT_PICKUP_DT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="ActualTermianteDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The actual termination date for pick up. It is the EQM_USAGE_PLAN.ACT_TERMINATE_DT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="ActionType" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Action type for the operation.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="AlertStatus" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Whether user attention is needed. It is the EQM_USAGE_PLAN.ALERT_STATUS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="AlertType" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Kind of Alert has been Detected by System. It is the EQM_USAGE_PLAN.ALERT_TYPE</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="AssignContractInformation" type="UsagePlanAssnContract_V1" nillable="true" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Structure for the UsagePlanAssnContract_V1</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="AuthorizationDetailID" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Authorization reference number. It is the EQM_USAGE_PLAN.AUTH_DTL_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="CheckDigit" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ContractNumber" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The unique key of the contract. It is the EQM_USAGE_PLAN.CONTRACT_NUM</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ControlParty" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The control party. Value: OOCL or  ??. It is the EQM_USAGE_PLAN.CTL_PARTY</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreatedBy" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>user id of the user who created the database record. Based on Network / NT Team maximum OOCL domain id will be 10 alphanumberic characters. Sized 15 characters to accommodate long DB IDs. It is the EQM_USAGE_PLAN.CREATE_BY</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreationDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Database date/time of record creation.  This field will be set by table trigger. It is the EQM_USAGE_PLAN.CREATE_DT_GMT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerID" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Customer ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="CycleStatus" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The usage plan status. Value: NEW, OPENED, MATCHED, CONFIRMED, ASSIGNED, RESERVED, REQUESTED, PLANNED, IN-SERVICE, OFFHIRED, PURCHASED, LOST, SOLD, CANCELLED. It is the EQM_USAGE_PLAN.CYCLE_STATUS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CycleType" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Define the type of the usage plan. Value: LeaseIn, Sale, Purchase, LeaseOut. It is the EQM_USAGE_PLAN.CYCLE_TYPE</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DropoffExpiryDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+
+			<xsd:element name="EquipmentNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The equipment number of the usage plan. Must be a valid number in the Equipment Inventory. It is the EQM_USAGE_PLAN.EQP_NUM</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EquipmentSizeType" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The size type of the equipment from EQM_EQP_SIZE_TYPE. Value: 20GP, 40GP, etc. It is the EQM_USAGE_PLAN.EQP_SIZE_TYPE</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EquipmentType" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The equipment type. Value: CTR, CHZ, GEN. It is the EQM_USAGE_PLAN.EQP_TYPE</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExpectedLastDropCity" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The expected drop off city. It is convert from EQM_USAGE_PLAN.EXP_LAST_DROP_CITY_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExpectedLastDropCityID" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>The expected drop off city ID. It is the EQM_USAGE_PLAN.EXP_LAST_DROP_CITY_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExpectedLastDropCityUUID" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>The expected drop off city UUID. It is convert from EQM_USAGE_PLAN.EXP_LAST_DROP_CITY_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExpectedTerminateDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The expected termination date of the usage plan. It is the EQM_USAGE_PLAN.EXP_TERMINATE_DT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="ExpectedUsageDay" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>The total number of days that eqpt will be used under this authtorization. It is the EQM_USAGE_PLAN.EXP_USAGE_DAY</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>					
+			<xsd:element name="ExternalDropoffAuthRefNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ExternalPickupAuthReferenceNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The external number (used by vendor) fo the authorization number for pickup the equipment. It is the EQM_USAGE_PLAN.EXT_PICKUP_AUTH_NUM</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FirstMatchCommenceDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Is used to notate when we need to start locating a booking that can help bringing the eqpt out from supplier own location or moving to the defined re-used hub location, OR both. It is the EQM_USAGE_PLAN.FIRST_MATCH_COMM_DT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FirstPickCity" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The city for first pick up. The value is retrieved from EQM_USAGE_PLAN.FIRST_PICK_CITY_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FirstPickCityID" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>The city ID for first pick up. It is the EQM_USAGE_PLAN.FIRST_PICK_CITY_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FirstPickCityUUID" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>The city UUID for first pick up. It is converted from EQM_USAGE_PLAN.FIRST_PICK_CITY_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FirstPickupDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The earlier date is available for pickup from supplier procession. The value is retrieved from EQM_AUTH_DTL.FIRST_PICKUP_DT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FirstPickupEquipmentOffice" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The office that equipment is available for pickup from supplier procession. The value is retrieved from EQM_USAGE_PLAN.FIRST_PICK_CITY_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FirstPickupExactLocation" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The exact location, a valid OOCL facility or leasing company location, that equipment is available for pickup from supplier procession. The value is retrieved from EQM_AUTH_DTL.PICKUP_ADDR_NAME</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FlowInstruction" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The flow instruction of the usage plan. Code: FRPK, PKRU PKDR, TORU, RUDR, TODR, NOPL. It is the EQM_USAGE_PLAN.FLOW_INSTRUCTION</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FreeDay" type="xsd:int" >
+				<xsd:annotation>
+					<xsd:documentation>Is used to notate the number of day that we can use equipment without per diem charge, information shall be defaulted based on the contract but shall be editable at usage plan by user. It is the EQM_USAGE_PLAN.FREE_DAY</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HasReuseHubIndicator" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>The indicator to show if the plan has reuse hub attached. Value: 1, true; 0, false. It is the EQM_USAGE_PLAN.HAS_RHUB_IND</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HasSpecialDesignIndicator" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>The indicator to show if the plan has special design requirment. Value: 1, true; 0, false. It is the EQM_USAGE_PLAN.HAS_SPECIAL_DESIGN_IND</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InternalDropoffAuthorizationReferenceNumber" type="xsd:string" minOccurs="0" >
+				<xsd:annotation>
+					<xsd:documentation>The authorization number for release the equipment (e.g offhire or sales). It is the EQM_USAGE_PLAN.DROPOFF_AUTH_NUM</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InternalPickupAuthorizationReferenceNumber" type="xsd:string" minOccurs="0" >
+				<xsd:annotation>
+					<xsd:documentation>The authorization number for pickup the equipment (e.g. onhire). It is the EQM_USAGE_PLAN.PICKUP_AUTH_NUM</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsLastMatchSuccessIndicator" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicate if the last matching is successful. It is the EQM_USAGE_PLAN.IS_LAST_MATCHING_SUCCESS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="LastDropoffEquipmentOffice" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The region for the last drop off process. The value is retrieved from EQM_USAGE_PLAN.ACT_LAST_DROP_CITY_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastDropoffExactLocation" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The exact location for the last drop off process. The value is retrieved from EQM_USAGE_PLAN.ACT_LAST_DROP_CITY_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastEventDatetime" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The last event date time. The value is retrieved from EQM_CURR_MOV_EVT.EQP_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastEventLocation" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The last event location. The value is retrieved from EQM_CURR_MOV_EVT.LATEST_EVT_DT_GMT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastEventType" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The last event type. The value is retrieved from EQM_CURR_MOV_EVT.LAST_EVENT_TYPE</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastFreeDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Is used to notate the last date that the equipment can be used without incurring any per-diem charge. It is the EQM_USAGE_PLAN.LAST_FREE_DT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastMatchCommenceDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Is used to notate when we need to start locating a booking that aim moving the eqpt to the final drop-off location for off-hire. It is the EQM_USAGE_PLAN.LAST_MATCH_COMM_DT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastMatchingDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The last time the matching is carried. It is the EQM_USAGE_PLAN.LAST_MATCHING_DT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastPickupDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Last pick up date. It is the EQM_USAGE_PLAN.LAST_PICKUP_DT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastTripMtyAvailableCityID" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>The city ID that eqpt is  mty available for last shipment cycle. It is the EQM_USAGE_PLAN.LAST_TRIP_MTY_AVA_CITY_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastTripMtyAvailableCityName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The city name that eqpt is  mty available for last shipment cycle. It is converted from EQM_USAGE_PLAN.LAST_TRIP_MTY_AVA_CITY_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastTripMtyAvailableDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The date that eqpt is  mty available for last shipment cycle. It is the EQM_USAGE_PLAN.LAST_TRIP_MTY_AVA_DT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MinOnhireDay" type="xsd:int" >
+				<xsd:annotation>
+					<xsd:documentation>Is used to notate the minimum number of day that we need to lease the equipment, information shall be defaulted based on the contract but shall be editable at usage plan by user. It is the EQM_USAGE_PLAN.MIN_ONHIRE_DAY</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OffHireDetailID" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Used for storing the one from "off-hire authorization detail id" because usage plan needs to have the linkage to both AUTH_NUMs at the same time. It is the EQM_USAGE_PLAN.OFFHIRE_AUTH_DTL_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OffhireRequestDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Is used to notate when we need to trigger task to user to confirm all those off-hire details like authorization reference, exact drop-off location. It is the EQM_USAGE_PLAN.OFFHIRE_REQ_DT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReleasePriority" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Store the manual input release priority. It is the EQM_USAGE_PLAN.RELEASE_PRIORITY</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="RequiredAvailReuseHubDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Is used to notate when the eqpt needs arriving the re-use hub location for final trip to Drop-off location. It is the EQM_USAGE_PLAN.REQ_AVAIL_RHUB_DT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SaleRequestDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Is used to notate when we need to trigger task to user to seek buyer. It is the EQM_USAGE_PLAN.SALE_REQ_DT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SelectedReuseHubCityCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Is used to notate where the user want the eqpt going to, as an alternative to the final drop-off location.  It is converted from EQM_USAGE_PLAN.SEL_RHUB_CITY_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>		
+			<xsd:element name="SelectedReuseHubCityID" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Is used to notate where the user want the eqpt going to, as an alternative to the final drop-off location.  It is converted from EQM_USAGE_PLAN.SEL_RHUB_CITY_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SelectedReuseHubCityUUID" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Is used to notate where the user want the eqpt going to, as an alternative to the final drop-off location.  It is converted from EQM_USAGE_PLAN.SEL_RHUB_CITY_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>		
+			<xsd:element name="ShipmentLink" type="UsagePlanShipmentInfo_V1" nillable="true" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Structure for UsagePlanShipmentInfo_V1</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>		
+			<xsd:element name="ShipmentReference" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Is used to notate the shipment/EP reference that will move the box in accordance to the flow plan requirement. It is the EQM_USAGE_PLAN.CUR_SHIP_REF_NUM</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>		
+			<xsd:element name="SupplierCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Supplier code of the usage plan. It is the converted from the EQM_USAGE_PLAN.SUPPLIER_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>		
+			<xsd:element name="SupplierID" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Supplier ID of the usage plan. It is the from the EQM_USAGE_PLAN.SUPPLIER_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>		
+			<xsd:element name="UpdateDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>For new record, this field will have same value as CREATE_DT_GMT field. Last (latest) date/time database record updated .  This field will be set by table trigger. It is the EQM_USAGE_PLAN.UPDATE_DT_GMT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdateResult" type="common:UpdateResult_V1" minOccurs="0"/>
+			<xsd:element name="UpdatedBy" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>User id that has last updated database record. It is the EQM_USAGE_PLAN.POSSIBLE_DROPOFF_DT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UsagePlanID" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>The system generated usage plan ID. It is the EQM_USAGE_PLAN.USAGE_PLAN_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="UsagePlanNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The number of container lease usage plan created. It is the EQM_USAGE_PLAN.USAGE_PLAN_NUM</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>		
+			<xsd:element name="UserDefinedEquipNumber" type="xsd:string" minOccurs="0" >	
+				<xsd:annotation>
+					<xsd:documentation>The equipment number defined by the user input. It is the EQM_USAGE_PLAN.USER_DEFINED_EQP_NUM</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>					
+			<xsd:element name="NominatedShipmentReference" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Is used to notate the shipment/EP reference that will move the box in accordance to the flow plan requirement. It is the EQM_USAGE_PLAN.CUR_SHIP_REF_NUM</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>		
+			<xsd:element name="SaleContractNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Contract num for the type which is SALE contract. It is the EQM_PLAN_CONTRACT_ASSN.CONTRACT_NUM</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>					
+			<xsd:element name="SaleDeliveryDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0" >
+				<xsd:annotation>
+					<xsd:documentation>Delivery date for the type which is SALE contract. It is the EQM_PLAN_CONTRACT_ASSN.DELIVERY_DATE</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PossibleDropoffDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">					
+				<xsd:annotation>
+					<xsd:documentation>A possible dropoff date is required to keep track of the latest date that the equipment can be dropped off and returned to supplier. This field is used for comparison when the off-hire quota counter is being updated. It is the EQM_USAGE_PLAN.POSSIBLE_DROPOFF_DT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="SupplierName" type="xsd:string" minOccurs="0">								
+				<xsd:annotation>
+					<xsd:documentation>The supplier name of the usage plan. It is the field converted from EQM_USAGE_PLAN.SUPPLIER_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="LastEventFacility" type="xsd:string" minOccurs="0">						
+				<xsd:annotation>
+					<xsd:documentation>The last event facility. The value is retrieved from EQM_CURR_MOV_EVT.EQP_CURR_LOCN</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExpLastDropoffEqpOffice" type="xsd:string" minOccurs="0">									
+				<xsd:annotation>
+					<xsd:documentation>The expected office for the last drop off process. The value is retrieved from EQM_USAGE_PLAN.ACT_LAST_DROP_CITY_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DropoffContactId" type="xsd:long">									
+				<xsd:annotation>
+					<xsd:documentation>The contact id got from supplier. The value is retrieved from EQM_USAGE_PLAN.DROPOFF_CONTACT_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+      			<xsd:element name="LevelID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the current reuse hub level</xsd:documentation>
+				</xsd:annotation>
+      			</xsd:element>
+      			<xsd:element name="CurrentShipmentLadenIndicator" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the empty/laden indicator of the current shipment. EQM_USAGE_PLAN.CURR_SHIP_LADEN_IND</xsd:documentation>
+				</xsd:annotation>
+      			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
+

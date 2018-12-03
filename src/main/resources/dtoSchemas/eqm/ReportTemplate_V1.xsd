@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+  <xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/UpdateResult_V1.xsd"/>
+  <xsd:include schemaLocation="ReportTemplateFilterCriteria_V1.xsd"/>
+  <xsd:include schemaLocation="ReportTemplateSubscription_V1.xsd"/>
+  <xsd:include schemaLocation="ReportTemplateSelectedFields_V1.xsd"/>
+  <xsd:include schemaLocation="ReportTemplateSortingFields_V1.xsd"/>
+
+  <xsd:complexType name="ReportTemplate_V1">
+    <xsd:sequence>
+      <xsd:element name="CreatedBy" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CreationDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="EffectiveDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="ExpiryDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="FilterCriteria" type="ReportTemplateFilterCriteria_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="LastGenerated" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="LastUpdateDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="NextGenerationDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="QuotaType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ReceivingEmails" type="ReportTemplateSubscription_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="ReportFormat" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ReportId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ReportName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ScheduleTime" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ScheduleType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SelectedFields" type="ReportTemplateSelectedFields_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="SortingFields" type="ReportTemplateSortingFields_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="Status" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SupplierCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TimeZone" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="UpdateResult" type="common:UpdateResult_V1" minOccurs="0"/>
+      <xsd:element name="UpdateUserId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="WeeklyMonthlySchedule" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

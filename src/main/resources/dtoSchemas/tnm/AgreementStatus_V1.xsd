@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="AgreementStatus_V1">
+		<xsd:annotation>
+			<xsd:documentation>Agreement Status, like filed, approve, terminated, amend</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="New"/>
+			<xsd:enumeration value="Amend"/>
+			<xsd:enumeration value="Filed"/>
+			<xsd:enumeration value="Incomplete"/>
+			<xsd:enumeration value="Review"/>
+			<xsd:enumeration value="CounterOffer"/>
+			<xsd:enumeration value="Resubmit"/>
+			<xsd:enumeration value="Accept"/>
+			<xsd:enumeration value="Approve"/>
+			<xsd:enumeration value="Cancel"/>
+			<xsd:enumeration value="Reject"/>
+			<xsd:enumeration value="Terminate"/>
+			<xsd:enumeration value="COD"/>
+			<xsd:enumeration value="Fail"/>
+			<xsd:enumeration value="Agree"/>
+			<xsd:enumeration value="File"/>
+			<xsd:enumeration value="IA"/>
+			<xsd:enumeration value="Sent"/>
+			<xsd:enumeration value="NotAccepted"/>
+			<xsd:enumeration value="Withdrawn"/>
+			<xsd:enumeration value="Expired"/>
+			<xsd:enumeration value="Active"/>
+			<xsd:enumeration value="DELETED"/>
+			<xsd:enumeration value="Select"/>			
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

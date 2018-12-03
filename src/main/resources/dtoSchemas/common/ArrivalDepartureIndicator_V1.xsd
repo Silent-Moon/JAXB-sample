@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="ArrivalDepartureIndicator_V1">
+		<xsd:annotation>
+			<xsd:documentation>An indicator of search request relates to vessel voyage.  Value are ArrivalOrDeparture, Arrival or Departure.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="DepartureOrArrival"/>
+			<xsd:enumeration value="Arrival"/>
+			<xsd:enumeration value="Departure"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

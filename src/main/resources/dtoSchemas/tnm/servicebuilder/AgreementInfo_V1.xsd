@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:include schemaLocation="ShippingParty_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Agreement_ID_V1.xsd"/>
+	<xsd:complexType name="AgreementInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Agreement Status could be active, pending, expired...CargoControlPartyName is one Shipping party name</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ID" type="common:Agreement_ID_V1" minOccurs="0"/>
+			<xsd:element name="Version" type="xsd:short" minOccurs="0"/>
+			<xsd:element name="Status" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Type" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CargoControlPartyName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StartDate" type="fwd:FWLocalizedDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="EndDate" type="fwd:FWLocalizedDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="EffectiveDate" type="fwd:FWLocalizedDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="OfficeCode" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ShippingParties" type="SB_ShippingParty_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
+

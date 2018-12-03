@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" xmlns:eqm="http://com.oocl.schema.eqm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:include schemaLocation="AbstractGroup_V1.xsd"/>
+	<xsd:simpleType name="WeightMeasurementType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Defnies how the weight is to be measuerd on the shipment when compared with this range</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+			<xsd:enumeration value="Net"/>
+			<xsd:enumeration value="Gross"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="WeightUnit_V1">
+		<xsd:annotation>
+			<xsd:documentation>Measurement unit of the weight range</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15"/>
+			<xsd:enumeration value="Kilo Tonnages"/>
+			<xsd:enumeration value="Kilograms"/>
+			<xsd:enumeration value="Pounds"/>
+			<xsd:enumeration value="Tonnages"/>
+			<xsd:enumeration value="Tons"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="WeightGroup_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a range of weight which can be associated with a guideline rate.  For example, 100 TEU per week and above gets our best rate!</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="tnm:AbstractGroup_V1">
+				<xsd:sequence>
+					<xsd:element name="FromWeight" type="xsd:decimal" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Starting point of the Weight range</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="FromInclusive" type="xsd:boolean" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Indicates if the range starts with the FromWeight (true) or anything over but not equal to the FromWeight (false)</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ToWeight" type="xsd:decimal" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Ending point of the Weight range</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ToInclusive" type="xsd:boolean" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Indicates if the range includes the ToWeight (true) or anything up to but not including the ToWeight (false)</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Unit" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Unit of measure for Weight. </xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Type" type="tnm:WeightMeasurementType_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Measurement type, either Gross or Net.  Gross is for cargo weight only and Net includes the weight of the container</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="UUID" type="common:UUID_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The group's CP unique identifier</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

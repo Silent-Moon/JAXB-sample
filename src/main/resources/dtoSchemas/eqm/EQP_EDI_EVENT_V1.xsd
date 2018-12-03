@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Terry Lam (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:complexType name="EQP_EDI_EVENT_V1">
+		<xsd:annotation>
+			<xsd:documentation>EMS message sent from EQM to new SPPM</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Event_Type" type="xsd:string"/>
+			<xsd:element name="Create_Timestamp" type="xsd:string"/>
+			<xsd:element name="Batch_Reference" type="xsd:string"/>
+			<xsd:element name="Facility_Code" type="xsd:string"/>
+			<xsd:element name="Event_Date_Time_Local" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Format: YYYYMMDDHHMMSS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Event_Date_Time_GMT" type="xsd:string" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Format: YYYYMMDDHHMMSS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Container_Number" type="xsd:string" nillable="true"/>
+			<xsd:element name="Container_Check_Digit" type="xsd:string" nillable="true"/>
+			<xsd:element name="Chassis_Number" type="xsd:string" nillable="true"/>
+			<xsd:element name="Genset_Number" type="xsd:string" nillable="true"/>
+			<xsd:element name="Load_Empty_Indicator" type="xsd:string" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>F or E</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Doc_Reference" type="xsd:string" nillable="true"/>
+			<xsd:element name="Event_Time_Zone_Local" type="xsd:string" nillable="true"/>
+			<xsd:element name="Doc_Type" type="xsd:string" nillable="true"/>
+			<xsd:element name="Event_Timestamp" type="xsd:string" nillable="true"/>
+			<xsd:element name="Event_Sequence_Number" type="xsd:string" nillable="true"/>
+			<xsd:element name="Event_Create_DateTime" type="xsd:string" nillable="true"/>
+			<xsd:element name="Service_Loop" type="xsd:string" nillable="true"/>
+			<xsd:element name="Vessel_Code" type="xsd:string" nillable="true"/>
+			<xsd:element name="Voyage_Number" type="xsd:string" nillable="true"/>
+			<xsd:element name="Direction_Bound" type="xsd:string" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>East, South, West, or North</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Next_Location" type="xsd:string" nillable="true"/>
+			<xsd:element name="Gross_Weight" type="xsd:string" nillable="true"/>
+			<xsd:element name="Gross_Weight_Unit" type="xsd:string" nillable="true"/>
+			<xsd:element name="Hazard_Indicator" type="xsd:string" nillable="true"/>
+			<xsd:element name="Size_Type" type="xsd:string"/>			
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

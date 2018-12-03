@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:eqm="http://com.oocl.schema.eqm" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="AllSBReferenceData_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Port_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/ContainerSize_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/ContainerType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ServiceLoopCode_V1.xsd"/>
+	<xsd:complexType name="SlcCommitmentInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>SLC Commitment Matrix Info, ValidWeeks are like "2007 Week 12 - Week 25, 2007 Week 21 - Week 34"</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TailoredServiceReferenceID" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="ServiceLoop" type="common:ServiceLoopCode_V1" minOccurs="0"/>
+			<xsd:element name="LoadPort" type="common:Port_V1" minOccurs="0"/>
+			<xsd:element name="DischargePorts" type="common:Port_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ContainerSizes" type="eqm:ContainerSize_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ContainerCategories" type="eqm:ContainerType_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ContainerCount" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="ServiceCharge" type="xsd:float" minOccurs="0"/>
+			<xsd:element name="TEU" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="CustomerPenalty" type="xsd:float" minOccurs="0"/>
+			<xsd:element name="CarrierPenalty" type="xsd:float" minOccurs="0"/>
+			<xsd:element name="ValidWeeks" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

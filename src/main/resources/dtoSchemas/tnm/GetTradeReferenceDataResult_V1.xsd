@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" xmlns:ab="http://com.oocl.schema.tnm.agreementbuilder" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Currency_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ServiceLoop_V1.xsd"/>
+	<xsd:include schemaLocation="Trade_V1.xsd"/>
+	<xsd:include schemaLocation="TradeLane_V1.xsd"/>
+	<xsd:include schemaLocation="TradeLaneDirection_V1.xsd"/>
+	<xsd:include schemaLocation="Tariff_V1.xsd"/>
+	<xsd:include schemaLocation="SurchargeType_V1.xsd"/>
+	<xsd:complexType name="GetTradeReferenceDataResult_V1">
+		<xsd:sequence>
+			<xsd:element name="Currencies" type="cmn:Currency_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Trades" type="Trade_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="TradeLanes" type="TradeLane_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Tariffs" type="Tariff_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ServiceLoops" type="cmn:ServiceLoop_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="SurchargeTypes" type="SurchargeType_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

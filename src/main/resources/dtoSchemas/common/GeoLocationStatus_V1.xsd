@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by David Li (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="CommonRestrictions_V1.xsd"/>
+	<xsd:simpleType name="GeoLocationStatus_V1.xsd">
+		<xsd:annotation>
+			<xsd:documentation>Check for inactive effective date. If it is NULL, status is set to 1 (Active). If it is NOT NULL, status is set to 0 (Inactive). Status 2 and onwards are reserved for future use.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="ID_Integer_V1">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="9"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

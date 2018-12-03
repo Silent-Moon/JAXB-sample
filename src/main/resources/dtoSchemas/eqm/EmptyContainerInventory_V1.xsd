@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2012 rel. 2 (x64) (http://www.altova.com) by OOCL (Orient Overseas Container Line Ltd.) -->
+<!-- Created by Venus 2011-03-07   -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Region_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/OpZone_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/Facility_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:include schemaLocation="EquipmentEnumTypes_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerSizeType_V1.xsd"/>
+	<xsd:include schemaLocation="OpzoneLabel_V1.xsd"/>
+	<xsd:complexType name="EmptyContainerInventory_V1">
+		<xsd:annotation>
+			<xsd:documentation>  This is the XSD storing information for the empty container inventory. 
+											This is encapsulated in EmptyContainerInventoryResponse.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Year" type="common:Year_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   Year for the empty container inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Week" type="common:Week_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   Week for the empty container inventory. (1-53)  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Date" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> Date for the empty container inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Region" type="common:Region_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> The region for the empty container inventory   </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OpZone" type="common:OpZone_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   The opzone for the empty container inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="City" type="common:BasicLocationInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The city for the empty container inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Facility" type="common:Facility_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The facility for the empty container inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EqpSizeType" type="ContainerSizeType_V1">
+				<xsd:annotation>
+					<xsd:documentation>The size type for the empty container inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OpzoneLabel" type="OpzoneLabel_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> Number of containers that are empty returned </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AggregateType" type="EmptyContainerAggregateType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> Specify whether this is an aggregate value.
+						Possible values are: TOTAL, MTD_WEEKLY_AVG, TRADE_TOTAL
+					 </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmptyReleaseCount" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation> Number of containers that are empty released </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmptyReturnCount" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation> Number of containers that are empty returned </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- added by Venus 2011-09-06 2011RC3-->
+			<xsd:element name="ImBalanceCount" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation> Number of containers that are imbalance (empty return -  empty release) </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- added by Venus 2012-04-10-->
+			<xsd:element name="AvgMTA_Count" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Daily MTA (MTA beginning of the day) </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

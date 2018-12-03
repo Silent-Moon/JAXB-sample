@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- edited with XMLSpy v2008 (http://www.altova.com) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ccp"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:tnm="http://com.oocl.schema.tnm"
+	 xmlns:common="http://com.oocl.schema.common"
+	 xmlns:frm="http://com.oocl.frm.common.date.dto/"
+	 targetNamespace="http://com.oocl.schema.tnm.ccp"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ServiceLoop_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ActionType_V1.xsd"/>
+
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TradeCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TradeLane_V1.xsd"/>
+
+	<!--xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CardinalDirection_V1.xsd"/-->
+	<xsd:element name="CCP_TradeService_V1" type="CCP_TradeService_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is CCP Trade Service Loop payload</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>	
+	<xsd:complexType name="CCP_TradeService_V1">
+		<xsd:annotation>
+			<xsd:documentation> this represents Cargo Control Party  (CCP) Trade Service </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<!--xsd:element name="ActionType" type="common:ActionTypeName_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents Cargo Control Party  (CCP) Trade Service  Action Type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element-->
+			<xsd:element name="ID" type="common:ID_String_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents weekly Cargo Control Party  (CCP) Trade Service ID  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeCode" type="tnm:TradeCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents trade code </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeLane" type="tnm:TradeLaneCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents Service Loop </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceLoop" type="common:ServiceLoopCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents Service Loop </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OriginalDirection" type="common:EntityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents Direction Code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeDirection" type="common:EntityName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents CCP Trade Direction concatenation </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeLaneDirection" type="common:EntityName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents CCP TradeLane Direction concatenation </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeLaneServiceDirection" type="common:EntityName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents CCP TradeLane Service Direction concatenation </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreatedBy" type="common:EntityName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents created by </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdatedBy" type="common:EntityName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents updated by </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="CreateDateTime" type="frm:FWAbsoluteDateTimeDTO">
+			<!--xsd:element name="CreateDateTime" type="xsd:string" minOccurs="0"-->
+				<xsd:annotation>
+					<xsd:documentation>This represents creation date time </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="UpdateDateTime" type="frm:FWAbsoluteDateTimeDTO">
+			<!--xsd:element name="UpdateDateTime" type="xsd:string" minOccurs="0"-->
+				<xsd:annotation>
+					<xsd:documentation>This represents update date time </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

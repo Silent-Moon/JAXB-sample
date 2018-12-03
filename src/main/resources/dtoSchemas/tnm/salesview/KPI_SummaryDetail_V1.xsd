@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Juvy Centeno (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.salesview" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.salesview" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementVersion_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="KPISummaryDetail_V1">
+		<xsd:sequence>
+			<xsd:element name="TradeDirection" type="common:EntityName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>TradeDirection - is the combination of the agreement's trade and bound concatenated with a /.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementNumber" type="tnm:AgreementID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Unique identifier for a specific agreement.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementVersion" type="tnm:AgreementVersion_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Version associated to the agreement.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PlaceOfReceipt" type="common:EntityLocationName_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Place of Receipt - available POR regions as per selected KPI.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FinalDestination" type="common:EntityLocationName_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Final Destination - available FND regions as per selected KPI.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CurrentWeekTEU" type="xsd:int" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The booking volume in TEU for the current week</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CurrentPlusOneWeekTEU" type="xsd:int" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The booking volume in TEU for the 1st week after current week</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CurrentPlusTwoWeekTEU" type="xsd:int" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The booking volume in TEU for the 2nd week after current week</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Quarters" type="KPIPerQuarter_V1" nillable="true" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>contains a collection of KPI information per quarter of the current year</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="KPIPerQuarter_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">KPI Information for a given Quarter</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Year" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Quarter Year</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>				
+			<xsd:element name="Quarter" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Quarter associated to the KPI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>				
+			<xsd:element name="Weeks" type="xsd:int" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Week associated to the quarter</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>				
+			<xsd:element name="TotalContribution" type="xsd:float" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Total Contribution for the associated quarter</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalPremium" type="xsd:float" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Total Premium for the associated quarter</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalTEU" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Total TEU for the associated quarter</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

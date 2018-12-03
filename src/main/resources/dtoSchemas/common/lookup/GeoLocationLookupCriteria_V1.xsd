@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common.lookup" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common.lookup" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../CountryCode_V1.xsd"/>	
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../GeoLocationSearchCriteria_V1.xsd"/>
+	<xsd:complexType name="GeoLocationLookupCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a geographical location look up search request with mandatory and optional search criteria.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="BaseSearchCriteria" type="common:GeoLocationSearchCriteria_V1"/>
+			<xsd:element name="ContinentName" type="common:EntityBriefName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Continent name. Max. length is 35.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CountryCode" type="common:CountryCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Country code. Max. length is 2.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RegionCode" type="common:EntityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Region code. Max. length is 3.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OfficeCode" type="common:EntityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Office code. Max. length is 3.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TerritoryCode" type="common:EntityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Territory code. Max. length is 3.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

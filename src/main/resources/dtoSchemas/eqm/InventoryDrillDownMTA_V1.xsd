@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<!-- Created by Eva 2011-11-2
+  -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Facility_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerSizeType_V1.xsd"/>
+	<xsd:include schemaLocation="EquipmentEnumTypes_V1.xsd"/>
+	<xsd:complexType name="InventoryDrillDownMTA_V1">
+		<xsd:annotation>
+			<xsd:documentation> This is the WS response for the inventory Drill Down request for MTA drill down type.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="EventDateRange" type="InventoryDrillDownEventDateRange" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The range of the event date. Possible values: Under 14 days/Over 14 days</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Facility" type="common:Facility_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The facility for the inventory.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EqpSizeType" type="ContainerSizeType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The eqp size type of the inventory.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Quantity" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>The number of containers in the given dimension.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created by Venus 2011-03-07   -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:include schemaLocation="EmptyContainerCurrentInventory_V1.xsd"/>
+	<xsd:include schemaLocation="EmptyContainerInventory_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerInventoryForecast_V1.xsd"/>
+	
+	<xsd:complexType name="EmptyContainerInventoryViewResponse_V1">	
+		<xsd:annotation>
+			<xsd:documentation> This is the WS response  for the Empty Container Inventory View Report (For both Region/Opzone and Facility/City).
+			It consists of two parts: Current inventory (showing current number of containers in MTA and MNR) and Inventory information for the specified search criteria (e.g. empty release/return)
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="EmptyContainerCurrentInventory" type="EmptyContainerCurrentInventory_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation> The current inventory balance (MTA and MNR)  for the search criteria. This is used in both the Opzone Detail Inventory Forecast and Container Inventory (Trade/Region View UI), </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmptyContainerInventory" type="EmptyContainerInventory_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>  The empty container inventory (empty release, empty return etc) for the search criteria. For Opzone Detail Inventory Forecast UI, this is the content for Inventory History. For Container Inventory (Trade/Region View), this is the inventory Forecast</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<xsd:element name="ContainerInventoryForecast" type="ContainerInventoryForecast_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>  The container inventory forecast for the search criteria. For use in Opzone Detail Inventory Forecast UI only, this is the content for Inventory Forecast</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<xsd:element name="EmptyContainerInventoryRecordCount" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>  Number of inventory record returned </xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="RecordCount" type="xsd:integer"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+			
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

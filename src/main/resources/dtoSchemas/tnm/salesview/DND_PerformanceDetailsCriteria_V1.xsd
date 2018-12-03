@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2005 sp1 U (http://www.xmlspy.com) by Rick Vera (OOCL (USA), Inc.) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.salesview" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:shipment="http://com.oocl.schema.shipment" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:salesview="http://com.oocl.schema.tnm.salesview" targetNamespace="http://com.oocl.schema.tnm.salesview" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- note to make sure the right way to import framework dependencies -->
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ShipmentBound_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/DND_Type_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Region_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../Tariff_V1.xsd"/>
+	<xsd:complexType name="DND_PerformanceDetailsCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				DND Performance Details Criteria. 
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SAP_ID" type="common:SAP_ID_V1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">SAP_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Bound" type="common:ShipmentBoundCode_V1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Inbound or Outbound</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TariffCode" type="tnm:Tariff_V1">
+				<xsd:annotation>
+					<xsd:documentation>Tariff Code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Region" type="common:Region_V1">
+				<xsd:annotation>
+					<xsd:documentation>Region code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DND_Type" type="common:DND_Type_V1">
+				<xsd:annotation>
+					<xsd:documentation>Demurrage, Detention, QuayRent or 2-in-1</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNature" type="common:CargoNatureCode_V1" maxOccurs="2"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

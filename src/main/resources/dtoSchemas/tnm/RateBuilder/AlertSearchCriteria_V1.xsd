@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Kent Williamson (OOCL (USA) INC) -->
+<!--  Created Oct 10, 2007  -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/AuthUserProfile_V1.xsd"/>
+	<xsd:complexType name="AlertSearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Search Criteria for the Rate expiration Alerts</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Trade" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Direction" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="RateType" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="User" type="common:AuthUserProfile_V1" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Kent Williamson (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" xmlns:eqm="http://com.oocl.schema.eqm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xsd:include schemaLocation="RoundingPolicy_V1.xsd"/>
+<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../eqm/ContainerType_V1.xsd"/>
+<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+<xsd:complexType name="RateFormula_V1">
+<xsd:annotation>
+<xsd:documentation>Represents a Rate Formula which can be used to calculate the rate for a container dimension and guideline level (the target) based on the amount of another dimension / level (the source) plus some operation (traditionally an additional percentage markup).  The source rate may also be a calculated rate based on a RateFormula instead of a fixed amount.</xsd:documentation>
+</xsd:annotation>
+<xsd:sequence>
+<xsd:element name="TargetSize" type="tnm:PricingContainerDimension_V1">
+<xsd:annotation>
+<xsd:documentation>The container dimension of the target value to be computed by the formula</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="TargetLevel" type="xsd:int">
+<xsd:annotation>
+<xsd:documentation>The pricing level of the target value to be computed by the formula</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SourceSize" type="tnm:PricingContainerDimension_V1">
+<xsd:annotation>
+<xsd:documentation>The container dimension of the source value to be used with the operation to compute the target</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="SourceLevel" type="xsd:int">
+<xsd:annotation>
+<xsd:documentation>The pricing level of the source value to be used with the operation to compute the target</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="Operation">
+<xsd:annotation>
+<xsd:documentation>The container dimension of the source value to be used with the operation to compute the target.  Can be '+', '-', or '*'. </xsd:documentation>
+</xsd:annotation>
+<xsd:simpleType>
+<xsd:restriction base="xsd:string">
+<xsd:maxLength value="1"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="Adjustment" type="xsd:int">
+<xsd:annotation>
+<xsd:documentation>The value to be operated on the the source rate to compute the target rate.  When the operation is '+' or '-' then this amound represents the fixed amount to add or subtract from the source rate to compute the target rate.  When the operation is '*' then this amount represents the percentage of the source.    For exampe, * 125 means that an extra 25% should be added on top of the source rate to calculate the target rate.</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="Policy" type="tnm:RoundingPolicy_V1" minOccurs="0">
+<xsd:annotation>
+<xsd:documentation>The rounding policy to use.  Needed for percentage based adjustments</xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:simpleType name="PricingContainerDimension_V1">
+<xsd:annotation>
+<xsd:documentation>Represents one of 4 common dimensions pricing uses to group rates based on container dimension.  The 4 values are 20, 40, 40H and 45</xsd:documentation>
+</xsd:annotation>
+<xsd:restriction base="xsd:string">
+<xsd:maxLength value="3"/>
+<xsd:enumeration value="20"/>
+<xsd:enumeration value="40"/>
+<xsd:enumeration value="40H"/>
+<xsd:enumeration value="45"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:schema>

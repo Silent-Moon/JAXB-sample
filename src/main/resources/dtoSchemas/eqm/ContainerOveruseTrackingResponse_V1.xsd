@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/OpZone_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../tnm/TradeCode_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerSizeType_V1.xsd"/>
+	<xsd:include schemaLocation="OpzoneLabel_V1.xsd"/>
+	<xsd:include schemaLocation="EquipmentNumber_V1.xsd"/>
+	<xsd:include schemaLocation="EquipmentEnumTypes_V1.xsd"/>
+	<xsd:complexType name="ContainerOveruseTrackingResponse_V1">
+		<xsd:annotation>
+			<xsd:documentation> This is the WS response for the Container Overuse Tracking Summary/Detail Report. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Date" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>  The date when the container is overused.  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Year" type="common:Year_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   The year when the container is overused </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Week" type="common:Week_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   The week when the container is overused. (1-53)  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Month" type="common:Month_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   The month when the container is overused. (1-12)  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Quarter" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>  The quarter when the container is overused.  (1-4)  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Opzone" type="common:OpZone_V1">
+				<xsd:annotation>
+					<xsd:documentation> The opzone that this interchange event occured.  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EqpSizeType" type="ContainerSizeType_V1">
+				<xsd:annotation>
+					<xsd:documentation>The size type of the overuse container </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EqpNum" type="EquipmentNumber_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> The eqp num of the overuse container. (Only has values in detail view) </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TransferType" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation> The type of the transfer  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OpzoneLabel" type="OpzoneLabel_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> The opzone label for this opzone. This is only used in the detail report. </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InterchangeLogNum" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> The transaction number for this interchange event. This is only used in the detail report. (Only has values in detail view)  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FromTrade" type="tnm:TradeCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>  The trade that was initiated by this overuse record. Trade includes: TPT; AET; TAT; AUT; IAT; IET; CLG  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ToTrade" type="tnm:TradeCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>  The trade that initiated this overuse record. Trade includes: TPT; AET; TAT; AUT; IAT; IET; CLG </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Quantity" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> The number of container being overused. This is only used in the summary report. (Only has values in summary view)  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalRowCount" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation> The total number of row count.   </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Added by Venus 2011-09-09 -->
+			<xsd:element name="FromTradeLane" type="tnm:TradeCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>  The tradelane that was initiated by this overuse record.   </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ToTradeLane" type="tnm:TradeCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>  The tradelane that initiated this overuse record.  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CompensationCost" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The cost for this compensation.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExportText" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Export result in text format</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InterchangeStatus" type="InterchangeStatus" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Interchange log status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExportZipFile" type="xsd:base64Binary" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Export Result in zip format</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Jeffrey Feliciano (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:serviceLoop="http://com.oocl.schema.ServiceLoopLookup" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="ServiceLoop_V1.xsd"/>
+		<xsd:include schemaLocation="ActiveStatus_V1.xsd"/>
+	<xsd:complexType name="ServiceLoopLookup_V1">
+		<xsd:annotation>
+			<xsd:documentation>Used for web service as search criteria and returned results.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="IsActive" type="ActiveStatus_V1"/>
+			<xsd:element name="ServiceLoop" type="ServiceLoop_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Josie Tapas -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.shipment" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="MilestoneCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>The classification code of milestone </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="8"/>
+			<xsd:enumeration value="CSOSCLNK">
+				<xsd:annotation>
+					<xsd:documentation>CSO/SC Linked</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RATEVERF">
+				<xsd:annotation>
+					<xsd:documentation>Rate Verified</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RTECOMPL">
+				<xsd:annotation>
+					<xsd:documentation>Complete Route Created</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CGDTLRCV">
+				<xsd:annotation>
+					<xsd:documentation>Cargo Details Received</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="BKGAPPRV">
+				<xsd:annotation>
+					<xsd:documentation>Booking Approved</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MTPICKUP">
+				<xsd:annotation>
+					<xsd:documentation>Empty Picked Up</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CNTRRCVD">
+				<xsd:annotation>
+					<xsd:documentation>Cntr Received at 1st Hub</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CNTRFPOL">
+				<xsd:annotation>
+					<xsd:documentation>Cntr Loaded at 1st POL</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CNTRLPOD">
+				<xsd:annotation>
+					<xsd:documentation>Last POD Discharged</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LIHUBARR">
+				<xsd:annotation>
+					<xsd:documentation>Last IB Hub Arrival</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LIHUBDEP">
+				<xsd:annotation>
+					<xsd:documentation>Last IB Hub Departure</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MTRETURN">
+				<xsd:annotation>
+					<xsd:documentation>Empty Returned</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DGAPPRVL">
+				<xsd:annotation>
+					<xsd:documentation>DG Approval</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="MilestoneLevel_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents the two types of milestones</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="Container"/>
+			<xsd:enumeration value="Shipment"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

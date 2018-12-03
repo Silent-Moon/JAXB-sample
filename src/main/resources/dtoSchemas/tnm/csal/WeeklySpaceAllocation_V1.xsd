@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.csal" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:frm="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.csal" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/DateDuration_V1.xsd"/>
+	<xsd:complexType name="WeeklySpaceAllocation_V1">
+		<xsd:annotation>
+			<xsd:documentation> this represents Weekly Space Allocation </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="WeeklyAllocID" type="common:ID_String_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents weekly CSAL ID  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Year" type="xsd:gYear">
+				<xsd:annotation>
+					<xsd:documentation>This represents Year </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WeekNumber" type="common:WeekNumber_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents week Number </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AllocatedTEU" type="xsd:integer">
+				<xsd:annotation>
+					<xsd:documentation>This represents allocated TEU </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActualTEU" type="xsd:integer">
+				<xsd:annotation>
+					<xsd:documentation>This represents actual TEU</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

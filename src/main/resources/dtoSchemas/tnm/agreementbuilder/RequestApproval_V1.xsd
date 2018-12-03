@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="ApprovalRequestDetail_V1">
+		<xsd:sequence>
+			<xsd:element name="ItemXML" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Rate/Service XML string</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ItemID" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Rate/Service ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ItemOID" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Rate/Service object ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ItemLockStamp" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Rate/Service lock stamp</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ItemApprovalInfoXML" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Rate/Service approval info XML string</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RequestApprovalParameter_V1">
+		<xsd:annotation>
+			<xsd:documentation>Request rate approval parameter</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Items" type="ApprovalRequestDetail_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Rates/Services to be approved</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementID" type="xsd:string"/>
+			<xsd:element name="IsRateApproval" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Rate/Service approval indicator</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RequestApprovalResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Request rate approval result</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="LockStamp" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate lock stamp</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Exception" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Exception if any</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsSuccessful" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicator if save is successful</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

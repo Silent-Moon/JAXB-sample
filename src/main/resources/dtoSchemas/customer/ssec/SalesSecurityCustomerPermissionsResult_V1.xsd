@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="http://com.oocl.schema.customer.ssec" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ssec="http://com.oocl.schema.customer.ssec" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.customer.ssec" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:include schemaLocation="SalesSecurityCustomerPermissions_V1.xsd"/>
+	<xsd:complexType name="SalesSecurityCustomerPermissionsResult_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				Sales Security multiple customer permissions -  contains a collection of permissions/rights associated to a given user for multiple customers.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="customersPermissions" type="ssec:SalesSecurityCustomerPermissions_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">collection of permission rights associated to a given user for one or more customers.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

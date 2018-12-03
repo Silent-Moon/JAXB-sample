@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:simpleType name="AB_DateTime_V1">
+		<xsd:annotation>
+			<xsd:documentation>AB_DateTime_V1 to be a simpleType of xsd:dateTime for DB storage.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:dateTime"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="OptionFlags_V1">
+		<xsd:annotation>
+			<xsd:documentation>An integer to store an extendable set of boolean flags using binary arithmetic.
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="2147483647"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OfferRateStatus_V1">
+		<xsd:annotation>
+			<xsd:documentation>Status of an offer rate.  Examples include: Incomplete, Sent, Active, Expired.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="New"/>
+			<xsd:enumeration value="Incomplete"/>
+			<xsd:enumeration value="Sending"/>
+			<xsd:enumeration value="Sent"/>
+			<xsd:enumeration value="Active"/>
+			<xsd:enumeration value="Expired"/>
+			<xsd:enumeration value="QuoteExpired"/>
+			<xsd:enumeration value="ReadyForFiling"/>
+			<xsd:enumeration value="SubmittedForFiling"/>
+			<xsd:enumeration value="Filed"/>
+			<xsd:enumeration value="Submitting"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OfferRateApprovalStatus_V1">
+		<xsd:annotation>
+			<xsd:documentation>Status of an offer rate internal approval process.  Examples include: NotValidated, Exported, ApprovalPending, Approved, Rejected, etc.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="NotValidated"/>
+			<xsd:enumeration value="Exported"/>
+			<xsd:enumeration value="ApprovalPending"/>
+			<xsd:enumeration value="Approved"/>
+			<xsd:enumeration value="Rejected"/>
+			<xsd:enumeration value="CounterProposed"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AB_SurchargeChangeType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Indicates AB surcharge type, be it included, modified from standard surcharge, etc.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="SurchSub2Inc"/>
+			<xsd:enumeration value="SurchInc2SubTar"/>
+			<xsd:enumeration value="SurchInc2SubMod"/>
+			<xsd:enumeration value="SurchNoModInc"/>
+			<xsd:enumeration value="SurchNoModTar"/>
+			<xsd:enumeration value="SurchMod"/>
+			<xsd:enumeration value="SurchRegion"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NamedCustomerBL_Conditions_V1">
+		<xsd:annotation>
+			<xsd:documentation>A set of indicator flags which define how the named customer must be related to the BL in order for the rate to be valid.  (See http://en.wikipedia.org/wiki/Flag_byte)  More than one option can be set at a time (e.g. In BL Remarks AND As Notify Party.)  The options and their numeric values are as follows: 
+			"As Booking Party"  = 1,
+    		"As Shipper"  = 2,
+    		"In BL Remarks"  = 4,
+    		"As Consignee"  = 8,
+    		"As Notify Party"  = 16,
+    		"Any Shipping Party"  = 32</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="128"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ShippingPartyRoleGroup_V1">
+		<xsd:annotation>
+			<xsd:documentation>A code which represents a grouping of ShippingParty Roles.  The code is a flag value using bitwise logic to represent the possible combinations of roles.  For example, the value for a group containing Shipper, Signature Party and Forwarder would be 11 (1 + 2 + 8).  The mask values for the roles are:
+			Shipper - 1
+			Signature Party - 2
+			Notify Party - 4
+			Forwarder - 8
+			Consignee - 16
+			ControlParty - 32
+			Associate - 64
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="RouteServiceCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>An identifier for a particular route 'service' which is linked with a rate.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+			<xsd:enumeration value="OBITM">
+				<xsd:annotation>
+					<xsd:documentation>Outbound Intermodal</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="POL">
+				<xsd:annotation>
+					<xsd:documentation>Port of Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DSL">
+				<xsd:annotation>
+					<xsd:documentation>Departing Service Loop</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TSP">
+				<xsd:annotation>
+					<xsd:documentation>Transshipment Port</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ASL">
+				<xsd:annotation>
+					<xsd:documentation>Arriving Service Loop</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="POD">
+				<xsd:annotation>
+					<xsd:documentation>Port of Discharge</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="IBITM">
+				<xsd:annotation>
+					<xsd:documentation>Inbound Intermodal</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ShipmentVolume_V1">
+		<xsd:annotation>
+			<xsd:documentation>Number of TEU or Boxes (depending on owning context).  A value of -1 represents an undefined volume.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ShowSurchargeType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Indicator for quote to show prepaid, collect or all surcharges</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+			<xsd:enumeration value="Prepaid"/>
+			<xsd:enumeration value="Collect"/>
+			<xsd:enumeration value="All"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SurchargeLeg_V1">
+		<xsd:annotation>
+			<xsd:documentation>Indicator where the surcharge is applied</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+			<xsd:enumeration value="Trunk"/>
+			<xsd:enumeration value="OB1"/>
+			<xsd:enumeration value="OB2"/>
+			<xsd:enumeration value="IB1"/>
+			<xsd:enumeration value="IB2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="VolumeCommitmentBasis_V1">
+		<xsd:annotation>
+			<xsd:documentation>The reference system for measuring a volume commitment.  Either per week, per month, or total commitment</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+			<xsd:enumeration value="Wk"/>
+			<xsd:enumeration value="Mth"/>
+			<xsd:enumeration value="Qtr"/>
+			<xsd:enumeration value="Year"/>
+			<xsd:enumeration value="Total"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="VolumeCommitmentUnit_V1">
+		<xsd:annotation>
+			<xsd:documentation>The reference system for measuring a volume commitment.  Either TEU/Size/SizeType</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RemarkType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Indicates if the remark is a disclaimer or standard remark text.  D for disclaimer, R for standard remark.  App allows only one D per quote, but many R remarks.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="1"/>
+			<xsd:enumeration value="D">
+				<xsd:annotation>
+					<xsd:documentation>Indicates a Disclaimer remark.  Usually a large paragraph.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="R">
+				<xsd:annotation>
+					<xsd:documentation>Indicates a Standard Remark (not a disclaimer.)  Usually a sentence or 2.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RemarkCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>Used to classify Remarks</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="0">
+				<xsd:annotation>
+					<xsd:documentation>This classify the remarks are mandatory remarks</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="1">
+				<xsd:annotation>
+					<xsd:documentation>This classify the remarks are applicable specifically for "Estimated Totals"</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="2">
+				<xsd:annotation>
+					<xsd:documentation>This classify the remarks are applicable specifically for "Currency Conversion"</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="3">
+				<xsd:annotation>
+					<xsd:documentation>This classify the remarks are applicable specifically for "Collective Activation"</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="4"/>
+			<xsd:enumeration value="5"/>
+			<xsd:enumeration value="6"/>
+			<xsd:enumeration value="7"/>
+			<xsd:enumeration value="8"/>
+			<xsd:enumeration value="9"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="GeoSearchType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the scope of geos to search on either OB or IB side when searching against AB Rates</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="Country">
+				<xsd:annotation>
+					<xsd:documentation>Search for rates where the origin or destination is geographically enclosed by the country provided</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="OriginDestination">
+				<xsd:annotation>
+					<xsd:documentation>Search for rates where the origin or destination is equal to or geographically enclosed by a given City or City District</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="POLPOD">
+				<xsd:annotation>
+					<xsd:documentation>Search for rates where the POL or POD matches the given port</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SearchDateComparator_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the date comparison operator to use when searching against a given date.  For example, 'equals' or 'less than or equals', etc.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="1">
+				<xsd:annotation>
+					<xsd:documentation>Greater Than Or Equals</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="2">
+				<xsd:annotation>
+					<xsd:documentation>Less Than Or Equals</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="3">
+				<xsd:annotation>
+					<xsd:documentation>Equals</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SearchDateType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Indicates the specific date field the criteria should search against.  For example, effective from date, creation date, etc.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="1">
+				<xsd:annotation>
+					<xsd:documentation>Effective Date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="2">
+				<xsd:annotation>
+					<xsd:documentation>Expiry Date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="3">
+				<xsd:annotation>
+					<xsd:documentation>Creation Date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="4">
+				<xsd:annotation>
+					<xsd:documentation>Last Update Date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="5">
+				<xsd:annotation>
+					<xsd:documentation>Last Sent Date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="6">
+				<xsd:annotation>
+					<xsd:documentation>Validity Expiry Date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SaveAB_Type_V1">
+		<xsd:annotation>
+			<xsd:documentation>Save agreement/rate type enumerations</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+			<xsd:enumeration value="NEW"/>
+			<xsd:enumeration value="UPDATE"/>
+			<xsd:enumeration value="DELETE"/>
+			<xsd:enumeration value="DUPCHECK"/>
+			<xsd:enumeration value="DUPALERT"/>
+			<xsd:enumeration value="UPDATEANDPUBLISH"/>
+			<xsd:enumeration value="FILED"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="GetAB_Type_V1">
+		<xsd:annotation>
+			<xsd:documentation>Get agreement/rate type enumerations</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="25"/>
+			<xsd:enumeration value="AGREEMENT_ONLY">
+				<xsd:annotation>
+					<xsd:documentation>Get agreements only from agreement table</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AGREEMENT_HISTORY">
+				<xsd:annotation>
+					<xsd:documentation>Get agreements only from agreement history table</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RATE_ONLY">
+				<xsd:annotation>
+					<xsd:documentation>Get rates only from rate table</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RATE_BOTH">
+				<xsd:annotation>
+					<xsd:documentation>Get both agreements and rates from agreement and rate tables</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RATE_HISTORY">
+				<xsd:annotation>
+					<xsd:documentation>Get rates only from rate history table</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SERVICE_ONLY"/>
+			<xsd:enumeration value="SERVICE_BOTH"/>
+			<xsd:enumeration value="SERVICE_HISTORY"/>
+			<xsd:enumeration value="COMMODITY_GROUPS">
+				<xsd:annotation>
+					<xsd:documentation>Get all the commodity groups related to a given MA</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="COLLECTIVE_ACTIVATION">
+				<xsd:annotation>
+					<xsd:documentation>Get all collective activation ocean rates based on given ocean rates</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EscalationReason_V1">
+		<xsd:annotation>
+			<xsd:documentation>An enumeration on possible escalation reasons. 
+1 - Quote item is not linked to a guideline
+2 - Guideline does not have rate for 20
+3 - Guideline does not have rate for 40
+4 - Guideline does not have rate for 40H
+5 - Guideline does not have rate for 45
+6 - Offer Rate is below guideline for 20 - level 1
+7 - Offer Rate is below guideline for 40 - level 1
+8 - Offer Rate is below guideline for 40H - level 1
+9 - Offer Rate is below guideline for 45 - level 1
+10 - Offer Rate is below guideline for 20 - level 2
+11 - Offer Rate is below guideline for 40 - level 2
+12 - Offer Rate is below guideline for 40H - level 2
+13 - Offer Rate is below guideline for 45 - level 2
+14 - Surcharge - Payment term differs from guideline
+15 - Surcharge - Subject To/Included changed to differ from guideline
+16 - Surcharge - Customized value outside of minimum and tariff value
+17 - Refund surcharge added
+18 - Cargo nature is not covered by guideline
+19 - Effective period not covered by guideline
+20 - Ocean freight payment term differs from guideline
+21 - Quote validity period is extended from default
+22 - Default conditions for named customer are changed
+23 - Quotation item has a retroactive effective date
+24 - Rate remark entered
+25 - Customized inland rate is below tariff or not linked to tariff
+26 - SOC differs from guideline
+27 - Route - Customized
+28 - Base Origin(s)/Destination(s) not covered by the guideline
+29 - Current Date is not within Guideline's Quotation Effective period Range.
+30- Customized OB add-on rate is below tariff or not linked to tariff
+31 - Customized IB add-on rate is below tariff or not linked to tariff
+32 - Customized OB add-on is not fully covered by linked tariff(s)
+33 - Customized IB add-on is not fully covered by linked tariff(s)
+34 - Item allows or uses add-ons where not permitted by guideline
+35 - Commodity selected is different from guideline commodity
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="VolumeFormatting_V1">
+		<xsd:annotation>
+			<xsd:documentation>Volume format settings</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="0">
+				<xsd:annotation>
+					<xsd:documentation>The expected volume support for the quoted rates are</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="1">
+				<xsd:annotation>
+					<xsd:documentation>The quoted rates are based on the following volume conditions</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="2">
+				<xsd:annotation>
+					<xsd:documentation>The quoted rates are only valid when the following volume conditions are met</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="3"/>
+			<xsd:enumeration value="4"/>
+			<xsd:enumeration value="5"/>
+			<xsd:enumeration value="6"/>
+			<xsd:enumeration value="7"/>
+			<xsd:enumeration value="8"/>
+			<xsd:enumeration value="9"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AffiliateRoleCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>Possible codes for Roles of Affiliates</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="CP"/>
+			<xsd:enumeration value="CS"/>
+			<xsd:enumeration value="FW"/>
+			<xsd:enumeration value="NP"/>
+			<xsd:enumeration value="SP"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BLConditionsDesc_V1">
+		<xsd:annotation>
+			<xsd:documentation>Possible values for BL conditions</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="Shipper"/>
+			<xsd:enumeration value="BLRemarks"/>
+			<xsd:enumeration value="Consignee"/>
+			<xsd:enumeration value="NotifyParty"/>
+			<xsd:enumeration value="AnyParty"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

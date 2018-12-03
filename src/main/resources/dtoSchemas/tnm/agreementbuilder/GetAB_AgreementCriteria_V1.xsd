@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:common="http://com.oocl.schema.common" xmlns:fw="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementVersion_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd"/>
+	<xsd:include schemaLocation="AB_SimpleTypes_V1.xsd"/>
+	<xsd:complexType name="GetAB_AgreementCriteria_V1">
+		<xsd:sequence>
+			<xsd:element name="AgreementID" type="tnm:AgreementID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementVersion" type="tnm:AgreementVersion_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement version</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsForCP" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>An indicator that the GetAB request from CP</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateDate" type="fw:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The date used for rating.  It is typically derived from a shipment.  Depending on tariff, it can be a on board date or a cargo received date, or a pickup appointment date.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GetActionType" type="GetAB_Type_V1">
+				<xsd:annotation>
+					<xsd:documentation>Type of data to bring back, agreement only, rate only or both</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ItemOIDs" type="xsd:long" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of rate/service object IDs.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ItemID" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate/service ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UserID" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The user id of the user requesting the data.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="keys" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="values" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

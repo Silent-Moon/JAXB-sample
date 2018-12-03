@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by HUJI (Orient Overseas Container Line Ltd) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonMeasurement_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/DeliveryMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../PricingTransportMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TNMCommonTypes_V1.xsd"/>
+	<xsd:include schemaLocation="DerivedSurcharge_V1.xsd"/>
+	<xsd:include schemaLocation="AB_Route_V1.xsd"/>
+	<xsd:complexType name="RateWithSurcharge_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents an AB ocean rate</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ObjectID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>Object ID of the rate.  Unique</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateID" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>ID of the rate.  Unique only in the context of a specific Agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BaseRates" type="ContainerRateForExport_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Ocean/Inland rate specifications</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Origins" type="common:BasicDescription_V1">
+				<xsd:annotation>
+					<xsd:documentation>Collection of the NP Origin GeoLocation names (Comma seperated)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OriginCountry" type="common:BasicDescription_V1">
+				<xsd:annotation>
+					<xsd:documentation>Collection of the NP Origin GeoLocation names (Comma seperated)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OriginsVia" type="common:BasicDescription_V1">
+				<xsd:annotation>
+					<xsd:documentation>Collection of the NP Origin GeoLocation names (Comma seperated)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Destinations" type="common:BasicDescription_V1">
+				<xsd:annotation>
+					<xsd:documentation>Collection of the NP Destination GeoLocation names (Comma seperated)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestinationCountry" type="common:BasicDescription_V1">
+				<xsd:annotation>
+					<xsd:documentation>Collection of the NP Destination GeoLocation names (Comma seperated)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestinationsVia" type="common:BasicDescription_V1">
+				<xsd:annotation>
+					<xsd:documentation>Collection of the NP Destination GeoLocation names (Comma seperated)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BaseOceanFromToDescription" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Display the Base Ocean From To Description.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DeliveryMode" type="common:DeliveryMode_V1">
+				<xsd:annotation>
+					<xsd:documentation>One of four delivery modes, DD, YY, DY, YD</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TrafficMode" type="tnm:AgreementTrafficMode_V1"/>
+			<xsd:element name="CommodityDescription" type="common:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Predefined commodity info that the rate is applicable to</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNature" type="common:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Cargo nature info that the rate is applicable to</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RouteCollection" type="RouteCollectionForDoc_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Predefined a set of routing rules that has to be followed to make the rate applicable</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WeightGroup" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Weight restriction applied to the rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="VolumeInfo" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Display the Volume setting applicable for specific Offer Item.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FormattedEffectiveFrom" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Formatted effective start date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FormattedEffectiveTo" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Formatted effective end date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FormattedFiledEffectiveFrom" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Formatted Filed effective start date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FormattedFiledEffectiveTo" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Formatted Filed effective end date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValidityExpirationDate" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Validity Expiration Date for the Offer Item</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OfferRateStatus" type="OfferRateStatus_V1"/>
+			<xsd:element name="EstimatedPrepaidTotal" type="RatePerSizeType_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This shows the estimated prepaid total </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EstimatedCollectTotal" type="RatePerSizeType_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This shows the estimated collect total </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EstimatedTBDTotal" type="RatePerSizeType_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This shows the estimated TBD total </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EstimatedTotal" type="RatePerSizeType_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This shows the estimated grand total </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DerivedSurcharges" type="DerivedSurcharge_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Derived Surcharges per type per size type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InlandSlots" type="AB_Inland_Slots_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Inland Slots for the offer rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FootNoteForApplicableSis" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Foot Note for gatherning all the Service Items Linked for the doc</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FootNoteForSubCharges" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Foot Note for gathering all the subjected to surcharges for the doc</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FootNoteForIncCharges" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Foot Note for gathering all the included surcharges for the doc</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FootNoteForFixedCharges" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Foot Note for gathering all the Fixed surcharges for the Rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FootNoteForTariffCharges" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Foot Note for gathering all the Tariff surcharges for the Rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FootNoteForIncChargesWithDesc" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Foot Note for gathering all the included surcharges for the doc with description</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FootNoteForInlandAddOnsCharges" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Foot Note for gathering all the Fixed surcharges for the doc</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FootNoteForRemarks" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Foot Note for gathering all the Fixed surcharges for the doc</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GroupByQuotationExpiry" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Holds the groupNo it belongs to depending upon the grouping by QuotationExpiry Date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GroupByMatchingCriteria" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Holds the groupNo it belongs to depending upon grouping by Matching Criteria</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateConditions" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Holds all the Rate Conditions applicable to the QI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateConditionsForExcel" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Holds all the Rate Conditions applicable to the QI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateRemarks" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Remarks defined in the rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceLoopAndTSPForExcel" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Weight restriction applied to the rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Flags" type="OptionFlags_V1"/>
+			<xsd:element name="Wording" type="xsd:string"/>
+			<xsd:element name="IsSubjectToOnly" type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RateWithSurcharge" type="RateWithSurcharge_V1"/>
+	<xsd:complexType name="RouteForDoc_V1">
+		<xsd:annotation>
+			<xsd:documentation>AB routes associated with container rate</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SizeType" type="common:Liner_ContainerSizeTypes_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>container sise and type that the rate is applicable
+</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceCollection" type="ServiceCollectionForDoc_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>a set of routing sepecifications</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Flags" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>A set of boolean flags implemented through bitwise logic. Currently implemented boolean indicator is IS_GUIDEline_ROUTE</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RouteCollectionForDoc_V1">
+		<xsd:sequence>
+			<xsd:element name="Routes" type="RouteForDoc_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ServiceCollectionForDoc_V1">
+		<xsd:sequence>
+			<xsd:element name="Services" type="RouteServiceForDoc_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RouteServiceForDoc_V1">
+		<xsd:annotation>
+			<xsd:documentation>route service specification</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Type" type="RouteServiceCode_V1"/>
+			<xsd:element name="RouteLocations" type="RouteLocationForDoc_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Loops" type="RouteServiceLoop_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>a collect of service loop codes</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Legs" type="RouteLegForDoc_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>a collection of route legs</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RouteLocationForDoc_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a geo location linked to a rate as part of a route service.  (For example, this rate requires a transshipment in Singapore)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="LocationName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>This is the NP Geo Master ID of the location</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Options" type="OptionFlags_V1">
+				<xsd:annotation>
+					<xsd:documentation>Optional settings that use binary masking to represent one or more options, as follows:
+0 - No options
+1 - IsCustomerPreferred - A customer preference
+2 - IsNotSurchargeDriver - Not to be used for surcharge calculation
+4 - IsNotRateConstraint - Does not require a match with shipment for rate to apply (e.g. suggested customer preference)
+8 - Reserved for future expansion
+16 - Reserved for future expansion</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RouteLegForDoc_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents an intermodal leg which must match with the shipment in order for the rate to apply</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="StartLocNames" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>start geo location uuids</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EndLocNames" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>end geo location uuids</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RelatedPortName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>port geo location uid</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TransportType" type="tnm:PricingTransportMode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>transport type specified for the leg</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Options" type="OptionFlags_V1">
+				<xsd:annotation>
+					<xsd:documentation>Optional settings that use binary masking to represent one or more options, as follows:
+0 - No options
+1 - IsCustomerPreferred - A customer preference
+2 - IsNotSurchargeDriver - Not to be used for surcharge calculation
+4 - IsNotRateConstraint - Does not require a match with shipment for rate to apply (e.g. suggested customer preference)
+8 - Reserved for future expansion
+16 - Reserved for future expansion</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContainerRateForExport_V1">
+		<xsd:annotation>
+			<xsd:documentation>Container base rate specifications</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SizeType" type="common:Liner_ContainerSizeTypes_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>container sise and type that the rate is applicable</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LCLUnit" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>M/W/MW</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Amount" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>charge amount</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Currency" type="common:CurrencyCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>charge currency code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EstimatedTotal" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>estimated total revenue including surcharges</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ThruRateTotals" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>thru rate amount totals for different rate levels</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveFrom" type="AB_DateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>effectime start time of the rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveTo" type="AB_DateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>effectime end time of the rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TransitTime" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>transit time of shipment that the rate offered</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Weight" type="common:QualifiedWeight_V1" minOccurs="0"/>
+			<xsd:element name="Flags" type="OptionFlags_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AB_Inland_Slots_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents each Inland Slot with its derived surcharges</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="LegDescription" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Leg Description</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LegIndex" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Classify Remarks</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DerivedSurcharges" type="DerivedSurcharge_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Derived Surchages per type per size type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,24 @@
+<!--  edited with XMLSpy v2008 (http://www.altova.com) by abrudho (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.customer.event" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.customer.event" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:element name="GroupShare_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event for SSEC Customer Group Share Permissions data change (insert, update, delete)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="GroupShareRulePermissionID" type="common:ID_Integer15_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the Group Share Rule Permissions ID which is equivalent to SSEC_GRP_SHR_RULE_PRMSSN.GRP_SHR_RULE_PRMSSN_ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="SAP_ID" type="common:SAP_ID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the CPF SAP ID  which is equivalent to SSEC_GRP_SHR_RULE_PRMSSN.SAP_ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

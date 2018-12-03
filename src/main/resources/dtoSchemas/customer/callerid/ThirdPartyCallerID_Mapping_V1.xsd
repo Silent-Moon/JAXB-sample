@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.customer.callerid" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:framework="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.customer.callerid" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+<xsd:include schemaLocation="CustomerCallerID_Association_V1.xsd"/>
+	<xsd:simpleType name="ThirdPartyCallerID_ReturnCode_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a simple type that defines the return code.
+	    </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ThirdPartyCallerID_MappingReturn_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is the return of the Third Party Caller Id Mapping service.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ThirdPartyCallerID_ReturnCode" type="ThirdPartyCallerID_ReturnCode_V1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the return code of the Third Party Caller Id Mapping service.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ThirdPartyCallerID_Mapping_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				Third Party Caller Id Mapping datatype contains Entry Office, Is Allow Mapping, etc.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CallEntryOffice" type="common:OfficeCode_V1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is Call Entry Office.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsAllowMapping" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the flag for the Mapping is Active or Inactive.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreateBy" type="CreateUpdateParty_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the party who create the association.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreateDateTimeGmt" type="framework:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is a simple type that defines the association create datetime.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreateClientID" type="CreateUpdateClientID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the Client ID that create the association.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdateBy" type="CreateUpdateParty_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the party who update the association.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdateDateTimeGmt" type="framework:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is a simple type that defines the association last update datetime.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdateClientID" type="CreateUpdateClientID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the Client ID that update the association.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ThirdPartyCallerID_MappingSet_V1">
+		<xsd:annotation>
+			<xsd:documentation>
+				This is set of Third Party Caller ID Mapping Information.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ThirdPartyCallerID_Mapping" type="ThirdPartyCallerID_Mapping_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+	                    This is Third Party Caller ID Mapping Information.
+	                </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ThirdPartyCallerID_MappingRequest_V1">
+		<xsd:sequence>
+			<xsd:element name="CallEntryOffice" type="common:OfficeCode_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+	                    This is Entry Office of the call.
+	                </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

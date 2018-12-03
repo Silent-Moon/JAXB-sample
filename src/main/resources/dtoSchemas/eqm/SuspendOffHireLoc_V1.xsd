@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/UpdateResult_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/OpZone_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/DBUpdateUserID_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerSizeType_V1.xsd"/>
+	<xsd:complexType name="SuspendOffhireLoc_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information to fulfill create, update, delete and pass the search result.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ActionType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the action type requested by user</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="6"/>
+						<xsd:enumeration value="CREATE"/>
+						<xsd:enumeration value="EDIT"/>
+						<xsd:enumeration value="DELETE"/>
+						<xsd:enumeration value="SEARCH"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="SuspendID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the suspend id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContractType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Represents the type of contract</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OffhireOpZone" type="common:OpZone_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Represents the opzone that the user wants to suspend</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OffhireCity" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Represents the city that the user wants to suspend</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SupplierName" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Represents the supplier name</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="SupplierID" type="common:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Represents the supplier id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EqpSizeType" type="ContainerSizeType_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Represents equipment size and type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the effective date of the suspension</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExpiryDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the expiry date of the suspension</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreateBy" type="common:DBUpdateUserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the user who creates this suspension</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreateDateTimeGMT" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the date and time when the user creates the suspension request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdateBy" type="common:DBUpdateUserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the user who updates this suspension</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdateDateTimeGMT" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the data ant time when the user udpates the suspension request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdateResult" type="common:UpdateResult_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the update result</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

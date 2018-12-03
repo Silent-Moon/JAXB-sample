@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 sp1 U (http://www.xmlspy.com) by Rick Vera (OOCL (USA), Inc.) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:complexType name="TailoredServiceVersionSummary_V1">
+		<xsd:annotation>
+			<xsd:documentation>Tailored Service Version Summary List</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Version" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="TemplateVersion" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="LastUpdateUser" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LastUpdateDateTime" type="fwd:FWLocalizedDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="CreateDateTime" type="fwd:FWLocalizedDateTimeDTO" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

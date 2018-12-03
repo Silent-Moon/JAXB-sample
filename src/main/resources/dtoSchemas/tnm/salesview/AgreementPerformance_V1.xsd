@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Kristine Sayno (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.salesview" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:framework="http://com.oocl.frm.common.date.dto/" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.salesview">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementStatus_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementVersion_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="AgreementPerformance_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This Type contains the Agreement Performance details associated to a specific agreement version.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AgreementNumber" type="tnm:AgreementID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Unique identifier for a specific agreement.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementVersion" nillable="true" type="tnm:AgreementVersion_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Version associated to the agreement.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementStatus" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Status associated to the agreement. Value is derived based on Start/Effective Date and Expiry Date.
+					   Valid values: ACTIVE, PENDING, EXPIRED
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="15"/>
+						<xsd:enumeration value="ACTIVE"/>
+						<xsd:enumeration value="PENDING"/>
+						<xsd:enumeration value="EXPIRED"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AgreementDisplayStatus" type="tnm:AgreementStatus_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Display status of the agreement.
+					   Valid values: Active, File, Filed, Approve, DELETED, Reject,
+					    Amend, Counter-Of, Accept, New, Agree, Select, Incomplete, Cancel, Terminate, Review, Resubmit.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementType" type="tnm:AgreementType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Identifies whether the agreement is a Service Contract or Customized Service Offering
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveDate" type="framework:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Start Date of the active agreement
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExpiryDate" type="framework:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   The End Date of the active agreement
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="StartDate" type="framework:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   The agreement’s original start date.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContractToDateActual" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   As of Contract To Date (CTD), the number of actual bookings – i.e., shipments that have been booked or fulfilled.  The unit of measurement for shipments is TEU..
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:decimal">
+						<xsd:totalDigits value="18"/>
+						<xsd:fractionDigits value="5"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MinimumQuantityCommitted" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   The minimum quantity committed (MQC) by the customer to ship for the duration of the contract.  The unit of measurement for quantity is TEU.  Value is only available for Service Contracts, and will be blank if the agreement type is CSO.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PercentMinimumQuantityCommittedAchieved" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   The percentage of the full MQC that has been achieved or fulfilled as of the current date.  Value is only available for Service Contracts, and will be blank if the agreement type is CSO.  It is calculated as follows: CTD Actual/ MQC * 100%.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:decimal">
+						<xsd:totalDigits value="18"/>
+						<xsd:fractionDigits value="5"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ProratedMinimumQuantityCommitted" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Prorated MQC provides a time-based gauge for telling the user if the customer is on pace to exceed, meet, or under-deliver their MQC as of the current date.  Measured in TEUs, prorated MQC takes the MQC and prorates it based on the amount of days that have passed since the contract’s effective start date: MQC * (Current Date - Agreement Start Date) / (Agreement Expiry Date - Agreement Start Date)
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:decimal">
+						<xsd:totalDigits value="18"/>
+						<xsd:fractionDigits value="5"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ProratedPercentMinimumQuantityCommittedAchieved" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   The percentage of the prorated MQC that has been achieved or fulfilled as of the current date.  Since prorated MQC will increase with time, this figure gauges whether the customer is exceeding, meeting, or under-delivering their prorated MQC.  It is calculated as follows: (CTD Actual/ Prorated MQC) * 100%.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:decimal">
+						<xsd:totalDigits value="18"/>
+						<xsd:fractionDigits value="5"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RemainingPerWeek" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   The amount of shipments (in TEUs) per week that the customer must book for the remainder of the contract term, in order to fulfill its MQC obligation.   We can calculate this as follows: Deficit = MQC – CTD Actual. We then divide the Deficit by the weeks remaining on the contract. We calculate the weeks remaining on the contract as follows: (Expiry Date – Current Date)/7.  If there is any fractional value, we round up to next higher week.  Value is only available for Service Contracts, and will be blank if the agreement type is CSO.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PremiumPerTEU" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Premium per TEU is the difference between contribution-per-TEU and weighted contribution-per-TEU.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:decimal">
+						<xsd:totalDigits value="18"/>
+						<xsd:fractionDigits value="5"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PremiumPerTEUCurrency" type="common:EntityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Currency associated to Premium per TEU.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RevenuePerTEU" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   The revenue generated per TEU shipped.  This is calculated by dividing Revenue by TEU.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:decimal">
+						<xsd:totalDigits value="15"/>
+						<xsd:fractionDigits value="2"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RevenuePerTEUCurrency" type="common:EntityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Currency associated to Revenue per TEU.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContributionPerTEU" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   The contribution generated per TEU shipped.  This is calculated by dividing Contribution (Revenue – Cost) by TEU.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:decimal">
+						<xsd:totalDigits value="20"/>
+						<xsd:fractionDigits value="5"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ContributionPerTEUCurrency" type="common:EntityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Currency associated to Contribution per TEU.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalContribution" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Total contribution is the total revenue minus total cost for all shipments covered by this active agreement.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:decimal">
+						<xsd:totalDigits value="20"/>
+						<xsd:fractionDigits value="5"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TotalContributionCurrency" type="common:EntityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Currency associated to Total Contribution.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

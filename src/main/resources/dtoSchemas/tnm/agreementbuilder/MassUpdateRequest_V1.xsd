@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Praveena (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" xmlns:fw="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Currency_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd"/>
+	<xsd:include schemaLocation="MassUpdateSearchCriteria_V1.xsd"/>
+	<xsd:simpleType name="MassUpdateOperator_V1">
+		<xsd:annotation>
+			<xsd:documentation>MassUpdate Operator</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Include">
+				<xsd:annotation>
+					<xsd:documentation>Include</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Exclude">
+				<xsd:annotation>
+					<xsd:documentation>Exclude</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Equal To">
+				<xsd:annotation>
+					<xsd:documentation>Equal To</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Larger Than">
+				<xsd:annotation>
+					<xsd:documentation>Larger Than</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Less Than">
+				<xsd:annotation>
+					<xsd:documentation>Less Than</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="MassUpdateSearchField_V1">
+		<xsd:annotation>
+			<xsd:documentation>MassUpdate Search Field</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Tariff">
+				<xsd:annotation>
+					<xsd:documentation>Tariff</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Trade">
+				<xsd:annotation>
+					<xsd:documentation>Trade</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AgreementNumber">
+				<xsd:annotation>
+					<xsd:documentation>AgreementNumber</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ItemStatus">
+				<xsd:annotation>
+					<xsd:documentation>ItemStatus</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ApprovalStatus">
+				<xsd:annotation>
+					<xsd:documentation>ApprovalStatus</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CargoNature">
+				<xsd:annotation>
+					<xsd:documentation>CargoNature</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SOC">
+				<xsd:annotation>
+					<xsd:documentation>SOC</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="IsPCT">
+				<xsd:annotation>
+					<xsd:documentation>IsPCT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ContainerSize">
+				<xsd:annotation>
+					<xsd:documentation>ContainerSize</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SpecialEquipment">
+				<xsd:annotation>
+					<xsd:documentation>SpecialEquipment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="OriginCities">
+				<xsd:annotation>
+					<xsd:documentation>OriginCities</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DestCities">
+				<xsd:annotation>
+					<xsd:documentation>DestCities</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="OriginCountry">
+				<xsd:annotation>
+					<xsd:documentation>OriginCountry</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DestCountry">
+				<xsd:annotation>
+					<xsd:documentation>DestCountry</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="OriginStateProvince">
+				<xsd:annotation>
+					<xsd:documentation>Origin State Or Province</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DestStateProvince">
+				<xsd:annotation>
+					<xsd:documentation>Dest State Or Province</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RFQINumbersToInclude">
+				<xsd:annotation>
+					<xsd:documentation>RF And QI number combo to include </xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RFQINumbersToExclude">
+				<xsd:annotation>
+					<xsd:documentation>RF And QI number combo to exclude </xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RFSVINumbersToInclude">
+				<xsd:annotation>
+					<xsd:documentation>RF And QI number combo to include </xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RFSVINumbersToExclude">
+				<xsd:annotation>
+					<xsd:documentation>RF And QI number combo to exclude </xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ObjectIDs">
+				<xsd:annotation>
+					<xsd:documentation>Object ids of rates to Include/Exclude </xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LastUpdatedBy">
+				<xsd:annotation>
+					<xsd:documentation>LastUpdatedBy</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SalesOffice">
+				<xsd:annotation>
+					<xsd:documentation>SalesOffice</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="EffectiveDate">
+				<xsd:annotation>
+					<xsd:documentation>EffectiveDate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ExpiryDate">
+				<xsd:annotation>
+					<xsd:documentation>ExpiryDate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CreationDate">
+				<xsd:annotation>
+					<xsd:documentation>CreationDate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ServiceType">
+				<xsd:annotation>
+					<xsd:documentation>ServiceType</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="MassUpdateGRI_V1">
+		<xsd:annotation>
+			<xsd:documentation>Mass update General Rare Increase spec</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="GRI20" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>GRI for 20 container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GRI40" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>GRI for 40 container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GRI40H" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>GRI for 40H container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GRI45" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>GRI for 45 container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Currency" type="cmn:CurrencyCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Currency of GRI.  If IsPercentage is true, then currency is not specified. If IsPercentage is false, and currency is not specifie, the GRI number will go with base rate currency</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsPercentage" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>GRI is percentage. If true, the number in GRI is %</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsMarkUp" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>GRI is markup or new rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveFrom" type="fw:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Mass update new effective from</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveTo" type="fw:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Mass update new effective to</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="QuoteExpired" type="fw:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Mass update new quote expired date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MassUpdateRequest_V1">
+		<xsd:annotation>
+			<xsd:documentation>Mass update request parameter</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RequestID" type="cmn:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>UUID of the request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateOIDs" type="cmn:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Array of Rate OIDs to be mass updated</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Description" type="cmn:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Mass update description, can be mass update criteria</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GRI" type="MassUpdateGRI_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>General rate increase spec</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchCriteria" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Value" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element name="Operator" type="MassUpdateOperator_V1" minOccurs="0"/>
+						<xsd:element name="Field" type="MassUpdateSearchField_V1" minOccurs="0"/>
+						<xsd:element name="DisplayString" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="SearchIndicator" type="xsd:string"/>
+			<xsd:element name="Requester" type="cmn:UserID_V1"/>
+			<xsd:element name="Status" type="xsd:string"/>
+			<xsd:element name="UserRefNum" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RateLockedTimes" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="SkipSending" type="xsd:string"/>
+			<xsd:element name="Filed" type="xsd:string"/>
+			<xsd:element name="ShouldSendEmailWithFullResults" type="xsd:boolean"/>
+			<xsd:element name="ScheduledTime" type="AB_DateTime_V1" minOccurs="0"/>
+			<xsd:element name="IsServiceSearch" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>To specify if Mass Update Serch is for SVC</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="MassUpdateRequest" type="MassUpdateRequest_V1"/>
+</xsd:schema>

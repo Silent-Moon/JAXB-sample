@@ -1,0 +1,18 @@
+<!--  edited with XMLSpy v2008 (http://www.altova.com) by Jo Ann Venzon (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.customer.event" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.customer.event" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CargoSmart_ID_V1.xsd"/>
+	<xsd:element name="CargoSmartCustomer_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event for CargoSmart Customer data change (insert, update, delete) from CPF_CGO_SMART_CUST table</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="CargoSmart_ID" type="common:CargoSmart_ID_V1">
+					<xsd:annotation>
+						<xsd:documentation>CargoSmart ID is the unique customer identifier which is equivalent to CPF_CGO_SMART_CUST.CGO_SMART_ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

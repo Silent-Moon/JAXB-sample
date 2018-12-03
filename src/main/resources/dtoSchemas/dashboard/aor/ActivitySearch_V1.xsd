@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard.aor" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fwk="http://com.oocl.frm.common.date.dto/" xmlns:cmn="http://com.oocl.schema.common" xmlns:dsh="http://com.oocl.schema.dashboard" targetNamespace="http://com.oocl.schema.dashboard.aor" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.dashboard" schemaLocation="../DSH_CommonTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.dashboard" schemaLocation="../ActivityDefinition_V1.xsd"/>
+	<xsd:include schemaLocation="Activity_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/StringKeyValuePair_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:element name="ActivitySearchCriteria" type="ActivitySearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Root Element of this type</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ActivitySearchResult" type="ActivitySearchResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Element referring to the response structure</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="ActivitySearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Complex type defining an activity</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>ActivityID is the primary key for an activity - while code, group name and type are just business keys inherited from its definition</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="ActivityID" type="dsh:ActivityID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ID of the activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Type" type="dsh:ActivityType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Type of the Activity, Either Task or Notification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Group" type="dsh:ActivityGroup_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Grouping of activities - for example Shipment, Agreement etc.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Name" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the Activty.  Usually defined in Activity Definition</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Owner" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This is provided if current activity has an owner</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CoOwner" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This is for co-ownership.  This will be used in future releases</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Priority" type="dsh:ActivityPriority_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Priority number 1 to 10</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Status" type="dsh:ActivityStatus_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Status of the activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShortDescription" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Desription to show on screen</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Remarks" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is a substring to search against the remarks</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EscalationLevel" type="dsh:EscalationLevel_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Escalation level 1, 2, 3</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--xsd:element name="Definition" type="ActivityDefinition_V1" minOccurs="0"/-->
+			<xsd:element name="AssignedTo" type="cmn:ID_LongNumeric_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>All groups user is a member of, that have been selected to handle this activity (Note: Not intended to list ALL groups this was assigned to)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AssignToUserId" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Search Assignments base on  UserIds.  Can support only 1000.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActivityDueDate" type="DateRange_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Due Date range</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReceiveDate" type="DateRange_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Receive Date Range</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReminderDate" type="DateRange_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Reminder Date Range</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CompletedDate" type="DateRange_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Completed Date Range</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsException" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>If it's an exception activity or not an exception activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DateRange_V1">
+		<xsd:sequence>
+			<xsd:element name="StartDate" type="fwk:FWAbsoluteDateTimeDTO"/>
+			<xsd:element name="EndDate" type="fwk:FWAbsoluteDateTimeDTO"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ActivitySearchResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Response structure for search</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Response" type="dsh:SystemResponse_V1"/>
+			<xsd:element name="Results" type="Activity_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

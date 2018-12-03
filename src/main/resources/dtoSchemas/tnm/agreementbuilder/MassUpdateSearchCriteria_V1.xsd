@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:ir2cp="http://com.oocl.schema.iris2cp" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementReference_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.iris2cp" schemaLocation="../../iris2cp/CP_CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TariffCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TradeLaneDirection_V1.xsd"/>
+	<xsd:include schemaLocation="AB_SimpleTypes_V1.xsd"/>
+	<xsd:complexType name="MassUpdateSearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>AB Rate search criteria</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="QuoteNumber" type="tnm:AgreementID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateID" type="common:ID_Integer_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ID of the rate.  Unique only in the context of a specific Agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OfferID" type="common:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Unique ID consists of year plus a running number. Format: yy-nnn, where yy is last two digits of year, nnn is offer running number.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OutboundLocation" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Origin geo master ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OutboundLocationSearchType" type="GeoSearchType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Determines the search type of the provided Outbound Geo </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InboundLocation" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Destination geo master ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InboundLocationSearchType" type="GeoSearchType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Determines the search type of the provided Inbound Geo </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastUpdatedBy" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Person who made the last update</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OfferRateStatus" type="OfferRateStatus_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This describes the status of offer rate whether it is Incomplete,Sent,Active..... and so on.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Tariffs" type="tnm:TariffCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Tariff codes applicable for the rate. A booking has only a single tariff and it must be one of these in order to use the rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SalesOffice" type="common:OfficeCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Office where the rate is created</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DateCategory1" type="SearchDateType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>First date search category, can be effective date, expiry date, creation date, last update date or Last Sent Date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Comparator1" type="SearchDateComparator_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>First date search comparison method, can be less than, equal or greater than</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActualDate1" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>First search date value</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DateCategory2" type="SearchDateType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Second date search category, can be effective date, expiry date, creation date, last update date or Last Sent Date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Comparator2" type="SearchDateComparator_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Second date search comparison method, can be less than, equal or greater than</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActualDate2" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Second search date value</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DateCategory3" type="SearchDateType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Third date search category, can be effective date, expiry date, creation date, last update date or Last Sent Date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Comparator3" type="SearchDateComparator_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Third date search comparison method, can be less than, equal or greater than</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActualDate3" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Third search date value</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNature" type="ir2cp:CP_CargoNatureCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Cargo nature code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsServiceSearch" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>To specify if Mass Update Serch is for SVC</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Eloisa Borlaza (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:fwk="http://com.oocl.frm.common.date.dto/" xmlns:iris2cp="http://com.oocl.schema.iris2cp" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.iris2cp" schemaLocation="../iris2cp/CP_CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ServiceLoopCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:simpleType name="CargoNatureCategory_V1">
+		<xsd:annotation>
+			<xsd:documentation>Special category for CMTX route cost</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="D">
+				<xsd:annotation>
+					<xsd:documentation source="Dry (Also called non-reefer)"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="R">
+				<xsd:annotation>
+					<xsd:documentation source="Reefer"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="RouteCostDetail_V1">
+		<xsd:annotation>
+			<xsd:documentation>SSO2 full route cost information</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="HubToHubRoute_ID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>SSO2 Route ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HubToHubRoute">
+				<xsd:annotation>
+					<xsd:documentation>SSO2 Route</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="160"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RoutePriority" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Route Priority</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FromFacility" type="common:EntityLocationCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>First OB hub</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ToFacility" type="common:EntityLocationCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Last IB hub</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNatureCategory" type="CargoNatureCategory_V1">
+				<xsd:annotation>
+					<xsd:documentation>Cargo Nature Category, can be D (dry/non-reefer) or R (reefer)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalTransportCost" type="NonDoorElementCost_V1">
+				<xsd:annotation>
+					<xsd:documentation>Total Transport Cost</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalTerminalCost" type="NonDoorElementCost_V1">
+				<xsd:annotation>
+					<xsd:documentation>Total Terminal Cost</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OB_EmptyRepoCost" type="NonDoorElementCost_V1">
+				<xsd:annotation>
+					<xsd:documentation>OB Empty Repositioning Cost</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IB_EmptyRepoCost" type="NonDoorElementCost_V1">
+				<xsd:annotation>
+					<xsd:documentation>IB Empty Repositioning Cost</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OB_OceanService" type="common:ServiceLoopCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>First Ocean Service Loop</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IB_OceanService" type="common:ServiceLoopCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Last Ocean Service Loop</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OriginDoor" type="DoorElementDetail_V1">
+				<xsd:annotation>
+					<xsd:documentation>Origin Door Detail</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestinationDoor" type="DoorElementDetail_V1">
+				<xsd:annotation>
+					<xsd:documentation>Destination Door Detail</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RouteRefreshDate" type="fwk:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Route Data Refresh Date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NonDoorElementCost_V1">
+		<xsd:annotation>
+			<xsd:documentation>Costs for different containers for Non-door elements</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="For20" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Cost for 20ft Container.  Container type is based on the Cargo Nature Category. Value for this field can be the actual cost, N/F (Not Found), or N/A (Not Applicable).</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="For40" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Cost for 40ft Container.  Container type is based on the Cargo Nature Category. Value for this field can be the actual cost, N/F (Not Found), or N/A (Not Applicable).</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="For40Q" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Cost for 40Qft Container.  Container type is based on the Cargo Nature Category. Value for this field can be the actual cost, N/F (Not Found), or N/A (Not Applicable).</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="For45Q" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Cost for 45Qft Container.  Container type is based on the Cargo Nature Category. Value for this field can be the actual cost, N/F (Not Found), or N/A (Not Applicable).</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DoorElementCost_V1">
+		<xsd:annotation>
+			<xsd:documentation>Costs for different containers for Door elements</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="For20GP" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Door Cost for 20GP container. Value can be the actual cost, N/F (Not Found), or N/A (Not Applicable).</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="For40GP" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Door Cost for 40GP container. Value can be the actual cost, N/F (Not Found), or N/A (Not Applicable).</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="For20RF" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Door Cost for 20RF container. Value can be the actual cost, N/F (Not Found), or N/A (Not Applicable).</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="For40RF" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Door Cost for 40RF container. Value can be the actual cost, N/F (Not Found), or N/A (Not Applicable).</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="For40HQ" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Door Cost for 40HQ container. Value can be the actual cost, N/F (Not Found), or N/A (Not Applicable).</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="For40RQ" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Door Cost for 40RQ container. Value can be the actual cost, N/F (Not Found), or N/A (Not Applicable).</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="For45HQ" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Door Cost for 45HQ container. Value can be the actual cost, N/F (Not Found), or N/A (Not Applicable).</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DoorElementDetail_V1">
+		<xsd:annotation>
+			<xsd:documentation>Door Element Details</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="UUID" type="common:UUID_V1">
+				<xsd:annotation>
+					<xsd:documentation>City UUID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Priority" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>City Priority</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Services" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Service Loops servicing the City (Values separated by semi-colon)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceExceptions" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>City Service Loop Exceptions (Values separated by semi-colon)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNatures" type="iris2cp:CP_CargoNatureCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Cargo Nature, can be AD, AW, DG, GC, RD, or RF</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Cost" type="DoorElementCost_V1">
+				<xsd:annotation>
+					<xsd:documentation>Door Cost</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/HomepageTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../OceanSurcharge_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TieredCommodity_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TieredCommoditySearch_V1.xsd"/>
+	<xsd:include schemaLocation="AB_Agreement_V1.xsd"/>
+	<xsd:include schemaLocation="OceanOfferRate_V1.xsd"/>
+	<xsd:include schemaLocation="InlandOfferRate_V1.xsd"/>
+	<xsd:include schemaLocation="ServiceOffer_V1.xsd"/>
+	<xsd:include schemaLocation="SentOffer_V1.xsd"/>
+	<xsd:include schemaLocation="OfferToCustomer_V1.xsd"/>
+	<xsd:include schemaLocation="AB_VolumeGroup_V1.xsd"/>
+	<xsd:include schemaLocation="OfferToCustomer_V1.xsd"/>
+	<xsd:include schemaLocation="SIApprovalInfo_V1.xsd"/>
+	<xsd:include schemaLocation="AB_ApprovalInfo_V1.xsd"/>
+	<xsd:complexType name="AB_DummyTypesForWSDL_V1">
+		<xsd:annotation>
+			<xsd:documentation>List of DTOs not directly referenced in WSDL but proxy classes are needed on client side.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ABAgreement" type="AB_Agreement_V1" minOccurs="0"/>
+			<xsd:element name="ABOceanRate" type="OceanOfferRate_V1" minOccurs="0"/>
+			<xsd:element name="ABInlandRate" type="InlandOfferRate_V1" minOccurs="0"/>
+			<xsd:element name="ABService" type="ServiceOffer_V1" minOccurs="0"/>
+			<xsd:element name="ABVolume" type="AB_VolumeGroup_V1" minOccurs="0"/>
+			<xsd:element name="ABSentOffer" type="SentOffer_V1" minOccurs="0"/>
+			<xsd:element name="OfferToCustomer" type="OfferToCustomer_V1" minOccurs="0"/>
+			<xsd:element name="OceanSurcharge" type="tnm:OceanSurcharge_V1" minOccurs="0"/>
+			<xsd:element name="UserProfile" type="common:UserProfileHomepage_V1" minOccurs="0"/>
+			<xsd:element name="AB_ApprovalInfo" type="AB_ApprovalInfo_V1" minOccurs="0"/>
+			<xsd:element name="SIApprovalInfo" type="SIApprovalInfo_V1" minOccurs="0"/>
+			<xsd:element name="TieredCommodity" type="tnm:TieredCommodity_V1" minOccurs="0"/>			
+			<xsd:element name="TieredCommoditySearchCriteria" type="tnm:TieredCommoditySearchCriteria_V1" minOccurs="0"/>			
+			<xsd:element name="TieredCommoditySearchResult" type="tnm:TieredCommoditySearchResult_V1" minOccurs="0"/>			
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

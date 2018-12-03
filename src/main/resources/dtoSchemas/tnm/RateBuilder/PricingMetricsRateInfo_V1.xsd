@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Orlando Palis (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../CargoNatureGroup_V1.xsd"/>	
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/BasicLocationInformation_V1.xsd"/>
+	<xsd:complexType name="PricingMetricsRateInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is the rate information associated with the contribution. This is re-used for base rate level and split rate level contributions.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SplitRateID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is only used for split rate level contributions. It is an automatically generated running number when a base rate is split into multiple sub-rates using location point-pair, cargo nature and container type group.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsCatchAllPointPair" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is only used for split rate level contributions. This indicates if the contribution does not fall into a specific location point-pair. If this is set to true, the contribution will be categorized into the "Other-Other" point-pair.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Origins" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Origin location(s) information. For base rate level contribution, this can have 1 or more elements.  For plit rate level contribution, it can have 0 or 1 element. It will be empty for catch-all point-pairs.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Destinations" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Destination location(s) information. For base rate level contribution, this can have 1 or more elements.  For plit rate level contribution, it can have 0 or 1 element. It will be empty for catch-all point-pairs.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNatureGroup" type="tnm:CargoNatureGroup_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>CargoNatureGroup which specifies rate applicability for different cargo natures. For base rate level contribution, the group may indicate multiple cargo natures.  For split rate level contribution, the group may indicate 0 or 1 cargo nature. If there is no cargo nature indicated, the cotribution falls under the "Other" cargo nature category.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerTypeGroups" type="common:BasicDescription_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Represents the container type groups the contribution is categorized under. Valid values are 'General', 'Reefer' and 'Other'. For base rate level contributions, this can have 1 or more elements. For split rate level contributions, there will only be 1 element. Empty indicates that contribution falls under "Other" category.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

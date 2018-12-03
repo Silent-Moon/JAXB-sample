@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<!-- Created by Eva 2011-11-2
+  -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../tnm/TradeCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Facility_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/OpZone_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerSizeType_V1.xsd"/>
+	<xsd:include schemaLocation="RestrictedUseSpec_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerNumber_V2.xsd"/>	
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/SVVD_V1.xsd"/>
+	<xsd:complexType name="InventoryDrillDownMTRtnDetail_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is the WS response for the inventory Empty Return detail Drill Down request.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="LastEventFacility" type="common:Facility_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The current location of the inventory.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastEventDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The last event date of the inventory.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExpectedMTAFacility" type="common:Facility_V1">
+				<xsd:annotation>
+					<xsd:documentation>The next location of the inventory.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExpectedMTADate" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>The last event date of the inventory.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoArrivalTime" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The estimated/actual time of arrival of the cargo.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MTPickupOpzone" type="common:OpZone_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The last event date of the inventory.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EqpSizeType" type="ContainerSizeType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The eqp size type of the inventory.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SVVD" type="common:SVVD_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Voyage Information of the inventory.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EqpNum" type="ContainerNumber_V2" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The eqp num of the inventory</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DocRef">
+				<xsd:annotation>
+					<xsd:documentation>The document reference of the inventory</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="12"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RestrictedUseSpec" type="RestrictedUseSpec_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation> RestrictedUseSpec (RestrictedUse Nature and RestrictedUse Type).  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsCarrierHaulage" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>True if it is carrier haulage</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="YearBuilt" type="common:Year_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The year that the container was built</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Trade" type="tnm:TradeCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The trade of the inventory</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProjReturnQty" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The projected return quantity of the inventory</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OpenQty" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The remaining booking quantity of the inventory</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AuthNum" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The authorization number of the inventory</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CustName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>The customer name of the inventory</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

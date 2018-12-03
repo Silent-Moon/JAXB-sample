@@ -1,0 +1,40 @@
+<!--  edited with XMLSpy v2008 (http://www.altova.com) by abrudho (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.customer.event" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:ssec="http://com.oocl.schema.customer.ssec" targetNamespace="http://com.oocl.schema.customer.event" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.customer.ssec" schemaLocation="../ssec/SharingType_V1.xsd"/>
+	<xsd:element name="CustomerShare_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event for SSEC Customer Share data change (insert, update, delete)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ShareRuleID" type="common:ID_Integer15_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the Share Rule ID which is equivalent to SSEC_SHR_RULE.SHR_RULE_ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="SharedByUserID" type="common:UserID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the User ID  which is equivalent to SSEC_SHR_RULE.SHR_BY_USER_ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="RuleSharingType" type="ssec:SharingRuleType_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the SSEC Rule Sharing Type which is equivalent to SSEC_SHR_RULE.SHR_TO_TYPE</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="SharingValue" type="ssec:SharingValue_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the SSEC Rule Sharing Value  which is equivalent to SSEC_SHR_RULE.SHR_TO_VALUE</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="SharingValueType" type="ssec:SharingValueType_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the SSEC Rule Sharing Value  Type which is equivalent to SSEC_SHR_RULE.SHR_TO_VALUE_TYPE</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

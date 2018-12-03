@@ -1,0 +1,52 @@
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by tusha (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.customer.lookup" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:customer="http://com.oocl.schema.customer" targetNamespace="http://com.oocl.schema.customer.lookup" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/ShippingPartyRole_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/PhoneNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/LegalAncillaryCodes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/YesNoIndicators_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.customer" schemaLocation="../Customer_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.customer" schemaLocation="../CustomerAddress_V1.xsd"/>
+	<xsd:complexType name="CPFLookUpResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>A complex type that represents the details of the customer returned by the service.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Customer" type="customer:Customer_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Specifies the SAPId, IRIS2Id, CargoSmartID, name, address and phone numbers of the customer.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementNumbers" type="tnm:AgreementID_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						Represents the agreement numbers associated to the customer.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AncillaryCodes" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Specifies the values for the applicable Legal Ancillary Codes
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerFunction" type="tnm:ShippingPartyRoleName_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						Specifies the shipping role(s) associated to the customer.
+
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HasCredit" type="xsd:boolean" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Specifies the credit status of a customer.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

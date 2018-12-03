@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.customer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.customer" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="NCPF_CustomerGroupID_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				Indicates the NCPF Customer Group ID type as a string with 20 chars
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

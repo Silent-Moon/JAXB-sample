@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Windy OR (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.epa" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:eqm="http://com.oocl.schema.eqm" xmlns:tns="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.epa" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonContainerSizeTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../eqm/EquipmentNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:complexType name="UncondDetail_V1">
+		<xsd:annotation>
+			<xsd:documentation>Define the parameters for UncondDetail</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="EmptyPickupFacility" type="common:EntityLocationCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Empty pickup facility</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerQualityID">
+				<xsd:annotation>
+					<xsd:documentation>Container quality</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int">
+						<xsd:enumeration value="0"/>
+						<xsd:enumeration value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ContainerSizeType" type="common:TMS_ContainerSizeTypes_V1">
+				<xsd:annotation>
+					<xsd:documentation>Container size type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerNumber" type="eqm:EquipmentNumber_V1">
+				<xsd:annotation>
+					<xsd:documentation>Container number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsPickup" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicate whether the container is picked up</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActualPickupDatetimeGMT" type="tns:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>Container actual pickup datetime (GMT)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AppointmentUncondDetailsID" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Unique key for the record</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

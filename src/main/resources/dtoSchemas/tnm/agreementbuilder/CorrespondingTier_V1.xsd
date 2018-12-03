@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 (x64) (http://www.altova.com) by HUJI (Orient Overseas Container Line Limited) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:complexType name="CorrespondingTier_V1">
+		<xsd:annotation>
+			<xsd:documentation>Corresponding tier check criteria.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="GSP_CNTRY_ID" type="xsd:long"/>
+			<xsd:element name="CNTRY_ASSIGN" type="xsd:string"/>
+			<xsd:element name="CARGO_NATURE_GROUP" type="xsd:string"/>
+			<xsd:element name="EXPECTED_EFF_DATE" type="fwd:FWLocalizedDateTimeDTO" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
+

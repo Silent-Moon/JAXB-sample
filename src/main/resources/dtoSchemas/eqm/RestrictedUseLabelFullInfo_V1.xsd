@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+  <xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/UpdateResult_V1.xsd"/>
+  <xsd:include schemaLocation="RestrictedUseLabelLocation_V1.xsd"/>
+
+  <xsd:complexType name="RestrictedUseLabelFullInfo_V1">
+    <xsd:sequence>
+      <xsd:element name="CreateDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="CreateUserID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ModifyDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="ModifyUserID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="RestrictedUseExpiryDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="RestrictedUseInstructionIndicator" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="RestrictedUseKeyword" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="RestrictedUseLabelDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="RestrictedUseLabelId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="RestrictedUseLabelLocations" type="RestrictedUseLabelLocation_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="RestrictedUseLabelName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="RestrictedUseRemarks" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="RestrictedUseStartDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="RestrictedUseType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="RestrictedUseTypeId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="UpdateResult" type="common:UpdateResult_V1" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

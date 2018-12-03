@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<!-- Created by Venus 2011-10-11
+  -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Region_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/OpZone_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/Facility_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerSizeType_V1.xsd"/>
+	<xsd:include schemaLocation="RestrictedUseSpec_V1.xsd"/>
+	<xsd:complexType name="RestrictedUseInventoryRequest_V1">
+		<xsd:annotation>
+			<xsd:documentation> This is the WS request for the RU Inventory Report</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Region" type="common:Region_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation> The region to filter report data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OpZone" type="common:OpZone_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>  The opzone to filter report data </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Facility" type="common:Facility_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The facility to filter data (Only has value for the Facility/City view )</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EqpSizeType" type="ContainerSizeType_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>  The eqp size type to filter report data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RestrictedUseSpec" type="RestrictedUseSpec_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation> RestrictedUseSpec (RestrictedUse Nature and RestrictedUse Type).  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BuiltFromYear" type="common:Year_V1" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The year that the container was built (From)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BuiltToYear" type="common:Year_V1" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The year that the container was built (To)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

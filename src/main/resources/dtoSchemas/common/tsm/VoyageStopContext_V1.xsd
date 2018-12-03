@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by Kalyan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common.tsm" xmlns:frm="http://com.oocl.frm.common.date.dto/" xmlns:common="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common.tsm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/BasicVoyageLookup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ExternalVoyageReference_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ArrivalDepartureIndicator_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/URI_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/OceanTransport_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/VesselOperatorCode_V1.xsd"/>
+
+	<xsd:element name="VoyageStopContext_V1" type="VoyageStopContext_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents Voyage Context for display fields in Dashboard</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="VoyageStopContext_V1">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>This represents Voyage Context for display fields in dashboard</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="VoyageInformation" type="common:BasicVoyageLookup_V1">
+				<xsd:annotation>
+					<xsd:documentation>Basic voyage search information - Service Loop abbreviation, vessel code, voyage number and direction.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExtVoyageReference" type="common:ExternalVoyageReference_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the External Voyage reference.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OperatorCode" type="common:VesselOperatorCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the company operates vessel</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PortCode" type="common:EntityLocationCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Voyage Stop Port Code.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FacilityCode" type="common:EntityLocationCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Voyage Stop Facility Code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CallNumber" type="common:ID_Integer_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Voyage Stop Call Number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ArrivalDepartureIndicator" type="common:ArrivalDepartureIndicator_V1">
+				<xsd:annotation>
+					<xsd:documentation>An indicator of arrival and or departure.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OceanTransport" type="common:OceanTransport_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Ways of moving cargo via ocean means.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PlannedDate" type="frm:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>Planned Date of Voygae Stop like ETD/ETA or LTA/LTD of local time.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="URL" type="common:URI_StringFormat_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>URL is the open up Sailing Schedule UI in Scheduling Smart</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

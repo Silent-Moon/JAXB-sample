@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CardinalDirection_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/RelativeDateRange_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonMeasurement_V1.xsd"/>
+	<xsd:include schemaLocation="TradeCode_V1.xsd"/>
+	<xsd:complexType name="TieredCommodity_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a grouping of commodity information for the purposes of associating with applicable guideline rates</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The commodity group's unique identifier</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ParentID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The commodity group's parent identifier</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RecordID" type="common:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>for Client use, to keep track of the record number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsPublic" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Specifies if the group is for public use.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Code" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The code for the group</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Description" type="common:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Use this only for basic commodity group information, use the CommodityGroupInfos for the detailed  information.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LocalDescription" type="common:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Commodity local description.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RestrictTariffs" type="common:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Use this only for regulated rate, restrict commodity by tariff.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreationDateTime" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Creation Date Time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastUpdatedDateTime" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Last updated date time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreatedBy" type="common:EntityName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Created by user/system ID.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdatedBy" type="common:EntityName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Updated by user/system ID.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeCodes" type="TradeCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Trades associated with the group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Direction" type="common:CardinalDirectionName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Direction associated with the group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveDateRange" type="common:RelativeDateRange_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Effective start and end dates for the group info.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SubGroups" type="TieredCommodity_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Subdivisions of this commodity group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--
+	<xsd:complexType name="AwkwardCommodity_V1">
+		<xsd:annotation>
+			<xsd:documentation>Awkward commodity specification</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SizeType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Length" type="common:Length_V1" minOccurs="0"/>
+			<xsd:element name="Width" type="common:Length_V1" minOccurs="0"/>
+			<xsd:element name="Height" type="common:Length_V1" minOccurs="0"/>
+			<xsd:element name="NetWeight" type="common:Weight_V1" minOccurs="0"/>
+			<xsd:element name="GrossWeight" type="common:Weight_V1" minOccurs="0"/>
+			<xsd:element name="SpaceTEU" type="xsd:int" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+-->
+</xsd:schema>

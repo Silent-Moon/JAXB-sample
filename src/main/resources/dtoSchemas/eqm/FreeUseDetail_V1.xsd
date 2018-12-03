@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:complexType name="FreeUseDetail_V1">
+		<xsd:sequence>
+			<xsd:element name="EqpNum" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="SizeType" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ActualOnHireLoc" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ActualOnHireDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="1"/>
+			<xsd:element name="ActualPOL" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="NextLoc" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ETAOfNextLoc" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="FND" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ETAOfFND" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Vessel" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Voyage" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="RULabel" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ActualOffHireDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ActualOffhHireLoc" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CheckDigit" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ISOCode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Status" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="AuthNum" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="AtLocation" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="DocRef" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="DocType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="EventDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CurrLoc" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="EventType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="POSRoute" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

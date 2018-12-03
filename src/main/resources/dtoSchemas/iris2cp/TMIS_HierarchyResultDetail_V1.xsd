@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by xing liu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.iris2cp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.iris2cp" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="TMIS_HierarchyRegion_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/BasicLocationInformation_V1.xsd"/>
+	<xsd:complexType name="TMIS_HierarchyResultDetail_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is a TMIS Hierarchy Result Detail</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Region" type="TMIS_HierarchyRegion_V1">
+				<xsd:annotation>
+					<xsd:documentation>This is a TMIS Hierarchy Region</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SubRegion" type="TMIS_HierarchyRegion_V1">
+				<xsd:annotation>
+					<xsd:documentation>This is a TMIS Hierarchy Sub-Region</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="City" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This is a group of  TMIS Hierarchy Cities</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

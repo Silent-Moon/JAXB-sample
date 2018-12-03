@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Windy OR (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.epa" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.epa" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="EmptyPickupDetail_V1">
+		<xsd:annotation>
+			<xsd:documentation>Define parameters for EmptyPickupDetails</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="EmptyPickupFacility" type="common:EntityLocationCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Empty pickup facility</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmptyPickupQuantity" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Empty pickup quantity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

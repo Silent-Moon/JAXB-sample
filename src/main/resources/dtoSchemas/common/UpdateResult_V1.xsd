@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" xmlns:eqm="http://com.oocl.schema.eqm" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="ValidationError_V1.xsd" />
+	<xsd:complexType name="UpdateResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>A complex type that represents the errors in general and whether the update process is successful or not.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ValidationErrors" type="ValidationError_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						Represents the errors occured during the update process.
+					</xsd:documentation>
+				</xsd:annotation>		
+			</xsd:element>	
+			<xsd:element name="IsSuccessful" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Confirms if the update process is successful or not.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

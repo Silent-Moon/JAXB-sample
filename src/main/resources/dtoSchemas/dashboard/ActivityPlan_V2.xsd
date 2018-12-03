@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" xmlns:fwk="http://com.oocl.frm.common.date.dto/" xmlns:esm="http://com.oocl.cdrive/subscription" xmlns:dsh="http://com.oocl.schema.dashboard" targetNamespace="http://com.oocl.schema.dashboard" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/StringKeyValuePair_V1.xsd"/>
+	<xsd:include schemaLocation="DSH_CommonTypes_V1.xsd"/>
+	<xsd:element name="ActivityPlan" type="ActivityPlan_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents Activiity Plan information </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="ActivityPlan_V1">
+		<xsd:sequence>
+			<xsd:element name="ActivityID" type="ActivityID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Unique Identifier for an activity - This must be present for all messages sent to Activity organizer - this is based on the 		assumption that the activity monitor generates unique id per activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Group" type="ActivityGroup_V1">
+				<xsd:annotation>
+					<xsd:documentation>Grouping of activities - for example Shipment, Agreement etc.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Code" type="ActivityCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Some form of a code - for ex: BKG_APPRV</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Type" type="ActivityType_V1">
+				<xsd:annotation>
+					<xsd:documentation>Type of activity (Task, Exception or Notification)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ApplicationCorrelationInfo" type="cmn:NonStructuredText_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Normally this would be business key. This can be any additional information for co-relation ex. ShipmentNumber+ContainerNumber</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Status" type="ActivityPlanStatus_V1">
+				<xsd:annotation>
+					<xsd:documentation>Status of the activity in its life cycle (New, Update, Completed, Cancelled)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ApplicationPayload" type="Context_V1">
+				<xsd:annotation>
+					<xsd:documentation>XML Chunk complying with the Context definition as specified in the definition</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActivityDueDate" type="fwk:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>When should this activity be completed - Note: This is in GMT and is NOT relative to which office </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Priority" type="ActivityPriority_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Priority of this activity - Currently at the schema level this is limited to 10 levels</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActivityDefinitionVersion" type="ActivityDefinitionVersion_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Version of definition to be used - Note: If this is not present, the latest version will always be used</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShortDescription" type="dsh:ShortDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Desription to show on screen</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RequestorID" type="dsh:ActivityCreatorID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Identity of requesting application that sent the activity request message</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AssignUserID" type="dsh:ActivityCreatorID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Identity of user who will be assigned for this task</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>				
+			<xsd:element name="ESM_Subscriptions" type="ESM_SubscriptionType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ESM subscriptions to be subscribed for this activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Remarks" type="dsh:Remarks_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Remarks captured by user updating this activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Exception" type="ExceptionInformation_V1">
+				<xsd:annotation>
+					<xsd:documentation>Indicate whether this is an Exception Task</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

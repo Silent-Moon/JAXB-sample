@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm.salesview" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:salesview="http://com.oocl.schema.tnm.salesview" targetNamespace="http://com.oocl.schema.tnm.salesview" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- note to make sure the right way to import framework dependencies -->
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementVersion_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementID_V1.xsd"/>
+	<xsd:complexType name="AgreementPerformanceCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				Agreement Performance Criteria.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SAP_ID" type="common:SAP_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">SAP_ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementNumber" type="tnm:AgreementID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Unique identifier for a specific agreement.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementVersion" type="tnm:AgreementVersion_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Version associated to the agreement.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementType" type="tnm:AgreementType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Identifies whether the agreement is a Service Contract or Customized Service Offering
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchBy" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						 Indicates what kind of agreement performance search is being requested.
+						 Valid values include: AgreementsWithShipments, AgreementsWithoutShipments, RateDetails
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="50"/>
+						<xsd:enumeration value="SingleAgreement"/>
+						<xsd:enumeration value="AgreementsWithShipments"/>
+						<xsd:enumeration value="ActiveAgreements"/>
+						<xsd:enumeration value="AgreementsWithoutShipments"/>
+						<xsd:enumeration value="RateDetails"/>
+
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

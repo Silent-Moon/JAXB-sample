@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Jeffrey Feliciano (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cargoPackageType="http://com.oocl.schema.CargoPackageType" xmlns:common="http://com.oocl.schema.common" xmlns:shipment="http://com.oocl.schema.shipment" targetNamespace="http://com.oocl.schema.shipment" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="PackageReferenceCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="CargoPackage_V1">
+		<xsd:annotation>
+			<xsd:documentation>List of cargo under a shipment</xsd:documentation>
+			<xsd:documentation>This is technical term</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ReferenceCode" type="PackageReferenceCode_V1"/>
+			<xsd:element name="CargoNatureNames" type="common:CargoNatureName_V1" minOccurs="0" maxOccurs="2"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

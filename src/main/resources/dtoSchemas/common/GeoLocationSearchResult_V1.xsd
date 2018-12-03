@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by David Li (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="CommonRestrictions_V1.xsd"/>
+	<xsd:include schemaLocation="City_V1.xsd"/>
+	<xsd:include schemaLocation="Country_V1.xsd"/>
+	<xsd:include schemaLocation="CountryDivision_V1.xsd"/>
+	<xsd:include schemaLocation="District_V1.xsd"/>
+	<xsd:include schemaLocation="DistrictSuburb_V1.xsd"/>
+	<xsd:include schemaLocation="Facility_V1.xsd"/>
+	<xsd:include schemaLocation="GeoLocationTypeString_V1.xsd"/>
+	<xsd:include schemaLocation="OpZone_V1.xsd"/>
+	<xsd:include schemaLocation="Port_V1.xsd"/>
+	<xsd:include schemaLocation="PostalCode_V1.xsd"/>
+	<xsd:complexType name="GeoLocationSearchResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about the geographical location.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Type" type="GeoLocationTypeString_V1" minOccurs="0"/>
+			<xsd:element name="Country" type="Country_V1" minOccurs="0"/>
+			<xsd:element name="CountryDivision" type="CountryDivision_V1" minOccurs="0"/>
+			<xsd:element name="City" type="City_V1" minOccurs="0"/>
+			<xsd:element name="District" type="District_V1" minOccurs="0"/>
+			<xsd:element name="DistrictSuburb" type="DistrictSuburb_V1" minOccurs="0"/>
+			<xsd:element name="Facility" type="Facility_V1" minOccurs="0"/>
+			<xsd:element name="Port" type="Port_V1" minOccurs="0"/>
+			<xsd:element name="OpZone" type="OpZone_V1" minOccurs="0"/>
+			<xsd:element name="PostalCode" type="PostalCode_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

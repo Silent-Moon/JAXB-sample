@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="TailoredValueChangeDetail_V1">
+		<xsd:annotation>
+			<xsd:documentation>Tailored Service Value Change Detail, including name, oldValue and newValue</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="OldValue" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NewValue" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

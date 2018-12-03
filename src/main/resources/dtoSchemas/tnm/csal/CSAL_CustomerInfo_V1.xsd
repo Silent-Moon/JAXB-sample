@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by roel mendoza (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.csal" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:customer="http://com.oocl.schema.customer" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.csal" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.customer" schemaLocation="../../customer/CustomerBasicInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Company_V1.xsd"/>
+	<xsd:complexType name="CSAL_CustomerInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents CSAL customer Info</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="customer:CustomerBasicInformation_V1">
+				<xsd:sequence>
+					<xsd:element name="Role" type="common:CompanyRoleName_V1">
+						<xsd:annotation>
+							<xsd:documentation>This represents CSAL Customer Role</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

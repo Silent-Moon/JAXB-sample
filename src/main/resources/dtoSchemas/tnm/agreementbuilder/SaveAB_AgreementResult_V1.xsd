@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ValidationError_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementID_V1.xsd"/>
+	<xsd:complexType name="SaveAgreementResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Agreement save result returned</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AgreementID" type="tnm:AgreementID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementOID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement object ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NextRateID" type="common:ID_Integer_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Next rate ID, returned from server</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NextServiceID" type="common:ID_Integer_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Next service ID, returned from server</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NextVolumeID" type="common:ID_Integer_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Next rate ID, returned from server</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NextSentOfferID" type="common:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Next offer ID, returned from server</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SaveRateResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Rate save result returned</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OriginalOID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>Original object ID, before save</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateID" type="common:ID_Integer_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rrate ID, returned from server</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ObjectID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Object ID, returned from server</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SaveServiceResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Volume save result returned</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OriginalOID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>Original object ID, before save</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceID" type="common:ID_Integer_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Service ID, returned from server</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ObjectID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Object ID, returned from server</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SaveVolumeResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Volume save result returned</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OriginalOID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>Original object ID, before save</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ObjectID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Object ID, returned from server</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="VolumeGroupName" type="common:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Volume group name, returned from server</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SaveAB_AgreementResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Result return when saving a quote.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ValidationErrors" type="common:ValidationError_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of Validation Errors.  See ValidationError for more details</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LockStamp" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Stamp used for optimistic locking</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Agreement" type="SaveAgreementResult_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement save result returned, if save successful</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OceanRates" type="SaveRateResult_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>OceanOfferRate save result returned, if save successful</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InlandRates" type="SaveRateResult_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>InlandOfferRate save result returned, if save successful</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Services" type="SaveServiceResult_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of services to be saved</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Volumes" type="SaveVolumeResult_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Volume save result returned, if save successful</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Exception" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Exception if any</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsSuccessful" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicator if save is successful</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

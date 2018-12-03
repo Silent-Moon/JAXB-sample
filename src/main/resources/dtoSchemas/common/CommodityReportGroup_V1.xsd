@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Kent Williamson (OOCL (USA) INC) -->
+<!--  Created Oct 10, 2007  -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xsd:simpleType name="AlphaCode_V1">
+<xsd:annotation>
+<xsd:documentation>Code of a CommodityReportGroup.  The Business Community refers to this 3 digit code as the AlphaCode
+			</xsd:documentation>
+</xsd:annotation>
+<xsd:restriction base="xsd:string">
+<xsd:maxLength value="3"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:complexType name="CommodityReportGroup_V1">
+<xsd:annotation>
+<xsd:documentation>Represents a commodity group created for reporting purposes.  It has a 3 digit alpha numeric ID and dates to the days of the legacy mainframe.  When the HSCode was introduced in 2000, this comomdity group was updated to map to a list of HSCodes which further identify the specific commodities within this grouping.
+			</xsd:documentation>
+</xsd:annotation>
+<xsd:sequence>
+<xsd:element name="Code" type="common:AlphaCode_V1">
+<xsd:annotation>
+<xsd:documentation>A 3 digit alphabetic ID to represent this grouping of commodities. </xsd:documentation>
+</xsd:annotation>
+</xsd:element>
+<xsd:element name="Description">
+<xsd:simpleType>
+<xsd:restriction base="xsd:string">
+<xsd:maxLength value="50"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<xsd:element name="HSCodes" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>

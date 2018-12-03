@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema"  targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:simpleType name="RU_LabelType_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents the type of restricted use</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+			<xsd:enumeration value="Flow"/>
+			<xsd:enumeration value="Offhire"/>
+			<xsd:enumeration value="Sales"/>
+			<xsd:enumeration value="GOH"/>
+			<xsd:enumeration value="Others"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="RestrictedUseLabelBookMatch_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about the Restricted Use Label used by booking matching</xsd:documentation>
+		</xsd:annotation>	
+		<xsd:sequence>
+			<xsd:element name="RU_LabelName" type="xsd:string"/>
+			<xsd:element name="RU_LabelType" type="RU_LabelType_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by VIJAY KODALI (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment.dsh" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fwk="http://com.oocl.frm.common.date.dto/" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:eqm="http://com.oocl.schema.eqm" xmlns:shp="http://com.oocl.schema.shipment" xmlns:cmn="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.shipment.dsh" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/ShipmentNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/BillOfLadingNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/ShippingParty_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/EquipmentStatus_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserProfileTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/BasicVoyageInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Company_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ServiceLoopName_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/EquipmentNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/Trade_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommodityReportGroup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/ContainerSize_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Territory_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/ContainerCheckDigit_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/ContainerSize_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/ContainerType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/ContainerSizeType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/HaulageType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SVVD_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ApprovalStatus_V1.xsd"/>
+	<xsd:complexType name="LightweightShipmentInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the shipment information required for the dsh</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AgreementControlPartySAP_ID" type="cmn:SAP_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Control Party id for Agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementControlParty" type="cmn:CompanyName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Control Party for Agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BillOfLadingNumber" type="shp:BillOfLadingNumber_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the BL Number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BookingNumber" type="shp:ShipmentNumber_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the shipment number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BookingCreator" type="cmn:Username_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Created by user/system ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BookingPartySAP_ID" type="cmn:SAP_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ID of the party with company role as BookingParty</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BookingParty" type="cmn:CompanyName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the party with company role as BookingParty</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BookingTerritory" type="cmn:Territory_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the Territory where booking is done</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BookingOffice" type="cmn:BasicOfficeInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the booking office</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BrokerSAP_ID" type="cmn:SAP_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ID of the party with company role as Broker</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Broker" type="cmn:CompanyName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the party with company role as Broker</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoControlParty" type="cmn:CompanyName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the party with company role as CargoControlParty</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoCutoff" type="fwk:FWRelativeDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Date by which the cargo has to be picked</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNature" type="cmn:CargoNatureCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The classification name of cargo for special stowage arrangement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Commodity" type="cmn:CommodityReportGroup_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Provides the commodity information of this shipment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ConsigneeSAP_ID" type="cmn:SAP_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ID of the party with company role as Consignee</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Consignee" type="cmn:CompanyName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the party with company role as Consignee</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerNumber" type="eqm:EquipmentNumber_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>provides the container number of this shipment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerCheckDigit" type="eqm:ContainerCheckDigit_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Check digit of the container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerType" type="eqm:ContainerType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>container Types</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerSize" type="eqm:ContainerSize_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents container sizes</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerStatus" type="shp:EquipmentStatus_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The status of an equipment in terms of location, custody and cargo status for cargo tracking use</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContractNumber" type="tnm:AgreementID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Unique ID for Agreement Number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DischargeSVVD" type="cmn:SVVD_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>vessel voyage info at the discharge port</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FacilityID" type="cmn:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ID of the facility</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FacilityCode" type="cmn:LocationCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>code of the facility</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FND_ID" type="cmn:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ID of the final destination</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FND" type="cmn:EntityLocationName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Location name of the final destination</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ForwarderSAP_ID" type="cmn:SAP_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ID of the party with company role as Forwarder</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Forwarder" type="cmn:CompanyName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the party with company role as Forwarder</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FreightPayerID" type="cmn:SAP_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ID of the party with company role as FreightPayer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FreightPayer" type="cmn:CompanyName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the party with company role as FreightPayer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InboundHaulage" type="cmn:HaulageType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>carrier or customer haulage at the Inbound port</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BookingCreateDate" type="fwk:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Date the booking was created</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BookingLastUpdateDate" type="fwk:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>the last update date of the said booking</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FirstLoadVoyageETA_Date" type="fwk:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>estimated time of arrival at the first pol</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastDischargingSVVD" type="cmn:SVVD_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>vessel voyage at the last pod</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastDischargeVoyageDate" type="fwk:FWRelativeDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>the discharge date at the last pod</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastDischargeVoyagePortCallSequence" type="cmn:ID_Integer_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>the ocean leg sequence number at the last pod</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LoadingSVVD" type="cmn:SVVD_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>vessel voyage at the first pol</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Loading_SVVD_SailingDate" type="fwk:FWRelativeDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>sailing date of the vessel at the pol</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NotifyPartySAP_ID" type="cmn:SAP_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ID of the party with company role as NotifyParty</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NotifyParty" type="cmn:CompanyName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the party with company role as NotifyParty</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OpZoneCode" type="cmn:EntityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>code of the opzone</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OutboundAllocationOffice" type="cmn:BasicOfficeInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>allocation office information of the outbound </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OutboundHaulage" type="cmn:HaulageType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>carrire or customer haulage at the outbound port</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PlannedDate" type="fwk:FWRelativeDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>planned date of the sailing of the vessel at the first pol</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POD_PortID" type="cmn:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>port id of the discharge port</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POD_PortName" type="cmn:EntityLocationName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>port name of the discharge port</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POD_FacilityID" type="cmn:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>facility id of the facility under the discharge port</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POD" type="cmn:EntityLocationCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Location name of the port of discharge</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POL_PortID" type="cmn:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>port id of the loading port</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POL_FacilityID" type="cmn:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>facility id of the facility under the loading port</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POL_FacilityCode" type="cmn:EntityLocationCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>facility code of the facility under the loading port</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POL" type="cmn:EntityLocationName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Location name of the port of load </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POR_ID" type="cmn:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>id of the place of receipt</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POR" type="cmn:EntityLocationName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Location name of the place of receipt</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OutboundSalesOffice" type="cmn:BasicOfficeInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Sales office information of the outbound shipment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Service" type="cmn:ServiceLoopName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>represents the service loop name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShipmentControlPartySAP_ID" type="cmn:SAP_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ID of the party with company role as Shipment Control Party</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShipperSAP_ID" type="cmn:SAP_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ID of the party with company role as Shipper</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Shipper" type="cmn:CompanyName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the party with company role as Shipper</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TailoredServiceName" type="cmn:ServiceLoopName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the service loop name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Trade" type="tnm:Trade_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Flow of cargo between two individual markets</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OB_SalesShipperPerson" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the sales person</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DetectionDate" type="fwk:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Date of detection received thru transformer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ACP_SalesPerson" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the agrrement control party sales person</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OB_SalesBookingPartyPerson" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the Sales person of Booking Party</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EquipmentOffice" type="cmn:EntityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The office code information where the missing event has happened</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IB_DocumentOffice" type="cmn:EntityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The documentation office info of the final destination location</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IB_ControlOffice" type="cmn:EntityCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>the control office info of a particular shipment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OB_AppointmentDate" type="fwk:FWRelativeDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Local appointment date of the equipment at the outbound door leg</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IB_AppointmentDate" type="fwk:FWRelativeDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Local appointment date of the equipment at the inbound door leg</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OceanLegPOL_Facility" type="cmn:EntityLocationCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Facility Code of the origin of the voyage leg</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OceanLegPOD_Facility" type="cmn:EntityLocationCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Facility Code of the destination of the voyage leg</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OceanLegSVVD" type="cmn:SVVD_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Vessel Voyage Code of the Voyage Leg</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DG_ApprovalStatus" type="cmn:ApprovalStatus_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The status of the DG approval request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BL_Creator" type="cmn:Username_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The name of the user / system id who created the BL</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastRouteEditor" type="cmn:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The name of the user edited the broken route</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="LightweightShipmentInfo" type="LightweightShipmentInfo_V1"/>
+</xsd:schema>

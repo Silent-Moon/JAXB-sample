@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 sp1 U (http://www.xmlspy.com) by Rick Vera (OOCL (USA), Inc.) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:eqm="http://com.oocl.schema.eqm" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="AllSBReferenceData_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/IntegerRange_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ServiceLoopCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Port_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/ContainerSize_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/ContainerType_V1.xsd"/>
+	<xsd:complexType name="CommitmentInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Tailored Service Commitment Matrix Info, Container Count is a range, like 3 - 8, TEU is also a range, Service Charge, Customer Penalty and CarrierPenalty are all float ranges, like "2.50 - 6.77". Valid Weeks is like "2007 Week 2 - 5, 2007 Week 11 - 32"</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ServiceLoop" type="common:ServiceLoopCode_V1" minOccurs="0"/>
+			<xsd:element name="LoadPort" type="common:Port_V1" minOccurs="0"/>
+			<xsd:element name="DischargePorts" type="common:Port_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ContainerSizes" type="eqm:ContainerSize_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ContainerCategories" type="eqm:ContainerType_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ContainerCount" type="common:IntegerRange_V1" minOccurs="0"/>
+			<xsd:element name="ServiceCharge" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Teu" type="common:IntegerRange_V1" minOccurs="0"/>
+			<xsd:element name="CustomerPenalty" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CarrierPenalty" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ValidWeeks" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ReferenceID" type="xsd:int" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

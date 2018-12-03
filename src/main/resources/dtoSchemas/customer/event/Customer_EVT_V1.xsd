@@ -1,0 +1,18 @@
+<!--  edited with XMLSpy v2008 (http://www.altova.com) by abrudho (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.customer.event" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.customer.event" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:element name="Customer_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event for Customer data change (insert, update, delete) from CPF_CUSTOMER table</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="SAP_ID" type="common:SAP_ID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the CPF SAP ID  which is equivalent to CPF_CUSTOMER.SAP_ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

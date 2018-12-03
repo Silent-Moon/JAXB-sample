@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) by Jordy (Orient Overseas Container Line Limited) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.dashboard" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/StringKeyValuePair_V1.xsd"/>
+	<xsd:include schemaLocation="DSH_CommonTypes_V1.xsd"/>
+	<xsd:include schemaLocation="Escalation_V1.xsd"/>
+	<xsd:complexType name="ActivityDefinition_V1">
+		<xsd:annotation>
+			<xsd:documentation>Schema to define an activity</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>Note: Code, Group and Type together form the business keys of this schema</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="Name" type="cmn:EntityName_V1">
+				<xsd:annotation>
+					<xsd:documentation>Name of activity - a little more verbose than type and code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Type" type="ActivityType_V1">
+				<xsd:annotation>
+					<xsd:documentation>Task, Notification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Code" type="ActivityCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>unique abbreviation of activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Group" type="ActivityGroup_V1">
+				<xsd:annotation>
+					<xsd:documentation>Grouping of activities - for example Shipment, Agreement etc.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ApplicationContextSchema" type="Context_V1">
+				<xsd:annotation>
+					<xsd:documentation>XML Schema that the source application would use to send us Payload in the Activity Request - this will be used to validate the payload when a request is received</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Namespace" type="Namespace_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Define here are the namespaces used for the xpath queries</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Details" type="ActivityDefinitionDetails_V1">
+				<xsd:annotation>
+					<xsd:documentation>This is used to deplay in the details view  in Dashboard</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UserCanComplete" type="xsd:boolean" default="false">
+				<xsd:annotation>
+					<xsd:documentation>Can this activity be completed by a user - this should be set ONLY in the case where the source system cannot confirm an activity being complete.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AssignmentCriteria" type="AssignmentCriteria_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Criteria that are to be used in the assignment of this activity - Note: Here Name is just a reference for example "Booking" "SVVD" etc., and Type is the XPATH expression to retrieve this valye from the ApplicationContext</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DueDateDefinition">
+				<xsd:annotation>
+					<xsd:documentation>This is for the default due date calculations base on a specific milestone</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Offset" type="MilestoneOffset_V1">
+							<xsd:annotation>
+								<xsd:documentation>This is the offset for the milestone</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Milestones" type="NameAndType_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>These are a collection milestones and xpath expressions to retrieve the milestone date base on the application context. </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EscalationOffset" type="EscalationOffset_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Define offsets for each of level escalation this activity can have. Note: This can be over-ridden at the level of the group that will handle this activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsUseESM" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Boolean to indicate whether to use ESM for domain change events</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Version" type="ActivityDefinitionVersion_V1" default="1.0" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Version of this definition</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ID" type="DefinitionID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Identity of a definition</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ActivityDefinitionDetails_V1">
+		<xsd:annotation>
+			<xsd:documentation>Elements which make up the details of an activity definition</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="HandlingInstruction" type="FullyQualifiedCommand_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Handling instructions are optional for Notifications. However since OC4J 10.1.3 does not support choice as a type - this is marked optional</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DisplayInstruction">
+				<xsd:annotation>
+					<xsd:documentation>This defines what will be shown on in the details view.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Header" type="cmn:BasicDescription_V1">
+							<xsd:annotation>
+								<xsd:documentation>This is what will be shown on the header field on the to do list UI</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="Body">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:annotation>
+										<xsd:documentation>One of these should be provided for this definition to be complete - Since OC4J 10.1.3 cannot suppose choice we are using this sequence approach</xsd:documentation>
+									</xsd:annotation>
+									<xsd:element name="UseDefaultTransformation" type="xsd:boolean">
+										<xsd:annotation>
+											<xsd:documentation>Indicator to use default transformation.  If default is not true, fill in transform or form handling instruction</xsd:documentation>
+										</xsd:annotation>
+									</xsd:element>
+									<xsd:element name="DisplayType" type="DetailDisplay_V1" minOccurs="0"/>
+									<xsd:element name="Transform" minOccurs="0">
+										<xsd:annotation>
+											<xsd:documentation>This is use if a transformation is available</xsd:documentation>
+										</xsd:annotation>
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="TransformOutput" minOccurs="0">
+													<xsd:annotation>
+														<xsd:documentation>Transform Output Format</xsd:documentation>
+													</xsd:annotation>
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:enumeration value="HTML"/>
+															<xsd:enumeration value="TEXT"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="TransformationType">
+													<xsd:annotation>
+														<xsd:documentation>The type of transform</xsd:documentation>
+													</xsd:annotation>
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:enumeration value="HTML"/>
+															<xsd:enumeration value="XSLT"/>
+															<xsd:enumeration value="CSS"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="Transformation">
+													<xsd:annotation>
+														<xsd:documentation source="XSLT to execute the transformation">The transformation xml/code</xsd:documentation>
+													</xsd:annotation>
+													<xsd:simpleType>
+														<xsd:restriction base="xsd:string">
+															<xsd:maxLength value="1048576"/>
+														</xsd:restriction>
+													</xsd:simpleType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="FormHandlingInstruction" type="ClassHandlingCommand_V1" minOccurs="0">
+										<xsd:annotation>
+											<xsd:documentation>This is used to display a form on the detail view.</xsd:documentation>
+										</xsd:annotation>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="Footer" type="cmn:BasicDescription_V1" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>This is static data that can be included in the display of an activity</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AdditionalSummaryColumns" type="NameAndType_V1" minOccurs="0" maxOccurs="30">
+				<xsd:annotation>
+					<xsd:documentation>Columns to be included in Summary of Display</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DirectUserNominations" type="NameAndType_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Columns nomincated to be included in Summary of Display</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AssignmentCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>These are the Criterias used for rule evaluation for assignment</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="NameAndType_V1">
+				<xsd:sequence>
+					<xsd:annotation>
+						<xsd:documentation>Only 1 of the following will be use.  1) User defined search control, 2) Common Lookup 3) Defined Drop Down From definition.  Since a choice is not supported in OC4J, an optional sequence is used instead</xsd:documentation>
+					</xsd:annotation>
+					<xsd:element name="FreeTextAllowed" type="xsd:boolean"/>
+					<xsd:element name="LookupType" type="LookupType_V1"/>
+					<xsd:element name="CommonLookup" type="SearchControl_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>This is the name of the common Lookup</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="DropDownClass" type="ClassHandlingCommand_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Can specify a Dropdown list class</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="DropDownList" type="cmn:EntityBriefName_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>If SearchControl helper is not avail, then use a static dropdown list from here.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="SearchControl_V1">
+		<xsd:annotation>
+			<xsd:documentation>Search Control on the client to use</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Type" type="LookupControlType_V1">
+				<xsd:annotation>
+					<xsd:documentation>Form Name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchResultName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>This is the name of the column returned from the common lookup</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FullyQualifiedCommand_V1">
+		<xsd:annotation>
+			<xsd:documentation>This command is used for handling instructions</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" type="cmn:EntityBriefName_V1">
+				<xsd:annotation>
+					<xsd:documentation>The name of the action button</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Type">
+				<xsd:annotation>
+					<xsd:documentation>The type of handling </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="ClickToComplete"/>
+						<xsd:enumeration value="COMInteraction"/>
+						<xsd:enumeration value="WebServiceInvocation"/>
+						<xsd:enumeration value="HandleWinForms">
+							<xsd:annotation>
+								<xsd:documentation source="Not supported in the current vision"/>
+							</xsd:annotation>
+						</xsd:enumeration>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="VisibilityCondition" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>XPath expression resulting in boolean result.  If true, the handler will be visible to the user.  Optional element - without this will be always true.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Destination" type="cmn:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Used for Web Service Invocation.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:sequence>
+				<xsd:annotation>
+					<xsd:documentation>One of these options must be provided for this type to be valid - since OC4J 10.1.3 does not support choice this approach is being used</xsd:documentation>
+				</xsd:annotation>
+				<xsd:element name="Command" type="ExecutableCommandParameters_V1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>This command is used for web invocation, and COM iteration </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!--<xsd:element name="Acknowledgement" type="ExecutableCommandOptionalParameters_V1" minOccurs="0"/>-->
+				<xsd:element name="FormHandlingInstruction" type="ExistingInstanceHandlingCommand_V1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>This is used when type is  HandleWinForms</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ClassHandlingCommand_V1">
+		<xsd:annotation>
+			<xsd:documentation>Structure to handle opening a Form</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AssemblyName" type="cmn:EntityName_V1">
+				<xsd:annotation>
+					<xsd:documentation>This is the package name or namespace to the actual classname.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FullQualifiedClassName" type="cmn:FullyQualifiedName_V1">
+				<xsd:annotation>
+					<xsd:documentation>This is the name of the class for the client to invoke.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Interface" type="ExecutableCommandParameters_V1">
+				<xsd:annotation>
+					<xsd:documentation>Method and parameter to pass</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ExistingInstanceHandlingCommand_V1">
+		<xsd:annotation>
+			<xsd:documentation>Extension to ClassHandlingCommand_V1 to support multiple instance</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="ClassHandlingCommand_V1">
+				<xsd:sequence>
+					<xsd:element name="Instantiation">
+						<xsd:simpleType>
+							<xsd:restriction base="InstantiationType_V1"/>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="OpenExistingInstance" type="xsd:boolean">
+						<xsd:annotation>
+							<xsd:documentation>Indicator to show whether to create a new instance or open an existing form.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Instance" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>If OpenExistingElement is true then this will specific if it's via propertyName of via a method</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="PropertyName" type="cmn:EntityBriefName_V1" minOccurs="0">
+									<xsd:annotation>
+										<xsd:documentation>Name of the C# property</xsd:documentation>
+									</xsd:annotation>
+								</xsd:element>
+								<xsd:element name="GetInstance" type="ExecutableCommandParameters_V1" minOccurs="0"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="OpenExistingByFormTitle" type="xsd:boolean" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>If open existing is true, then specify true if open existing via classname + title, else open existing via classname.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="FormTitle" type="ValueExpression_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>If OpenExistingByFormTitle is true then this is the element to evaluate to find the form title name via xpath.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ExecutableCommandParameters_V1">
+		<xsd:annotation>
+			<xsd:documentation>Command to execute in instructions</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Command" type="cmn:EntityName_V1">
+				<xsd:annotation>
+					<xsd:documentation>This is the command; usually a function name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Values" type="Parameter_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Parameters to pass to the command</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Parameter_V1">
+		<xsd:annotation>
+			<xsd:documentation>Parameter used in the function</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" type="cmn:EntityBriefName_V1">
+				<xsd:annotation>
+					<xsd:documentation>Name of the paramter as it matches the client parameter name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValueExpression" type="ValueExpression_V1">
+				<xsd:annotation>
+					<xsd:documentation>Xpath query for the value to pass as the parameter</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Namespace_V1">
+		<xsd:annotation>
+			<xsd:documentation>XML Namespace</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Prefix" type="cmn:ID_String_V1">
+				<xsd:annotation>
+					<xsd:documentation>Prefix for the namespace</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="URI" type="cmn:EntityName_V1">
+				<xsd:annotation>
+					<xsd:documentation>Actual URI of the namespace</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MilestoneOffset_V1">
+		<xsd:annotation>
+			<xsd:documentation>Offset for a particular milestone - this is typically used to define due dates of an activity</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Milestone" type="NameAndType_V1">
+				<xsd:annotation>
+					<xsd:documentation>What is the level of escalation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Offset" type="Offset_V1">
+				<xsd:annotation>
+					<xsd:documentation>How soon before a milestone should this level of escalation be effected</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="LookupControlType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Enumeration of Lookup Control Types for the Client.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CSO_SC"/>
+			<xsd:enumeration value="Customer"/>
+			<xsd:enumeration value="Geographic"/>
+			<xsd:enumeration value="Organization"/>
+			<xsd:enumeration value="ServiceLoop"/>
+			<xsd:enumeration value="Supplier"/>
+			<xsd:enumeration value="User"/>
+			<xsd:enumeration value="VesselVoyage"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="ActivityDefinition" type="ActivityDefinition_V1">
+		<xsd:annotation>
+			<xsd:documentation>Root Element</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:simpleType name="DetailDisplay_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Transform"/>
+			<xsd:enumeration value="FormHandling"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LookupType_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="NoLookup"/>
+			<xsd:enumeration value="CommonLookup"/>
+			<xsd:enumeration value="DropDownClass"/>
+			<xsd:enumeration value="StaticList"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="InstantiationType_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Constructor"/>
+			<xsd:enumeration value="Property"/>
+			<xsd:enumeration value="Method"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

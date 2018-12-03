@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Josie Tapas (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment.sep" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.shipment.sep" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="SEP_App_Error_V1.xsd"/>
+	<xsd:element name="SEP_Error_V1">
+		<xsd:annotation>
+			<xsd:documentation>SEP project uses this payload to publish messages to EMS Exception Queue</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ProcessID" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>This represents the process id assigned by TIBCO engine</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ProjectName" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>This represents project name assigned by application</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="EngineName" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>This represents the server name</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="CustomID" type="xsd:string" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>This represents custom id assigned by application</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element ref="SEP_App_Error_V1" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

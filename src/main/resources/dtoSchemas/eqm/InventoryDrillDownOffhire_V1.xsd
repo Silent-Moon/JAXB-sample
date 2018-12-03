@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<!-- Created by Eva 2011-11-2
+  -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">	
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/OpZone_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerSizeType_V1.xsd"/>	
+	<xsd:complexType name="InventoryDrillDownOffhire_V1">
+		<xsd:annotation>
+			<xsd:documentation> This is the WS response for the inventory drill down request for Offhire drill down type.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OffhireOpzone" type="common:OpZone_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The offhire opzone of the inventory.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LeaseType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The lease type of contract of the inventory.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="EqpSizeType" type="ContainerSizeType_V1">
+				<xsd:annotation>
+					<xsd:documentation>The eqp size type of the inventory.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="Quota" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>The offhire quota in the given dimension.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OutstandingQuota" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>The O/S offhire quota in the given dimension.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Quantity" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>The number of containers offhireable in the given dimension.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

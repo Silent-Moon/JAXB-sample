@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Josie Tapas (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.iris2cp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.iris2cp" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="TMIS_HierarchyRegion_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/BasicOfficeInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Territory_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/OpZone_V1.xsd"/>
+	<xsd:complexType name="TMIS_HierarchySearchResultDetail_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is a TMIS Hierarchy Search Result  Detail</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TMIS_HierarchyRegion" type="TMIS_HierarchyRegion_V1">
+				<xsd:annotation>
+					<xsd:documentation>This is a TMIS Hierarchy Region</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Office" type="common:BasicOfficeInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is a TMIS Office</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Territory" type="common:Territory_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is a TMIS Territory</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OpZone" type="common:OpZone_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This is an  OpZone</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

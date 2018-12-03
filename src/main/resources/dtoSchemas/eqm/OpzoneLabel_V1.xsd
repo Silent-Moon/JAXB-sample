@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Added by Venus 2010-03-14 -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="OpzoneLabel_V1">
+		<xsd:annotation>
+			<xsd:documentation> Opzone label compares the empty release and empty return information to conclude if a particular opzone is in a deficit, surplus or balance situation for equipment supply
+			D:Deficit
+			B: Balanced
+			S: Surplus
+			 </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+			<xsd:enumeration value="DDD"/>
+			<xsd:enumeration value="DD"/>
+			<xsd:enumeration value="D"/>
+			<xsd:enumeration value="B"/>
+			<xsd:enumeration value="S"/>
+			<xsd:enumeration value="SS"/>
+			<xsd:enumeration value="SSS"/>
+			<xsd:enumeration value="NA"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

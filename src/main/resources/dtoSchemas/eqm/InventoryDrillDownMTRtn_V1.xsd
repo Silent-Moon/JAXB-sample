@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<!-- Created by Eva 2011-11-2
+  -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>	
+	<xsd:include schemaLocation="ContainerSizeType_V1.xsd"/>
+	<xsd:include schemaLocation="EquipmentEnumTypes_V1.xsd"/>
+	<xsd:include schemaLocation="InventoryStatus_V1.xsd"/>
+	<xsd:complexType name="InventoryDrillDownMTRtn_V1">
+		<xsd:annotation>
+			<xsd:documentation> This is the WS response for the inventory Drill Down request for MT_RTN drill down type.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="InvStatus" type="InventoryStatus_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The inventory status of the inventory.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EqpSizeType" type="ContainerSizeType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The eqp size type of the inventory.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EventType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The event type of the inventory. Possible values: Transfer, Discharge, Receive, etc</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ExpectedMTADate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The expected MTA date. Null if ExpectedMTADateType is not a specific date (PREVIOUS or ALL)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExpectedMTADateType" type="InventoryDrillDownDateType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The type of expected MTA date. Possible values are: SUN, MON, PREVIOUS (days before current week), ALL (everyday in current week + previous days), etc</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ForecastType" type="InventoryDrillDownForecastType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The type of the empty return forcast.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Quantity" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>The number of containers in the given dimension.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:cust="http://com.oocl.schema.customer" xmlns:lookup="http://com.oocl.schema.common.lookup" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.customer" schemaLocation="../../customer/Customer_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common.lookup" schemaLocation="../../common/lookup/GeoLocationLookupElement_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserProfileTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/CommodityGroup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/WeightGroup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/VolumeGroup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/OceanRate_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/InlandRate_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/CityTariffGroup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/TieredCommodity_V1.xsd"/>
+	<xsd:complexType name="ABGetResultMap_V1">
+		<xsd:annotation>
+			<xsd:documentation>this is a generic key/value map to store any search result attribute</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AttributeName" type="xsd:string"/>
+			<xsd:element name="AttributeKey" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AttributeValue" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GetAB_AgreementResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a guideline rate search result containing guideline rates and validation erros if any</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="QuotesXML" type="common:XML_Payload" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of quotes in XML form</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OceanOfferRatesXML" type="common:XML_Payload" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of ocean offer rates in XML form</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InlandOfferRatesXML" type="common:XML_Payload" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of inland offer rates in XML form</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceOffersXML" type="common:XML_Payload" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ReferencedGeoLocations" type="lookup:GeoLocationLookupElement_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ReferencedCityGroups" type="tnm:CityTariffGroup_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ReferencedCustomers" type="cust:Customer_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ReferencedCarrierContacts" type="common:UserProfile_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ReferencedWeightGroups" type="tnm:WeightGroup_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ReferencedVolumeGroups" type="tnm:VolumeGroup_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ReferencedTieredCommodities" type="tnm:TieredCommodity_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ReferencedOceanRates" type="tnm:OceanRate_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ReferencedInlandRates" type="tnm:InlandRate_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="CanPerformCUD" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Returns true if the user is allowed to perform CUD on this agreement.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HasSensitiveAccess" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Returns true if the user is allowed to view sensitive information on this agreement.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="userEditAccessCarrierGroupId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="userViewAccessCarrierGroupId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Exception" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsSuccessful" type="xsd:boolean"/>
+			<xsd:element name="AFCarrierGroupId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MoreAttributes" type="ABGetResultMap_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Use this generic field to accommodate any new attributes need to be retrieved.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

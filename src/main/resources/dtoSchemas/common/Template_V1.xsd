@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="Template_ID_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			   Template ID is the unique ID for Service Template, like "SPS", "PPS"
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="7"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Template_Name_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			   Service Template Name, like "Space Protection Service"
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Template_Abbreviation_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			   Service Template Name Abbreviation
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Template_Version_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			   Service Template Version
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:short"></xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

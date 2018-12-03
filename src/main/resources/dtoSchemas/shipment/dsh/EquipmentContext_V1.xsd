@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by VIJAY KODALI (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment.dsh" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fwk="http://com.oocl.frm.common.date.dto/" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:eqm="http://com.oocl.schema.eqm" xmlns:shp="http://com.oocl.schema.shipment" xmlns:cmn="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.shipment.dsh" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="LightweightShipmentInfo_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/UsagePlanInfo_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="EquipmentContext_V1">
+		<xsd:annotation>
+			<xsd:documentation>Equipment information to be sent to the dashboard</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SupplierName" type="eqm:ContactPerson_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the Supplier</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UsagePlanNumber" type="eqm:UsagePlanNumber_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the usage plan number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EquipmentPlannedOffhireLocation" type="cmn:EntityLocationName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the location where the equipment will be offhired</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EquipmentActualReturnLocation" type="cmn:EntityLocationName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the location where the equipment will be returned</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OutboundDoorJobOrderNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents Job order number at the outbound door location</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InboundDoorJobOrderNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents Job order number at the inbound door location</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InvalidDropOffReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Reason forinvalid  drop off of equipment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DropOffHandlingOffice" type="cmn:EntityLocationCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>drop off handling offices code details</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DropOffLocation" type="cmn:EntityLocationName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>name of the drop off location</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChangeOfPickupInfo" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Information of the changes made for the pick up</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChangeOfDropOffInfo" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Information of the changes made for the drop off</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OffhireRU_Name" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Restricted user label name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShipmentInfo" type="LightweightShipmentInfo_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>shipment information required to send to dsh</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HtmlMessage" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The html string received thru the transformer message</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContractType" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the contract type of the equipment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="EquipmentContext" type="EquipmentContext_V1"/>
+</xsd:schema>

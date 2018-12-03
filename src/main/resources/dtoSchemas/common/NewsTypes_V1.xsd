@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="NewsDateTime_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about the Date</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Month">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:minInclusive value="1"/>
+						<xsd:maxInclusive value="12"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Day">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:minInclusive value="1"/>
+						<xsd:maxInclusive value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Year">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:totalDigits value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Hour">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Minute" type="xsd:integer"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="News_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about a new</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="NewsID" type="NewsID_V1"/>
+			<xsd:element name="NewsSubject" type="NewsSubject_V1"/>
+			<xsd:element name="NewsURL" type="NewsURL_V1"/>
+			<xsd:element name="WhoModified" type="NewsModifier_V1"/>
+			<xsd:element name="WhenModified" type="NewsWhenModified_V1"/>
+			<xsd:element name="Draft" type="xsd:boolean"/>
+			<xsd:element name="DeleteFlag" type="xsd:boolean"/>
+			<xsd:element name="Targets" type="NewsDistribution_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NewsDistribution_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about where to distribute news to</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="NewsID" type="NewsID_V1"/>
+			<xsd:element name="TargetType" type="DistributionTarget_V1"/>
+			<xsd:element name="TargetID" type="DistributionTargetID_V1"/>
+			<xsd:element name="Hierarchy" type="Hierarchy_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NewsDistributionTarget_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about possible News Distribution locations</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="NewsDistributionTargetID" type="xsd:integer"/>
+			<xsd:element name="ParentId" type="DistributionTargetID_V1" minOccurs="0"/>
+			<xsd:element name="TargetId" type="DistributionTargetID_V1"/>
+			<xsd:element name="TargetType" type="DistributionTarget_V1"/>
+			<xsd:element name="TargetDesc" type="DistributionTargetDescription_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NewsModifier_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about actors for new modications</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CreatedBy" type="NewsAuthor_V1"/>
+			<xsd:element name="LastUpdatedBy" type="NewsAuthor_V1"/>
+			<xsd:element name="PublishedBy" type="NewsAuthor_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NewsWhenModified_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information aobut timestamps of news modifications</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Created" type="NewsDateTime_V1"/>
+			<xsd:element name="LastUpdated" type="NewsDateTime_V1"/>
+			<xsd:element name="Published" type="NewsDateTime_V1" minOccurs="0"/>
+			<xsd:element name="Archived" type="NewsDateTime_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NewsSearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Criterias used for searching news</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Subject" type="NewsSubject_V1" minOccurs="0"/>
+			<xsd:element name="Status" type="NewsStatus_V1" minOccurs="0"/>
+			<xsd:element name="CreatedBy" type="NewsAuthor_V1" minOccurs="0"/>
+			<xsd:element name="PublishedBy" type="NewsAuthor_V1" minOccurs="0"/>
+			<xsd:element name="UpdateBy" type="NewsAuthor_V1" minOccurs="0"/>
+			<xsd:element name="CreatedDate" type="NewsDateTime_V1" minOccurs="0"/>
+			<xsd:element name="UpdatedDate" type="NewsDateTime_V1" minOccurs="0"/>
+			<xsd:element name="PublishedDate" type="NewsDateTime_V1" minOccurs="0"/>
+			<xsd:element name="ArchivedDate" type="NewsDateTime_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NewsUpdateResults_V1">
+		<xsd:annotation>
+			<xsd:documentation>The results returned after a news update.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="NewsID" type="NewsID_V1"/>
+			<xsd:element name="Status" type="NewsUpdateStatus_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="NewsID_V1">
+		<xsd:annotation>
+			<xsd:documentation>ID of news</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="NewsUpdateStatus_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="INIT"/>
+			<xsd:enumeration value="INSERTED"/>
+			<xsd:enumeration value="DELETED"/>
+			<xsd:enumeration value="UPDATED"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NewsSubject_V1">
+		<xsd:annotation>
+			<xsd:documentation>Subject Name of the news</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="1024"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NewsURL_V1">
+		<xsd:annotation>
+			<xsd:documentation>The url to the news</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="1024"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NewsAuthor_V1">
+		<xsd:annotation>
+			<xsd:documentation>Name of the news modifier</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="30"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DistributionTarget_V1">
+		<xsd:annotation>
+			<xsd:documentation>Whether target is Deparment, Hierarchy, Region, Territory, or office</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="Department"/>
+			<xsd:enumeration value="Hierarchy"/>
+			<xsd:enumeration value="Territory"/>
+			<xsd:enumeration value="Region"/>
+			<xsd:enumeration value="Office"/>
+			<xsd:enumeration value="Root"/>
+			<xsd:enumeration value="DepartmentRoot"/>
+			<xsd:enumeration value="HierarchyRoot"/>
+			<xsd:enumeration value="All"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DistributionTargetID_V1">
+		<xsd:annotation>
+			<xsd:documentation>The Id of the distribution target</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DistributionTargetDescription_V1">
+		<xsd:annotation>
+			<xsd:documentation>The description of the distribution target</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="Hierarchy_V1">
+		<xsd:annotation>
+			<xsd:documentation>hierarchy of where news belongs</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NewsStatus_V1">
+		<xsd:annotation>
+			<xsd:documentation>State of the news.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Active"/>
+			<xsd:enumeration value="Archived"/>
+			<xsd:enumeration value="Draft"/>
+			<xsd:enumeration value="Pending"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

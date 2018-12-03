@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.saleshierarchy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:saleshier="http://com.oocl.schema.tnm.saleshierarchy" targetNamespace="http://com.oocl.schema.tnm.saleshierarchy" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xsd:include schemaLocation="VisibilityRelationship_V1.xsd"/>
+    <xsd:complexType name="VisibilityRelationshipRequest_V1">
+        <xsd:annotation>
+            <xsd:documentation>Represents request object to retrieve a set of Visibility Relationship results</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="UserId" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>Id of the user whose relationships are being queried</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="RequestType" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>Type of query to perform against Sales Visibility Hierarchy records</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

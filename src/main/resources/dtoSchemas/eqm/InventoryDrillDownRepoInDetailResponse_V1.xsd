@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<!-- Created by Venus 2011-10-11-->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:include schemaLocation="InventoryDrillDownRepoInDetail_V1.xsd"/>
+	<xsd:include schemaLocation="EquipmentExport_V1.xsd"/>
+	<xsd:complexType name="InventoryDrillDownRepoInDetailResponse_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is the WS response for the inventory Repo In detail drill down report. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RepoInDetail" type="InventoryDrillDownRepoInDetail_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The normal response for the inventory Repo In detail drill down.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Export" type="EquipmentExport_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The export response for the inventory Repo In detail drill down.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

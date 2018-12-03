@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Josie Tapas (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:shipment="http://com.oocl.schema.shipment" targetNamespace="http://com.oocl.schema.shipment" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="../ShipmentNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Company_V1.xsd"/>
+	<xsd:element name="CustomerOrder_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event whenever any part of CUST_ORDER data changes (insert, update, delete)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="UUID" type="common:UUID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the Customer Order Unique ID which is equivalent to CUST_ORDER.CUST_ORDER_UUID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="BookingOfficeCode" type="common:EntityLocationCode_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is equivalent to CUST_ORDER.BKG_OFCE_CDE, this may be optional element to some consumers</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="BookingPartySAP_ID" type="common:SAP_ID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is equivalent to CUST_ORDER.BKG_PARTY_CDE, this may be optional element to some consumers</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

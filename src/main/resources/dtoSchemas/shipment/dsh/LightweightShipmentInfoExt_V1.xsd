@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.shipment.dsh" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:shp="http://com.oocl.schema.shipment" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.shipment.dsh" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="LightweightShipmentInfo_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ExternalVoyageReference_V1.xsd"/>
+	
+	<xsd:complexType name="LightweightShipmentInfoExt_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the additional shipment information required for the DSH module</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="LightweightShipmentInfo_V1">
+				<xsd:sequence>
+					<xsd:element name="BL_ReleaseOffice" type="common:EntityCode_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>the BL release office code of a particular shipment</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ExternalVoyageReference" type="common:ExternalVoyageReference_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>External Voyage reference provided by the customer</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					
+					<xsd:element name="FirstNotifyPartySAP_ID" type="common:SAP_ID_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>This represents the ID of the party with company role as FirstNotify</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="FirstNotifyParty" type="common:CompanyName_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>This represents the name of the party with company role as FirstNotify</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="SecondNotifyPartySAP_ID" type="common:SAP_ID_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>This represents the ID of the party with company role as SecondNotify</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="SecondNotifyParty" type="common:CompanyName_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>This represents the name of the party with company role as SecondNotify</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="POR_FullyQualifiedName" type="common:FullyQualifiedName_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>POR - Place of Origin</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="FND_FullyQualifiedName" type="common:FullyQualifiedName_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>FND - Final Destination</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="LightweightShipmentInfoExt" type="LightweightShipmentInfoExt_V1"/>
+</xsd:schema>

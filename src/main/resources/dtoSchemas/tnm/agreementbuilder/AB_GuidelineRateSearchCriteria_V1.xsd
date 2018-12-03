@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iris2="http://com.oocl.schema.iris2cp" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonContainerTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.iris2cp" schemaLocation="../../iris2cp/CP_CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/DeliveryMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/DateRange_V1.xsd"/>
+	<xsd:complexType name="AB_GuidelineRateSearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a guideline rate search request with mandatory and optional search criteria </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PORs" type="common:ID_LongNumeric_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>POR - Place of Origin</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FNDs" type="common:ID_LongNumeric_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>FND - Final Destination</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DeliveryModes" type="common:DeliveryMode_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Delivery Mode, can be 
+YY - Yard to Yard
+YD -Yard to Door
+DY - Door to Yard
+DD - Door to Door</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SpecialEquipment" type="common:LinerContainerTypes_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Special Equipment type </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNatures" type="iris2:CP_CargoNatureCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>CargoNature (Should be 
+AD - Awkward Dangerous
+AW - Awkward 
+DG - Dangerous 
+GC - General Cargo
+RD - Reefer Dangerous
+RF - Reefer)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchForRate20" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>search for rates with rate20 (true/false)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchForRate40" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>search for rates with rate40 (true/false)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchForRate40H" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>search for rates with rate40H (true/false)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchForRate45" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>search for rates with rate45 (true/false)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectivePeriod" type="common:DateRange_V1">
+				<xsd:annotation>
+					<xsd:documentation>effective period come from quote</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

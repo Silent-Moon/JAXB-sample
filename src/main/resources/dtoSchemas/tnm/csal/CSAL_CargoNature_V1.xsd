@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.csal" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.tnm.csal" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="CSAL_CargoNatureCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>The classification code of cargo for special stowage arrangement in CSAL specific usage</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2"/>
+			<xsd:enumeration value="GC">
+				<xsd:annotation>
+					<xsd:documentation>GeneralCargo</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RF">
+				<xsd:annotation>
+					<xsd:documentation>Reefer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CSAL_CargoNatureName_V1">
+		<xsd:annotation>
+			<xsd:documentation>The classification name of cargo for special stowage arrangement in CSAL specific usage</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="GeneralCargo"/>
+			<xsd:enumeration value="Reefer"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

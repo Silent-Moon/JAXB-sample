@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Jeffrey Feliciano (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.shipment" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="EquipmentStatus_V1">
+		<xsd:annotation>
+			<xsd:documentation>The status of an equipment in terms of location, custody and cargo status for cargo tracking use</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="AtVesselLoadPort"/>
+           <xsd:enumeration value="At VLP"/>
+			<xsd:enumeration value="Covered"/>
+			<xsd:enumeration value="Discharged"/>
+			<xsd:enumeration value="Loaded"/>
+			<xsd:enumeration value="Open"/>
+			<xsd:enumeration value="Received"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

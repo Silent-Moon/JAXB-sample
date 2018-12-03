@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.customer.callerid" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.customer.callerid" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="CallerID_ReturnCode_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a simple type that defines the return code.
+	    </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="CallerID_AssociationReturn_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is the return of the Caller Id Association service.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ThirdPartyCallerID_ReturnCode" type="CallerID_ReturnCode_V1" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This is the return code of the Caller Id Association service.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

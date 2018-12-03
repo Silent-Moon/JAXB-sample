@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard.aor" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" xmlns:dsh="http://com.oocl.schema.dashboard" targetNamespace="http://com.oocl.schema.dashboard.aor" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="SkillGroup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.dashboard" schemaLocation="../DSH_CommonTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.dashboard" schemaLocation="../ActivityDefinition_V1.xsd"/>
+	<xsd:complexType name="SkillGroupSearch_V1">
+		<xsd:annotation>
+			<xsd:documentation>Definition of a skill group - used for assignment of activities in Dashboard</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsExactMatchName" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>If searching by Name, this element must be provided to determine if searching by exact name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OrganizationUnit" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Type" type="SkillGroupType_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="SupervisorGroupId" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="IsAnySupervisorUserId" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="Members" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="IsAnyMemberUserId" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="ActivityDefinitionId" type="dsh:DefinitionID_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="IsAnyActivityDefinitionId" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="IsActive" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SkillGroupSearch" type="SkillGroupSearch_V1"/>
+</xsd:schema>

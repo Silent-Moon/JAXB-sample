@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="LinerCargoNatures_V1">
+		<xsd:annotation>
+			<xsd:documentation>Cargo Natures for Liner</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="GC">
+				<xsd:annotation>
+					<xsd:documentation>General Cargo</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DG">
+				<xsd:annotation>
+					<xsd:documentation>Dangerous Cargo</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RF">
+				<xsd:annotation>
+					<xsd:documentation>Reefer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AW">
+				<xsd:annotation>
+					<xsd:documentation>Awkward</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AD">
+				<xsd:annotation>
+					<xsd:documentation>Awkward Dangerous</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RD">
+				<xsd:annotation>
+					<xsd:documentation>Reefer Dangerous</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TMS_CargoNatures_V1">
+		<xsd:annotation>
+			<xsd:documentation>Cargo Natures for TMS System</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="GC">
+				<xsd:annotation>
+					<xsd:documentation>General Cargo</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DG">
+				<xsd:annotation>
+					<xsd:documentation>Dangerous Cargo</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RF">
+				<xsd:annotation>
+					<xsd:documentation>Reefer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AW">
+				<xsd:annotation>
+					<xsd:documentation>Awkward</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AD">
+				<xsd:annotation>
+					<xsd:documentation>Awkward Dangerous</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RD">
+				<xsd:annotation>
+					<xsd:documentation>Reefer Dangerous</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="HG">
+				<xsd:annotation>
+					<xsd:documentation>Hanging Garment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IPS_CargoNatures_V1">
+		<xsd:annotation>
+			<xsd:documentation>Cargo Natures for IPS System</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="GC">
+				<xsd:annotation>
+					<xsd:documentation>General Cargo</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DG">
+				<xsd:annotation>
+					<xsd:documentation>Dangerous Cargo</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RF">
+				<xsd:annotation>
+					<xsd:documentation>Reefer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AW">
+				<xsd:annotation>
+					<xsd:documentation>Awkward</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AD">
+				<xsd:annotation>
+					<xsd:documentation>Awkward Dangerous</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RD">
+				<xsd:annotation>
+					<xsd:documentation>Reefer Dangerous</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="HG">
+				<xsd:annotation>
+					<xsd:documentation>Hanging Garment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OLL_CargoNatures_V1">
+		<xsd:annotation>
+			<xsd:documentation>Cargo Nature for OLL</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="GC">
+				<xsd:annotation>
+					<xsd:documentation>General Cargo</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DG">
+				<xsd:annotation>
+					<xsd:documentation>Dangerous Cargo</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RF">
+				<xsd:annotation>
+					<xsd:documentation>Reefer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AW">
+				<xsd:annotation>
+					<xsd:documentation>Awkward</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AD">
+				<xsd:annotation>
+					<xsd:documentation>Awkward Dangerous</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RD">
+				<xsd:annotation>
+					<xsd:documentation>Reefer Dangerous</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="HG">
+				<xsd:annotation>
+					<xsd:documentation>Hanging Garment</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

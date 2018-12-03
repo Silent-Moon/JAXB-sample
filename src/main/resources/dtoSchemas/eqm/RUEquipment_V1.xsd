@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:complexType name="RUEquipment_V1">
+		<xsd:sequence>
+			<xsd:element name="Customer" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="RestrictedUseLabelType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="RestrictedUseLabelName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Remarks" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="EquipmentNumber" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CheckDigit" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="EquipmentSizeType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="EquipmentType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="EventType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="FullOrEmpty" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="EventDateTime" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="AuthNo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="AuthType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="EquipmentCondition" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="EquipmentSubCondition" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Svc" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Vsl" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Voy" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Dir" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="RecUpdateDT" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Keyword" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="InstrIndicator" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Description" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="RestrictedUseLabelID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jo Ann Venzon (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.csal" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:eqm="http://com.oocl.schema.eqm" xmlns:customer="http://com.oocl.schema.customer" xmlns:frm="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.csal" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="LocationCommitmentCriteria_V1.xsd"/>
+	<xsd:include schemaLocation="WeeklySpaceAllocation_V1.xsd"/>
+	<xsd:include schemaLocation="ProtectionType_V1.xsd"/>
+	<xsd:include schemaLocation="CSAL_CustomerInfo_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementReference_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/TradeCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/ContainerSizeType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Port_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ServiceLoop_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ActionType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CardinalDirection_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SalesRepresentative_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/BasicVoyageInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:element name="CustomerSpaceAllocationDetail_V1" type="CustomerSpaceAllocationDetail_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is Customer Space Allocation Detail payload</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="CustomerSpaceAllocationDetail_V1">
+		<xsd:annotation>
+			<xsd:documentation> this is a schema for Customer Space Allocation Detail </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ActionType" type="common:ActionTypeName_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents Customer Space Allocation Detail Action Type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ID" type="common:ID_String_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents CSAL Detail ID  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeCode" type="tnm:TradeCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents trade code </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DirectionBound" type="common:CardinalDirectionName_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents Direction </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProtectionType" type="ProtectionType_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents Protection type </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNature" type="common:CargoNatureName_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents cargo nature</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LoadPorts" type="LocationCommitmentCriteria_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This represents Load Port</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DischargePorts" type="LocationCommitmentCriteria_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This represents Discharge Port</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PlaceOfReceipts" type="LocationCommitmentCriteria_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This represents Place Of Receipt</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FinalDestinations" type="LocationCommitmentCriteria_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This represents Final Destination</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EquipmentSizeTypes" type="eqm:ContainerSizeType_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This represents Equipment SizeTypes</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CSAL_Agreements" type="tnm:AgreementReference_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This represents Service Agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShipmentParties" type="CSAL_CustomerInfo_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This represents Shipment Party</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WeeklySpaceAllocations" type="WeeklySpaceAllocation_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This represents Weekly Space Allocation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceLoops" type="common:ServiceLoopCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This represents service loops</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Voyage" type="common:BasicVoyageInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents voyage </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CommodityCriteria" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Commodity Criteria</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreatedBy" type="common:EntityName_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents created by </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdatedBy" type="common:EntityName_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents updated by </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreateDateTime" type="frm:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>This represents creation date time </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdateDateTime" type="frm:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>This represents update date time </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

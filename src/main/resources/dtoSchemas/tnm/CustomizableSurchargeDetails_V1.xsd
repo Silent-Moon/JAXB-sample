@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" xmlns:eqm="http://com.oocl.schema.eqm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="SurchargeType_V1.xsd"/>
+	<xsd:include schemaLocation="ChargeGroup_V1.xsd"/>
+	<xsd:include schemaLocation="TariffCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="CustomizableSurchargeDetails_V1">
+		<xsd:annotation>
+			<xsd:documentation>Details for surcharge which can be customizable in AgreementBuilder(AB), details will include minimum rates, currency and applicable tariffs, so these details will help AB identify if a surcharge is customizable and if the surcharge is override in AB then AB can validate and auto approve if greater then minimum rate else escalate.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SurchargeCode" type="tnm:SurchargeCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>3 digit surcharge code (like BAF)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MinCharges" type="tnm:ChargeGroup_V1">
+				<xsd:annotation>
+					<xsd:documentation>ChargeGroup to contain the minimum charges for each container dimension plus currency and optional guideline pricing level. </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TariffCodes" type="TariffCode_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Holds the tariff codes</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>An automatically generated running number when a new detail is added/appended/inserted into the AB Customized details tables.  This id will be a unique key of details within a that table.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by VIJAY KODALI (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.iris2cp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.iris2cp" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="CP_ContainerSizeAndType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Representative of combined IRIS-2 CP Container size and type string</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="4"/>
+			<xsd:minLength value="4"/>
+			<xsd:enumeration value="20GP">
+				<xsd:annotation>
+					<xsd:documentation>20ft General Purpose Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="20TK">
+				<xsd:annotation>
+					<xsd:documentation>20ft Tank Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="40OT">
+				<xsd:annotation>
+					<xsd:documentation>40ft Open Top Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="45RQ">
+				<xsd:annotation>
+					<xsd:documentation>45ft  Reefer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="20OS">
+				<xsd:annotation>
+					<xsd:documentation>20ft Open Side </xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="40GX">
+				<xsd:annotation>
+					<xsd:documentation>40ft General Purpose Container without tunnel</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="40HG">
+				<xsd:annotation>
+					<xsd:documentation>40ft General Purpose with hanger</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="40RQ">
+				<xsd:annotation>
+					<xsd:documentation>40ft Reefer Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="40FL">
+				<xsd:annotation>
+					<xsd:documentation>40ft Flat Rack Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="20PL">
+				<xsd:annotation>
+					<xsd:documentation>20 ft Platform Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="20OT">
+				<xsd:annotation>
+					<xsd:documentation>20ft Open Top Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="20RQ">
+				<xsd:annotation>
+					<xsd:documentation>20ft Reefer Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="40HQ">
+				<xsd:annotation>
+					<xsd:documentation>40ft Hi-Cube Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="40GP">
+				<xsd:annotation>
+					<xsd:documentation>40ft General Purpose Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="45HQ">
+				<xsd:annotation>
+					<xsd:documentation>40ft Hi-Cube Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="20HQ">
+				<xsd:annotation>
+					<xsd:documentation>20ft Hi-Cube Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="20AC">
+				<xsd:annotation>
+					<xsd:documentation>20ft Air Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="40HH">
+				<xsd:annotation>
+					<xsd:documentation>40ft Half Height Open Top Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="20HH">
+				<xsd:annotation>
+					<xsd:documentation>20ft Half Height Open Top Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="40RF">
+				<xsd:annotation>
+					<xsd:documentation>40ft Refrigerated Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="45GP">
+				<xsd:annotation>
+					<xsd:documentation>45ft General Purpose Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="40HX">
+				<xsd:annotation>
+					<xsd:documentation>40ft Footer Container without tunnel</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="20BK">
+				<xsd:annotation>
+					<xsd:documentation>20ft Bulker Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="20HG">
+				<xsd:annotation>
+					<xsd:documentation>20ft General Purpose with hanger Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="20RF">
+				<xsd:annotation>
+					<xsd:documentation>20ft Refrigerated Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="20XX">
+				<xsd:annotation>
+					<xsd:documentation>20ft Miscellaneous Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="40XX">
+				<xsd:annotation>
+					<xsd:documentation>40ft Miscellaneous Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="40TK">
+				<xsd:annotation>
+					<xsd:documentation>40ft Tank Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="20FL">
+				<xsd:annotation>
+					<xsd:documentation>20ft Flat Rack Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="20LQ">
+				<xsd:annotation>
+					<xsd:documentation>20ft General Purpose Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="40PL">
+				<xsd:annotation>
+					<xsd:documentation>40ft Platform Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="40BK">
+				<xsd:annotation>
+					<xsd:documentation>40ft Bulker Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by HUJI (Orient Overseas Container Line Ltd) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Currency_V1.xsd"/>
+	<xsd:include schemaLocation="AB_SimpleTypes_V1.xsd"/>
+	<xsd:complexType name="DerivedSurcharge_V1">
+		<xsd:annotation>
+			<xsd:documentation>Derived Surcharges</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ID" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Derived surharge ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Code" type="common:ID_String_V1">
+				<xsd:annotation>
+					<xsd:documentation>Derived surharge code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Description" type="common:LongBasicDescription_V1">
+				<xsd:annotation>
+					<xsd:documentation>Derived surharge Description</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Location" type="SurchargeLeg_V1">
+				<xsd:annotation>
+					<xsd:documentation>Derived surharge Location indicates where the surcharge is applied</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LegDescription" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>LocationDescription holds the information of Legs as shown on fast quote UI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LegIndex" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Legs position like OB1-1,OB1-2,OB1-3,OB2-1,IB1-1,IB1-2,IB2-1,IB2-2 and so on as shown on fast quote UI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SurchargeNotes" type="common:BasicDescription_V1">
+				<xsd:annotation>
+					<xsd:documentation>Derived surharge Notes.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SurchargeEffectivePeriod" type="common:BasicDescription_V1">
+				<xsd:annotation>
+					<xsd:documentation>Derived surcharge effective period.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PaymentTerm" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>PaymentTerm is indicator for quote to show prepaid, collect or all surcharges</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Currency" type="common:CurrencyCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>the currency in which the derived surcharges are applicable.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsCMNCodeForGroup" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Describes if the derived surcharge is same for the group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RatePerSizeType" type="RatePerSizeType_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Derived surharge amont per size type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RefID" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Reference Code to releate in Excel</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomizedInlandSurchargeLinkageNotes" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Customized Inland Surcharge linkage Ref Id's with comma seperated values</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RatePerSizeType_V1">
+		<xsd:annotation>
+			<xsd:documentation>This gives the derive surcharge amiunt per size type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SizeType" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Specifies the sizetype for which derived surcharge amount belongs to</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Amount" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Specifies the amount of derived surcharge</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AmountInUSD" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Specifies the amount of derived surcharge in USD for display purpose</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsIncluded" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Describes if the derived surcharge is includes or not.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="DerivedSurcharge" type="DerivedSurcharge_V1"/>
+</xsd:schema>

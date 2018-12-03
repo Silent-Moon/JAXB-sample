@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Orlando Palis (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../ChargeGroup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="PricingMetricsBasicInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents pricing metric details for a base rate.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="UserIdTags" type="common:EntityName_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of ids of users who tagged the base rate this pricing metrics information is for. User's can tag a base rate with their user id if the pricing metrics information meets a certain criteria setup by users. Tagging is a way of indicating that a user is interested in the pricing metrics of a base rate.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AutoApprovedRatio" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The ratio of auto approved offer items against offer items sent.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OfferItemsSent" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The total number of offer items sent.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OfferItemsApproved" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The total number of offer items approved.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TEU_Volume" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The total TEU number booked.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MRG_SM_NRPO_ContributionRatio" type="tnm:ChargeGroup_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The ratio of NRPO MRG contribution against the NRPO Specific Market contribution for all the container sizes.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MRG_SM_RPO_ContributionRatio" type="tnm:ChargeGroup_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The ratio of RPO MRG contribution against the RPO Specific Market contribution for all the container sizes.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+  <xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+
+  <xsd:complexType name="RestrictedUseLabelLocation_V1">
+    <xsd:sequence>
+      <xsd:element name="CreateDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="CreateUserID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LocationCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LocationName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LocationType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ModifyDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="ModifyUserID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="RestrictedUseLabelId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="RestrictedUseLocationExpiryDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="RestrictedUseLocationStartDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard.aor" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" xmlns:dsh="http://com.oocl.schema.dashboard" targetNamespace="http://com.oocl.schema.dashboard.aor" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/NameAndIdentifier_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.dashboard" schemaLocation="../DSH_CommonTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.dashboard" schemaLocation="../Escalation_V1.xsd"/>
+	<xsd:complexType name="ActivityDefinitionInfo_V1">
+		<xsd:sequence>
+			<xsd:element name="ActivityDefinitionName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ActivityDefinitionId" type="dsh:DefinitionID_V1"/>
+			<xsd:element name="EscalationOffsets" type="dsh:EscalationOffset_V1" minOccurs="0" maxOccurs="3">
+				<xsd:annotation>
+					<xsd:documentation>These are the global offsets for Escalation calculation after a user takes ownership.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LocalDueDateOffset" type="dsh:Offset_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>These are the global offsets for Due Date calculation after a user takes ownership.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LocalDueDateOffsetMilestoneName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the name of the milestone where the local due date offset is base off of.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LocalDueDateOffsetInheritFrom" type="cmn:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>If LocalDueDateOffset is null, this will tell where the LocalDueDateOffset is inherit from base on the Skill Definition Id.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IndirectStaffAssignmentGroup" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This is the specify if there are indirect assignments, if yes, then this is the list of the groups to assign to.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SystemSkillDefinitionId" type="cmn:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is mainly for internal use and tracking.  A reference mainly used for inheritance</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

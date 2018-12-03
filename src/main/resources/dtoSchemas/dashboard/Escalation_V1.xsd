@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fwk="http://com.oocl.frm.common.date.dto/" xmlns:cmn="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.dashboard" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:include schemaLocation="DSH_CommonTypes_V1.xsd"/>
+	<xsd:simpleType name="EscalationLevel_V1">
+		<xsd:annotation>
+			<xsd:documentation>What levels of escalation are supported
+Level 0 - Implies no escalation</xsd:documentation>
+			<xsd:documentation>The implication of escalation is pertinent to user and consuming application. 
+Dashboard simply offers a way to store and manage escalation levels
+
+Level 0 - The default level - implies no escalation
+Level 1 - Implies escalate to immediate functional supervisor
+Level 2 - Escalate to 2nd Level and 
+Level 3 - Final escalation</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="EscalationOffset_V1">
+		<xsd:annotation>
+			<xsd:documentation>Defines offset for a level of escalation. This can be specified per activity however it can be re-defined at the skill group level as well</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Level">
+				<xsd:annotation>
+					<xsd:documentation>What is the level of escalation</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int">
+						<xsd:minInclusive value="1"/>
+						<xsd:maxInclusive value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Offset" type="Offset_V1">
+				<xsd:annotation>
+					<xsd:documentation>How soon before a milestone should this level of escalation be effected</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EscalationOffsetsInheritFrom" type="cmn:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>If EscalationOffset is null, this will tell where the Escalation Offset can be inherit from base on the Skill Definition Id which the escalation is interit from.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EscalationInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Combination of level of escalation and time</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Level" type="EscalationLevel_V1">
+				<xsd:annotation>
+					<xsd:documentation>Escalation level.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Time" type="fwk:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>Time in GMT for escalation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

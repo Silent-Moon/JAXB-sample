@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="../TradeCode_V1.xsd"/>
+	<xsd:include schemaLocation="TailoredServiceName_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CardinalDirection_V1.xsd"/>
+	<xsd:complexType name="MilestoneReportSearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Service Builder Tailored Service Milestone Report Search Criteria</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Trade" type="tnm:TradeCode_V1" minOccurs="0"/>
+			<xsd:element name="Direction" type="common:CardinalDirectionName_V1" minOccurs="0"/>
+			<xsd:element name="TailoredService" type="tnm:TailoredServiceName_V1" minOccurs="0"/>
+			<xsd:element name="StartDate" type="fwd:FWLocalizedDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="EndDate" type="fwd:FWLocalizedDateTimeDTO" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

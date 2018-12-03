@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) 
+	TMIS Hierarchy Level xsd has four values: Territory, Region, SubRegion and OpZone.-->
+<xsd:schema xmlns="http://com.oocl.schema.iris2cp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.iris2cp"  elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="TMIS_HierarchyLevel_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is TMIS Hierarchy Level xsd</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Territory">
+				<xsd:annotation>
+					<xsd:documentation>This is a Territory</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Region">
+				<xsd:annotation>
+					<xsd:documentation>This is a Region</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SubRegion">
+				<xsd:annotation>
+					<xsd:documentation>This is a SubRegion</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="OpZone">
+				<xsd:annotation>
+					<xsd:documentation>This is a OpZone</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

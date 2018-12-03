@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard.aor" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" xmlns:dsh="http://com.oocl.schema.dashboard" targetNamespace="http://com.oocl.schema.dashboard.aor" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.dashboard" schemaLocation="../ActivityDefinition_V1.xsd"/>
+	<xsd:include schemaLocation="SkillGroup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.dashboard" schemaLocation="../DSH_CommonTypes_V1.xsd"/>
+	<xsd:complexType name="ActivityDefinitionSearch_V1">
+		<xsd:annotation>
+			<xsd:documentation>Used for search Activity Definitions</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ID" type="dsh:DefinitionID_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Identity of a definition</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Name" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of activity - a little more verbose than type and code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Code" type="dsh:ActivityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>unique abbreviation of activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Group" type="dsh:ActivityGroup_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Grouping of activities - for example Shipment, Agreement etc.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ActivityDefinitionResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>These are the results of the Activity Definitions search</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ID" type="dsh:DefinitionID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Identity of a definition</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Name" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Name of activity - a little more verbose than type and code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Code" type="dsh:ActivityCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>unique abbreviation of activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Group" type="dsh:ActivityGroup_V1">
+				<xsd:annotation>
+					<xsd:documentation>Grouping of activities - for example Shipment, Agreement etc.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Type" type="dsh:ActivityType_V1">
+				<xsd:annotation>
+					<xsd:documentation>Task, Notification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Version" type="dsh:ActivityDefinitionVersion_V1" default="1.0">
+				<xsd:annotation>
+					<xsd:documentation>Version of this definition</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ActivityDefinitionSearch" type="ActivityDefinitionSearch_V1"/>
+	<xsd:element name="ActivityDefinitionResult" type="ActivityDefinitionResult_V1"/>
+</xsd:schema>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="Currency_V1.xsd"/>
+	<xsd:complexType name="ExchangeRate_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents an exchange rate between 2 currencies</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FromCode" type="CurrencyCode_V1"/>
+			<xsd:element name="ToCode" type="CurrencyCode_V1"/>
+			<xsd:element name="Rate" type="xsd:decimal"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BookCurrencyExchange_V1">
+		<xsd:sequence>
+			<xsd:element name="Rates" type="ExchangeRate_V1" maxOccurs="unbounded"/>
+			<xsd:element name="EffectiveDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="Source" type="xsd:date" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="BookCurrencyExchange" type="BookCurrencyExchange_V1"/>
+</xsd:schema>

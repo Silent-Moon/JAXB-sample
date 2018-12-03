@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="LinerLoadTypes_V1">
+		<xsd:annotation>
+			<xsd:documentation>Load Types for Liner</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="FCL">
+				<xsd:annotation>
+					<xsd:documentation>Full Container Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LCL">
+				<xsd:annotation>
+					<xsd:documentation>Less Than Container Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TMS_LoadTypes_V1">
+		<xsd:annotation>
+			<xsd:documentation>Load Types for TMS</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="FCL">
+				<xsd:annotation>
+					<xsd:documentation>Full Container Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LCL">
+				<xsd:annotation>
+					<xsd:documentation>Less Than Container Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FTL">
+				<xsd:annotation>
+					<xsd:documentation>Full Truck Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FWL">
+				<xsd:annotation>
+					<xsd:documentation>Full Wagon Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LTL">
+				<xsd:annotation>
+					<xsd:documentation>Less Than Truck Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LWL">
+				<xsd:annotation>
+					<xsd:documentation>Less Than Wagon Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IPS_LoadTypes_V1">
+		<xsd:annotation>
+			<xsd:documentation>Load Types for IPS (Invoice Payment Systems)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="FCL">
+				<xsd:annotation>
+					<xsd:documentation>Full Container Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LCL">
+				<xsd:annotation>
+					<xsd:documentation>Less Than Container Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FTL">
+				<xsd:annotation>
+					<xsd:documentation>Full Truck Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FWL">
+				<xsd:annotation>
+					<xsd:documentation>Full Wagon Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LTL">
+				<xsd:annotation>
+					<xsd:documentation>Less Than Truck Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LWL">
+				<xsd:annotation>
+					<xsd:documentation>Less Than Wagon Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OLL_LoadTypes_V1">
+		<xsd:annotation>
+			<xsd:documentation>Load Types for OLL (Logistics)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="FCL">
+				<xsd:annotation>
+					<xsd:documentation>Full Container Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LCL">
+				<xsd:annotation>
+					<xsd:documentation>Less Than Container Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FTL">
+				<xsd:annotation>
+					<xsd:documentation>Full Truck Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FWL">
+				<xsd:annotation>
+					<xsd:documentation>Full Wagon Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LTL">
+				<xsd:annotation>
+					<xsd:documentation>Less Than Truck Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LWL">
+				<xsd:annotation>
+					<xsd:documentation>Less Than Wagon Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

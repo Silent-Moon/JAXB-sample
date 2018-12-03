@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.shipment" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.shipment" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="BookingReferenceType_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents Booking Reference Type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BookingNumber"/>
+			<xsd:enumeration value="CSReferenceNumber"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

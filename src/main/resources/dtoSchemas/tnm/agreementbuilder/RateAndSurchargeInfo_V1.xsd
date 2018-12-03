@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/SurchargeType_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerRate_V1.xsd"/>
+	<xsd:complexType name="RateAndSurchargeInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a guideline rate and its related surcharges</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RateID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Ocean/Inland rate unique id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateTableName" type="common:EntityName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate table name where the rate is defined</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChargeRates" type="ContainerRate_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Ocean/Inland rate unique id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SurchargeCodes" type="tnm:SurchargeCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Customized ocean/inland surcharges that override standard ocean/inland surcharges</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Description" type="common:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Description of the rate containing origin, destination, mode etc</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateLevel" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Guideline rate level. Ocean rate only</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

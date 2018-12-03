@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="ServiceRequestAction_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents the list of Service request actions like "Create", "Cancelled" </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="New"/>
+			<xsd:enumeration value="InProgress"/>
+			<xsd:enumeration value="Waiting"/>
+			<xsd:enumeration value="Accepted"/>
+			<xsd:enumeration value="Cancelled"/>
+			<xsd:enumeration value="Declined"/>
+			<xsd:enumeration value="Create"/>
+			<xsd:enumeration value="Cancel"/>
+			<xsd:enumeration value="Approved"/>
+			<xsd:enumeration value="Rejected"/>
+			<xsd:enumeration value="Withdrawn"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ServiceResponseAction_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents the list of Service Response actions like "Completed" </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Completed"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- xsd:simpleType name="ServiceActionType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Consolidated list of action types applicable to Service Requests or Responses</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Create"/>
+			<xsd:enumeration value="Cancel"/>
+			<xsd:enumeration value="Approved"/>
+			<xsd:enumeration value="Completed"/>
+			<xsd:enumeration value="Rejected"/>
+			<xsd:enumeration value="Withdrawn"/>
+		</xsd:restriction>
+	</xsd:simpleType -->
+</xsd:schema>

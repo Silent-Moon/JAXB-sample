@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.shipment.sep" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://com.oocl.schema.shipment.sep" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="RequestType_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents the type of Requestor like "Shipment", "Service"</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Shipment"/>
+			<xsd:enumeration value="Service"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>
+

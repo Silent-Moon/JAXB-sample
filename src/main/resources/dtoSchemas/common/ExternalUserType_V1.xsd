@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with Stylus Studio 2008 by VARMA CHINTALAPATI (OOCL (USA) INC) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xsd:include schemaLocation="CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="ExternalUserType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Basic information of a cargosmart user who performed the interaction</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="UserID" type="UUID_V1"/>
+			<xsd:element name="FirstName" type="NonStructuredText_V1"/>
+			<xsd:element name="LastName" type="NonStructuredText_V1"/>
+			<xsd:element name="CompanyID" type="UUID_V1" nillable="true" minOccurs="0"/>
+			<xsd:element name="EmailAddress" type="NonStructuredText_V1" nillable="true" minOccurs="0"/>
+			<xsd:element name="FaxNumber" type="NonStructuredText_V1" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

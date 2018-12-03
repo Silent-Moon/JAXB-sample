@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="Quarter_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the quarters in a year (a 3 month period) - Valid Values 1 to 4</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="WeekNumber_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the number of a week in a year - Valid Values 1 to 53</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="53"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

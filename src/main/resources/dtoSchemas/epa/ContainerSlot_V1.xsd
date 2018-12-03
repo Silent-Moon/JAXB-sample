@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Windy OR (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.epa" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.epa" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonContainerSizeTypes_V1.xsd"/>
+	<xsd:complexType name="ContainerSlot_V1">
+		<xsd:annotation>
+			<xsd:documentation>Define parameters for ContainerSlot</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ContainerSizeType" type="common:TMS_ContainerSizeTypes_V1">
+				<xsd:annotation>
+					<xsd:documentation>Container size type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerQuantity" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Container quantity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Windy OR (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.epa" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:framework="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.epa" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonContainerSizeTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/OpZone_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:include schemaLocation="ReturnCode_V1.xsd"/>
+	<xsd:element name="InventoryConfigurationUpdate_V1">
+		<xsd:annotation>
+			<xsd:documentation>Define the event for InventoryConfigurationUpdate</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Opzone" type="common:OpZone_V1">
+					<xsd:annotation>
+						<xsd:documentation>Opzone</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ChangeType">
+					<xsd:annotation>
+						<xsd:documentation>Table name for the change</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="50"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="MR_Daily" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Maintenance and repair (daily input)</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Datetime" type="framework:FWAbsoluteDateTimeDTO"/>
+							<xsd:element name="EmptyPickupFacility" type="common:EntityLocationCode_V1"/>
+							<xsd:element name="ContainerSizeType" type="common:TMS_ContainerSizeTypes_V1"/>
+							<xsd:element name="MR" type="xsd:int"/>
+							<xsd:element name="ModifiedBy">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="MR_Default" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Maintenance and repair (default ratio)</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ContainerSizeType" type="common:TMS_ContainerSizeTypes_V1"/>
+							<xsd:element name="MR" type="xsd:double"/>
+							<xsd:element name="ModifiedBy">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="MR_Exception" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Maintenance and repair (exception ratio)</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="EmptyPickupFacility" type="common:EntityLocationCode_V1"/>
+							<xsd:element name="ContainerSizeType" type="common:TMS_ContainerSizeTypes_V1"/>
+							<xsd:element name="MR" type="xsd:double"/>
+							<xsd:element name="ModifiedBy">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="OS_Onhire" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Outstanding onhire</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Datetime" type="framework:FWAbsoluteDateTimeDTO"/>
+							<xsd:element name="EmptyPickupFacility" type="common:EntityLocationCode_V1"/>
+							<xsd:element name="ContainerSizeType" type="common:TMS_ContainerSizeTypes_V1"/>
+							<xsd:element name="Onhire" type="xsd:int"/>
+							<xsd:element name="ModifiedBy">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="COD" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>COD</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ContainerSizeType" type="common:TMS_ContainerSizeTypes_V1"/>
+							<xsd:element name="COD_In" type="xsd:double"/>
+							<xsd:element name="COD_Out" type="xsd:double"/>
+							<xsd:element name="ModifiedBy">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="REPO" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Repo</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ContainerSizeType" type="common:TMS_ContainerSizeTypes_V1"/>
+							<xsd:element name="PlanRepoIn" type="xsd:double"/>
+							<xsd:element name="PlanRepoOut" type="xsd:double"/>
+							<xsd:element name="ModifiedBy">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="IB_Return" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Inbound return</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ContainerSizeType" type="common:TMS_ContainerSizeTypes_V1"/>
+							<xsd:element name="EmptyPickupFacility" type="common:EntityLocationCode_V1"/>
+							<xsd:element name="IB_ReturnRatio" type="xsd:double"/>
+							<xsd:element name="ModifiedBy">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ManualEstimation" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Manual estimation</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ContainerSizeType" type="common:TMS_ContainerSizeTypes_V1"/>
+							<xsd:element name="EmptyPickupFacility" type="common:EntityLocationCode_V1"/>
+							<xsd:element name="Estimation" type="xsd:int"/>
+							<xsd:element name="ModifiedBy">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="AA_FacilityReleasePreference" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Facility release preference for AA containers</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Priority" type="xsd:int"/>
+							<xsd:element name="EmptyPickupFacility" type="common:EntityLocationCode_V1"/>
+							<xsd:element name="ModifiedBy">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="NormalFacilityReleasePreference" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Facility release preference for normal containers</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ContainerSizeType" type="common:TMS_ContainerSizeTypes_V1"/>
+							<xsd:element name="Priority" type="xsd:int"/>
+							<xsd:element name="EmptyPickupFacility" type="common:EntityLocationCode_V1"/>
+							<xsd:element name="ModifiedBy">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="RU_FacilityReleasePreference" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Facility release preference for RU containers</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Priority" type="xsd:int"/>
+							<xsd:element name="EmptyPickupFacility" type="common:EntityLocationCode_V1"/>
+							<xsd:element name="SendNominationEmail" type="xsd:boolean"/>
+							<xsd:element name="ModifiedBy">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="FacilityWorkingHour" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Facility working hour</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="EmptyPickupFacility" type="common:EntityLocationCode_V1"/>
+							<xsd:element name="Weekday" type="xsd:int"/>
+							<xsd:element name="OfficeHourStart" type="xsd:int"/>
+							<xsd:element name="OfficeHourEnd" type="xsd:int"/>
+							<xsd:element name="IsOpen" type="xsd:boolean"/>
+							<xsd:element name="ModifiedBy">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="FacilitySpecialWorkingHour" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Facility special working hour</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="EmptyPickupFacility" type="common:EntityLocationCode_V1"/>
+							<xsd:element name="Date" type="framework:FWAbsoluteDateTimeDTO"/>
+							<xsd:element name="OfficeHourStart" type="xsd:int"/>
+							<xsd:element name="OfficeHourEnd" type="xsd:int"/>
+							<xsd:element name="IsOpen" type="xsd:boolean"/>
+							<xsd:element name="ModifiedBy">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="AppointmentMaxPickupFacility" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Max number of pickup facilities</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ContainerSizeType" type="common:TMS_ContainerSizeTypes_V1"/>
+							<xsd:element name="MaxPickupFacility" type="xsd:int"/>
+							<xsd:element name="ModifiedBy">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="StopAA" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Stop appointment for AA containers</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ContainerSizeType" type="common:TMS_ContainerSizeTypes_V1"/>
+							<xsd:element name="IsStopAA" type="xsd:boolean"/>
+							<xsd:element name="ModifiedBy">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="OpzoneConfig" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Opzone config</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Timezone" type="xsd:int"/>
+							<xsd:element name="DaysBeforeCY_Closing" type="xsd:int"/>
+							<xsd:element name="HoursAfterCY_Closing" type="xsd:int"/>
+							<xsd:element name="MinHoursBeforePickupNormal" type="xsd:int"/>
+							<xsd:element name="MinHoursBeforePickupAA" type="xsd:int"/>
+							<xsd:element name="MaxHoursBeforePickup" type="xsd:int"/>
+							<xsd:element name="AllowableAmendment" type="xsd:int"/>
+							<xsd:element name="AlternativePickupHour" type="xsd:int"/>
+							<xsd:element name="SearchableDaysBeforeToday" type="xsd:int"/>
+							<xsd:element name="MultiplePickupFacility" type="xsd:boolean"/>
+							<xsd:element name="IB_ReturnOriginalFacility" type="common:EntityLocationCode_V1"/>
+							<xsd:element name="ReserveDuration" type="xsd:int"/>
+							<xsd:element name="ModifiedBy">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="FacilityConfig" minOccurs="0" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="EmptyPickupFacility" type="common:EntityLocationCode_V1"/>
+							<xsd:element name="ContainerSizeType" type="common:TMS_ContainerSizeTypes_V1"/>
+							<xsd:element name="IsInventoryFromEQM" type="xsd:boolean"/>
+							<xsd:element name="ModifiedBy">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="SafetyStockAlertLevel" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Safety stock alert level</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="EmptyPickupFacility" type="common:EntityLocationCode_V1"/>
+							<xsd:element name="ContainerSizeType" type="common:TMS_ContainerSizeTypes_V1"/>
+							<xsd:element name="SafetyStockLevel" type="xsd:int"/>
+							<xsd:element name="ModifiedBy">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ReturnCode" type="ReturnCode_V1">
+					<xsd:annotation>
+						<xsd:documentation>Return code</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

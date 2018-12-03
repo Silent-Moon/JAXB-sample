@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+
+  <xsd:complexType name="RestrictedUseLabelCreate_V1">
+    <xsd:sequence>
+      <xsd:element name="CreateDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CreateUserID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LabelDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LabelInstructionIndicator" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LabelKeyword" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LabelName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LabelRemarks" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LabelType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LocationCity" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LocationOpzone" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

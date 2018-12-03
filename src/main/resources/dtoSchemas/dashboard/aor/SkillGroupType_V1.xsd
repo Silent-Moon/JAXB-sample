@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard.aor" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.dashboard.aor" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="SkillGroupType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Type of the skill group (Values are Global, Regional and Local)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Global"/>
+			<xsd:enumeration value="Regional"/>
+			<xsd:enumeration value="Local"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

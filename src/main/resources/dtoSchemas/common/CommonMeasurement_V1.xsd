@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="LengthUnit_V1">
+		<xsd:annotation>
+			<xsd:documentation>All units for measuring length</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="Meter"/>
+			<xsd:enumeration value="Foot"/>
+			<xsd:enumeration value="Kilometer"/>
+			<xsd:enumeration value="Mile"/>
+			<xsd:enumeration value="Centimeter"/>
+			<xsd:enumeration value="Millimeter"/>
+			<xsd:enumeration value="Inch"/>
+			<xsd:enumeration value="Yard"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="WeightUnit_V1">
+		<xsd:annotation>
+			<xsd:documentation>All units for measuring weight</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="Ton"/>
+			<xsd:enumeration value="Kilogram"/>
+			<xsd:enumeration value="Gram"/>
+			<xsd:enumeration value="Pound"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="VolumeUnit_V1">
+		<xsd:annotation>
+			<xsd:documentation>All units for measuring volume</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="Cubic_Meter"/>
+			<xsd:enumeration value="Cubic_Foot"/>
+			<xsd:enumeration value="Liter"/>
+			<xsd:enumeration value="Gallon"/>
+			<xsd:enumeration value="Pint"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TemperatureUnit_V1">
+		<xsd:annotation>
+			<xsd:documentation>All units for measuring temperature</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="Celsius"/>
+			<xsd:enumeration value="Fahrenheit"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="MeasurementType_V1">
+		<xsd:annotation>
+			<xsd:documentation>All types for specifying QualifiedWeight</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="Gross"/>
+			<xsd:enumeration value="Net"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="WeightUnitCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>Weight unit in code (3 Char)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+			<xsd:enumeration value="TON">
+				<xsd:annotation>
+					<xsd:documentation source="Tonnes"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="KG">
+				<xsd:annotation>
+					<xsd:documentation source="Kilogram"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LBS">
+				<xsd:annotation>
+					<xsd:documentation source="Pounds"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CountType">
+		<xsd:annotation>
+			<xsd:documentation>Units of counting</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="PCS">
+				<xsd:annotation>
+					<xsd:documentation>PCS = Pieces</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="AbstractMeasurement_V1">
+		<xsd:annotation>
+			<xsd:documentation>An abstract type that all measurement type extended from</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Value" type="xsd:decimal"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Length_V1">
+		<xsd:annotation>
+			<xsd:documentation>A measurement for length</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="AbstractMeasurement_V1">
+				<xsd:sequence>
+					<xsd:element name="Unit" type="LengthUnit_V1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="Weight_V1">
+		<xsd:annotation>
+			<xsd:documentation>A measurement for weight</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="AbstractMeasurement_V1">
+				<xsd:sequence>
+					<xsd:element name="Unit" type="WeightUnit_V1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="Volume_V1">
+		<xsd:annotation>
+			<xsd:documentation>A measurement for volume</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="AbstractMeasurement_V1">
+				<xsd:sequence>
+					<xsd:element name="Unit" type="VolumeUnit_V1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="Temperature_V1">
+		<xsd:annotation>
+			<xsd:documentation>A measurement for temperature</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="AbstractMeasurement_V1">
+				<xsd:sequence>
+					<xsd:element name="Unit" type="TemperatureUnit_V1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="QualifiedWeight_V1">
+		<xsd:annotation>
+			<xsd:documentation>A measurement for weight, specifying gross or net</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Weight_V1">
+				<xsd:sequence>
+					<xsd:element name="Type" type="MeasurementType_V1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="WeightWithCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>Weight using weight unit code for type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="AbstractMeasurement_V1">
+				<xsd:sequence>
+					<xsd:element name="Type" type="WeightUnitCode_V1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="CountWithType">
+		<xsd:annotation>
+			<xsd:documentation>Complex Type combining unit of measure and type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Count" type="xsd:int"/>
+			<xsd:element name="Type" type="CountType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AbstractMeasurementRange_V1">
+		<xsd:sequence>
+			<xsd:element name="FromValue" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Starting value</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FromInclusive" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Indicates if the range includes the FromValue</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ToValue" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Ending value</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ToInclusive" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Indicates if the range includes the ToValue</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LengthRange_V1">
+		<xsd:sequence>
+			<xsd:element name="Range" type="AbstractMeasurementRange_V1"/>
+			<xsd:element name="Unit" type="LengthUnit_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WeightRange_V1">
+		<xsd:sequence>
+			<xsd:element name="Range" type="AbstractMeasurementRange_V1"/>
+			<xsd:element name="Unit" type="WeightUnit_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VolumeRange_V1">
+		<xsd:sequence>
+			<xsd:element name="Range" type="AbstractMeasurementRange_V1"/>
+			<xsd:element name="Unit" type="VolumeUnit_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TemperatureRange_V1">
+		<xsd:sequence>
+			<xsd:element name="Range" type="AbstractMeasurementRange_V1"/>
+			<xsd:element name="Unit" type="TemperatureUnit_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

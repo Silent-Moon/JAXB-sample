@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by tusha (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.salesview" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:framework="http://com.oocl.frm.common.date.dto/" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:customer="http://com.oocl.schema.customer" targetNamespace="http://com.oocl.schema.tnm.salesview">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.customer" schemaLocation="../../customer/Customer_V1.xsd"/>
+	<xsd:include schemaLocation="CustomerAgreementAndShipmentPartyInformation_V1.xsd"/>
+	<xsd:complexType name="AgreementPerformanceAndPartyInformation_V1">
+		<xsd:complexContent>
+			<xsd:extension base="AgreementPerformance_V1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					This Type contains the Agreement Performance details as well as the collection of Agreement Parties associated to a specific agreement version.
+				</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="AgreementParties" type="customer:Customer_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+					   Contains the collection of Agreement Parties associated to a specific agreement version.
+					</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

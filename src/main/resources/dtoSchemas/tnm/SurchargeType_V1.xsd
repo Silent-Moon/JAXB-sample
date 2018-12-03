@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:simpleType name="SurchargeCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>A 3 digit surcharge code (e.g. BAF)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="SurchargeType_V1">
+		<xsd:annotation>
+			<xsd:documentation>A 3 digit surcharge code and description (e.g. BAF - Bunker Fuel Charge)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Code" type="SurchargeCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>3 digit surcharge code (like BAF)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Description" type="common:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Description of surcharge code (like 'Bunker Fuel Charge')</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IndicatorsMask1" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>An integer representing a set of 30 boolean indicators, as defined by IRIS-2 existing platform.
+BIT#		FUNCTION
+================
+1: 		
+isManifestCharge (new)
+2:			
+isManifestAmendmentCharge (new)
+3:			
+isActive
+4: 		
+isFinanceCategory
+5:			
+isDocumentationCategory
+6:			
+isBLRequired
+7:			
+isReeferPremium
+8:			
+isDangerousPremium
+9:			
+isDoorCategory
+10:			
+shouldDisableShowChargeInBillOfLadingImage /ERS IB091 - 9.2.1
+11-12:		
+For Origin or Destination (isOriginCategory(11), isDestinationCategory(12) (both false, means the surcharge applies to entire route)
+13:			
+isOptionalCategory
+14:			
+isOceanFreight
+15-20:		
+applicableServiceTypes doorPickup(15),doorDelivery(16),preCarriage(17),onCarriage(18),cfsOrigin(19),cfsDestination(20)
+21-23:		
+adjustmentFactors (CAF(21), BAF(22), FAF(23))
+24:			
+intermodalCheckingRequired
+25:			
+isNoShowCategory
+26:			
+isNonARSCategory
+27:			
+isDDCategory
+28:			
+shouldSuppressPrintingOfCharge
+29:			
+excludeChargeFromTotalAmount / 9.3 ERS: IB091
+30:			
+Available for future use
+
+bit values:
+bit	base 16		base 10
+1	16r1	1
+2	16r2	2
+3	16r4	4
+4	16r8	8
+5	16r10	16
+6	16r20	32
+7	16r40	64
+8	16r80	128
+9	16r100	256
+10	16r200	512
+11	16r400	1024
+12	16r800	2048
+13	16r1000 	4096
+14	16r2000 	8192
+15	16r4000 	16384
+16	16r8000 	32768
+17	16r10000 	65536
+18	16r20000 	131072
+19	16r40000 	262144
+20	16r80000	524288
+21	16r100000	1048576
+22	16r200000	2097152
+23	16r400000	4194304
+24	16r800000	8388608
+25	16r1000000	16777216
+26	16r2000000	33554432
+27	16r4000000	67108864
+28	16r8000000	134217728
+29	16r10000000	268435456
+30	16r20000000	-536870912</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IndicatorsMask2" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>An integer representing a set of 30 boolean indicators, as defined by IRIS-2 existing platform.
+BIT#		FUNCTION
+================
+1 			isInlandOnly
+2			isForEmptyFacility
+3			isSubjectToTariffEffectivePeriod
+4			isRefundCharge
+5-30		Available for future use
+
+bit values:  See IndicatorsMask1 for reference chart
+</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsInactive" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SurchargeType" type="SurchargeType_V1"/>
+</xsd:schema>

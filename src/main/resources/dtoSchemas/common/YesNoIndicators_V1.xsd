@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="YesNoCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents Y or N as representation of Boolean values</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="1"/>
+			<xsd:enumeration value="Y"/>
+			<xsd:enumeration value="N"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="YesNoValue_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents Yes or No as representation of Boolean values</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="3"/>
+			<xsd:enumeration value="Yes"/>
+			<xsd:enumeration value="No"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

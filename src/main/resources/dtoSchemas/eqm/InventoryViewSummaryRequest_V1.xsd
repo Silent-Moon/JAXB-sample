@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" 
+targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+  <xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>    
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/BasicLocationInformation_V1.xsd"/>
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/OpZone_V1.xsd"/>
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/Facility_V1.xsd"/>
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/Region_V1.xsd"/>   
+  <xsd:include schemaLocation="ContainerSizeType_V1.xsd"/>  
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/CommonRestrictions_V1.xsd"/>
+  
+
+  <xsd:complexType name="InventoryViewSummaryRequest_V1"> 
+	<xsd:annotation>
+		<xsd:documentation>Information about the searching criteria.</xsd:documentation>
+	</xsd:annotation>
+	<xsd:sequence>
+ 
+    
+	 <xsd:element name="EqpSizeType" type="ContainerSizeType_V1" minOccurs="0" maxOccurs="unbounded">
+		<xsd:annotation>
+			<xsd:documentation>Represents equipment size and type</xsd:documentation>
+		</xsd:annotation>
+     </xsd:element>
+
+    <xsd:element name="FromDate" type="iodt:FWAbsoluteDateTimeDTO">
+		<xsd:annotation>
+		  <xsd:documentation>Represents the effective date of the suspension</xsd:documentation>
+		</xsd:annotation>
+    </xsd:element>
+    <xsd:element name="ToDate" type="iodt:FWAbsoluteDateTimeDTO">
+		<xsd:annotation>
+		  <xsd:documentation>Represents the expiry date of the searching criteria</xsd:documentation>
+		</xsd:annotation>
+    </xsd:element>
+	<xsd:element name="Region" type="common:Region_V1" minOccurs="0" maxOccurs="unbounded">
+		<xsd:annotation>
+		  <xsd:documentation>Searching criteria to provide the Region Code and Region Name</xsd:documentation>
+		</xsd:annotation>
+    </xsd:element>
+    <xsd:element name="Facility" type="common:Facility_V1" minOccurs="0" maxOccurs="unbounded">
+		<xsd:annotation>
+		  <xsd:documentation>Searching criteria to provide the Facility Name and Facility Code</xsd:documentation>
+		</xsd:annotation>
+    </xsd:element>
+    <xsd:element name="OpZone" type="common:OpZone_V1" minOccurs="0" maxOccurs="unbounded">
+		<xsd:annotation>
+		  <xsd:documentation>Searching criteria to provide the Opzone Code and Opzone name</xsd:documentation>
+		</xsd:annotation>
+    </xsd:element>
+    <xsd:element name="City" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+		<xsd:annotation>
+		  <xsd:documentation>Searching criteria to provide the City ID and City Name</xsd:documentation>
+		</xsd:annotation>
+    </xsd:element>
+
+	
+	
+	</xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

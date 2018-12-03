@@ -1,0 +1,15 @@
+<xsd:schema xmlns="http://com.oocl.schema.tnm.saleshierarchy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:saleshier="http://com.oocl.schema.tnm.saleshierarchy" targetNamespace="http://com.oocl.schema.tnm.saleshierarchy" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xsd:include schemaLocation="VisibilityRelationship_V1.xsd"/>
+    <xsd:complexType name="UpdateVisibilityRelationshipRequest_V1">
+        <xsd:annotation>
+            <xsd:documentation>Represents a list of sales hierarchy visibility relationships</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="VisibilityRelationship" type="saleshier:VisibilityRelationship_V1" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>List of Visibility Relationship objects</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

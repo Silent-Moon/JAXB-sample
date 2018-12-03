@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Windy OR (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.epa" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:framework="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.epa" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonContainerSizeTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:element name="InventoryUpdate_V1">
+		<xsd:annotation>
+			<xsd:documentation>Define the event for InventoryUpdate</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="INV_DT_TM" type="framework:FWAbsoluteDateTimeDTO">
+					<xsd:annotation>
+						<xsd:documentation>Inventory datetime</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="INV_DT_TZ">
+					<xsd:annotation>
+						<xsd:documentation>Timezone</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="100"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="FCIL_CDE" type="common:EntityLocationCode_V1">
+					<xsd:annotation>
+						<xsd:documentation>Facility code</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="EQP_SIZE_TYPE" type="common:TMS_ContainerSizeTypes_V1">
+					<xsd:annotation>
+						<xsd:documentation>Equipment size type</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ACT_UNCOND_MTA" type="xsd:int" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Empty available for uncond containers</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="UNCOND_REPO_IN" type="xsd:int" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Repo in for uncond conatiners</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="PLAN_REPO_IN" type="xsd:int" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Plan repo in</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="COD_IN" type="xsd:int" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>COD in</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="COD_OUT" type="xsd:int" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>COD out</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="UNCOND_IB_RTN" type="xsd:int" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Uncond inbound return</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="PLAN_REPO_OUT" type="xsd:int" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Plan repo out</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="MR" type="xsd:int" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Maintenance and repair</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

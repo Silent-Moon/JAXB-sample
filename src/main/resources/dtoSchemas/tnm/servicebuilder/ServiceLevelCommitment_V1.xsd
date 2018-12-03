@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="SlcBasicInfo_V1.xsd"/>
+	<xsd:include schemaLocation="SlcCommitmentInfo_V1.xsd"/>
+	<xsd:include schemaLocation="Characteristic_V1.xsd"/>
+	<xsd:include schemaLocation="NotificationCharacteristic_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Commitment_ID_V1.xsd"/>
+	<xsd:complexType name="ServiceLevelCommitment_V1">
+		<xsd:annotation>
+			<xsd:documentation>Certain basic service information of SLC will be visible for Service Contract and CSO. This information will be available to  for use during booking and auto-rating process</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="BasicInfo" type="tnm:SlcBasicInfo_V1" minOccurs="0"/>
+			<xsd:element name="CustomerCommitments" type="tnm:SlcCommitmentInfo_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Conditions" type="tnm:Characteristic_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Options" type="tnm:Characteristic_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Notifications" type="tnm:NotificationCharacteristic_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Description" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="500"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CommitmentID" type="common:Commitment_ID_V1" minOccurs="0"/>
+			<xsd:element name="CommitmentVersion" type="xsd:int" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

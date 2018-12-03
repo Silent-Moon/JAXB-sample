@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.shipment.dsh" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:shp="http://com.oocl.schema.shipment" xmlns:customer="http://com.oocl.schema.customer" targetNamespace="http://com.oocl.schema.shipment.dsh" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="LightweightShipmentInfoExt_V1.xsd"/>
+	<xsd:include schemaLocation="ShippingInstructionsAdditionalInfo_V1.xsd"/>
+<!--	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/ShippingInstructionVersion_V1.xsd"/>-->
+<!--	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/ShippingInstructionNumber_V1.xsd"/>-->
+<!--	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/ShippingInstructionSourceType_V1.xsd"/>-->
+<!--	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/BookingReferenceType_V1.xsd"/>-->
+<!--	<xsd:import namespace="http://com.oocl.schema.customer" schemaLocation="../../customer/PartnerID_V1.xsd"/>-->
+	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/BookingReference_V1.xsd"/>
+<!--	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/BillOfLadingNumber_V1.xsd"/>-->
+	<xsd:complexType name="ShippingInstructionsApprovalEmail_V1">
+		<xsd:annotation>
+			<xsd:documentation>SI context sent to the dashboard for display</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SI_Number" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Number that uniquely identifies the Shipping Instruction</xsd:documentation>
+				</xsd:annotation>				
+				<xsd:simpleType>						
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="20"/>
+						</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="SI_VersionNumber" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Version number of the shipping instruction</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>						
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="3"/>
+						</xsd:restriction>
+				</xsd:simpleType>				
+			</xsd:element>
+			<xsd:element name="Status" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the status of the task</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="New"/>
+						<xsd:enumeration value="Complete"/>
+						<xsd:enumeration value="Delete"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="SI_SourceType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Shipping Instruction Source Type</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="EDI"/>
+					<xsd:enumeration value="MAIL"/>					
+				</xsd:restriction>
+			</xsd:simpleType>				
+			</xsd:element>
+			<xsd:element name="PartnerID" minOccurs="0">			
+				<xsd:annotation>
+					<xsd:documentation>This represents the ID of the EDI partner</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>				
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>				
+			</xsd:element>
+			<xsd:element name="BookingReferences" type="shp:BookingReference_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Booking References associated to the Shipping Instruction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="BillOfLadingReference" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Bill of Lading Reference associated to the Shipping Instruction</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>				
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>				
+			</xsd:element>
+			<xsd:element name="ShipmentInfo" type="LightweightShipmentInfoExt_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents shipment related information for a Shipping Instruction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherInfo" type="ShippingInstructionsAdditionalInfo_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents shipment addition information for mail SI creation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ShippingInstructionContext" type="ShippingInstructionsApprovalEmail_V1"/>
+</xsd:schema>

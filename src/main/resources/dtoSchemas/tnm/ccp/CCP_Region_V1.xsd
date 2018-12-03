@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- edited with XMLSpy v2008 (http://www.altova.com) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ccp"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://com.oocl.schema.common"
+	 targetNamespace="http://com.oocl.schema.tnm.ccp"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Region_V1.xsd"/>
+	<xsd:complexType name="CCP_Region_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is Cargo Control Party (CCP)  Region Info</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Region" type="common:Region_V1">
+				<xsd:annotation>
+					<xsd:documentation>This is Region </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RegionType">
+				<xsd:annotation>
+					<xsd:documentation>This is Cargo Control Party (CCP)  Region Type</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="POR_Region"/>
+						<xsd:enumeration value="FND_Region"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

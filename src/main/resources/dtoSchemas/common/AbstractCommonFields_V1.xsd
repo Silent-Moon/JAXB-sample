@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:include schemaLocation="CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="AbstractCommonFields_V1">
+		<xsd:annotation>
+			<xsd:documentation>Holds commonly used fields like createdBy, lastUpdated, updatedBy...</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CreatedBy" type="EntityName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Created by user/system ID.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdatedBy" type="EntityName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Updated by user/system ID.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreationDateTime" type="fwd:FWLocalizedDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Creation Date Time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastUpdatedDateTime" type="fwd:FWLocalizedDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Last updated date time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RecordID" type="ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>for Client use, to keep track of the record number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

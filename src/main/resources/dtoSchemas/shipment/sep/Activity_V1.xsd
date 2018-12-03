@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment.sep" xmlns:common="http://com.oocl.schema.common" xmlns:shipment="http://com.oocl.schema.shipment" xmlns:frm="http://com.oocl.frm.common.date.dto/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.shipment.sep" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/StringKeyValuePair_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:include schemaLocation="DateOffsetRule_V1.xsd"/>
+	<xsd:include schemaLocation="ActivityType_V1.xsd"/>
+	<xsd:element name="Activity_V1" type="Activity_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents Activiity information </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="Activity_V1">
+		<xsd:annotation>
+			<xsd:documentation>Activity for Milestone</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Type" type="ActivityType_V1">
+				<xsd:annotation>
+					<xsd:documentation>Type of the activity like TASK,EXCEPTION,ALERT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Code" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Activity Code from activity definition from Dashboard </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SendOnDate" type="frm:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Adjusted send on date calculated by dashboard using the send on date rule.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SendOnDateRule" type="DateOffsetRule_V1">
+				<xsd:annotation>
+					<xsd:documentation>From milestone Template</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Fields" type="common:StringKeyValuePair_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Key Value pair</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RequestID" type="common:UUID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the Approval Request Unique ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

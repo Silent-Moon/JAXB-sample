@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="ShippingPartyRoleCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>a list of shipping party role codes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+			<xsd:enumeration value="ASC">
+				<xsd:annotation>
+					<xsd:documentation>Associate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CCP">
+				<xsd:annotation>
+					<xsd:documentation>Cargo Control Party</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SHP">
+				<xsd:annotation>
+					<xsd:documentation>Shipper</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CSG">
+				<xsd:annotation>
+					<xsd:documentation>Consignee</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="NP">
+				<xsd:annotation>
+					<xsd:documentation>Notify Party</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FWD">
+				<xsd:annotation>
+					<xsd:documentation>Forwarder</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SGP">
+				<xsd:annotation>
+					<xsd:documentation>Signature Party</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ShippingPartyRoleName_V1">
+		<xsd:annotation>
+			<xsd:documentation>Shipping roles assigned to a customer</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="Associate"/>
+			<xsd:enumeration value="ControlParty"/>
+			<xsd:enumeration value="Consignee"/>
+			<xsd:enumeration value="Forwarder"/>
+			<xsd:enumeration value="NotifyParty"/>
+			<xsd:enumeration value="SignatureParty"/>
+			<xsd:enumeration value="Shipper"/>
+			<xsd:enumeration value="AlsoNotifyParty"/>
+			<xsd:enumeration value="FirstNotify"/>
+			<xsd:enumeration value="SecondNotify"/>
+			<xsd:enumeration value="InboundBroker"/>
+			<xsd:enumeration value="Vendor"/>
+			<xsd:enumeration value="Corporate"/>
+			<xsd:enumeration value="Payer"/>
+			<xsd:enumeration value="Broker"/>
+			<xsd:enumeration value="Affliate"/>
+			<xsd:enumeration value="BookingParty"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

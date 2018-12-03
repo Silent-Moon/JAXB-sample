@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="CargoSmart_ID_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			   CargoSmart ID is the unique customer identifier under CargoSmart application.
+			</xsd:documentation>
+		</xsd:annotation>	
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

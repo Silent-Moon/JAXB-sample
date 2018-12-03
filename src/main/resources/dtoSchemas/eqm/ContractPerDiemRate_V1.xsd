@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:complexType name="ContractPerDiemRate_V1">
+		<xsd:sequence>
+			<xsd:element name="ActionType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ContractDtlId" type="xsd:long"/>
+			<xsd:element name="PerDiemRateId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RangeFrom" type="xsd:long"/>
+			<xsd:element name="RangeTo" type="xsd:long"/>
+			<xsd:element name="RangeType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Rate" type="xsd:double"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

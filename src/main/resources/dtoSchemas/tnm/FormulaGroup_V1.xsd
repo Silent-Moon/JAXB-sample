@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Prashant Gupta (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="FormulaGroupDetails_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>	
+	<xsd:complexType name="FormulaGroup_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the formula for guideline ocean/base rates per container size (20, 40, 40H and 45) and per guideline levels (levels are 1 to 4, 1 = MD, 2 = sales, 3 = csu and 4 = public), hence is a 4 x 4 matrix structure.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Unique id to repesent the Formula Group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Name" type="common:ID_String_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name for the Formula Group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Details" type="tnm:FormulaGroupDetails_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Specific formula applicable for each container size and level in a formula group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsNewFormulaGroup" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>A Flag to see if the formula group already exists or not</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

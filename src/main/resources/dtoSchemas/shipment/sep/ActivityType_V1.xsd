@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.shipment.sep" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://com.oocl.schema.shipment.sep" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="ActivityType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Types of activities</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Task"/>
+			<xsd:enumeration value="Exception"/>
+			<xsd:enumeration value="Notification"/>
+			<xsd:enumeration value="Alert"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>	

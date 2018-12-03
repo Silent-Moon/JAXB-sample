@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Jeffrey Feliciano (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="TrafficModeCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>Code which indicates whether the 'whole container' or 'not the whole container' is intended for the consignee</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+			<xsd:enumeration value="FCL">
+				<xsd:annotation>
+					<xsd:documentation>"FullContainerLoad"</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LCL">
+				<xsd:annotation>
+					<xsd:documentation>"LessThanContainerLoad"</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="NS">
+				<xsd:annotation>
+					<xsd:documentation>"NotSpecified"</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TrafficModeName_V1">
+		<xsd:annotation>
+			<xsd:documentation>Name which indicates whether the 'whole container' or 'not the whole container' is intended for the consignee</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="FullContainerLoad"/>
+			<xsd:enumeration value="LessThanContainerLoad"/>
+			<xsd:enumeration value="NotSpecified"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

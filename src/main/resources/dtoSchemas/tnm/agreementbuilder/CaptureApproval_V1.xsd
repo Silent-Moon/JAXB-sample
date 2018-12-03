@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/AgreementID_V1.xsd"/>
+	<xsd:complexType name="CaptureApprovalParameter_V1">
+		<xsd:annotation>
+			<xsd:documentation>Capture rate approval parameter</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ObjectID" type="cmn:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>Rate/Service object ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Approver" type="cmn:UserID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Rate approver</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ApprovalStatus" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Approval status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Remark" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Approval remark</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LockStamp" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Rate/Service lock stamp</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsRateApproval" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Rate/Service approval indicator</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CaptureApprovalResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Capture rate approval result</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Exception" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Exception message returned from server, if any</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsSuccessful" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicator if operation is successful</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:include schemaLocation="EquipmentEnumTypes_V1.xsd"/>
+	<xsd:complexType name="RestrictedUseSpec_V1">
+		<xsd:annotation>
+			<xsd:documentation>  This is the XSD storing information for the empty container inventory. 
+											This is encapsulated in EmptyContainerInventoryResponse.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RestrictedUseNature" type="RestrictedUseNatureType" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation> The RestrictedUse Nature this container belongs to. The RU nature includes: Offhire, Sales, Flow, GOH etc.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RestrictedUseType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>  The RestrictedUse type for this container. The RU type is made up of a series of alphanumeric characters. For example: F-RU-00004, F-RU-00005, GPS, GPS-3G etc.. </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

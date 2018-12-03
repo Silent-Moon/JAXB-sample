@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by HSING-FU TSAI (Orient Overseas Container Line Limited) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonMeasurement_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonContainerSizeTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../CargoNatureGroup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TieredCommodity_V1.xsd"/>
+	<xsd:complexType name="AB_Commodity_V1">
+		<xsd:annotation>
+			<xsd:documentation>AB commodity specification</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Description" type="common:LongBasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>commodity brief description</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CommodityGroupID" type="common:ID_LongNumeric_V1" minOccurs="0"/>
+			<xsd:element name="TieredCommodityCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TieredCommodityDesc" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CargoNatureGroup" type="tnm:CargoNatureGroupID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>cargo nature group indicating a set of valid cargo natures that is applicable to the rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CommodityDetails" type="CommodityDetail_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ExcludedHSCodes" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="AwkwardCommodity_V1">
+		<xsd:annotation>
+			<xsd:documentation>Awkward commodity specification</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SizeType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Length" type="common:Length_V1" minOccurs="0"/>
+			<xsd:element name="Width" type="common:Length_V1" minOccurs="0"/>
+			<xsd:element name="Height" type="common:Length_V1" minOccurs="0"/>
+			<xsd:element name="NetWeight" type="common:Weight_V1" minOccurs="0"/>
+			<xsd:element name="GrossWeight" type="common:Weight_V1" minOccurs="0"/>
+			<xsd:element name="SpaceTEU" type="xsd:int" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="CommodityDetail_V1">
+		<xsd:annotation>
+			<xsd:documentation>Commodity detail specification</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CargoNatureGroup" type="tnm:CargoNatureGroupID_V1" minOccurs="0"/>
+			<xsd:element name="HSCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DangerousCommodityIMDGUUID" type="common:UUID_V1" minOccurs="0"/>
+			<xsd:element name="AwkwardCommodity" type="AwkwardCommodity_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

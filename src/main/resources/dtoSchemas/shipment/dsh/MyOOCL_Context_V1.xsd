@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by VIJAY KODALI (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment.dsh" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fwk="http://com.oocl.frm.common.date.dto/" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:eqm="http://com.oocl.schema.eqm" xmlns:shp="http://com.oocl.schema.shipment" xmlns:cmn="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.shipment.dsh" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="LightweightShipmentInfo_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ShipmentBound_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ServiceRequest_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/PhoneNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/ContainerSizeType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SealNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonMeasurement_V1.xsd"/>
+	<xsd:complexType name="MyOOCL_Context_V1">
+		<xsd:annotation>
+			<xsd:documentation>my oocl context sent to the dsh for display</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ShipmentInfo" type="LightweightShipmentInfo_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>the shipment information required for dsh to display</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RequestType" type="cmn:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the request type received from my oocl</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Bound" type="cmn:ShipmentBoundCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the shipment direction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DocumentType" type="cmn:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the document type of the request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ScreenLink" type="cmn:URI_StringFormat_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>URL information passed to the context  by the transformer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SubmitterName" type="cmn:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the request submitter who performed the interaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SubmitterEmail" type="cmn:NonStructuredText_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Email information of the request submitter who performed the interaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SubmitterPhone" type="cmn:PhoneNumber_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Phone details of the request submitter who performed the interaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CompanyName" type="cmn:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Company name  of the request submitter who performed the interaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RequestRemark" type="cmn:LongBasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Remarks sent by the submitter in the service request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DocumentAttachment" type="cmn:LongBasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The list of the file names of the attachments ina  string with semi colon seperated.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TruckerName" type="cmn:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Trucker name  of the RB request submitter who performed the interaction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ErrorType" type="cmn:NonStructuredText_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the type of RB Exception</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerSizeType" type="eqm:ContainerSizeType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the container type and  size</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SealNumber" type="cmn:SealNumber_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The seal number of the container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoWeight" type="cmn:WeightWithCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the CargoWeight with Unit</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PieceCount" type="cmn:CountWithType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Piece Count of the Cargo</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RailroadType" type="cmn:EntityBriefName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Part of the identity passed by CargoSmart for Cross Border ITM move</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RailroadReference" type="cmn:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Part of the identity passed by CargoSmart for Cross Border ITM move</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MotorCarrierBondNumber" type="cmn:NonStructuredText_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Motor Carrier Bond Number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MotorCarrierName" type="cmn:EntityBriefName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Cross Border Motor Carrier Name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HtmlMessage" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The html string received thru the transformer message</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="MyOOCL_Context" type="MyOOCL_Context_V1"/>
+</xsd:schema>

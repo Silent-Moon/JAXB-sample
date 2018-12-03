@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.dashboard" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.dashboard" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:element name="SupervisorGroupUpdate" type="SupervisorGroupUpdate_V1">
+		<xsd:annotation>
+			<xsd:documentation>Root element for supervisor group update message from AOR to RTM BW.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="SupervisorGroupUpdate_V1">
+		<xsd:annotation>
+			<xsd:documentation>Elements for supervisor group update message from AOR to RTM BW.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SupervisorGroupID" type="xsd:long" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of ID of the supervisor (support) group.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

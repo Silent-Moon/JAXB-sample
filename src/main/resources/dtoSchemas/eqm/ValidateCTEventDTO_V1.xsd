@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:complexType name="ValidateCTEventDTO_V1">
+		<xsd:sequence>
+			<xsd:element name="EqpType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="AuthNum" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="SizeType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="FacilityCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="EventType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ActivityDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Quantity" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>	

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by HUJI (Orient Overseas Container Line Ltd) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Currency_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonContainerSizeTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonMeasurement_V1.xsd"/>
+	<xsd:include schemaLocation="AB_SimpleTypes_V1.xsd"/>
+	<xsd:complexType name="ContainerRate_V1">
+		<xsd:annotation>
+			<xsd:documentation>Container base rate specifications</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SizeType" type="common:Liner_ContainerSizeTypes_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>container sise and type that the rate is applicable</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LCLUnit" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>M/W/MW</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Amount" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>charge amount</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Currency" type="common:CurrencyCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>charge currency code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EstimatedTotal" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>estimated total revenue including surcharges</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ThruRateTotals" type="xsd:decimal" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>thru rate amount totals for different rate levels</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CMTX_RPO" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>RPO contribute</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CMTX_NRPO" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>NRPO contribute</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveFrom" type="AB_DateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>effectime start time of the rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveTo" type="AB_DateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>effectime end time of the rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TransitTime" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>transit time of shipment that the rate offered</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Weight" type="common:QualifiedWeight_V1" minOccurs="0"/>
+			<xsd:element name="Flags" type="OptionFlags_V1"/>
+			<xsd:element name="TLI_Number" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>TLI Number per container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

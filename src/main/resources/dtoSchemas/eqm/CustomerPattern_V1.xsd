@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+  <xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/UpdateResult_V1.xsd"/>
+
+  <xsd:complexType name="CustomerPattern_V1">
+    <xsd:sequence>
+      <xsd:element name="CreateBy" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CreateClientId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CreateDtGmt" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="CustPatternId" type="xsd:long"/>
+      <xsd:element name="CustomerName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CustomerRole" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Destination" type="xsd:long"/>
+      <xsd:element name="DestinationName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DropoffLocId" type="xsd:long"/>
+      <xsd:element name="DropoffLocName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FeedbackDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="Origin" type="xsd:long"/>
+      <xsd:element name="OriginName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="PickupLocId" type="xsd:long"/>
+      <xsd:element name="PickupLocName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Priority" type="xsd:int"/>
+      <xsd:element name="RejectionReasonType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Remarks" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SapId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ScAgreementNum" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SpecialDesign" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="UpdateBy" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="UpdateClientId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="UpdateDtGmt" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="UpdateResult" type="common:UpdateResult_V1" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

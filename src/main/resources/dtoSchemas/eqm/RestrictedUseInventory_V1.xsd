@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<!-- Created by Venus 2011-10-11-->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Region_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/OpZone_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/Facility_V1.xsd"/>
+	<xsd:include schemaLocation="EquipmentEnumTypes_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerSizeType_V1.xsd"/>
+	<xsd:complexType name="RestrictedUseInventory_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is the response for the RU Inventory report. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AggregateType" type="EmptyContainerAggregateType">
+				<xsd:annotation>
+					<xsd:documentation> Specify whether this is an aggregate value.
+						Possible values are: TOTAL, MTD_WEEKLY_AVG, TRADE_TOTAL
+					 </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Year" type="common:Year_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   Year for the empty container inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Week" type="common:Week_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   Week for the empty container inventory. (1-53)  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Region" type="common:Region_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> The region for the empty container inventory   </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OpZone" type="common:OpZone_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   The opzone for the empty container inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Facility" type="common:Facility_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   The facility for the empty container inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MTA_Count" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Number of containers that are currently empty available</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MNR_Count" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Number of containers that are currently in maintenance and repair</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MTU_Count" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Number of containers that are currently damaged</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RepoInCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> Number of containers that are repo in for this opzone</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmptyReturnCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> Number of containers that are empty returned </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OffhireCount" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> Number of containers that are offhired</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<xsd:element name="RelativeWeek" type="xsd:long" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> This is relative to current week, 0,1,2,3 where 0 is the current week </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+
+		</xsd:sequence>	
+	</xsd:complexType>
+</xsd:schema>

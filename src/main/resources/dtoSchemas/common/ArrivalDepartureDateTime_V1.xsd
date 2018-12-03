@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by David Li (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:fwd="http://com.oocl.frm.common.date.dto/" xmlns:ns1="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:complexType name="ArrivalDepartureDateTime_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a search result containing estimated and actual arrival departure date time of a vessel voyage.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="EstimatedTimeArrival" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Estimated arrival time - YYYY-MM-DD format (example '2008-04-01')</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActualTimeArrival" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Actual arrival time - YYYY-MM-DD format (example '2008-04-01')</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EstimatedTimeDeparture" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Estimated departure time - YYYY-MM-DD format (example '2008-04-01')</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActualTimeDeparture" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Actual departure time- YYYY-MM-DD format (example '2008-04-01')</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:complexType name="Authorization_V1">
+		<xsd:sequence>
+			<xsd:element name="ActionType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AuthorizationNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AuthorizationType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CityCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ContractNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CreateBy" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CreateClientId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CreateDtGmt" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="Currency" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EffectiveDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="ExpiryDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="ExtAuthRef" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FreeDay" type="xsd:int"/>
+			<xsd:element name="Loc" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MinOnHireDays" type="xsd:int"/>
+			<xsd:element name="OnHireQty" type="xsd:int"/>
+			<xsd:element name="PicVersionNum" type="xsd:long"/>
+			<xsd:element name="PickupCharge" type="xsd:double"/>
+			<xsd:element name="PickupCredit" type="xsd:double"/>
+			<xsd:element name="RuName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TerminatedQty" type="xsd:int"/>
+			<xsd:element name="UpdateBy" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="UpdateClientId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="UpdateDtGmt" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

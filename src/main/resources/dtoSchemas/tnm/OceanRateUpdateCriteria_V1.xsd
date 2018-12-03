@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 rel. 4 (x64) (http://www.altova.com) by HUJI (Orient Overseas Container Line Limited) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="SurchargeOverrideGroup_V1.xsd"/>
+	<xsd:include schemaLocation="OceanRate_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ValidationError_V1.xsd"/>
+	<xsd:complexType name="OceanRateUpdateCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents criteria for creating/updating and/or deleting/expiring base rates.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RateTableName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>The name of the base rate table to update.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BaseRates" type="tnm:OceanRate_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of base rates for update or creation.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DeletedIDs" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of base rate ids for deletion or expiration</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IgnoredWarnings" type="common:ValidationError_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of warnings that can be ignored during server validation.  This collection should have already been presented to the user and user has confirmed to proceed with the operation.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BatchPublish" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

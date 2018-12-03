@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by HSINGFU (Orient Overseas Container Line Ltd) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="ChargeGroup_V1.xsd"/>
+	<xsd:include schemaLocation="PricingTransportMode_V1.xsd"/>
+	<xsd:include schemaLocation="RateWeightGroup_V1.xsd"/>
+	<xsd:include schemaLocation="CargoNatureGroup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/DateRange_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/SingleEndDeliveryMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:complexType name="InlandTariff_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents an inland rate search result containing one rate information or validation errors if any. For more info on inland rate, refer to InlandRate_V1. (Note: The inland rate search is applicable only to a specific set of inland rate tables which is to be provided for production rollout.)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Location" type="common:BasicLocationInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Matched Origin and/or Destination location information.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ConnectingOverLocation" type="common:BasicLocationInformation_V1">
+				<xsd:annotation>
+					<xsd:documentation>Matched Connecting Over Location information.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateTableName" type="common:BasicDescription_V1">
+				<xsd:annotation>
+					<xsd:documentation>Name of the rate table where the inland rate is from.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateWeightGroups" type="tnm:RateWeightGroup_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of charges containing rate type, amount and corresponding weight group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TransportModes" type="PricingTransportMode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Transport modes</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveDateRange" type="common:DateRange_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The effective period of the inland rate (YYYY-MM-DD format)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNatureCode" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>CargoNatureGroup which specifies rate applicability for different cargo natures.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DeliveryMode" type="common:SingleEndDeliveryMode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>String representing the delivery mode associated with the inland rate.  CY for example is a Container Yard, whereas Door is a door move.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OverMode" type="common:SingleEndDeliveryMode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Indicates the mode of over shipment. It can be either Door (Carrier Haulage) or CY (Merchant haulage).</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PublishedDate" type="fwd:FWLocalizedDateTimeDTO" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

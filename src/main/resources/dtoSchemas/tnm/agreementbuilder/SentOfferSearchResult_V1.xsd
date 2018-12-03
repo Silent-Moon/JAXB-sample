@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="SentOfferSearchResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Sent offer search result</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ListOfOfferXMLs" type="SentOfferWithPermissions_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>search result</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Exception" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>search operation status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SentOfferWithPermissions_V1">
+		<xsd:annotation>
+			<xsd:documentation>The gives a sent Offer xml with permissions</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OfferXML" type="xsd:string" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>search result of OfferXML</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CanPerformCUD" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Returns true if the user is allowed to perform CUD on this agreement.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HasSensitiveAccess" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Returns true if the user is allowed to view sensitive information on this agreement.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UserEditAccessCarrierGroupID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="UserViewAccessCarrierGroupID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+
+  <xsd:complexType name="City_V1">
+    <xsd:sequence>
+      <xsd:element name="CityCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CityID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CityName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ContinentName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CountryCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CountryName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LocalName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LowerDivnLocalName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="UpperDivnLocalName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Uuid" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

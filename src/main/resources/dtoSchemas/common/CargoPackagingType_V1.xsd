@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Kent Williamson (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="CargoPackagingType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Cargo packaging type, can be box, bucket, pallet, etc.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Code" type="CargoPackagingTypeCode_V1"/>
+			<xsd:element name="Name" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PluralName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CanBeInner" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicator if the packaging can be used as inner packaging</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CanBeOuter" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicator if the packaging can be used as outer packaging</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsDG" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicator if the packaging is used in Dangerous cargo</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IncludesInner" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicator if inner packaging is  included in the packaging</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="CargoPackagingTypeCode_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

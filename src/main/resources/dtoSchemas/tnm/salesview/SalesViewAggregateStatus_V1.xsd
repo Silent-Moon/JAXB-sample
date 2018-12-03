@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm.salesview" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:salesview="http://com.oocl.schema.tnm.salesview" targetNamespace="http://com.oocl.schema.tnm.salesview" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="SalesViewAggregateStatus_V1">
+		<xsd:annotation>
+			<xsd:documentation>Lists valid status applicable for AIO Salesview BKG and DND Aggregation processing.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="USE_VIEW">
+				<xsd:annotation>
+					<xsd:documentation>"USE_VIEW" - the data source is still the view and not the aggregated tables</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SUBMIT">
+				<xsd:annotation>
+					<xsd:documentation>"SUBMIT"- an aggregation request has to be sent to the queue</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="IN_PROGRESS">
+				<xsd:annotation>
+					<xsd:documentation>"IN_PROGRESS"- aggregation on-going</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="COMPLETED">
+				<xsd:annotation>
+					<xsd:documentation>"COMPLETED" - aggregation completed</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

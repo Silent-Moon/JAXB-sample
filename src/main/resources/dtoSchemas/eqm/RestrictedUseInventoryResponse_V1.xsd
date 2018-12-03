@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created by Venus 2011-03-07   -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:include schemaLocation="RestrictedUseInventory_V1.xsd"/>
+	<xsd:include schemaLocation="CalendarWeek_V1.xsd"/>
+	<xsd:complexType name="RestrictedUseInventoryResponse_V1">
+		<xsd:annotation>
+			<xsd:documentation> This is the WS response  for the  Find container supply by Spec UI  
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RestrictedUseInventory" type="RestrictedUseInventory_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation> The current inventory data by container specification </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InventoryForecastWeek" type="CalendarWeek_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Returns a list of week range for the inventory data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExportText" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Export result in text format</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExportZipFile" type="xsd:base64Binary" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Export Result in zip format</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

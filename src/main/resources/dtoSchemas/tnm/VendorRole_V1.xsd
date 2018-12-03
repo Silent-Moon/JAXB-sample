@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="VendorRole_V1">
+		<xsd:sequence>
+			<xsd:element name="UUID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Code" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="OfficeCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TerritoryCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ReferenceNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="VendorType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EffectiveFrom" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="EffectiveTo" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="IsTransport" type="xsd:boolean"/>
+			<xsd:element name="TransportationIndicatorIds" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsActive" type="xsd:boolean"/>
+			<xsd:element name="CacheKey" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Cache key used in client side caching. The key is three characters of Code or Name.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

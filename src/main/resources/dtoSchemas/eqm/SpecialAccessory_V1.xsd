@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/UpdateResult_V1.xsd"/>
+
+  <xsd:complexType name="SpecialAccessory_V1">
+    <xsd:sequence>
+      <xsd:element name="CreateUserID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EqpId" type="xsd:long"/>
+      <xsd:element name="SpcAccDesc" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SpcAccId" type="xsd:int"/>
+      <xsd:element name="SpcAccName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SpcAccType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="UpdateResult" type="common:UpdateResult_V1" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

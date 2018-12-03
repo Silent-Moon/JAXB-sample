@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="GuidelineRateSearch_V1.xsd"/>
+	<xsd:include schemaLocation="PricingMetricsBasicInfo_V1.xsd"/>
+	<xsd:include schemaLocation="PricingMetricsDetailSearchResult_V1.xsd"/>
+	<xsd:complexType name="RateBuilder_V1">
+		<xsd:annotation>
+			<xsd:documentation>This xsd is used as a parameter to the RateBuilderSVC's dummy operation. Its primary purpose is to include client-only XSDs so that corresponding DTOs can be generated through the standard build process.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Search" type="GuidelineRateSearch_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents data structure for a guideline rate search</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchInfo" type="GuidelineRateSearchInfo_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents guideline rate search data pair consisting of criteria and result</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			
+			<xsd:element name="PricingMetricsBasicInfo" type="PricingMetricsBasicInfo_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents pricing metrics detail information.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<xsd:element name="PricingMetricsDetailSearchResult" type="PricingMetricsDetailSearchResult_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents pricing metrics detail information.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="BasicDescription_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a free form text containing description of any associated element.  Max. length is 500.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="500"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EntityAbbreviation_V1">
+		<xsd:annotation>
+			<xsd:documentation>The short form of an organization or a business grouping, expressed as a code.  Max. length is 4.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EntityBriefName_V1">
+		<xsd:annotation>
+			<xsd:documentation>A brief description specifying an unit in organization or a business grouping.  Max. length is 35.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="BasicDescription_V1">
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EntityCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>A code specifying an unit in organization or a business grouping, expressed as a code.  Max. length is 3.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EntityLocationCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>A code specifying a location, expressed as a code.  Max. length is 5.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EntityLocationName_V1">
+		<xsd:annotation>
+			<xsd:documentation>A description specifying a location.  Max. length is 80.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="BasicDescription_V1">
+			<xsd:maxLength value="80"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EntityLocationType_V1">
+		<xsd:annotation>
+			<xsd:documentation>A description or name specifying the type of a geographic area or location.  Max. length is 20.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EntityName_V1">
+		<xsd:annotation>
+			<xsd:documentation>A description specifying an unit in organization or a business grouping.  Max. length is 65.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="BasicDescription_V1">
+			<xsd:maxLength value="65"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FullyQualifiedName_V1">
+		<xsd:annotation>
+			<xsd:documentation>Fully qualified name of a geographic location. Max. length is 500.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="BasicDescription_V1"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="Global_UUID_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is to represent the largest UUID format in the domain.  Max. length is 36.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="36"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ID_Integer_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents Identifier using Integer as the restriction.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ID_DoubleNumeric_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents Identifier using double as the restriction.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:double"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ID_LongNumeric_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents Identifier using long as the restriction - with max - 15 digits</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:long"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ID_Short_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents Identifier using Short as the restriction.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:short"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ID_String_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents Identifier using String as the restriction.  Max. length is 15.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="Global_UUID_V1">
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LongBasicDescription_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a free form text containing long description of any associated element.  Max. length is 2500.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2500"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NonStructuredText_V1">
+		<xsd:annotation>
+			<xsd:documentation>A free form text used for non-structured information.  Max. length is 60.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="BasicDescription_V1">
+			<xsd:maxLength value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="UUID_V1">
+		<xsd:annotation>
+			<xsd:documentation>A system generated uuid in string format.  Max. length is 20.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="Global_UUID_V1">
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ID_Integer15_V1">
+		<xsd:annotation>
+			<xsd:documentation>Integer identifier with 15 digits only</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:totalDigits value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ID_Integer20_V1">
+		<xsd:annotation>
+			<xsd:documentation>Integer identifier with 20 digits only</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:totalDigits value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OfficeCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a carrier office location.  For example: HKG</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Week_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a week number (restriction of 1 to 53 does follow ISO standard.  However calculation of week number from date is not ISO compliant, but carrier specific)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="53"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Month_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a month starting with 1 for January</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="12"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Year_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a year</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="9999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AttachmentID_V1">
+		<xsd:annotation>
+			<xsd:documentation>The unique identifier for a file attachment</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="common:ID_LongNumeric_V1"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="XML_Payload">
+		<xsd:annotation>
+			<xsd:documentation>A simple string type which is to contain XML data.  Useful for passing XML without translation between systems</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="IMO_Class_V1">
+		<xsd:annotation>
+			<xsd:documentation>See http://www.searates.com/reference/imo/ for details.  Also, IMO class can be entered with a subsidiary class in parenthesis, such as 4.1 (6.1).  See http://www.maerskline.com/globalfile/?path=/pdf/dangerous_cargo_guidelines for details</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="UN_Number_V1">
+		<xsd:annotation>
+			<xsd:documentation>Four digit number that identifies a hazardous substance.  See http://en.wikipedia.org/wiki/UN_number for details</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="UN_PackingGroup_V1">
+		<xsd:annotation>
+			<xsd:documentation>UN code to represent degree of danger.  I - High,  II - Medium and III - Low.  See http://www.unece.org/trans/doc/1999/wp15/TRANS-WP15-159a3e.pdf</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+			<xsd:enumeration value="I"/>
+			<xsd:enumeration value="II"/>
+			<xsd:enumeration value="III"/>
+			<xsd:enumeration value=""/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ID_Integer4_V1">
+		<xsd:annotation>
+			<xsd:documentation>Integer identifier with 4 digits only</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:totalDigits value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="String10_V1">
+		<xsd:annotation>
+			<xsd:documentation>String value with 10 max length </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

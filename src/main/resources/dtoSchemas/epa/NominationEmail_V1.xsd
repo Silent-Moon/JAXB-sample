@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Windy OR (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.epa" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:framework="http://com.oocl.frm.common.date.dto/" xmlns:shipment="http://com.oocl.schema.shipment" xmlns:eqm="http://com.oocl.schema.eqm" targetNamespace="http://com.oocl.schema.epa" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonContainerSizeTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ShipmentNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../eqm/Nomination_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:element name="NominationEmail_V1">
+		<xsd:annotation>
+			<xsd:documentation>Define the event for NominationEmail</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="BookingNumber" type="common:ShipmentNumber_V1">
+					<xsd:annotation>
+						<xsd:documentation>Booking#</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="EmptyPickupDatetime" type="framework:FWAbsoluteDateTimeDTO">
+					<xsd:annotation>
+						<xsd:documentation>Empty pickup datetime</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="FinalDestination">
+					<xsd:annotation>
+						<xsd:documentation>Final destination</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="50"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ContainerSizeType" type="common:TMS_ContainerSizeTypes_V1">
+					<xsd:annotation>
+						<xsd:documentation>Container size type</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ContainerNumber" type="eqm:EquipmentNumber_V1">
+					<xsd:annotation>
+						<xsd:documentation>Container number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="RU_Label" type="eqm:RestrictedUseLabelBookMatch_V1">
+					<xsd:annotation>
+						<xsd:documentation>RU label</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

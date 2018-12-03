@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+  <xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+
+  <xsd:complexType name="ContractHeader_V1">
+    <xsd:sequence>
+      <xsd:element name="ContractExternalReference" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ContractId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ContractPartnerId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ContractPartnerName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ContractSubType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ContractType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CreatedBy" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CreationDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="Currency" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EffectiveDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="EquipmentType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ExpiryDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="LastUpdateDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="LastUpdatedBy" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="NumberOfOnHireAuthorization" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="OwnType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SignatureDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

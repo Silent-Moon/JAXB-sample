@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Windy OR (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.epa" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:framework="http://com.oocl.frm.common.date.dto/" xmlns:shipment="http://com.oocl.schema.shipment" xmlns:ivr="http://com.oocl.schema.ivr" targetNamespace="http://com.oocl.schema.epa" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonContainerSizeTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/OpZone_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ShipmentNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:include schemaLocation="AppointmentID_V1.xsd"/>
+	<xsd:include schemaLocation="ReturnCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.ivr" schemaLocation="../ivr/CallerID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.ivr" schemaLocation="../ivr/CallSessionInfo_V1.xsd"/>
+	<xsd:element name="CancelAppointmentRequest_V1">
+		<xsd:annotation>
+			<xsd:documentation>Define the event for CancelAppointmentRequest</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="AppointmentID" type="AppointmentID_V1">
+					<xsd:annotation>
+						<xsd:documentation>Appointment ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="BookingNumber" type="common:ShipmentNumber_V1">
+					<xsd:annotation>
+						<xsd:documentation>Booking#</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Opzone" type="common:OpZone_V1">
+					<xsd:annotation>
+						<xsd:documentation>Opzone</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ContactNumber" type="ivr:CallerID_V1">
+					<xsd:annotation>
+						<xsd:documentation>Contact number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="IsRequireTimeChecking" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Indicator for external or internal hotline</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="CallSessionInfo" type="ivr:CallSessionInfo_V1" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Call session info</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="CancelAppointmentResponse_V1">
+		<xsd:annotation>
+			<xsd:documentation>Define the event for CancelAppointmentResponse</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="BookingNumber" type="common:ShipmentNumber_V1">
+					<xsd:annotation>
+						<xsd:documentation>Booking#</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="AppointmentID" type="AppointmentID_V1">
+					<xsd:annotation>
+						<xsd:documentation>Appointment ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Opzone" type="common:OpZone_V1">
+					<xsd:annotation>
+						<xsd:documentation>Opzone</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ContactNumber" type="ivr:CallerID_V1">
+					<xsd:annotation>
+						<xsd:documentation>Contact number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="UsagePlanID" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Usage plan info</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="23"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="CallSessionInfo" type="ivr:CallSessionInfo_V1" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Call session info</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="IsRequireTimeChecking" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Indicator for external or internal hotline</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ReturnCode" type="ReturnCode_V1">
+					<xsd:annotation>
+						<xsd:documentation>Return code</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Action">
+					<xsd:annotation>
+						<xsd:documentation>Action</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="2"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ActionParty">
+					<xsd:annotation>
+						<xsd:documentation>Action party</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="2"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ModifiedDatetimeGMT" type="framework:FWAbsoluteDateTimeDTO">
+					<xsd:annotation>
+						<xsd:documentation>Modified datetime (GMT)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

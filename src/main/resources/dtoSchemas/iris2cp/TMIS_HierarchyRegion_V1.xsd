@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com)  
+	This is the TMIS_HierarchyRegion_V1 that an extension of Region_V1 with an extra element, TMIS_HierarchyRegionLevel_V1 -->
+<xsd:schema xmlns="http://com.oocl.schema.iris2cp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.iris2cp" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="TMIS_HierarchyRegionLevel_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation= "../common/Region_V1.xsd"/>
+	<xsd:complexType name="TMIS_HierarchyRegion_V1">
+		<xsd:annotation>
+			<xsd:documentation>TMIS_HierarchyRegion_V1 is an extension of Region_V1 with an extra element, TMIS_HierarchyRegionLevel_V1</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="common:Region_V1">
+				<xsd:annotation>
+					<xsd:documentation>TMIS_HierarchyRegion_V1 is an extension of Region_V1 with a new element, TMIS_HierarchyRegionLevel_V1</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="RegionType" type="TMIS_HierarchyRegionLevel_V1">
+						<xsd:annotation>
+							<xsd:documentation>This is a TMIS Hierarchy Region  Level</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

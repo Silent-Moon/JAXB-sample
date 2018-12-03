@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Jeffrey Feliciano (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.shipment" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="CommitStatus_V1">
+		<xsd:annotation>
+			<xsd:documentation>The status of booking in process from time of registration to the final stage of firm acceptance or rejection</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Cancelled"/>
+			<xsd:enumeration value="Confirmed"/>
+			<xsd:enumeration value="NoShow"/>
+			<xsd:enumeration value="Pended"/>
+			<xsd:enumeration value="PreBooking"/>
+			<xsd:enumeration value="Rejected"/>
+			<xsd:enumeration value="Terminated"/>
+			<xsd:enumeration value="WaitListed"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

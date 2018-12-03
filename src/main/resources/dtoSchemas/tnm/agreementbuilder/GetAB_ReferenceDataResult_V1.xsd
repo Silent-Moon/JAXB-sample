@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" xmlns:fwd="http://com.oocl.frm.common.date.dto/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	
+	<xsd:include schemaLocation="CollectiveActivationSetting_V1.xsd"/>
+	<xsd:include schemaLocation="Remark_V1.xsd"/>
+	<xsd:include schemaLocation="CorrespondingTier_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Region_V1.xsd"/>
+	
+	<xsd:complexType name="GetAB_ReferenceDataResult_V1">
+		<xsd:sequence>
+			<xsd:element name="Remarks" type="Remark_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="GlobalCASettings" type="CollectiveActivationSetting_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Regions" type="ns1:Region_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Region belonging to ACP Sales</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Territories" type="ns1:Territory_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Region belonging to ACP Sales</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TierCombinations" type="CorrespondingTier_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Corresponding Tier criteria at DD SVI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

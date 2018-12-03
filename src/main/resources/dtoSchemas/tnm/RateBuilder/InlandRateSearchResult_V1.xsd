@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../InlandRate_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UpdateResult_V1.xsd"/>
+	<xsd:complexType name="InlandRateSearchResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents an inland rate search result containing inland rates and search validation result information.  The element names dtoList and errorDTO are required by framework for enabling paging.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="InlandRates" type="tnm:InlandRate_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of matching inland rates</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Result" type="common:UpdateResult_V1" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Search validation result information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

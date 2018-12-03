@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/EmailAddress_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:element name="AB_SendNotification_V1">
+		<xsd:complexType>
+			<xsd:annotation>
+				<xsd:documentation>The information to send notification</xsd:documentation>
+			</xsd:annotation>
+			<xsd:sequence>
+				<xsd:element name="Subject" type="xsd:string"/>
+				<xsd:element name="NotificationType" type="xsd:string"/>
+				<xsd:element name="From" type="common:EmailAddress_V1" nillable="true" minOccurs="0"/>
+				<xsd:element name="ToReceivers" type="common:EmailAddress_V1" maxOccurs="unbounded"/>
+				<xsd:element name="CcReceivers" type="common:EmailAddress_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="Content" type="common:BasicDescription_V1"/>
+				<xsd:element name="SentOfferId" type="common:UUID_V1"/>
+				<xsd:element name="OfferDocumentName" type="xsd:string"/>
+				<xsd:element name="OfferDocumentId" type="common:UUID_V1"/>
+				<xsd:element name="AttachmentName" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="AttachmentUuid" type="common:UUID_V1" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

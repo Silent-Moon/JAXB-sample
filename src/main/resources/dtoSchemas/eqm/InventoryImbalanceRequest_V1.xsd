@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2012 rel. 2 (x64) (http://www.altova.com) by OOCL (Orient Overseas Container Line Ltd.) -->
+<!-- Created by Venus 2012-04-02-->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Region_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/OpZone_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerSizeType_V1.xsd"/>
+	<xsd:complexType name="InventoryImbalanceRequest_V1">
+		<xsd:annotation>
+			<xsd:documentation> This is the WS request for retrieving the top 10 inventory imbalance given a list of reop in regions/opzones and repo out regions/opzones</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="repoInRegionList" type="common:Region_V1" minOccurs="0" maxOccurs="3">
+				<xsd:annotation>
+					<xsd:documentation>A list of repo in region. User can only enter a maximum of 3 regions</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="repoInOpzoneList" type="common:OpZone_V1" minOccurs="0" maxOccurs="10">
+				<xsd:annotation>
+					<xsd:documentation>A list of repo in opzone. User can only enter a maximum of 10 opzones</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="repoOutRegionList" type="common:Region_V1" minOccurs="0" maxOccurs="3">
+				<xsd:annotation>
+					<xsd:documentation>A list of repo out region. User can only enter a maximum of 3 regions</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="repoOutOpzoneList" type="common:OpZone_V1" minOccurs="0" maxOccurs="10">
+				<xsd:annotation>
+					<xsd:documentation>A list of repo out opzone. User can only enter a maximum of 10 opzones</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EqpSizeType" type="ContainerSizeType_V1" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The size and type for the inventory request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

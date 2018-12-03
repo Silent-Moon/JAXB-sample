@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard.aor" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" xmlns:dsh="http://com.oocl.schema.dashboard" targetNamespace="http://com.oocl.schema.dashboard.aor" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/StringKeyValuePair_V1.xsd"/>
+	<xsd:include schemaLocation="SkillGroup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/NameAndIdentifier_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.dashboard" schemaLocation="../DSH_CommonTypes_V1.xsd"/>
+	<xsd:include schemaLocation="Rule_V1.xsd"/>
+	<xsd:include schemaLocation="ActivityDefinitionInfo_V1.xsd"/>
+	<xsd:complexType name="SkillDefinition_V1">
+		<xsd:sequence>
+			<xsd:element name="SkillDefinitionId" type="xsd:long" minOccurs="0"/>
+			<xsd:element name="SkillGroup" type="cmn:NameAndIdentifier_V1" minOccurs="0"/>
+			<xsd:element name="ActivityDefinitionInfo" type="ActivityDefinitionInfo_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>These are the group of activity definition types which the Skill Definition Rules are applied to.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Rule" type="Rule_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>These are all the Rules defined for this skill definition</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SkillDefinition" type="SkillDefinition_V1"/>
+</xsd:schema>

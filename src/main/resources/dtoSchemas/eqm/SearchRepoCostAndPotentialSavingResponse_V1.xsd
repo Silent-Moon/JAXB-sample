@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2016 sp1 (x64) (http://www.altova.com) by Orient Overseas Container Line Limited (Orient Overseas Container Line Limited) -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="SearchRepoCostAndPotentialSavingResult_V1.xsd"/>
+	<xsd:complexType name="SearchRepoCostAndPotentialSavingResponse_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the Repo Cost &amp; Potential Saving Search Response</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Result" type="SearchRepoCostAndPotentialSavingResult_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Search Repo Cost &amp; Potential Saving Search Result</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

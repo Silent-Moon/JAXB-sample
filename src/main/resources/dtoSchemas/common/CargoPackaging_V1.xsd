@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="CargoPackagingType_V1.xsd"/>
+	<xsd:complexType name="CargoPackaging_V1">
+		<xsd:annotation>
+			<xsd:documentation>Cargo packaging used in shipment.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Type" type="CargoPackagingType_V1">
+				<xsd:annotation>
+					<xsd:documentation>Packaging type used</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Quantity">
+				<xsd:annotation>
+					<xsd:documentation>Number of packagings</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int">
+						<xsd:minInclusive value="0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

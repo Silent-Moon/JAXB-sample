@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Kalyan Padhiloju (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="CommonRestrictions_V1.xsd"/>
+	
+	<xsd:simpleType name="LongNameString_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">Specifies the Long Name of the TimeZone display name.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="40"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:complexType name="TimeZoneLabel_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about the long name and short name of a Timezone.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="LongName" type="LongNameString_V1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Specifies the Long Name of the TimeZone display name like "America/Los Angeles".Max. length is 40.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShortName" type="ID_String_V1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Specifies the ShortName of the TimeZone Abbreviation like PST,GMT-08:00.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2012 rel. 2 (x64) (http://www.altova.com) by OOCL (Orient Overseas Container Line Ltd.) -->
+<!-- Created by Venus 2012-04-02-->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/OpZone_V1.xsd"/>
+	<xsd:complexType name="InventoryImbalance_V1">
+		<xsd:annotation>
+			<xsd:documentation>  This is the XSD storing the inventory imbalance. This is encapsulated in InventoryImbalanceResponse.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OpZone" type="common:OpZone_V1" maxOccurs="1" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The imbalance opzone</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ImBalanceCount" type="xsd:long" maxOccurs="1" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation> Number of containers that are imbalance (empty return -  empty release) </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

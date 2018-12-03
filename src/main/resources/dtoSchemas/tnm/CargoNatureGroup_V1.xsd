@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:simpleType name="CargoNatureGroupID_V1">
+		<xsd:annotation>
+			<xsd:documentation> A number representing an arbitrary grouping of cargo natures.  Commonly used to specify the set of natures covered by a rate.  For example, rate covers GC or DG shipment, but not shipments for other natures.  Possible values are:
+1 - AD
+2 - RD
+3 - RD;AD
+4 - AW
+5 - AW;AD
+6 - AW;RD
+7 - AW;RD;AD
+8 - DG
+9 - DG;AD
+10 - DG;RD
+11 - DG;RD;AD
+12 - DG;AW
+13 - DG;AW;AD
+14 - DG;AW;RD
+15 - DG;AW;RD;AD
+16 - RF
+17 - RF;AD
+18 - RF;RD
+19 - RF;RD;AD
+20 - RF;AW
+21 - RF;AW;AD
+22 - RF;AW:RD
+23 - RF;AW;RD;AD
+24 - RF;DG
+25 - RF;DG;AD
+26 - RF;DG;RD
+27 - RF;DG;RD;AD
+28 - RF;DG;AW
+29 - RF;DG;AW;AD
+30 - RF;DG;AW;RD
+31 - RF;DG;AW;RD;AD
+32 - GC
+33 - GC;AD
+34 - GC;RD
+35 - GC;RD;AD
+36 - GC;AW
+37 - GC;AW;AD
+38 - GC;AW;RD
+39 - GC;AW;RD;AD
+40 - GC;DG
+41 - GC;DG;AD
+42 - GC;DG;RD
+43 - GC;DG;RD;AD
+44 - GC;DG;AW
+45 - GC;DG;AW;AD
+46 - GC;DG;AW;RD
+47 - GC;DG;AW;RD;AD
+48 - GC;RF
+49 - GC;RF;AD
+50 - GC;RF;RD
+51 - GC;RF;RD;AD
+52 - GC;RF;AW
+53 - GC;RF;AW;AD
+54 - GC;RF;AW:RD
+55 - GC;RF;AW;RD;AD
+56 - GC;RF;DG
+57 - GC;RF;DG;AD
+58 - GC;RF;DG;RD
+59 - GC;RF;DG;RD;AD
+60 - GC;RF;DG;AW
+61 - GC;RF;DG;AW;AD
+62 - GC;RF;DG;AW;RD
+63 - GC;RF;DG;AW;RD;AD</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="common:ID_Integer_V1"/>
+	</xsd:simpleType>
+	<xsd:complexType name="CargoNatureGroup_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a group of applicable cargo nature indicators with one indicator for each possible nature.  For each 'Includes' indicator, a true value means that the owning rate may be applied to a shipment having the specific cargo nature assuming all other qualifiers of the rate match the shipment.  A false means that the owning rate cannot apply to shipments for the specific cargo nature.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ID" type="CargoNatureGroupID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The cargo nature group's unique identifier</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IncludesGC" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicates if the owning rate is applicable for shipments having a General Cargo cargo nature </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IncludesRF" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicates if the owning rate is applicable for shipments having a Reefer cargo nature </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IncludesDG" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicates if the owning rate is applicable for shipments having a Dangerous cargo nature </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IncludesAW" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicates if the owning rate is applicable for shipments having an Awkward cargo nature </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IncludesRD" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicates if the owning rate is applicable for shipments having a Reefer Dangerous cargo nature </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IncludesAD" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicates if the owning rate is applicable for shipments having an Awkward Dangerous cargo nature </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

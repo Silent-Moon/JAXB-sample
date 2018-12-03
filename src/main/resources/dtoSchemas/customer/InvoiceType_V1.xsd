@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.customer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.customer" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="InvoiceTypeCode_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				Indicates the type code that an Invoice may have.  SF - Shipment Freight, SN - Shipment Non Freight, NS - Non Shipment.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2"/>
+			<xsd:enumeration value="SF">
+				<xsd:annotation>
+					<xsd:documentation>Shipment Freight.  This type refers to shipment-related invoices that are using freight charges.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SN">
+				<xsd:annotation>
+					<xsd:documentation>Shipment Non-Freight.  This type refers to shipment-related invoices that are non-freight related.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="NS">
+				<xsd:annotation>
+					<xsd:documentation>Non Shipment.  This type refers to invoices that are not shipment-related.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="InvoiceTypeName_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				Indicates the type name that an Invoice may have.  Shipment Freight, Shipment Non-Freight, Non-Shipment.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="Shipment Freight">
+				<xsd:annotation>
+					<xsd:documentation>Corresponds to SF invoice type code.  This type refers to shipment-related invoices that are using freight charges.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Shipment Non-Freight">
+				<xsd:annotation>
+					<xsd:documentation>Corresponds to SN invoice type code.  This type refers to shipment-related invoices that are non-freight related.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Non-Shipment">
+				<xsd:annotation>
+					<xsd:documentation>Corresponds to NS invoice type code.  This type refers to invoices that are not shipment-related. </xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

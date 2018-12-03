@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="UnitsOfDistance_V1">
+		<xsd:annotation>
+			<xsd:documentation>Type to be used to denote commonly used units of Distance</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="MM">
+				<xsd:annotation>
+					<xsd:documentation source="Millimetre"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CM">
+				<xsd:annotation>
+					<xsd:documentation source="Centimetre"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="M">
+				<xsd:annotation>
+					<xsd:documentation source="Metre"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="KM">
+				<xsd:annotation>
+					<xsd:documentation source="Kilometre"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="IN">
+				<xsd:annotation>
+					<xsd:documentation source="Inch"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FT">
+				<xsd:annotation>
+					<xsd:documentation source="Feet"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="YD">
+				<xsd:annotation>
+					<xsd:documentation source="Yard"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MI">
+				<xsd:annotation>
+					<xsd:documentation source="Mile"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="UnitsOfVolume_V1">
+		<xsd:annotation>
+			<xsd:documentation>Type to be used to denote commonly used units of Volume</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CBF">
+				<xsd:annotation>
+					<xsd:documentation source="Cubic Feet"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CBM">
+				<xsd:annotation>
+					<xsd:documentation source="Cubic Metre"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="GAL">
+				<xsd:annotation>
+					<xsd:documentation source="Gallon"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ML">
+				<xsd:annotation>
+					<xsd:documentation source="MilliLitre"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="L">
+				<xsd:annotation>
+					<xsd:documentation source="Litre"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="UnitsOfTemperature_V1">
+		<xsd:annotation>
+			<xsd:documentation>Type to be used to denote commonly used units of Temparature</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="C">
+				<xsd:annotation>
+					<xsd:documentation source="Celsius"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="F">
+				<xsd:annotation>
+					<xsd:documentation source="Fahrenheit"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="UnitsOfVentilation_V1">
+		<xsd:annotation>
+			<xsd:documentation>Type to be used to denote commonly used units of Ventilation</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="%(Vent.)">
+				<xsd:annotation>
+					<xsd:documentation source="Percentage"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Degree">
+				<xsd:annotation>
+					<xsd:documentation source="Degree"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CMF/MIN">
+				<xsd:annotation>
+					<xsd:documentation source="Cubic Feet Per Minute"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CBM/HR">
+				<xsd:annotation>
+					<xsd:documentation source="Cubic Metre Per Hour"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="UnitsOfDuration_V1">
+		<xsd:annotation>
+			<xsd:documentation>Type to be used to denote commonly used units of Duration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="MS">
+				<xsd:annotation>
+					<xsd:documentation source="Milli Seconds"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="S">
+				<xsd:annotation>
+					<xsd:documentation source="Seconds"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MIN">
+				<xsd:annotation>
+					<xsd:documentation source="Minutes"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="H">
+				<xsd:annotation>
+					<xsd:documentation source="Hours"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="D">
+				<xsd:annotation>
+					<xsd:documentation source="Days"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="WEEK">
+				<xsd:annotation>
+					<xsd:documentation source="Weeks"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MONTH">
+				<xsd:annotation>
+					<xsd:documentation source="Months"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="YEARS">
+				<xsd:annotation>
+					<xsd:documentation source="Years"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="UnitsOfWeight_V1">
+		<xsd:annotation>
+			<xsd:documentation>Type to be used to denote commonly used units of Weight</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="OZ">
+				<xsd:annotation>
+					<xsd:documentation source="Ounce"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LB">
+				<xsd:annotation>
+					<xsd:documentation source="Pound"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="T">
+				<xsd:annotation>
+					<xsd:documentation source="Ton"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="KT">
+				<xsd:annotation>
+					<xsd:documentation source="Kilo Tonnage"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RT">
+				<xsd:annotation>
+					<xsd:documentation source="Revenue Ton"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="G">
+				<xsd:annotation>
+					<xsd:documentation source="Gram"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="KG">
+				<xsd:annotation>
+					<xsd:documentation source="Kilo Gram"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="GRT">
+				<xsd:annotation>
+					<xsd:documentation source="Gross Revenue Tonnage"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LT">
+				<xsd:annotation>
+					<xsd:documentation source="Long Tonnage"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ST">
+				<xsd:annotation>
+					<xsd:documentation source="Short Tonnage"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="NRT">
+				<xsd:annotation>
+					<xsd:documentation source="Net Revenue Tonnage"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

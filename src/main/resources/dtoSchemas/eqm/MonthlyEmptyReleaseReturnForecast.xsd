@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2012 rel. 2 (x64) (http://www.altova.com) by Eva Chiu (Orient Overseas Container Line Ltd.) -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:iodt="http://com.oocl.frm.common.date.dto/" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/OpZone_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerSizeType_V2.xsd"/>
+	<xsd:element name="MonthlyEmptyReleaseReturnForecast">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Opzone" type="common:OpZone_V1">
+					<xsd:annotation>
+						<xsd:documentation>The opzone the forecast refers to. Opzone code only provided.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="EqpSizeType" type="ContainerSizeType_V2">
+					<xsd:annotation>
+						<xsd:documentation>The container size/type the forecast refers to.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ForecastDetails" type="MonthlyEmptyReleaseReturnForecastDetails" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>The detail empty release/return forecast data.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="MessageGenerationTime" type="iodt:FWAbsoluteDateTimeDTO">
+					<xsd:annotation>
+						<xsd:documentation>The time this message was generated in GMT</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="MonthlyEmptyReleaseReturnForecastDetails">
+		<xsd:sequence>
+			<xsd:element name="Year" type="common:Year_V1">
+				<xsd:annotation>
+					<xsd:documentation>The year of the forecast.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Month" type="common:Month_V1">
+				<xsd:annotation>
+					<xsd:documentation>The month of the forecast.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmptyReleaseQty" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>The empty release quantity forecast.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmptyReturnQty" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>The empty return quantity forecast.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

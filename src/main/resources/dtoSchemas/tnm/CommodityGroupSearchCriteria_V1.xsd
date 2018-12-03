@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Orlando Palis (OOCL (USA) INC) -->
+<!--  Created Oct 10, 2007  -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="TradeCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CardinalDirection_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="CommodityGroupSearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a commodity group search request with optional search criteria.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Trade" type="tnm:TradeCode_V1" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Represents the trade code. If not specified, it means the search can be for any trade code.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Direction" type="common:CardinalDirectionName_V1" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Represents the direction name. If not specified, it means the search can be for any direction.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchString" type="common:BasicDescription_V1" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>String pattern used for matching commodity group name or description.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RetrieveInUseStatus" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Indicates whether the InUse status of commodity groups needs to be retrieved or not.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- edited with XMLSpy v2008 (http://www.altova.com) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ccp"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://com.oocl.schema.common"
+	 targetNamespace="http://com.oocl.schema.tnm.ccp"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Territory_V1.xsd"/>
+	<xsd:complexType name="CCP_Territory_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is Cargo Control Party (CCP)  Territory Info</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Territory" type="common:Territory_V1">
+				<xsd:annotation>
+					<xsd:documentation>This is Territory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CCP_TerritoryType">
+				<xsd:annotation>
+					<xsd:documentation>This is Cargo Control Party (CCP)  Territory Type</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="FromTerritory"/>
+						<xsd:enumeration value="ToTerritory"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

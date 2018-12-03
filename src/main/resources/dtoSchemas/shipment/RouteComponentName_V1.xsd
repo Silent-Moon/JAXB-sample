@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Jeffrey Feliciano (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.shipment" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="RouteComponentName_V1">
+		<xsd:annotation>
+			<xsd:documentation>Main or topmost route leg types of a shipment</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="OutboundDoor"/>
+			<xsd:enumeration value="OutboundIntermodal"/>
+			<xsd:enumeration value="Ocean"/>
+			<xsd:enumeration value="InboundIntermodal"/>
+			<xsd:enumeration value="InboundDoor"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="LinerTransportModes_V1">
+		<xsd:annotation>
+			<xsd:documentation>Transportation Modes for Liner</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CTR">
+				<xsd:annotation>
+					<xsd:documentation source="Truck"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CTF">
+				<xsd:annotation>
+					<xsd:documentation source="Feeder"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RLW">
+				<xsd:annotation>
+					<xsd:documentation source="Railway"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="BAR">
+				<xsd:annotation>
+					<xsd:documentation source="Barge"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TKV">
+				<xsd:annotation>
+					<xsd:documentation source="Vessel"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TMS_TransportModes_V1">
+		<xsd:annotation>
+			<xsd:documentation>Transportation Modes for TMS</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CTR">
+				<xsd:annotation>
+					<xsd:documentation source="Container Trucking"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LTR">
+				<xsd:annotation>
+					<xsd:documentation source="Lorry Trucking"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CTF">
+				<xsd:annotation>
+					<xsd:documentation source="Feeder"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RLW">
+				<xsd:annotation>
+					<xsd:documentation source="Railway"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="BAR">
+				<xsd:annotation>
+					<xsd:documentation source="Barge"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AIR">
+				<xsd:annotation>
+					<xsd:documentation source="Air"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OLL_TransportModes_V1">
+		<xsd:annotation>
+			<xsd:documentation>Transportation Modes for Logistics</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CTR">
+				<xsd:annotation>
+					<xsd:documentation>Container Trucking</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LT">
+				<xsd:annotation>
+					<xsd:documentation>Lorry Trucking</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="C">
+				<xsd:annotation>
+					<xsd:documentation>Coastal</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="R">
+				<xsd:annotation>
+					<xsd:documentation/>
+					<xsd:documentation>Railway</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FB">
+				<xsd:annotation>
+					<xsd:documentation>Feeder/Barge</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="A">
+				<xsd:annotation>
+					<xsd:documentation>Air</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Trunk">
+				<xsd:annotation>
+					<xsd:documentation>Trunk Vessel</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CT">
+				<xsd:annotation>
+					<xsd:documentation>Combined Transport</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SP">
+				<xsd:annotation>
+					<xsd:documentation>Sea</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IPS_TransportModes_V1">
+		<xsd:annotation>
+			<xsd:documentation>Transportation Modes for IPS</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CTR">
+				<xsd:annotation>
+					<xsd:documentation source="Container Trucking"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LTR">
+				<xsd:annotation>
+					<xsd:documentation source="Lorry Trucking"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CTF">
+				<xsd:annotation>
+					<xsd:documentation source="Coastal"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RLW">
+				<xsd:annotation>
+					<xsd:documentation source="Railway"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="BAR">
+				<xsd:annotation>
+					<xsd:documentation source="Barge"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FDV">
+				<xsd:annotation>
+					<xsd:documentation source="Feeder Vessel"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TKV">
+				<xsd:annotation>
+					<xsd:documentation source="Trunk Vessel"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AIR">
+				<xsd:annotation>
+					<xsd:documentation source="Air"/>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

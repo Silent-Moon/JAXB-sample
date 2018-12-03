@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="http://com.oocl.schema.common.event" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common.event" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../ServiceLoopCode_V1.xsd"/>
+	<xsd:element name="ServiceLoop_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event whenever any part of ITS_SVC_LOOP data changes (insert, update, delete)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ServiceLoopAbbreviation" type="common:ServiceLoopCode_V1">
+					<xsd:annotation>
+						<xsd:documentation>A three or four character code represents the business key for service loop.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

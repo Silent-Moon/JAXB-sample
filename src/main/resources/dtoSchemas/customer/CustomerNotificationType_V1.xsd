@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with Stylus Studio 2008 by VARMA CHINTALAPATI (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.customer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.customer" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="CustomerNotificationType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the notification type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Interaction"/>
+			<xsd:enumeration value="Notification"/>
+			<xsd:enumeration value="Privileged"/>
+		</xsd:restriction>		
+	</xsd:simpleType>
+</xsd:schema>

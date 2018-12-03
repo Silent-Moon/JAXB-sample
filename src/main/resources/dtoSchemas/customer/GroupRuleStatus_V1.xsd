@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.customer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.customer" elementFormDefault="qualified" attributeFormDefault="unqualified">
+		<xsd:simpleType name="GroupRuleStatus_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Verified"/>
+			<xsd:enumeration value="Unverified"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

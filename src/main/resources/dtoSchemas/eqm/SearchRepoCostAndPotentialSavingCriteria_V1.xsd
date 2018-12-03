@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2016 sp1 (x64) (http://www.altova.com) by Orient Overseas Container Line Limited (Orient Overseas Container Line Limited) -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerSizeType_V2.xsd"/>
+	<xsd:simpleType name="SearchRepoCostAndPotentialSavingRequestType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the Request Type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="30"/>
+			<xsd:enumeration value="Actual"/>
+			<xsd:enumeration value="Forecast"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="SearchRepoCostAndPotentialSavingCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the Repo Cost &amp; Potential Saving Search Criteria</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RequestId">
+				<xsd:annotation>
+					<xsd:documentation>Represents the ID of this Request</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="256"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RequestType" type="SearchRepoCostAndPotentialSavingRequestType_V1">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Type of this Request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OriginId" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Geo Location ID of the Origin</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestinationId" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Geo Location ID of the Destination</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Trade">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Trade</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TradeLane">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Trade Lane</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TradeBound">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Trade Bound</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CargoGroup">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Cargo Group</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="EqpSizeType" type="ContainerSizeType_V2">
+				<xsd:annotation>
+					<xsd:documentation>Represents the equipment size type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmptyReleaseOpzone" type="common:EntityCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Geo Location Code of the Opzone of the Empty Release Location</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmptyReleasePeriod">
+				<xsd:annotation>
+					<xsd:documentation>Represents the OOCL Calendar Week (Actual) / Month (Forecast) of the Empty Release Date</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="6"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="EmptyReturnOpzone" type="common:EntityCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Geo Location Code of the Opzone of the Empty Return Location</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmptyReturnPeriod">
+				<xsd:annotation>
+					<xsd:documentation>Represents the OOCL Calendar Week (Actual) / Month (Forecast) of the Empty Return Date</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="6"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

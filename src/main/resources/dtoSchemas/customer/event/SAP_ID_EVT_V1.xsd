@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Roger Davies (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.customer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:shipment="http://com.oocl.schema.customer" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.customer" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:element name="SAP_ID_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>SAP ID event, to indicate new or changed SAPID information</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="SAP_ID" type="common:SAP_ID_V1">
+					<xsd:annotation>
+						<xsd:documentation>SAP ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
+

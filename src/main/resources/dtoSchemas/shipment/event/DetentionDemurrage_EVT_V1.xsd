@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Josie Tapas (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.shipment" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.shipment" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ShipmentBound_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/DND_Type_V1.xsd"/>
+	<xsd:element name="DetentionDemurrage_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event whenever any part of CNTR_PACKG_DET_DEM data changes (insert, update, delete)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ContainerPackageUUID" type="common:UUID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the Container Package Unique ID which is equivalent to CNTR_PACKG_DET_DEM.PACKAGE_UUID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="DetentionDemurrageType" type="common:DND_Code_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the Detention and Demurrage  Code which is equivalent to CNTR_PACKG_DET_DEM.DND_TYPE</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Bound" type="common:ShipmentBoundCode_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the Detention Demurrage Bound Code which is equivalent to CNTR_PACKG_DET_DEM.BOUND</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

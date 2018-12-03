@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ServiceLoopCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ZIP_Code_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ShipmentBound_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SingleEndDeliveryMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../SurchargeType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../PricingTransportMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../CargoNatureGroup_V1.xsd"/>
+	<xsd:include schemaLocation="AB_OracleTypes_V1.xsd"/>
+	<xsd:include schemaLocation="AbstractAB_Rate_V1.xsd"/>
+	<xsd:complexType name="InlandOfferRate_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents an AB inland rate</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="AbstractAB_Rate_V1">
+				<xsd:sequence>
+					<xsd:element name="InlandType" type="tnm:SurchargeCode_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Will be IHL/IHD/ARB/ARD</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="OfferRateIDs" type="common:ID_Integer_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of offer rates that the inland rate is linked to</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="RateTableName" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Optional Inland rate table to be used to pickup inland tariff surcharges.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Locations" type="LocationID_Collection_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Collection of locations</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="PostalCode" type="common:ZIP_Code_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Inland rate's postal code</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="DeliveryMode" type="common:SingleEndDeliveryMode_V1">
+						<xsd:annotation>
+							<xsd:documentation>Delivery mode</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="OverLocations" type="LocationID_Collection_V1">
+						<xsd:annotation>
+							<xsd:documentation>Collection over locations</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="OverMode" type="common:SingleEndDeliveryMode_V1">
+						<xsd:annotation>
+							<xsd:documentation>Over mode</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ViaLocations" type="LocationID_Collection_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Collection of via locations</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Bound" type="common:ShipmentBoundCode_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Shippment bound</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="TransportModes" type="tnm:PricingTransportMode_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of transport modes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ServiceLoopCodes" type="common:ServiceLoopCode_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of service loop codes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CargoNatureGroupID" type="tnm:CargoNatureGroupID_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Cargo nature group ID</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CommodityGroupID" type="common:ID_LongNumeric_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Commodity group ID</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="SourceIDs" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>semi-colon delimited list of originating inland tariff rate IDs</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="InlandOfferRate" type="InlandOfferRate_V1"/>
+</xsd:schema>

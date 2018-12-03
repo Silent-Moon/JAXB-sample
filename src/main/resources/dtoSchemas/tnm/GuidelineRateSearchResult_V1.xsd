@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" xmlns:eqm="http://com.oocl.schema.eqm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="GuidelineRate_V1.xsd"/>
+	<xsd:include schemaLocation="CargoNatureGroup_V1.xsd"/>
+	<xsd:include schemaLocation="CommodityGroup_V1.xsd"/>
+	<xsd:include schemaLocation="WeightGroup_V1.xsd"/>
+	<xsd:include schemaLocation="VolumeGroup_V1.xsd"/>
+	<xsd:include schemaLocation="Tariff_V1.xsd"/>
+	<xsd:include schemaLocation="SurchargeType_V1.xsd"/>
+	<xsd:include schemaLocation="SurchargeOverrideGroup_V1.xsd"/>
+	<xsd:include schemaLocation="TieredCommodity_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ValidationError_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ServiceLoop_V1.xsd"/>
+	<xsd:complexType name="GuidelineRateSearchResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a guideline rate search result containing guideline rates and validation erros if any</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="GuidelineRates" type="tnm:GuidelineRate_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of matching Guideline rates</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValidationErrors" type="common:ValidationError_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of Validation Errors.  See ValidationError for more details</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReferencedCargoNatureGroups" type="tnm:CargoNatureGroup_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>CargoNatureGroups referenced by ID under GuidelineRates</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReferencedSurchargeTypes" type="tnm:SurchargeType_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>SurchargeType details for surcharge codes referenced by SurchargeCode_V1 under GuidelineRates</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReferencedCommodityGroups" type="tnm:CommodityGroup_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Details for CommodityGroups referenced by ID under GuidelineRates</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+						<xsd:element name="ReferencedTieredCommodities" type="TieredCommodity_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Details for Tiered Commoditys referenced by ID under GuidelineRates</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="ReferencedWeightGroups" type="tnm:WeightGroup_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Details for WeightGroups referenced by ID under GuidelineRates.  Should be of no consequence to ACZone as weight info should be included in the GuidelineRate description</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReferencedServiceLoops" type="common:ServiceLoop_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Details for Service Loops referenced by ID under GuidelineRates</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReferencedVolumeGroups" type="tnm:VolumeGroup_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Details for VolumeGroups referenced by ID under GuidelineRates</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReferencedTariffs" type="tnm:Tariff_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Details for Tariffs referenced by ID under GuidelineRates</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReferencedSurchargeOverrideGroups" type="tnm:SurchargeOverrideGroup_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Details for Surcharge Override Groups referenced by ID under GuidelineRates (for AB)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

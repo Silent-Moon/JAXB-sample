@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by tusha (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.customer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:customer="http://com.oocl.schema.customer" targetNamespace="http://com.oocl.schema.customer" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- note to make sure the right way to import framework dependencies -->
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/PhoneNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Company_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CustomerSegment_V1.xsd"/>	
+	<xsd:include schemaLocation="CustomerBasicInformation_V1.xsd"/>
+	<xsd:include schemaLocation="CustomerSalesRepAssignment_V1.xsd"/>
+	<xsd:include schemaLocation="CustomerContact_V1.xsd"/>
+	<xsd:include schemaLocation="CustomerContactSpecification_V1.xsd"/>
+	<xsd:include schemaLocation="CustomerContact_V1.xsd"/>
+	<xsd:complexType name="Customer_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				Customer_V1 datatype extends the Company_V1 datatype that has name, address and alias.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="common:Company_V1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+				Customer datatype.  Each customer has basic information, alias, address, phone, sales rep assignment, contacts.
+			</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="BasicInformation" type="CustomerBasicInformation_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+					    Customer Basic Information contains the following customer attributes: Customer Company name, Sap ID, Iris2 ID, CargoSmart ID, Status, OfficeType and Last Update Date.  
+				   </xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Phones" type="common:PhoneNumber_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+						This is list of customer's PhoneNumber datatypes.
+					</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="SalesRepAssignments" type="CustomerSalesRepAssignment_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+						This is a type that defines the sales representative-to-customer mapping and the scope that the sales representative covers with regards to helping customers with their shipments with OOCL.
+					</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CustomerContacts" type="CustomerContact_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+						This is customer's contacts for an OOCL sales representative to communicate regarding business transactions between OOCL and the customer.
+					</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CustomerSegment" type="common:CustomerSegment_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation xml:lang="en">
+								Current segment information associated with this customer.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

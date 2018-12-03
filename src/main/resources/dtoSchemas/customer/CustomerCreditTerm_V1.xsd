@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="http://com.oocl.schema.customer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:framework="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.customer" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/SAP_ID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../tnm/TradeCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ShipmentBound_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ShipmentBound_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/MonetaryAmount_V1.xsd"/>
+	<xsd:complexType name="CreditTermSummary_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This provides credit term summary information associated to a given SAP ID.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PayerSAP_ID" type="common:SAP_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>SAP ID of queried customer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalCreditLimit" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The total credit limit that is assigned to the customer.  This is actually the total of Credit Limit assigned per Trade/Bound.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalOSAmountOfNSInvoices" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Total outstanding amount of non-shipment related invoices</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalOSAmountOfInvoicesWithCRTerms" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Total outstanding amount of shipment invoices that have credit terms</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalOSAmountOfShmtInvoicesWithoutCRTerms" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Total outstanding amount of shipment invoices that do not have credit terms</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreditTerms" type="CreditTerm_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Contains collection of Credit Terms</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreditStatus" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Status associated to the Credit. Valid values: SUSPENDED, REVOKED
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="10"/>
+						<xsd:enumeration value="SUSPENDED"/>
+						<xsd:enumeration value="REVOKED"/>
+						<xsd:enumeration value="APPROVED"/>
+						<xsd:enumeration value="REJECTED"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CreditStatusApprovalDate" type="framework:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Date when Credit Status was approved.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CreditTerm_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">Contains Credit Term Information.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SAP_ID" type="common:SAP_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>SAP ID of customer to whom the credit term is associated</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeCode" type="tnm:TradeCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Trade</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Bound" type="common:ShipmentBoundCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Bound</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreditDays" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Number of credit days allowed for the Trade/Direction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreditLimit" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Credit Limit allowed for this term</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OutstandingInvoiceAmount" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Outstanding Invoice amount in local currency</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreditBalance" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Credit Limit minus Total outstanding invoice amount</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreditTermStatus" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Status associated to the Credit Term. Valid values: Approved, Rejected
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="0"/>
+						<xsd:maxLength value="10"/>
+						<xsd:enumeration value="Approved"/>
+						<xsd:enumeration value="Rejected"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CreditTermStatusRequestDate" type="framework:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Request Date for current Credit Term Status
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

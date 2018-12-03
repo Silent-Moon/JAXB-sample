@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 (x64) (http://www.altova.com) by HUJI (Orient Overseas Container Line Limited) -->
+<xs:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="KeyValue_V1.xsd"/>
+	<xs:complexType name="NestedKeyValue_V1">
+		<xs:complexContent>
+			<xs:extension base="KeyValue_V1">
+				<xs:sequence>
+					<xs:element name="Next" type="NestedKeyValue_V1" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

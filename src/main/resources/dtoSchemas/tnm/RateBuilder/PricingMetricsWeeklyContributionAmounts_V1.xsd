@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Orlando Palis (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="PricingMetricsContributionAmountGroup_V1.xsd"/>
+	<xsd:complexType name="PricingMetricsWeeklyContributionAmounts_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents pricing metric contribution amounts for a certain week.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="YearWeek" type="xsd:int" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>This represents for what year and week the contribution is applicable. The last 2 digits represent the week-of-year and the remaining digits represent the year. The week number is derived using OOCL calendar week definition.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContributionAmounts" type="PricingMetricsContributionAmountGroup_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Pricing metric contribution group which consists of NonRepo, Repo, All-In-Revenue contributions and TEU counts.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

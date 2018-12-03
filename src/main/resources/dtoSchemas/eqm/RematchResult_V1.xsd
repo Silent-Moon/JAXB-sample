@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema"  targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:include schemaLocation="ContainerSlotInfo_V1.xsd" />
+	<xsd:include schemaLocation="UsagePlanInfo_V1.xsd" />
+	<xsd:include schemaLocation="Nomination_V1.xsd" />
+	<xsd:complexType name="RematchResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about the validate result and possible having new UsagePlan Information</xsd:documentation>
+		</xsd:annotation>	
+		<xsd:sequence>
+			<xsd:element name="Nomination" type="Nomination_V1" nillable="true"/>
+			<xsd:element name="IsValid" type="xsd:boolean"/>
+			<xsd:element name="NewUsagePlanInfo" type="UsagePlanInfo_V1" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common.lookup" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common.lookup" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../OrganizationLevel_V1.xsd"/>
+	<xsd:complexType name="OrganizationLookupElement_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the element of an organization search result.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Type">
+				<xsd:annotation>
+					<xsd:documentation>Organization type, Region or Office. Max. length is 6.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="6"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Code" type="common:EntityCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Organization code.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Name" type="common:EntityBriefName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Organziation name.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TerritoryCode" type="common:EntityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Territory code.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LocationFullyQualifiedName" type="common:FullyQualifiedName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Fully qualified name of a geographic location.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../RateTable_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TradeCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CustomerSegment_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CardinalDirection_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/DateRange_V1.xsd"/>
+	<xsd:complexType name="RateSearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a rate search request with mandatory and optional search criteria </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Trade" type="tnm:TradeCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the trade code. If not specified, it means the search can be for any trade code.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Tariff" type="tnm:TariffCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the tariff code. If not specified, it means the search can be for any tariff code.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Direction" type="common:CardinalDirectionName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the direction. If not specified, it means the search can be for any direction.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateTable" type="tnm:RateTable_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate table name and type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateLevel">
+				<xsd:annotation>
+					<xsd:documentation>Guideline Level:  1 - Sales MD; 2 - Sales; 3 - CSU; 4 - Public</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int">
+						<xsd:minInclusive value="1"/>
+						<xsd:maxInclusive value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Location" type="common:BasicLocationInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Location used for matching Origin and/or Destination</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestinationLocation" type="common:BasicLocationInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Location used for matching Destination</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerSegment" type="common:CustomerSegment_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Customer Segment specification. If not specified, it means the search can be for any customer segment.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchDateRange" type="common:DateRange_V1">
+				<xsd:annotation>
+					<xsd:documentation>The effective period criteria for the search (YYYY-MM-DD format)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchQuoteDateRange" type="common:DateRange_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The effective Quote period criteria for the search (YYYY-MM-DD-hh-mm format)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TliNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Piblished" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PublishedDateRange" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PublishedDate" type="fwd:FWLocalizedDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="IncludePricingMetrics" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Indicates whether or not the princing metrics information will be included along with each rate in the result. This is only applicable when searching for base rates.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+				<xsd:element name="IncludeAllVersions" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Indicates whether to bring all unrelated versions even though they do not result under eff period.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

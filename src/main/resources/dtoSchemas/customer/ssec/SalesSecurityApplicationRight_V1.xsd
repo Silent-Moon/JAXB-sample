@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="http://com.oocl.schema.customer.ssec" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ssec="http://com.oocl.schema.customer.ssec" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.customer.ssec" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:complexType name="SalesSecurityApplicationRight_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				Sales Security Application Rights is a combination of application/category name and the permission/s assigned when accessing associated sensitive data.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ApplicationName">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Application Name is the category to which security is being assigned.  Valid values are AGREEMENT, PERFORMANCE and FINANCE.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="AGREEMENT"/>
+						<xsd:enumeration value="PERFORMANCE"/>
+						<xsd:enumeration value="FINANCE"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="HasAccessToSensitiveData" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">This element indicates whether permission is given to access sensitive data associated to the corresponding application/category name.  A true value indicates permission to access sensitive data while a false value indicates permission to access non-sensitive data.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

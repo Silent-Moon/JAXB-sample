@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="SensitivityOnCustomerCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>get user sensitivity by user id and customer id</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="userID" type="xsd:string" >
+				<xsd:annotation>
+					<xsd:documentation>user domain id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="customerID" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>customer id list</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

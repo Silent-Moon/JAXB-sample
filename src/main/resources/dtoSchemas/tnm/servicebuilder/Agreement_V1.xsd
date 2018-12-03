@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="ServiceLevelCommitment_V1.xsd"/>
+	<xsd:include schemaLocation="ShippingParty_V1.xsd"/>
+	<xsd:include schemaLocation="../AgreementType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Agreement_ID_V1.xsd"/>
+	<xsd:complexType name="Agreement_V1">
+		<xsd:annotation>
+			<xsd:documentation>Agreement has a collection of SLCs and ShippingParties, represents all rate and srvc agreements</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ID" type="common:Agreement_ID_V1" minOccurs="0"/>
+			<xsd:element name="Version" type="xsd:short" minOccurs="0"/>
+			<xsd:element name="IsInternal" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="Commitments" type="tnm:ServiceLevelCommitment_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ShippingParties" type="SB_ShippingParty_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Type" type="tnm:AgreementType_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fw="http://com.oocl.frm.common.date.dto/" xmlns:eqm="http://com.oocl.schema.eqm" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Currency_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../PricingTransportMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../SurchargeType_V1.xsd"/>
+	<xsd:include schemaLocation="ServiceSimpleTypes_V1.xsd"/>
+	<xsd:include schemaLocation="DDChargeRule_V1.xsd"/>
+	<!--xsd:complexType name="DDFreeTime_V1">
+		<xsd:sequence>
+			<xsd:element name="FreeDays" type="xsd:string"/>
+			<xsd:element name="QuantityRange" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DDFreeTimeSpec_V1">
+		<xsd:sequence>
+			<xsd:element name="DayType" type="DayType_V1"/>
+			<xsd:element name="FreeTimeType" type="DDFreeTimeType_V1"/>
+			<xsd:element name="FreeTimes" type="DDFreeTime_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DDChargeRate_V1">
+		<xsd:sequence>
+			<xsd:element name="Amount" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Percentage" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DayRange" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DDChargeRateSpec_V1">
+		<xsd:sequence>
+			<xsd:element name="ChargeRateType" type="DDChargeRateType_V1"/>
+			<xsd:element name="Currency" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ChargeRates" type="DDChargeRate_V1" maxOccurs="unbounded"/>
+			<xsd:element name="SurchargeCode" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType-->
+	<xsd:complexType name="DDChargeSpecForDoc_V1">
+		<xsd:sequence>
+			<xsd:element name="ApplicableCargoNatures" type="xsd:string"/>
+			<xsd:element name="ApplicableSizeTypes" type="xsd:string"/>
+			<xsd:element name="IsSOC" type="xsd:boolean"/>
+			<xsd:element name="ChargeSpecRemarks" type="xsd:string"/>
+			<xsd:element name="FreeTime" type="DDFreeTimeSpec_V1" minOccurs="0"/>
+			<xsd:element name="ChargeRate" type="DDChargeRateSpec_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DDChargeRuleForDoc_V1">
+		<xsd:sequence>
+			<xsd:element name="DDType" type="DDType_V1"/>
+			<xsd:element name="Indicators" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>1 - isCarrier
+2 - isMerchant
+3 - isOutbound
+4 - isInbound
+5 - isInTransit
+6 - isReceivable
+7 - isCollectible
+8 - isGeneral</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Locations" type="xsd:long" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ChargeSpecs" type="DDChargeSpecForDoc_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by David Li (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="ShipmentBoundCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>A list of shipment bound code.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="IB"/>
+			<xsd:enumeration value="OB"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ShipmentBoundName_V1">
+		<xsd:annotation>
+			<xsd:documentation>A list of shipment bound name.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Inbound"/>
+			<xsd:enumeration value="Outbound"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

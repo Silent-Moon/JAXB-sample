@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with Stylus Studio 2008 by VARMA CHINTALAPATI (OOCL (USA) INC) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://com.oocl.schema.customer" targetNamespace="http://com.oocl.schema.customer" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="CustomerTaskStatus_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents the different statuses a Customer Task goes thru</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Completed"/>
+			<xsd:enumeration value="Cancelled"/>
+			<xsd:enumeration value="ReAssigned"/>
+			<xsd:enumeration value="New"/>
+			<xsd:enumeration value="Overdue"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

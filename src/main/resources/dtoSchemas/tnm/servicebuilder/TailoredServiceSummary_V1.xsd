@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CardinalDirection_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/DateRange_V1.xsd"/>
+	<xsd:include schemaLocation="ServiceTemplateName_V1.xsd"/>
+	<xsd:include schemaLocation="../TradeCode_V1.xsd"/>
+	<xsd:include schemaLocation="../TradeLaneCode_V1.xsd"/>
+	<xsd:include schemaLocation="../TariffCode_V1.xsd"/>
+	<xsd:complexType name="TailoredServiceSummary_V1">
+		<xsd:annotation>
+			<xsd:documentation>Tailored Service Summary List</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TemplateName" type="tnm:ServiceTemplateName_V1" minOccurs="0"/>
+			<xsd:element name="Trade" type="tnm:TradeCode_V1" minOccurs="0"/>
+			<xsd:element name="TradeLane" type="tnm:TradeLaneCode_V1" minOccurs="0"/>
+			<xsd:element name="Direction" type="common:CardinalDirectionName_V1" minOccurs="0"/>
+			<xsd:element name="Version" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="IsLatestVersion" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="TemplateVersion" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="TailoredServiceCustomerCount" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="OfferingDateTime" type="common:DateRange_V1" minOccurs="0"/>
+			<xsd:element name="ApplicationDateTime" type="common:DateRange_V1" minOccurs="0"/>
+			<xsd:element name="ValidWeeks" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1000"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Status" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="WorkspaceLink" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="500"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Tariffs" type="tnm:TariffCode_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

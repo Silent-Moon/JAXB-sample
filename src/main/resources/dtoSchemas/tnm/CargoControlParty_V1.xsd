@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="CargoControlParty_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents one of 3 possible values that is used for assigning a party as the Cargo Control Party.  The 3 values are Consignee, Shipper or Any. The value Any means either Consignee or Shipper</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Any"/>
+			<xsd:enumeration value="Consignee"/>
+			<xsd:enumeration value="Shipper"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

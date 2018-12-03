@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm.salesview" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:shipment="http://com.oocl.schema.shipment" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:eqm="http://com.oocl.schema.eqm" xmlns:salesview="http://com.oocl.schema.tnm.salesview" targetNamespace="http://com.oocl.schema.tnm.salesview" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- note to make sure the right way to import framework dependencies -->
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/TradeLane_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/CommitStatus_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/ShipmentNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/EquipmentNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/ContainerSizeType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Company_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ServiceLoopCode_V1.xsd"/>
+	<xsd:complexType name="BKG_PerformanceDetail_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en"/>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Status" type="shipment:CommitStatus_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Booking Commit Status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeLane" type="tnm:TradeLane_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Trade Lane</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FirstPortOfLoad" type="common:EntityLocationName_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">First Port of Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastPortOfDischarge" type="common:EntityLocationName_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Last Port Of Destination</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNature" type="common:CargoNatureCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Cargo Nature</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BookingNumber" type="shipment:ShipmentNumber_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Booking Number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerNumber" type="eqm:EquipmentNumber_V1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Container Number.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerSizeType" type="eqm:ContainerSizeType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Defines the size and type of containers that will be used to transport the cargo shipment.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Shipper" type="common:CompanyName_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Company name of Booking Shipper</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Consignee" type="common:CompanyName_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Company name of Booking Consignee</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BookingParty" type="common:CompanyName_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Company name of Booking - Booking Party</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Forwarder" type="common:CompanyName_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Company name of Booking Forwarder</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ControlParty" type="common:CompanyName_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Company name of Booking Control Party</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceLoopCode" type="common:ServiceLoopCode_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Service Loop Code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="VesselVoyage" type="xsd:string" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Vessel Voyage</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

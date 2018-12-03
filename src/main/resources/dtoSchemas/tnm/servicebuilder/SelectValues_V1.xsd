@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 sp1 U (http://www.xmlspy.com) by Rick Vera (OOCL (USA), Inc.) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="AllSBReferenceData_V1.xsd"/>
+	<xsd:include schemaLocation="TemplateSetting_V1.xsd"/>
+	<xsd:include schemaLocation="GenericReferenceData_V1.xsd"/>
+	<xsd:complexType name="SelectValues_V1">
+		<xsd:annotation>
+			<xsd:documentation>The list of all possible data values for user to select, CorporateLevelUsageGuidelines has usage information for capturing SLC for the specific Service Template.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PossibleReferenceData" type="tnm:AllSBReferenceData_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Settings" type="tnm:TemplateSetting_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="CorporateLevelUsageGuidelines" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1000"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,30 @@
+<!--  edited with XMLSpy v2008 (http://www.altova.com) by abrudho (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.customer.event" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.customer.event" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/SalesCode_V1.xsd"/>
+	<xsd:element name="SalesRepAssignment_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event for Sales Representative assignment data change (insert, update, delete)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="UUID" type="common:UUID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the CPF Sales Representative Assignment Unique ID which is equivalent to CPF_SALES_REP_ASSGMT.CPF_SALES_REP_ASSGMT_UUID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="SAP_ID" type="common:SAP_ID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the CPF SAP ID  which is equivalent to CPF_SALES_REP_ASSGMT.SAP_ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="SalesCode" type="tnm:SalesCode_V1">
+					<xsd:annotation>
+						<xsd:documentation>The sales code ID from CPF_SALES_REP_ASSGMT.SALES_CDE</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

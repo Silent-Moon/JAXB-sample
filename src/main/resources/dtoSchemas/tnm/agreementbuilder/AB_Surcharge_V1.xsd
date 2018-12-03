@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Currency_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../SurchargeType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../PaymentTerm_V1.xsd"/>
+	<xsd:include schemaLocation="AB_SimpleTypes_V1.xsd"/>
+	<xsd:complexType name="AB_Surcharge_V1">
+		<xsd:annotation>
+			<xsd:documentation>AB surcharges associated with container rate</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Flags" type="OptionFlags_V1">
+				<xsd:annotation>
+					<xsd:documentation>Set of boolean indicators implemented using binary arithmetic.
+					Current integer bit mask values are:
+					1 - IsOptional  (the charge should optionally be applied during auto-rating)
+					2 - ShowInOffer (Indicates to include the surcharge in the exported offer document)
+					4 - IsPerBL (Surcharge is a per BL charge)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SizeType" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>container sise and type or LCL unit that the rate is applicable</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SurchargeLeg" type="SurchargeLeg_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>rate leg where the surcharge incurred</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Code" type="tnm:SurchargeCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>surcharge code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChangeType" type="AB_SurchargeChangeType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>surcharge change type comparing customerized with standard</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Amount" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>surcharge amount</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Currency" type="common:CurrencyCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>surcharge currency, if null indicates it is a percentage rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MaxAmount" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>max surcharge amount if percentage amount applied is higher</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MinAmount" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>min surcharge amount if percentage amount applied is lower</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveFrom" type="AB_DateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>surcharge effective start date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveTo" type="AB_DateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>surcharge effective end date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PaymentTerm" type="tnm:PaymentTerm_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>payment term, either prepaid or collect</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GeoQualifiers" type="GeoQualifier_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The relate Geo location define in ocean surcharge</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SurchargeQualifiers" type="NamedQualifier_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The relate criteria define in ocean surcharge</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateQualifiers" type="NamedQualifier_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The relate criteria define in ocean surcharge</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SourceSurchargeUUID" type="common:UUID_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GeoQualifier_V1">
+		<xsd:sequence>
+			<xsd:element name="RelationID" type="xsd:int"/>
+			<xsd:element name="RelationType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="GeoID" type="xsd:long"/>
+			<xsd:element name="DisplayName" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NamedQualifier_V1">
+		<xsd:sequence>
+			<xsd:element name="ID" type="xsd:int"/>
+			<xsd:element name="Name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Value" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="AB_Surcharge" type="AB_Surcharge_V1"/>
+</xsd:schema>

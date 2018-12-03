@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard.aor" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.dashboard.aor" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/NameAndIdentifier_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/AbstractCommonFields_V1.xsd"/>
+	<xsd:include schemaLocation="EscalationGroup_V1.xsd"/>
+	<xsd:include schemaLocation="SkillGroupInheritance_V1.xsd"/>
+	<xsd:include schemaLocation="SkillGroupType_V1.xsd"/>
+	<xsd:include schemaLocation="SkillGroupID_V1.xsd"/>
+	<xsd:complexType name="SkillGroup_V1">
+		<xsd:annotation>
+			<xsd:documentation>Definition of a skill group - used for assignment of activities in Dashboard</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Id" type="SkillGroupID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the skillgroup id provided by AOR upon creation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Name" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Name of the skill group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsActive" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Specify whether or not the skill group is active</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Type" type="SkillGroupType_V1">
+				<xsd:annotation>
+					<xsd:documentation>Determine if the skill group is regional, local, or global</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Level" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>the level of how deep the skill group is in the tree</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OrganizationUnit" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the org unit the group belongs to</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SupervisorGroup" type="cmn:NameAndIdentifier_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the name of the Supervisor Group this skillgroup belongs to, If it's null that means it's inherited from another skillgroup</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SupervisorGroupInheritedFrom" type="cmn:NameAndIdentifier_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Specifiy which skill group to inherit the supervisor group from</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ParentSkillGroup" type="cmn:NameAndIdentifier_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the parent group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChildSkillGroupList" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of all the skill group by skill group id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Members" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Members that belong in the skillgroup</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EscalationGroup" type="EscalationGroup_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>3 levels of escalation groups for skill group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ModificationInfo" type="cmn:AbstractCommonFields_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Creation/Update info</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SkillGroup" type="SkillGroup_V1"/>
+</xsd:schema>

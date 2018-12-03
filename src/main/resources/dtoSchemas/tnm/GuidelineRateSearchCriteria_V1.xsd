@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" xmlns:iris2cp="http://com.oocl.schema.iris2cp" xmlns:eqm="http://com.oocl.schema.eqm" xmlns:ab="http://com.oocl.schema.tnm.agreementbuilder" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../eqm/ContainerType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.iris2cp" schemaLocation="../iris2cp/CP_CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/DeliveryMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm.agreementbuilder" schemaLocation="agreementbuilder/AB_SimpleTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CustomerSegment_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ServiceLoopCode_V1.xsd"/>
+	<xsd:include schemaLocation="TariffCode_V1.xsd"/>
+	<xsd:include schemaLocation="CargoNatureGroup_V1.xsd"/>
+	<xsd:include schemaLocation="CargoControlParty_V1.xsd"/>
+	<xsd:complexType name="GuidelineRateSearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a guideline rate search request with mandatory and optional search criteria </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PORSearchString" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>POR - Place of Origin (Retained for CargoSmart)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FNDSearchString" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>FND - Final Destination (Retained for CargoSmart)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Origin" type="common:BasicLocationInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Origin Location Information (Replaces PORSearchString)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Destination" type="common:BasicLocationInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Destination Location Information (Replaces FNDSearchString)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchDate" type="fwd:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>search date - YYYY-MM-DD format (example '2007-01-30')</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CommodityGroupID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>NP Commodity Group ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TariffCode" type="tnm:TariffCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Tariff Code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SpecialEquipment" type="eqm:ContainerType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Special Equipment type </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNature" type="iris2cp:CP_CargoNatureCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>CargoNature (Should be 
+AD - Awkward Dangerous
+AW - Awkward 
+DG - Dangerous 
+GC - General Cargo
+RD - Reefer Dangerous
+RF - Reefer) (Retained for CargoSmart)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNatureGroupID" type="CargoNatureGroupID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The ID of a corresponding CargoNatureGroup_V1 type (Replaces CargoNature)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchForRate20" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>search for rates with rate20 (true/false)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchForRate40" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>search for rates with rate40 (true/false)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchForRate40H" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>search for rates with rate40H (true/false)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchForRate45" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>search for rates with rate45 (true/false)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchForRateNonPc" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>search for rates with rate NonPC (true/false)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DeliveryMode" type="common:DeliveryMode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Delivery Mode, can be 
+YY - Yard to Yard
+YD -Yard to Door
+DY - Door to Yard
+DD - Door to Door</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Level" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Guideline Level:  1 - Sales MD; 2 - Sales; 3 - CSU; 4 - Public</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int">
+						<xsd:minInclusive value="1"/>
+						<xsd:maxInclusive value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Flags" type="ab:OptionFlags_V1">
+				<xsd:annotation>
+					<xsd:documentation>Bit map integer to be used for various attribute flags related search.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoControlPartyRole" type="tnm:CargoControlParty_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Cargo control party role, can be Any, Consignee or Shipper</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerSegment" type="common:CustomerSegment_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Represents the Customer Segment specification. If not specified, it means the search can be for any customer segment.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="QuoteSearchDate" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>quote search date - YYYY-MM-DD HH:MM:SS format (example '2007-01-30 12:00:00')</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IncludeFutureEffectiveRates" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Indicates whether or not future effective rates should be included in the result</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsForPublicReg" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Indicates whether search is for public regulated tables only or not</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="OriginViaSearchString" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Origin via location that must be matched in the outbound shipment route (For public regulated rates)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestinationViaSearchString" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Origin via location that must be matched in the inbound shipment route (For public regulated rates)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TLINum" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Tariff line item number to be matched (For public regulated rates)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Basis" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Basis values that must be matched (For public regulated rates)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceLoopCode" type="common:ServiceLoopCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Service loop code which must be found on the shipment route (For public regulated rates)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Keywords" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Keywords that must be searched in the commodity and notes (For public regulated rates)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CarrierId" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Id for Multiple carrier</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.ivr" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.ivr" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/NetworkAddress_V1.xsd"/>
+	<xsd:simpleType name="WrapupDescription_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a simple type that defines the length of WrapupDesc
+	    </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="256"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AgentID_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a simple type that defines the length of AgentID
+	    </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="8"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="UniversalPassword_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a simple type that defines the length of Universal Password
+	  </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="16"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TelephoneNumber_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a simple type that defines the length of Hotline
+	    </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="8"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="InstanceID_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a simple type that defines the length of InstanceID
+	    </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="11"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="InstanceName_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a simple type that defines the length of Instance Name
+	    </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="50"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IVR_SessionID_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a simple type that defines the length of IVR session id
+	    </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="12"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IVR_SessionName_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a simple type that defines the length of IVR session name
+	    </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="50"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="WrapupFreeText_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a simple type that defines the length of Wrap Up Free Text
+	    </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="256"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="CallCenterLoginInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a complext type that defines the content of Call Center Login Info which will be used by
+			call representative clients. AgentID , Universal password , and also the instance name and ID of the
+			corresponding Hotline , office information , CTIOS list , and the Global Wrap up list would be included. 
+	  </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AgentID" type="AgentID_V1"/>
+			<xsd:element name="UniversalPassword" type="UniversalPassword_V1"/>
+			<xsd:element name="Hotlines" type="Hotline_V1" maxOccurs="unbounded"/>
+			<xsd:element name="OfficeInfos" type="OfficeInfo_V1" maxOccurs="unbounded"/>
+			<xsd:element name="CTIOS_Infos" type="common:NetworkEndPoint_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">This is a complext type that defines the IP adddress and the port number of the CTIOS servers that the agent can connect to.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GlobalWrapupInfos" type="GlobalWrapupInfo_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Hotline_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a complext type that defines the information of Hotline. A flag namely IsBackupHotline is used for indicating whether
+			the hotline is a backup hotline or not. The instanceMap of the holine and the office code of the hotline
+			are also included.
+	  </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="HotlineNumber" type="TelephoneNumber_V1"/>
+			<xsd:element name="OfficeCode" type="common:EntityLocationCode_V1"/>
+			<xsd:element name="IsBackupHotline" type="xsd:boolean"/>
+			<xsd:element name="InstanceMaps" type="InstanceMap_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InstanceMap_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a complext type that defines the information of InstanceMap. InstanceID and Instanename would be included in this type, which 
+			is used for displaying customer 's navigation in the call flow used by call representative clients. 
+	  </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ID" type="InstanceID_V1"/>
+			<xsd:element name="Name" type="InstanceName_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OfficeInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a complext type that defines the information of OfficeInfo. Office code , Office Wrap up list, and CTIOS 
+			list would be included in this type. 
+	  </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Code" type="common:EntityLocationCode_V1"/>
+			<xsd:element name="Wrapup" type="OfficeWrapup_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OfficeWrapup_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a complext type that defines the information of OfficeWrapUp , which is a list storing the wrapup id
+			and wrap up description of the office.WrapupID and WrapupDesc are the ID of the Wrap Up option and
+			the description of the Wrap Up option respectively. 
+	  </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ID" type="common:EntityLocationCode_V1"/>
+			<xsd:element name="Description" type="WrapupDescription_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GlobalWrapupInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a complext type that defines the information of GlobalWrapInfo, which is a list storing the wrapup id
+			and wrap up description of the globally. WrapupID and WrapupDesc are the ID of the Wrap Up option and
+			the description of the Wrap Up option respectively. 
+	  </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ID" type="common:EntityLocationCode_V1"/>
+			<xsd:element name="Description" type="WrapupDescription_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OfficeWrapupOption_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a complext type that defines the content of OfficeWrapUpOption which will be used by
+			call representative supervisor. Office code , and also the WrapupOption would be included. 
+	  </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OfficeCode" type="common:EntityLocationCode_V1"/>
+			<xsd:element name="WrapupOptions" type="WrapupOption_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WrapupOption_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a complext type that defines the information of WrapupOption. WrapupId and WarpupSeq and is also included.
+	  </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ID" type="common:EntityLocationCode_V1"/>
+			<xsd:element name="Sequence" type="common:EntityCode_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AgentWrapupData_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This is a complext type that defines the content of AgentWrapUpData which will be used by
+			call representative Agent. IVR Session ID , IVR Server name, WrapUp ID and also the 
+			Wrap Up Free Text would be included. 
+	  </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="IVR_SessionID" type="IVR_SessionID_V1"/>
+			<xsd:element name="IVR_SessionName" type="IVR_SessionName_V1"/>
+			<xsd:element name="WrapupID" type="common:EntityLocationCode_V1"/>
+			<xsd:element name="WrapupFreeText" type="WrapupFreeText_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Windy OR (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:iodt="http://com.oocl.frm.common.date.dto/" xmlns:epa="http://com.oocl.schema.epa" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:include schemaLocation="NominationConfirmationInfo_V1.xsd"/>
+	<xsd:include schemaLocation="UsagePlanInfo_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.epa" schemaLocation="../epa/AppointmentInfo_V1.xsd"/>
+	<xsd:simpleType name="ChangeType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the type of changes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="100"/>
+			<xsd:enumeration value="NominateIBTriangulation"/>
+			<xsd:enumeration value="TerminateBooking"/>
+			<xsd:enumeration value="UpdateShipmentRouteDestinationOrLastIBHubDate"/>
+			<xsd:enumeration value="ContainerTransfer"/>
+			<xsd:enumeration value="UpdateEmptyReturnLocation"/>
+			<xsd:enumeration value="ReactivateShipmentFromTerminatedBooking"/>
+			<xsd:enumeration value="BackendRouteUpdate"/>
+			<xsd:enumeration value="BackendLastIBHubDateTimeUpdate"/>
+			<xsd:enumeration value="BackendRolloverTransfer"/>
+			<xsd:enumeration value="BackendEmptyPickupDateUpdate"/>
+			<xsd:enumeration value="UsagePlanUpdatedPickupLocation"/>
+			<xsd:enumeration value="UsagePlanUpdatedToInvalidDropOff"/>
+			<xsd:enumeration value="UsagePlanUpdatedOtherUsagePlanInfo"/>
+			<xsd:enumeration value="UsagePlanUpdatedWithOutResetEmptyPickupLocation"/>
+			<xsd:enumeration value="ShipmentUpdateRequireNotifyCSU"/>
+			<xsd:enumeration value="DirectNominationChange"/>
+			<xsd:enumeration value="UsagePlanLocatedOnReuseHub"/>
+			<xsd:enumeration value="NewAppointment"/>
+			<xsd:enumeration value="MatchAppointment"/>
+			<xsd:enumeration value="AmendAppointment"/>
+			<xsd:enumeration value="CancelAppointment"/>
+			<xsd:enumeration value="UpdateMatching"/>
+			<xsd:enumeration value="AmendBooking"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="MatchingInfoChangeInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about the change of matching related information</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ChangeType" type="ChangeType_V1" minOccurs="0"/>
+			<xsd:element name="ChangeBy" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ChangeTimeGMT" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="BookingNumber" type="xsd:string" nillable="true"/>
+			<xsd:element name="ContainerSlotID" type="xsd:string" nillable="true"/>
+			<xsd:element name="TransferToBookingNumber" type="xsd:string" nillable="true"/>
+			<xsd:element name="TransferToContainerSlotID" type="xsd:string" nillable="true"/>
+			<xsd:element name="NominationConfirmationInfo" type="NominationConfirmationInfo_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="UsagePlanInfo" type="UsagePlanInfo_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AppointmentInfo" type="epa:AppointmentInfo_V1" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" xmlns:eqm="http://com.oocl.schema.eqm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="Tariff_V1.xsd"/>
+	<xsd:include schemaLocation="ChargeGroup_V1.xsd"/>
+	<xsd:include schemaLocation="GuidelineSurcharge_V1.xsd"/>
+	<xsd:include schemaLocation="InlandRate_V1.xsd"/>
+	<xsd:include schemaLocation="OceanRate_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/DateRange_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../eqm/ContainerType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/DeliveryMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ServiceLoopCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/LocationName_V1.xsd"/>
+	<xsd:complexType name="GuidelineRate_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a guideline rate containing an ocean rate and up to 4 inland/port arbitrary add-on rates</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the CustomerName</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SinceOOCLDT" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the SinceOOCLDT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OutboundInlandRate1" type="tnm:InlandRate_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The first outbound inland rate.  If present, the location of this rate is always the point of receipt.  Otherwise the point of receipt is (one of) the Trunk origin(s).  The over location must match with either OB2 Location or Trunk Origin (if OB2 is not present)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OutboundInlandRate2" type="tnm:InlandRate_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>An optional outbound inland rate.  If present, the location must match with the over location of OB1 and the over location of this rate must match with the origin of the Trunk.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BaseRate" type="tnm:OceanRate_V1">
+				<xsd:annotation>
+					<xsd:documentation>The BaseRate = trunk / ocean rate.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InboundInlandRate1" type="tnm:InlandRate_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The inbound rate connecting to the destination of the trunk.  If there is only one inbound rate (IB2 is not present), then this rate will have the final destination.  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InboundInlandRate2" type="tnm:InlandRate_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>A second inbound rate which connects to the first inbound rate to arrive at a final destination.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DeliveryMode" type="common:DeliveryMode_V1">
+				<xsd:annotation>
+					<xsd:documentation>2 char string representing the delivery mode associated with the rate.  YY for example is a Container Yard to Container Yard move, whereas DD is a door to door move.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceLoopCodes" type="common:ServiceLoopCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of service loop codes which must be found on the shipment route for the rate to be applicable</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SpecialContainerTypes" type="eqm:ContainerType_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of container type codes which must be found on the shipment size type for the rate to be applicable</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNatureGroupID" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>The ID of a corresponding CargoNatureGroup_V1 type which specifies rate applicability for different cargo natures</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveDateRange" type="common:DateRange_V1">
+				<xsd:annotation>
+					<xsd:documentation>The effective from and to dates for which the rate is applicable(YYYY-MM-DD format)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POL" type="common:EntityLocationName_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Port of Load, holds the names of the ports - there can be multiple in some cases, change this to LocationName_V1</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POD" type="common:EntityLocationName_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Port of Discharge, holds the names of the ports - there can be multiple in some cases</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Level" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Guideline Level:  1 - Sales MD; 2 - Sales; 3 - CSU; 4 - Public.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int">
+						<xsd:minInclusive value="1"/>
+						<xsd:maxInclusive value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FinalOrigin" type="common:BasicLocationInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Matched/Selected Origin of the guideline rate search</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FinalDestination" type="common:BasicLocationInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Matched/Selected Destination of the guideline rate search</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CarrierId" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Id for Multiple carrier</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

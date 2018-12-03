@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.customer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:customer="http://com.oocl.schema.customer" targetNamespace="http://com.oocl.schema.customer" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="ContentFormat">
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="TEXT"/>
+			<xsd:enumeration value="BINARY"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ContentTransfer_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about transfer of content from one domain area to another</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Type" type="xsd:string"/>
+			<xsd:element name="Format" type="customer:ContentFormat">
+				<xsd:annotation>
+					<xsd:documentation>info regarding format i.e. bin or text</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Name" type="xsd:string"/>
+			<xsd:element name="ValueInString" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>the value in string format</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValueInBinary" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>the value in binary format</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

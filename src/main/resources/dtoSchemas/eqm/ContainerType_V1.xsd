@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="ContainerType_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="2"/>
+				<xsd:enumeration value="AC"/> 	   
+				<xsd:enumeration value="BK"/>	   
+				<xsd:enumeration value="FL"/>	   
+				<xsd:enumeration value="GP"/> 	   
+				<xsd:enumeration value="GX"/>	   
+				<xsd:enumeration value="HG"/>	   
+				<xsd:enumeration value="HH"/>	   
+				<xsd:enumeration value="HQ"/> 	   
+				<xsd:enumeration value="HX"/>	   
+				<xsd:enumeration value="IH"/>	   
+				<xsd:enumeration value="LQ"/> 	   
+				<xsd:enumeration value="MU"/>	   
+				<xsd:enumeration value="OS"/>	   
+				<xsd:enumeration value="OT"/> 	   
+				<xsd:enumeration value="PL"/> 	   
+				<xsd:enumeration value="RF"/> 	   
+				<xsd:enumeration value="RQ"/> 	   
+				<xsd:enumeration value="SJ"/>	   
+				<xsd:enumeration value="TF"/>	   
+				<xsd:enumeration value="TK"/> 	   
+				<xsd:enumeration value="VT"/> 	   
+				<xsd:enumeration value="XX"/> 
+				<!-- Added by Venus , 2012-06-27 -->
+				<xsd:enumeration value="OQ"/> 	   
+				<xsd:enumeration value="FQ"/> 	   
+				<xsd:enumeration value="SR"/> 
+				<!-- Added by Jeremy , 2013-09-25 -->	   
+				<xsd:enumeration value="QG"/> 
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>
+ 
+ 

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="http://com.oocl.schema.customer.ssec" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ssec="http://com.oocl.schema.customer.ssec" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.customer.ssec" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd"/>
+	<xsd:complexType name="SalesSecuritySharingMeans_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				Contains the Sharing Means details.  Includes reason for user access as well as sharer information.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SharingReason">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Contains the sharing means on how user gained access to customer information.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="DIRECT"/>
+						<xsd:enumeration value="SALES_MANAGER"/>
+						<xsd:enumeration value="LEAD_EXECUTIVE"/>
+						<xsd:enumeration value="DELEGATE"/>
+						<xsd:enumeration value="INSIDE_SALES"/>
+						<xsd:enumeration value="SHARING_RULE"/>
+						<xsd:enumeration value="GLOBAL_ACCESS"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Sharer" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">User ID value should be a valid CDRIVE User ID.  This represents the user who shared the customer access.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="isContributor" type="xsd:boolean" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Indicates whether this sharing reason is a contributor to enable the current customer permission assigned to the user.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

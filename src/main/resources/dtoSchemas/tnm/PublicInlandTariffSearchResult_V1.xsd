@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="InlandTariff_V1.xsd"/>
+	<xsd:include schemaLocation="WeightGroup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ValidationError_V1.xsd"/>
+	<xsd:complexType name="PublicInlandTariffSearchResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents an inland rate search result containing one rate information or validation errors if any. For more info on inland rate, refer to InlandRate_V1. (Note: The inland rate search is applicable only to a specific set of inland rate tables which is to be provided for production rollout.)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="InlandTariffs" type="tnm:InlandTariff_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of matching inland tariffs</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValidationErrors" type="common:ValidationError_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Optional collection of validation errors when no rate is found. See ValidationError for more details.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReferencedWeightGroups" type="tnm:WeightGroup_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Details for weight groups referenced by ID under InlandTariffs.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

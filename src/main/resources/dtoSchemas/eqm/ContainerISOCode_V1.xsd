@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://com.oocl.schema.eqm">
+	<xsd:complexType name="ContainerISOCode_V1">
+		<xsd:sequence>
+			<xsd:element name="SizeTypeGroup" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SizeTypeCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SizeTypeDesc" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

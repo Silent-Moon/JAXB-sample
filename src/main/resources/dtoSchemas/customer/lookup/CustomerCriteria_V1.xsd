@@ -1,0 +1,50 @@
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by tusha (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.customer.lookup" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.customer.lookup" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/City_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SAP_ID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/IRIS2_ID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CargoSmart_ID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Company_V1.xsd"/>
+	<xsd:complexType name="CustomerCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>A complex type that represents the basic search criteria for a customer.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerName" type="common:CompanyName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Represents the various details of the customer like customer name, address, phone number, sales representative information, 	 and different IDs.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="City" type="common:CityLevel_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Specifies the city with which a customer can be searched.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SAP_ID" type="common:SAP_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Specifies the SAPID with which a customer can be searched.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Customer_ID" type="common:IRIS2_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Specifies the IRIS2ID with which a customer can be searched.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoSmart_ID" type="common:CargoSmart_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Specifies the CargoSmartID with which a customer can be searched.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

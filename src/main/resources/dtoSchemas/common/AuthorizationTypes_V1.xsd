@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="UserProfileTypes_V1.xsd"/>
+	<xsd:complexType name="UserPermission_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about permissions for a feature</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FeatureID" type="FeatureID_V1"/>
+			<xsd:element name="PermissionValue" type="PermissionValue_V1"/>
+			<xsd:element name="QualifierValues" type="QualifierValueInfomation_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AuthorizationFeature_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about a feature</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FeatureID" type="FeatureID_V1"/>
+			<xsd:element name="FeatureName" type="FeatureName_V1"/>
+			<xsd:element name="FeatureDescription" type="FeatureDescription_V1"/>
+			<xsd:element name="PermissionStyle" type="PermissionStyle_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="QualifierIdentity_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about a qualifier type</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="QualifierType" type="QualifierName_V1"/>
+			<xsd:element name="QualifierKind" type="QualifierKind_V1"/>
+			<xsd:element name="QualifierTypeDesc" type="QualifierDescription_V1" minOccurs="0"/>
+			<xsd:element name="SourceType" type="QualifierSource_V1"/>
+			<xsd:element name="SourceAttribute" type="QualifierSourceAttribute_V1" minOccurs="0"/>
+			<xsd:element name="TargetType" type="QualifierTarget_V1" minOccurs="0"/>
+			<xsd:element name="TargetAttribute" type="QualifierTargetAttribute_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="QualifierValueInfomation_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about a qualifier value</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="QualifierType" type="QualifierIdentity_V1"/>
+			<xsd:element name="QualifierValue" type="QualifierValue_V1"/>
+			<xsd:element name="QualifierValueName" type="QualifierValueName_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UserPermissionSnapshot_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about a snapshot of a user's permissions.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Username" type="Username_V1"/>
+			<xsd:element name="AuthenticationToken" type="AuthenticationToken_V1"/>
+			<xsd:element name="UserPermissions" type="UserPermission_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="FeatureID_V1">
+		<xsd:annotation>
+			<xsd:documentation>9 digit feature ID</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PermissionValue_V1">
+		<xsd:annotation>
+			<xsd:documentation>Value to determine permissions</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:short">
+			<xsd:totalDigits value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="QualifierKind_V1">
+		<xsd:annotation>
+			<xsd:documentation>Qualifier Kind, either relational or constant</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Constant"/>
+			<xsd:enumeration value="Relational"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="QualifierDescription_V1">
+		<xsd:annotation>
+			<xsd:documentation>Description of the qualifier</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AuthenticationToken_V1">
+		<xsd:annotation>
+			<xsd:documentation>Token from authentication framework</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FeatureName_V1">
+		<xsd:annotation>
+			<xsd:documentation>Name of the Feature</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="256"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FeatureDescription_V1">
+		<xsd:annotation>
+			<xsd:documentation>Description of the feature</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PermissionStyle_V1">
+		<xsd:annotation>
+			<xsd:documentation>Holds the mask value for which permission can be assigned.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:short">
+			<xsd:totalDigits value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="QualifierName_V1">
+		<xsd:annotation>
+			<xsd:documentation>Name of the Qualifier.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="256"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="QualifierSource_V1">
+		<xsd:annotation>
+			<xsd:documentation>Source Type of Qualifier (Relational)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="256"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="QualifierSourceAttribute_V1">
+		<xsd:annotation>
+			<xsd:documentation>Source attribute of Qualifier (Relational)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="256"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="QualifierTarget_V1">
+		<xsd:annotation>
+			<xsd:documentation>Target Type of Qualifier (Relational)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="256"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="QualifierTargetAttribute_V1">
+		<xsd:annotation>
+			<xsd:documentation>Target attribute of Qualifier (Relational)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="256"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="QualifierValueName_V1">
+		<xsd:annotation>
+			<xsd:documentation>Qualfiier Description</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="QualifierValue_V1">
+		<xsd:annotation>
+			<xsd:documentation>Value of the Qualfiier</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="256"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

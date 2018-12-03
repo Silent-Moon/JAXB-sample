@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+  <xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+
+  <xsd:complexType name="AuthorizationRequest_V1">
+    <xsd:sequence>
+      <xsd:element name="AuthorizationNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="AuthorizationType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ContractNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EffectiveDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="ExpiryDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="ExternalAuthorizationReference" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="RuName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="OnHireLocation" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

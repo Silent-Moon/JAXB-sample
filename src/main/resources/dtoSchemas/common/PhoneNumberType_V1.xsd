@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="PhoneNumberType_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				Type refers to the contact number type associated to the contact number.
+				May include: Business Phone/Fax, Home Phone/Fax, Mobile Phone, Pager, Telex or Unspecified.					
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BusinessPhone"/>
+			<xsd:enumeration value="HomePhone"/>
+			<xsd:enumeration value="BusinessFax"/>
+			<xsd:enumeration value="HomeFax"/>
+			<xsd:enumeration value="MobilePhone"/>
+			<xsd:enumeration value="Pager"/>
+			<xsd:enumeration value="Telex"/>
+			<xsd:enumeration value="Unspecified"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

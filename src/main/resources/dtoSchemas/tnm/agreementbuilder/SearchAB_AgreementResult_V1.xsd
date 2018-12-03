@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 (x64) (http://www.altova.com) by HUJI (Orient Overseas Container Line Limited) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Company_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ValidationError_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementReference_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TradeLaneDirection_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TNM_SimpleTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementStatus_V1.xsd"/>
+	<xsd:include schemaLocation="ServiceSimpleTypes_V1.xsd"/>
+	<xsd:include schemaLocation="OceanOfferRate_V1.xsd"/>
+	<xsd:include schemaLocation="GetAgreementSimpleData_V1.xsd"/>
+	<xsd:complexType name="ABSearchResultMap_V1">
+		<xsd:annotation>
+			<xsd:documentation>this is a generic key/value map to store any search result attribute</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AttributeName" type="xsd:string"/>
+			<xsd:element name="AttributeValue" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LightweightQuoteRow_V1">
+		<xsd:sequence>
+			<xsd:element name="ObjectID" type="common:ID_LongNumeric_V1" minOccurs="0"/>
+			<xsd:element name="QuoteNumber" type="tnm:AgreementID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="QuoteVersion" type="tnm:AgreementVersion_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement version</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="QuoteType" type="tnm:AgreementType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerNames" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>ACP Customer name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerRoles" type="common:BasicDescription_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Customer's shipping roles</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerSapIDs" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="CustomerRoleIDs" type="xsd:int" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="QuoteStatus" type="tnm:AgreementStatus_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CommodityGroupNames" type="common:BasicDescription_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Commodity group name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNatureGroupID" type="tnm:CargoNatureGroupID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Cargo nature code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveDate" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement effective date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExpiryDate" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement expiry date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OriginNames" type="common:EntityLocationName_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Origin name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POL_Names" type="common:EntityLocationName_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>POL name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="POD_Names" type="common:EntityLocationName_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>POD name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestinationNames" type="common:EntityLocationName_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Destination name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ServiceLoops" type="common:ServiceLoopCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Service loop code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeLanes" type="tnm:TradeLaneCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Trade lane code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NamedCustomerName" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Named customer name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Affiliates" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>ACP Customer name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastUpdatedBy" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Last update user id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastUpdated" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Last update date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SalesOfficeCodes" type="common:OfficeCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Sales office code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsLatestVersion" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Is this the latest Quote</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HasViewPermission" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Does user has permission to view this quote</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HasEditPermission" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Does user has permission to edit this quote</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UserEditAccessCarrierGroupID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="UserViewAccessCarrierGroupID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LastSentDate" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Date Agreement was last sent to Customer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OriginRegions" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Region codes eg:CHF, BGN, 545, THI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestinationRegions" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Region codes eg:CHF, BGN, 545, THI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OriginTerritories" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>eg: AP, NA,HQ,EU</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestinationTerritories" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>eg: AP, NA,HQ,EU</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Created" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Created date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreatedBy" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Created by user id</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MoreAttributes" type="ABSearchResultMap_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Use this generic field to accommodate any new attributes need to be retrieved. </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LightweightRateRow_V1">
+		<xsd:sequence>
+			<xsd:element name="ObjectID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate unique ID. May not be displayed in UI search result. To be used to retrive the rate easily by this unique rate id.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementID" type="tnm:AgreementID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AgreementVersion" type="tnm:AgreementVersion_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Agreement version</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateID" type="common:ID_Integer_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate/Unit ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerNames" type="common:CompanyName_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Customer name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OriginNames" type="common:EntityLocationName_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Origin names</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestinationNames" type="common:EntityLocationName_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Destination names</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Status" type="OfferRateStatus_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate Activation status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateApprovalStatus" type="OfferRateApprovalStatus_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate Approval status</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AutoApproval" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Auto approval</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CommodityGroup" type="common:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Commodity group name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNatureGroupID" type="tnm:CargoNatureGroupID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Cargo nature code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Rate20" type="tnm:RateString_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate description for all 20 foot ContainerRate(s)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Rate40" type="tnm:RateString_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate description for all 40 foot ContainerRate(s)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Rate40H" type="tnm:RateString_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate description for all 40 foot high ContainerRate(s)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Rate45" type="tnm:RateString_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate description for all 45 foot ContainerRate(s)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveDate" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate effective date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExpiryDate" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate expiry date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValidityExpirationDate" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Date when the offer rate is expired</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HasViewPermission" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Does user have permission to view this rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HasEditPermission" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Does user have permission to edit this rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UserEditAccessCarrierGroupID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="UserViewAccessCarrierGroupID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LastSentDate" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Date the rate was last sent out</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CommodityDescription" type="common:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Origin names</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreatedOn" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Time the rate is created</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreatedBy" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>User who creates the rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastUpdated" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Time of the last update</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastUpdatedBy" type="common:UserID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Person who made the last update</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SalesOffice" type="common:OfficeCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Office where the rate is created</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Tariffs" type="tnm:TariffCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Tariff codes applicable for the rate. A booking has only a single tariff and it must be one of these in order to use the rate</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeLaneDirection" type="tnm:TradeLaneDirection_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>TradeLane and Direction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExternalReference" type="common:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>External reference, it can be CSO number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsPCT" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>PCT indicator</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SendSkipped" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Is Sending Skipped or By-passed</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ManuallyActivated" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Is the rate manually activated</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsOpenBiz" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Open Biz indicator</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OriginRegions" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Region codes eg:CHF, BGN, 545, THI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestinationRegions" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Region codes eg:CHF, BGN, 545, THI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OriginTerritories" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>eg: AP, NA,HQ,EU</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestinationTerritories" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>eg: AP, NA,HQ,EU</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Remarks" type="RateRemark_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Rate remarks</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsRegulatedRate" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Regulated Rate indicator</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IgnoredSVCTypes" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="MoreAttributes" type="ABSearchResultMap_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Use this generic field to accommodate any new attributes need to be retrieved. </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LightweightServiceRow_V1">
+		<xsd:sequence>
+			<xsd:element name="ObjectID" type="common:ID_LongNumeric_V1"/>
+			<xsd:element name="AgreementID" type="tnm:AgreementID_V1"/>
+			<xsd:element name="ServiceID" type="common:ID_Integer_V1"/>
+			<xsd:element name="ServiceType" type="ServiceType_V1"/>
+			<xsd:element name="CustomerNames" type="common:CompanyName_V1" maxOccurs="unbounded"/>
+			<xsd:element name="Tariffs" type="tnm:TariffCode_V1" maxOccurs="unbounded"/>
+			<xsd:element name="OriginNames" type="common:EntityLocationName_V1" maxOccurs="unbounded"/>
+			<xsd:element name="DestinationNames" type="common:EntityLocationName_V1" maxOccurs="unbounded"/>
+			<xsd:element name="ActivationStatus" type="ServiceActivationStatus_V1"/>
+			<xsd:element name="ApprovalStatus" type="ServiceApprovalStatus_V1"/>
+			<xsd:element name="AutoApproved" type="xsd:boolean"/>
+			<xsd:element name="SendSkipped" type="xsd:boolean"/>
+			<xsd:element name="ManuallyActivated" type="xsd:boolean"/>
+			<xsd:element name="CommodityDesc" type="common:BasicDescription_V1"/>
+			<xsd:element name="CargoNatureGroupID" type="tnm:CargoNatureGroupID_V1"/>
+			<xsd:element name="EffectiveDate" type="fwd:FWAbsoluteDateTimeDTO"/>
+			<xsd:element name="ExpiryDate" type="fwd:FWAbsoluteDateTimeDTO"/>
+			<xsd:element name="LinkedReferences" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="LinkedCustomers" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="HasViewPermission" type="xsd:boolean"/>
+			<xsd:element name="HasEditPermission" type="xsd:boolean"/>
+			<xsd:element name="UserEditAccessCarrierGroupID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="UserViewAccessCarrierGroupID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CreatedOn" type="fwd:FWAbsoluteDateTimeDTO"/>
+			<xsd:element name="CreatedBy" type="common:UserID_V1"/>
+			<xsd:element name="LastUpdated" type="fwd:FWAbsoluteDateTimeDTO"/>
+			<xsd:element name="LastUpdatedBy" type="common:UserID_V1"/>
+			<xsd:element name="SalesOffice" type="common:OfficeCode_V1"/>
+			<xsd:element name="MoreAttributes" type="ABSearchResultMap_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Use this generic field to accommodate any new attributes need to be retrieved.
+Newly added attributes:
+1. ServiceDesc
+</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerSizes" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ContainerTypes" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SearchAB_AgreementResult_V1">
+		<xsd:sequence>
+			<xsd:element name="AgreementRows" type="LightweightQuoteRow_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="RateRows" type="LightweightRateRow_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ServiceRows" type="LightweightServiceRow_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="HasSensitiveAccess" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="CanPerformCUD" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="UserEditAccessCarrierGroupID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="UserViewAccessCarrierGroupID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Exception" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ValidationErrors" type="common:ValidationError_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="IsSuccessful" type="xsd:boolean"/>
+			<xsd:element name="SimpleQueryResult" type="SimpleQueryResult_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

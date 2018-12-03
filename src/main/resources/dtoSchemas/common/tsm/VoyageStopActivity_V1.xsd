@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Kalyan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common.tsm" 
+xmlns:dashboard="http://com.oocl.schema.dashboard" xmlns:common="http://com.oocl.schema.common" xmlns:frm="http://com.oocl.frm.common.date.dto/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common.tsm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ExternalVoyageReference_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/SailingScheduleState_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<!--xsd:import namespace="http://com.oocl.schema.dashboard" schemaLocation="../../dashboard/DSH_CommonTypes_V1.xsd"/-->
+	<xsd:include schemaLocation="VoyageStop_V1.xsd"/>
+	<xsd:element name="VoyageStopActivity_V1" type="VoyageStopActivity_V1">
+		<xsd:annotation>
+			<xsd:documentation>Activity for Voyage Stop</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="VoyageStopActivity_V1">
+		<xsd:annotation>
+			<xsd:documentation>Activity for Voyage Stop</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="VoyageStopInfo" type="VoyageStop_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Voyage Stop info for Voyage</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>		
+			<xsd:element name="Type" type="common:ID_String_V1">
+				<xsd:annotation>
+					<xsd:documentation>Type of the activity like TASK,Notification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Code" type="common:ID_String_V1">
+				<xsd:annotation>
+					<xsd:documentation>Activity Code from activity definition from Dashboard </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SendOnDate" type="frm:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Adjusted send on date calculated by dashboard using the send on date rule.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ScheduleState" type="common:SailingScheduleState_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents the state of sailing schedule like longterm, coastal, actual.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="PlannedDate" type="frm:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Planned Date of Voygae Stop like ETD/ETA or LTA/LTD of local time.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="ExtVoyageReference" type="common:ExternalVoyageReference_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the External Voyage reference.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OffsetInMinutes" type="common:ID_Integer_V1">
+				<xsd:annotation>
+					<xsd:documentation>offset value in Minutes like before or after of the reference date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="IsMigrated" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>This represents the migrated voyage or not</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>				
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

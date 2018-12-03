@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+  <xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/UpdateResult_V1.xsd"/>
+
+  <xsd:complexType name="Equipment_V1">
+    <xsd:sequence>
+      <xsd:element name="Comment" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ControlParty" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CreateBy" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CreateDtGmt" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="CurrCond" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CurrLoc" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CurrStatus" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CurrSubCond" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CurrSubStatus" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DateInServiceGmt" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="EqpId" type="xsd:long"/>
+      <xsd:element name="EqpManufacturer" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EqpMonthBuild" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EqpNum" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EqpOwner" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EqpType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EqpYearBuild" type="xsd:int"/>
+      <xsd:element name="IsNominated" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LastMovementEventDTGmt" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="LastMovementEventType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="NextLoc" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="NominatedBy" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="NominatedDTGmt" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="PicVersionNum" type="xsd:long"/>
+      <xsd:element name="SizeTypeCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SizeTypeGrp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SizeTypeId" type="xsd:long"/>
+      <xsd:element name="UpdateBy" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="UpdateClientId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="UpdateDtGmt" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="UpdateResult" type="common:UpdateResult_V1" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

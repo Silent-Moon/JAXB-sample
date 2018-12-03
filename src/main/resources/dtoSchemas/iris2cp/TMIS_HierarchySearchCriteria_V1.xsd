@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) -->
+<xsd:schema xmlns="http://com.oocl.schema.iris2cp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.iris2cp" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="TMIS_HierarchySearchCriteriaDetail_V1.xsd"/>
+	<xsd:complexType name="TMIS_HierarchySearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>TMIS Hierarchy Search Criteria contains a list of TMIS Hierarchy Search Criteria Details </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TMIS_HierarchySearchCriteriaDetail" type="TMIS_HierarchySearchCriteriaDetail_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>This is a TMIS Hierarchy Search Criteria Detail</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

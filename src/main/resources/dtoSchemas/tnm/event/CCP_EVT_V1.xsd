@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- edited with XMLSpy v2008 (http://www.altova.com)  -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ccp"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://com.oocl.schema.common"
+	 targetNamespace="http://com.oocl.schema.tnm.ccp"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ActionType_V1.xsd"/>
+	<xsd:element name="CCP_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event for CCP Default/Exception/RatingReference Rules </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="CCP_ID" type="common:UUID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is equivalent to CCP Default/Exception/RatingReference ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			<xsd:element name="ActionType" type="common:ActionTypeName_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents Cargo Control Party  Action Type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

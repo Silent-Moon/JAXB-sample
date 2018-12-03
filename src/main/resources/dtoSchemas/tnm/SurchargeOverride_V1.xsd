@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="SurchargeType_V1.xsd"/>
+	<xsd:include schemaLocation="ChargeGroup_V1.xsd"/>	
+	<xsd:complexType name="SurchargeOverride_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a range of weight which can be associated with a guideline rate.  For example, 100 TEU per week and above gets our best rate!</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SurchargeCodes" type="tnm:SurchargeCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The surcharge code for which a special override has been setup, same level can have multiple subject to surcharge code overrides hence a array.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Charges" type="tnm:ChargeGroup_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The amount of the override charges for each important pricing dimension.  Will be missing if the code should be charged based on current tariff rules rather than a fixed amount.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TargetLevel" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The pricing level of the target guideline rate level for which the override applies.  Currently this is either 2 - Sales, or 3 - CSU.  Current biz rules state that the override applies for all levels above the one captured here up to and not including the public rate.  Public guideline rates always follow the published tariff and cannot have an override imposed.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int">
+						<xsd:minInclusive value="1"/>
+						<xsd:maxInclusive value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

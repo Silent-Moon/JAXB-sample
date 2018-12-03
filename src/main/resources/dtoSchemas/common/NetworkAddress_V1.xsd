@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="IP_Address_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the IP address in the format xxx.xxx.xxx.xxx</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NetworkPortID_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represets a port ID associated with Networking (Could be logical or physical)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="NetworkEndPoint_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a Network Node (Has both IP Address and Port)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="IP" type="IP_Address_V1"/>
+			<xsd:element name="Port" type="NetworkPortID_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

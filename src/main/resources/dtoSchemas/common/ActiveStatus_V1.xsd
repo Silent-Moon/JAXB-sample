@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Jeffrey Feliciano (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="ActiveStatus_V1">
+		<xsd:annotation>
+			<xsd:documentation>Simple type to represent a status that relates to a cut-off time</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Active"/>
+			<xsd:enumeration value="Inactive"/>
+			<xsd:enumeration value="All"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

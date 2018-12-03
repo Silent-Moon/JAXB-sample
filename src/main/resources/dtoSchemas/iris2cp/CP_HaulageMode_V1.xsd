@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.iris2cp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.iris2cp" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="CP_HaulageMode_V1">
+		<xsd:annotation>
+			<xsd:documentation>2 char string representing the delivery mode associated with the rate.  Valid values will be a combination of Y, D, S, O, R with the exception of SS .  Note that the list was created to accomodate display of already obsolete values existing in non-CDRIVE applications (i.e. PRISM).  Therefore it is not to be used for displaying CDRIVE related information.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2"/>
+			<xsd:minLength value="2"/>
+			<xsd:enumeration value="DD"/>
+			<xsd:enumeration value="DO"/>
+			<xsd:enumeration value="DR"/>
+			<xsd:enumeration value="DS"/>
+			<xsd:enumeration value="DY"/>
+			<xsd:enumeration value="OD"/>
+			<xsd:enumeration value="OO"/>
+			<xsd:enumeration value="OR"/>
+			<xsd:enumeration value="OS"/>
+			<xsd:enumeration value="OY"/>
+			<xsd:enumeration value="RD"/>
+			<xsd:enumeration value="RO"/>
+			<xsd:enumeration value="RR"/>
+			<xsd:enumeration value="RS"/>
+			<xsd:enumeration value="RY"/>
+			<xsd:enumeration value="SD"/>
+			<xsd:enumeration value="SO"/>
+			<xsd:enumeration value="SR"/>
+			<xsd:enumeration value="SY"/>
+			<xsd:enumeration value="YD"/>
+			<xsd:enumeration value="YO"/>
+			<xsd:enumeration value="YR"/>
+			<xsd:enumeration value="YS"/>
+			<xsd:enumeration value="YY"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

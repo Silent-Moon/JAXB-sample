@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.csal" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:frm="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.csal" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="LocationCriteria_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Region_V1.xsd"/>
+	<xsd:complexType name="LocationCommitmentCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation> this is a schema for Location Commitment Criteria</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ID" type="common:ID_String_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents CSAL ID  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Category" type="LocationCriteriaCategory_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents location criteria category </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Type" type="LocationCriteriaType_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents location criteria type </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GeoLocation" type="common:BasicLocationInformation_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Basic Geo Location Information </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Region" type="common:Region_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Region </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

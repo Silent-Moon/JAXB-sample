@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="CargoSmart_ID_V1.xsd"/>
+	<xsd:include schemaLocation="ServiceAction_V1.xsd"/>
+	<xsd:include schemaLocation="ServiceRequestType_V1.xsd"/>
+	<xsd:include schemaLocation="URI_V1.xsd"/>
+	<xsd:include schemaLocation="CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="ServiceRequest_V1">
+		<xsd:sequence>
+			<xsd:element name="ID" type="ID_String_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Unique ID for Service Request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Type" type="EntityName_V1">
+				<xsd:annotation>
+					<xsd:documentation>to indicate which type of ServiceRequest have been create,like"RailBilling"</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Action" type="ServiceRequestAction_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Service Request Action like "Create", "Cancel"</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoSmartID" type="CargoSmart_ID_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>CargoSmartID is the unique identifier for a given Customer .</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="URL" type="URI_StringFormat_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>URL is the open up service request in CCSC.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

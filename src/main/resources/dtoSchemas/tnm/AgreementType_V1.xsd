@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="AgreementType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Agreement type, like CSO, SC, AB</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+			<xsd:enumeration value="CSO">
+				<xsd:annotation>
+					<xsd:documentation>Customized Service Offering</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RA">
+				<xsd:annotation>
+					<xsd:documentation>Rate Agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SA">
+				<xsd:annotation>
+					<xsd:documentation>Service Agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SUR">
+				<xsd:annotation>
+					<xsd:documentation>Surcharge Agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SC">
+				<xsd:annotation>
+					<xsd:documentation>Service Contract</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TSO">
+				<xsd:annotation>
+					<xsd:documentation>Territorial Customized Service Offering</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TSA">
+				<xsd:annotation>
+					<xsd:documentation>Territorial Service Agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AB">
+				<xsd:annotation>
+					<xsd:documentation>Agreement Builder</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

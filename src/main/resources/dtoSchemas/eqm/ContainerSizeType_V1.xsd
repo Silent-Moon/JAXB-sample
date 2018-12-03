@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://com.oocl.schema.eqm">
+	<xsd:include schemaLocation="ContainerSize_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerType_V1.xsd"/>
+	<xsd:complexType name="ContainerSizeType_V1">
+		<xsd:sequence>
+			<xsd:element name="Size" type="ContainerSize_V1"/>
+			<xsd:element name="Type" type="ContainerType_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Kent Williamson (OOCL (USA) INC) -->
+<!--  Created Oct 10, 2007  -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+<xsd:include schemaLocation="RateReportDetail_V1.xsd"/>
+<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/BasicLocationInformation_V1.xsd"/>
+<xsd:complexType name="RateReportMaster_V1">
+<xsd:annotation>
+<xsd:documentation>RateReport object, used to encapsulate all all specific data</xsd:documentation>
+</xsd:annotation>
+<xsd:sequence>
+<xsd:element name="Id" type="xsd:string" minOccurs="0"/>
+<xsd:element name="Levels" type="xsd:string" minOccurs="0"/>
+<xsd:element name="Origins" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:element name="Destinations" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded"/>
+<xsd:element name="RateDetails" type="RateReportDetail_V1" minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="NewsTypes_V1.xsd"/>
+	<xsd:include schemaLocation="UserProfileTypes_V1.xsd"/>
+	<xsd:complexType name="FavoritesElement_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information for favorite element</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FavoriteID" type="HomepageID_V1"/>
+			<xsd:element name="ParentFavoriteId" type="HomepageID_V1" minOccurs="0"/>
+			<xsd:element name="FavoriteName" type="FavoriteName_V1"/>
+			<xsd:element name="Sequence" type="Sequence_V1"/>
+			<xsd:element name="IsFolder" type="xsd:boolean"/>
+			<xsd:element name="FavoriteValue" type="FavoriteValue_V1" minOccurs="0"/>
+			<xsd:element name="FavoriteAction" type="FavoriteAction_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Shortcut_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information for shortcut</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ShortcutId" type="HomepageID_V1"/>
+			<xsd:element name="IsFolder" type="xsd:boolean"/>
+			<xsd:element name="ParentShortcutId" type="HomepageID_V1" minOccurs="0"/>
+			<xsd:element name="ShortcutName" type="ShortcutName_V1"/>
+			<xsd:element name="LaunchType" type="LaunchType_V1" minOccurs="0"/>
+			<xsd:element name="LaunchData" type="LaunchData_V1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ToolbarButton_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information for toolbar button</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Sequence" type="Sequence_V1"/>
+			<xsd:element name="ButtonName" type="ButtonName_V1"/>
+			<xsd:element name="ButtonAction" type="ButtonValue_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ToolbarConfig_V1">
+		<xsd:annotation>
+			<xsd:documentation>Toolbar configurations</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="IsFunctionalToolbarSelected" type="xsd:boolean"/>
+			<xsd:element name="Toolbars" type="Toolbar_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Toolbar_V1">
+		<xsd:annotation>
+			<xsd:documentation>Toolbar information</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ToolbarName" type="ToolbarName_V1"/>
+			<xsd:element name="IsSelected" type="xsd:boolean"/>
+			<xsd:element name="Sequence" type="Sequence_V1"/>
+			<xsd:element name="Buttons" type="ToolbarButton_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HomepagePreference_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about user's homepage settings</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="UserFavorites" type="FavoritesElement_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="UserVisibleComponents" type="VisibleComponent_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="UserNews" type="UserNews_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="UserShortcuts" type="UserShortcut_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="UserToolbar" type="ToolbarConfig_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UserNews_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about what news user has.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="UserId" type="Username_V1"/>
+			<xsd:element name="HasRead" type="xsd:boolean"/>
+			<xsd:element name="Article" type="News_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UserShortcut_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information about what shortcuts users set up</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="IsFolder" type="xsd:boolean"/>
+			<xsd:element name="Sequence" type="Sequence_V1"/>
+			<xsd:element name="Shortcut" type="Shortcut_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VisibleComponent_V1">
+		<xsd:annotation>
+			<xsd:documentation>Information for visible component</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Component" type="ComponentName_V1"/>
+			<xsd:element name="Width" type="xsd:integer"/>
+			<xsd:element name="Height" type="xsd:integer"/>
+			<xsd:element name="Location" type="CartesianCoordinate"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="ButtonName_V1">
+		<xsd:annotation>
+			<xsd:documentation>Name of the Toolbar Button</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="256"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ButtonValue_V1">
+		<xsd:annotation>
+			<xsd:documentation>Toolbar Button processing information</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="1024"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ComponentName_V1">
+		<xsd:annotation>
+			<xsd:documentation>Name of Visible Component</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FavoriteAction_V1">
+		<xsd:annotation>
+			<xsd:documentation>Favorite element processing command</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="1024"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FavoriteName_V1">
+		<xsd:annotation>
+			<xsd:documentation>Name of the favorite element.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="256"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FavoriteValue_V1">
+		<xsd:annotation>
+			<xsd:documentation>Values used for favorite actions</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="HomepageID_V1">
+		<xsd:annotation>
+			<xsd:documentation>Unique ID used for homepage.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:totalDigits value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LaunchData_V1">
+		<xsd:annotation>
+			<xsd:documentation>Shortcut Data used for the launch.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="1024"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LaunchType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Shortcut launch type.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Sequence_V1">
+		<xsd:annotation>
+			<xsd:documentation>Keeps track of the sequence order of elements to display</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:totalDigits value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ShortcutName_V1">
+		<xsd:annotation>
+			<xsd:documentation>Name of the shortcut</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="256"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ToolbarName_V1">
+		<xsd:annotation>
+			<xsd:documentation>Name of the toolbar</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="HomepagePreference" type="HomepagePreference_V1"/>
+	<xsd:complexType name="UserProfileHomepage_V1">
+		<xsd:annotation>
+			<xsd:documentation>UserProfile with Homepage Settings</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="UserProfile_V1">
+				<xsd:sequence>
+					<xsd:element ref="HomepagePreference"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="CartesianCoordinate">
+		<xsd:annotation>
+			<xsd:documentation>Co-ordinate system</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="X" type="xsd:integer"/>
+			<xsd:element name="Y" type="xsd:integer"/>
+			<xsd:element name="Z" type="xsd:integer" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

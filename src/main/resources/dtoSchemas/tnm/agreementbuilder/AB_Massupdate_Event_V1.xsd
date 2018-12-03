@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:element name="AB_Massupdate_Event_V1">
+		<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="RequestID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the unique ID of an AB Massupdate Request - Oracle sequence generated</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RequestMessageType" type="common:ID_Integer_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ID of the message type when process massupdate request.
+						0 - MASSUPDATE_CREATE_SINGLE_QI_RECORD
+						1 - MASSUPDATE_NOTIFICATION
+						2 - MASSUPDATE_PUBLISH_SINGLE_QI_MESSAGE
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateObjectID" type="common:ID_LongNumeric_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the rate object ID in the massupdate request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalQantity" type="common:ID_Integer_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is theTotal Qantity in the massupdate request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

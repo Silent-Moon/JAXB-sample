@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.dashboard" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="JMS_DestinationType">
+		<xsd:annotation>
+			<xsd:documentation>Type of JMS Destinations - supported for registration</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Topic"/>
+			<xsd:enumeration value="Queue"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LinerDashboardClientMessageType">
+		<xsd:annotation>
+			<xsd:documentation>Supported message types for subscription</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="DSH_CLIENT_NOTIFICATION"/>
+			<xsd:enumeration value="DSH_CLIENT_TASK"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="RegisterClient_V1">
+		<xsd:annotation>
+			<xsd:documentation>Schema used to register an EMS Destination and user ID combination to - Currently this set of data is used to register the channel thru with the Rich Client receives updates from the Server. This registration allows for the same user to be logged into multiple machines.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="UserID" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>ID of User to be used for register</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MessageType" type="LinerDashboardClientMessageType">
+				<xsd:annotation>
+					<xsd:documentation>Type of Message this destination should receive</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Destination" type="EMS_Destination_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EMS_Destination_V1">
+		<xsd:annotation>
+			<xsd:documentation>Type to provide complete information for an destination to be registered</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Name of EMS Destination</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestinationType" type="JMS_DestinationType">
+				<xsd:annotation>
+					<xsd:documentation>EMS Destination Type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UnregisterClient_V1">
+		<xsd:annotation>
+			<xsd:documentation>Schema to request server to remove registrations for a particular session of user ID</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="UserID" type="xsd:string"/>
+			<xsd:element name="Registrations" type="RegistrationEntry_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ClientRegistryEntry_V1">
+		<xsd:annotation>
+			<xsd:documentation>Entry for storing client reqistration in Coherence Cache Server</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="UserID" type="xsd:string"/>
+			<xsd:element name="MessageType" type="LinerDashboardClientMessageType"/>
+			<xsd:element name="Destination" type="EMS_Destination_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RegistrationEntry_V1">
+		<xsd:annotation>
+			<xsd:documentation>Combination of Message Type and destination info</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="MessageType" type="LinerDashboardClientMessageType"/>
+			<xsd:element name="Destination" type="EMS_Destination_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RegisterClient" type="RegisterClient_V1">
+		<xsd:annotation>
+			<xsd:documentation>Root Element for Registration messages</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="UnregisterClient" type="UnregisterClient_V1">
+		<xsd:annotation>
+			<xsd:documentation>Root Element for UnRegistration messages</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

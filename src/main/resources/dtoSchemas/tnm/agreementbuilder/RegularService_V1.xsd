@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fw="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="ServiceSpec_V1">
+		<xsd:sequence>
+			<xsd:element name="Name" type="xsd:string"/>
+			<xsd:element name="Value" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ServiceRecovery_V1">
+		<xsd:sequence>
+			<xsd:element name="ShippingUnit" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Recovery" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Cost" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Competitor" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CompetitorRate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SubjectTo" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RegularService_V1">
+		<xsd:sequence>
+			<xsd:element name="ServiceDesc" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ShippingUnits" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ServiceRecoveries" type="ServiceRecovery_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ServiceSpecs" type="ServiceSpec_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

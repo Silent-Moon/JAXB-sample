@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://com.oocl.schema.eqm">
+	<xsd:simpleType name="EquipmentType_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Container"/>
+			<xsd:enumeration value="Chassis"/>
+			<xsd:enumeration value="Genset"/>
+			<xsd:enumeration value="FlatRack"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

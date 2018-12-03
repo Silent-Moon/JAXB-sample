@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cmn="http://com.oocl.schema.common" xmlns:cmnlookup="http://com.oocl.schema.common.lookup" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common.lookup" schemaLocation="../common/lookup/GeoLocationLookupElement_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Currency_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ExchangeRate_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/HSCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ServiceLoop_V1.xsd"/>
+	<xsd:include schemaLocation="Trade_V1.xsd"/>
+	<xsd:include schemaLocation="TradeLane_V1.xsd"/>
+	<xsd:include schemaLocation="TradeLaneDirection_V1.xsd"/>
+	<xsd:include schemaLocation="Tariff_V1.xsd"/>
+	<xsd:include schemaLocation="SurchargeType_V1.xsd"/>
+	<xsd:include schemaLocation="IMDG_Category_V1.xsd"/>
+	<xsd:include schemaLocation="VendorRole_V1.xsd"/>
+	<xsd:complexType name="SalesCityHierarchy_V1">
+		<xsd:sequence>
+			<xsd:element name="CityUUID" type="xsd:string"/>
+			<xsd:element name="OfficeCode" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SalesOfficeHierarchy_V1">
+		<xsd:sequence>
+			<xsd:element name="OfficeCode" type="xsd:string"/>
+			<xsd:element name="RegionCode" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SalesRegionHierarchy_V1">
+		<xsd:sequence>
+			<xsd:element name="RegionCode" type="xsd:string"/>
+			<xsd:element name="TerritoryCode" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GetLatestTradeDataResult_V1">
+		<xsd:sequence>
+			<xsd:element name="GeoLocations" type="cmnlookup:GeoLocationLookupElement_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Currencies" type="cmn:Currency_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ExchangeRates" type="cmn:ExchangeRate_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Trades" type="Trade_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="TradeLanes" type="TradeLane_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Tariffs" type="Tariff_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ServiceLoops" type="cmn:ServiceLoop_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="SurchargeTypes" type="SurchargeType_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="HSCodes" type="cmn:HSCode_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="IMDGs" type="IMDG_Category_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="VendorRoles" type="VendorRole_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="SalesCityHierarchies" type="SalesCityHierarchy_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="SalesOfficeHierarchies" type="SalesOfficeHierarchy_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="SalesRegionHierarchies" type="SalesRegionHierarchy_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

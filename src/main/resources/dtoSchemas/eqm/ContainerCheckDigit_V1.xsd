@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://com.oocl.schema.eqm" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="ContainerCheckDigit" type="ContainerCheckDigit_V1">
+		<xs:annotation>
+			<xs:documentation>Check digit used to identify the container</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:simpleType name="ContainerCheckDigit_V1">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

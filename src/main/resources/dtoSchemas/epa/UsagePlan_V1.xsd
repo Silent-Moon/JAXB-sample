@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Windy OR (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.epa" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:framework="http://com.oocl.frm.common.date.dto/" xmlns:eqm="http://com.oocl.schema.eqm" targetNamespace="http://com.oocl.schema.epa" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ShipmentNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../eqm/FacilityUnCondInventoryInfo_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../eqm/Nomination_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:element name="UsagePlan_V1">
+		<xsd:annotation>
+			<xsd:documentation>Define the event for UsagePlan</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="BookingNumber" type="common:ShipmentNumber_V1">
+					<xsd:annotation>
+						<xsd:documentation>Booking#</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="MaxNumOfPickupFacilities" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>Max number of pickup facilities</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="PriorityListOfFacility" type="eqm:FacilityUnCondInventoryInfo_V1">
+					<xsd:annotation>
+						<xsd:documentation>Priority list of faciltiy</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="MatchEquipmentResult" type="eqm:Nomination_V1" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

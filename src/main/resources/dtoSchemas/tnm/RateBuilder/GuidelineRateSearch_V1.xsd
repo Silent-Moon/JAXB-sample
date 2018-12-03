@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tnm.ratebuilder="http://com.oocl.schema.tnm.ratebuilder" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="GuidelineRateSearchInfo_V1.xsd"/>
+	<xsd:complexType name="GuidelineRateSearch_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents data used in searching guideline rates.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SearchInfos" type="GuidelineRateSearchInfo_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of guideline rate search info. Each search info consists of a pair of search criteria and search result.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShowCheckbox" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Indicates whether the checkbox column should be shown or not when rendering the UI.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

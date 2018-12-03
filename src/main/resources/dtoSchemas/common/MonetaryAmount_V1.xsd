@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tnm="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="Currency_V1.xsd"/>
+	<xsd:complexType name="MonetaryAmount_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a monetary amount.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Value" type="xsd:decimal">
+				<xsd:annotation>
+					<xsd:documentation>The numeric value of the amount.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Currency" type="Currency_V1">
+				<xsd:annotation>
+					<xsd:documentation>The currency of the numeric value.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

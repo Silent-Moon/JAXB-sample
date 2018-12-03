@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by HUJI (Orient Overseas Container Line Ltd) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" xmlns:eqm="http://com.oocl.schema.eqm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="Tariff_V1.xsd"/>
+	<xsd:include schemaLocation="ChargeGroup_V1.xsd"/>
+	<xsd:include schemaLocation="CargoNatureGroup_V1.xsd"/>
+	<xsd:include schemaLocation="GuidelineSurcharge_V1.xsd"/>
+	<xsd:include schemaLocation="PricingTransportMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/AbstractCommonFields_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ShipmentBound_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/DateRange_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/SingleEndDeliveryMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../eqm/ContainerType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ServiceLoopCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ShipmentBound_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ZIP_Code_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/NameAndIdentifier_V1.xsd"/>
+	<xsd:simpleType name="InlandCode_V1">
+		<xsd:annotation>
+			<xsd:documentation>Will be IHL/IHD/ARB/ARD</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+			<xsd:minLength value="3"/>
+			<xsd:enumeration value="IHL">
+				<xsd:annotation>
+					<xsd:documentation>Inland Haulage at Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ARB">
+				<xsd:annotation>
+					<xsd:documentation>Arbitrary Outport Charge at Load</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="IHD">
+				<xsd:annotation>
+					<xsd:documentation>Inland Haulage at Discharge</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="ARD">
+				<xsd:annotation>
+					<xsd:documentation>Arbitrary Outport Charge at Discharge</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="InlandRate_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents an inland rate</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="common:AbstractCommonFields_V1">
+				<xsd:sequence>
+					<xsd:element name="RateUUID" type="common:UUID_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Unique identifier for this inland rate.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="RateID" type="common:ID_LongNumeric_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>An automatically generated running number when a new rate is added/appended/inserted into the respective rate tables.  This id will be a unique key of rates within a rate table.  With this, user will be able to upload rate changes for a portion of a rate table.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="RateTableID" type="common:ID_LongNumeric_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Inland rate table ID which the inland rate is from.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Description" type="common:BasicDescription_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>An optional text description of the Inland Rate containing location, over location and other qualifier info</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="DeliveryMode" type="common:SingleEndDeliveryMode_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>String representing the delivery mode associated with the inland rate.  CY for example is a Container Yard, whereas Door is a door move.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Locations" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of the NP unique IDs corresponding to the Origin GeoLocations</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="OverLocations" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of the NP unique IDs corresponding to the Destination GeoLocations</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ViaLocations" type="common:BasicLocationInformation_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of the NP unique IDs corresponding to the Origin via GeoLocations.  Origin via locations must be present on the outbound shipment route for the rate to be applicable.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="TransportModes" type="tnm:PricingTransportMode_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of transport modes which must be found on the outbound shipment route for the rate to be applicable</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ServiceLoopCodes" type="common:ServiceLoopCode_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of service loop codes which must be found on the shipment route for the rate to be applicable</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="SpecialContainerTypes" type="eqm:ContainerType_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Collection of container type codes which must be found on the shipment size type for the rate to be applicable</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IsSOC" type="xsd:boolean" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Ocean rate is applicable only for Shipper Owned Containers when this is true. and may only apply to container owned containers when this is false.   When absent, the rate may apply to both shipper owned containers and carrier owned containers</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CargoNatureGroupID" type="CargoNatureGroupID_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The ID of a corresponding CargoNatureGroup_V1 type which specifies rate applicability for different cargo natures</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="WeightGroupID" type="common:ID_LongNumeric_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The ID of a corresponding WeightGroup_V1 type which specifies rate applicability for a specific weight tier (This old version is retained for Public Tariff use)</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="WeightGroup" type="common:NameAndIdentifier_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The Name and ID of a corresponding WeightGroup_V1 type which specifies rate applicability for a specific weight tier</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ChargeGroup" type="tnm:ChargeGroup_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Charge group which contain the actual guideline rates per container dimension and rate level</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Surcharges" type="tnm:GuidelineSurcharge_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>The list of applicable included and subject to surcharges.  This information may be computed from IRIS-2 ocean surcharges.  Included surcharges are sourced from Rate Builder.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="EffectiveDateRange" type="common:DateRange_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The effective period of the inland rate (YYYY-MM-DD format)</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Remarks" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Will have the remarks like Door Delivery/Pickup or Iland in/out bound information</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Code" type="InlandCode_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Will be IHL/IHD/ARB/ARD</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Bound" type="common:ShipmentBoundCode_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Indicates that add-on rate is for IB (inbound) or OB (outbound) use. Available values are IB or OB. Blank means good for both.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="OverMode" type="common:SingleEndDeliveryMode_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Indicates the mode of over shipment. It can be either Door (Carrier Haulage) or CY (Merchant haulage).</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="PortArbitrary" type="xsd:boolean" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Specify if inland rates get applied to port arbitrary. If the value is true, then the rate is port arbitrary. If false, then the rate is an inland rate.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="PostalCode" type="common:ZIP_Code_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Specific postal code. It is used to represent a collection of city under the same postal code.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CommodityGroupID" type="common:ID_LongNumeric_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The ID of a corresponding CommodityGroup_V1 type which specifies rate applicability for different cargo commodities (This old version is retained for Public Tariff use)</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CommodityGroup" type="common:NameAndIdentifier_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The Name and ID of a corresponding TieredCommodity_V1 type which specifies rate applicability for different cargo commodities</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CargoNatureGroup" type="CargoNatureGroup_V1" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>CargoNatureGroup which specifies rate applicability for different cargo natures.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="PublishedDate" type="fwd:FWLocalizedDateTimeDTO" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="InlandRate" type="InlandRate_V1">
+		<xsd:annotation>
+			<xsd:documentation>This element is needed for java object creation</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

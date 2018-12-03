@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="DND_Type_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			This Type holds on to the DND type.  Code is mandatory while Name is not as its a more common practice that we have the direction code instead of the name.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Code" type="DND_Code_V1"/>
+			<xsd:element name="Name" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="DND_Name_V1"/>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="DND_Code_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+			<xsd:enumeration value="DEM">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						   Demurrage
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DET">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						   Detention
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DD">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						   Demurrage - Detention or 2-in-1
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="STG">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						   QuayRent
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RMC">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						   Rmc
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DND_Name_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+			   DND_Name
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="40"/>
+			<xsd:enumeration value="Demurrage"/>
+			<xsd:enumeration value="Detention"/>
+			<xsd:enumeration value="DetentionDemurrage"/>
+			<xsd:enumeration value="QuayRent"/>
+			<xsd:enumeration value="Rmc"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

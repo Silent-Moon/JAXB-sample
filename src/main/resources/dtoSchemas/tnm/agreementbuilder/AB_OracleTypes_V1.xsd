@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Jianming Hu (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:customer="http://com.oocl.schema.customer" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!--Complex Wrapper types are needed since 10.2 Oracle XMLDB does not support indexing unbounded simple types -->
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="ID_LongNumeric_Collection_V1">
+		<xsd:sequence>
+			<xsd:element name="ID_Wrappers" type="ID_LongNumeric_Wrapper_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ID_LongNumeric_Wrapper_V1">
+		<xsd:sequence>
+			<xsd:element name="Value" type="common:ID_LongNumeric_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ID_String_Collection_V1">
+		<xsd:sequence>
+			<xsd:element name="StringWrappers" type="ID_String_Wrapper_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ID_String_Wrapper_V1">
+		<xsd:sequence>
+			<xsd:element name="Value" type="common:ID_String_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LocationID_Collection_V1">
+		<xsd:sequence>
+			<xsd:element name="ID_Wrappers" type="ID_Wrapper_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ID_Wrapper_V1">
+		<xsd:sequence>
+			<xsd:element name="Value" type="common:ID_LongNumeric_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IncludedHS_CodeCollection_V1">
+		<xsd:sequence>
+			<xsd:element name="StringWrappers" type="StringWrapper_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OfficeCodeCollection_V1">
+		<xsd:sequence>
+			<xsd:element name="StringWrappers" type="StringWrapper_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SAP_ID_Collection_V1">
+		<xsd:sequence>
+			<xsd:element name="StringWrappers" type="StringWrapper_V1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="StringWrapper_V1">
+		<xsd:sequence>
+			<xsd:element name="Value">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="256"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

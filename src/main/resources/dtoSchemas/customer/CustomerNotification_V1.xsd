@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with Stylus Studio 2008 by VARMA CHINTALAPATI (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.customer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:fwdt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.customer" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/StringKeyValuePair_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ExternalUserType_V1.xsd"/>
+	<xsd:include schemaLocation="CustomerNotificationType_V1.xsd"/>
+	<xsd:complexType name="CustomerNotification_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the notification customer</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Application" type="common:ID_String_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of the application to which the customer task is related</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SentDate" type="fwdt:FWAbsoluteDateTimeDTO" nillable="false" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Date the notification was sent to the customer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Reference" type="common:StringKeyValuePair_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Reference type and number saved with the notification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Recipients" type="common:ExternalUserType_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>User(s) who received the notification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NotificationID" type="common:UUID_V1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>A unique number NM_UUID that is assigned to the notification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Channel" type="common:ID_String_V1" nillable="false">
+				<xsd:annotation>
+					<xsd:documentation>Notification delivery channel</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="Subject" type="common:ID_String_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>subject of the notification</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="ToAddress" type="common:NonStructuredText_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the notification recipient address</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NotifType" type="CustomerNotificationType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents the customer notification type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,34 @@
+<!--  edited with XMLSpy v2008 (http://www.altova.com) by Jo Ann Venzon (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.event" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.event" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/BasicVoyageInformation_V1.xsd" /> 
+	<xsd:element name="AllocationProfile_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event for IAT Standard Allocation Profile / Details (insert, update)  to TNM_IAT_STD_ALLOC_PROF/ TNM_IAT_STD_ALLOC_PROF_DTL </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ProfileID" type="common:ID_Integer_V1">
+					<xsd:annotation>
+						<xsd:documentation>This represents DB column TNM_IAT_STD_ALLOC_PROF.PROFILE_ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ServiceLoopAbbreviation" type="common:ServiceLoopCode_V1">
+					<xsd:annotation>
+						<xsd:documentation>This represents the Service Loop of the Allocation SVVD</xsd:documentation> 
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="VesselCode" type="common:EntityCode_V1">
+					<xsd:annotation>
+						<xsd:documentation>This represents the Vessel Code of the Allocation SVVD</xsd:documentation> 
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="DirectionBound" type="common:CardinalDirectionCode_V1">
+					<xsd:annotation>
+						<xsd:documentation>This represents the Direction Bound of the Allocation SVVD</xsd:documentation> 
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

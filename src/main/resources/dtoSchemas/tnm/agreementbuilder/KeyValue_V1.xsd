@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 (x64) (http://www.altova.com) by HUJI (Orient Overseas Container Line Limited) -->
+<xs:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="KeyValue_V1">
+		<xs:sequence>
+			<xs:element name="Key" type="xs:string"/>
+			<xs:element name="Value" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by tusha (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UpdateResult_V1.xsd"/>
+	<xsd:complexType name="SurchargeOverrideGroupResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>A complex type that represents the result of an updated group of surcharge overrides to be associated with an OceanRate for the purpose of imposing some rules or surcharge rates to apply with a guideline which 'override' the normal surcharge rate published in the tariff.  Commonly referred to as an 'SOG'</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Result" type="common:UpdateResult_V1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Represents success status and errors, if any, during the update process.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GroupName" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						GroupName that the particular group of surcharge sverrides belongs to.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="17"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

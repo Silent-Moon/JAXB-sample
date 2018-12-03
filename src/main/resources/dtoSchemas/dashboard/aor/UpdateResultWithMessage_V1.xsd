@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://com.oocl.schema.dashboard.aor" xmlns:cmn="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.dashboard.aor" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UpdateResult_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/NameAndIdentifier_V1.xsd"/>
+	<xsd:complexType name="UpdateResultWithMessage_V1">
+		<xsd:sequence>
+			<xsd:element name="Identifier" type="StringUUID" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Identifier for all the updates.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsError" type="xsd:boolean">
+				<xsd:annotation>
+					<xsd:documentation>Determine if update is sucessful</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Message" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Would be used for error messages if it exists</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="StringUUID">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="40"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

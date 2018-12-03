@@ -1,0 +1,25 @@
+<!--  edited with XMLSpy v2008 (http://www.altova.com) by abrudho (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.customer.event" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:customer="http://com.oocl.schema.customer" targetNamespace="http://com.oocl.schema.customer.event" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.customer" schemaLocation="../NCPF_CustomerID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.customer" schemaLocation="../NCPF_CustomerGroupID_V1.xsd"/>
+	<xsd:element name="CustomerLevel_EVT_V1">
+		<xsd:annotation>
+			<xsd:documentation>This generates domain state change event for Customer Level Profile data change (insert, delete)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="CPF_CustomerGroupUUID" type="common:UUID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the Customer Group UUID which is equivalent to CPF_CUST_LEVEL.CPF_CUST_GRP_UUID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="NCPF_CustomerID" type="customer:NCPF_CustomerID_V1">
+					<xsd:annotation>
+						<xsd:documentation>This is the NCPF Customer ID  which is equivalent to CPF_CUST_LEVEL.NCPF_CUST_ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

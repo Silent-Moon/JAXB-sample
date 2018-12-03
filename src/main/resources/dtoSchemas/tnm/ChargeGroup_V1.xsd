@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by Susmitha Thotakura (Orient Overseas Container Line Ltd) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Currency_V1.xsd"/>
+	<xsd:include schemaLocation="PaymentTerm_V1.xsd"/>
+	<xsd:complexType name="ChargeGroup_V1">
+		<xsd:annotation>
+			<xsd:documentation>Groups the pricing charges for the set of 4 standard container dimensions</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Rate20" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Charge rate for a 20 foot regular or high cube dimension container.   Will be -1 if no rate for the dimension was provided.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Rate40" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Charge rate for a 40 foot regular height dimension container. Will be -1 if no rate for the dimension was provided.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Rate40H" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Charge rate for a 40 foot high cube dimension container. Will be -1 if no rate for the dimension was provided.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Rate45" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Charge Rate for a 45 regular height or high cube dimension container. Will be -1 if no rate for the dimension was provided.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RatePC" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Charge Rate Per Container, regardless of container dimension.  Will be -1 if no rate PC was provided.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Level" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Guideline Level:  1 - Sales MD; 2 - Sales; 3 - CSU; 4 - Public.  0 - No level structure defined (e.g. InlandRate)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int">
+						<xsd:totalDigits value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CurrencyCode" type="common:CurrencyCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Can be missing for some usages, like in SurchargeOverride where currency is based on the ocean surcharge</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PaymentTerm" type="PaymentTerm_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Can be empty</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateLCL" type="xsd:decimal" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

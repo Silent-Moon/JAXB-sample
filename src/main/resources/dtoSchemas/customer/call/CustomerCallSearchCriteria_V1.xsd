@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with Stylus Studio 2008 by FOREST KWAN (OOCL) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			xmlns="http://com.oocl.schema.customer.call"
+			xmlns:callerid="http://com.oocl.schema.customer.callerid"
+			xmlns:im="http://com.oocl.schema.customer.im"
+			xmlns:common="http://com.oocl.schema.common"
+			xmlns:fwdt="http://com.oocl.frm.common.date.dto/"
+			targetNamespace="http://com.oocl.schema.customer.call"
+			elementFormDefault="qualified"
+			attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+    <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Company_V1.xsd"/>
+    <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/UserID_V1.xsd" />
+    <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CargoSmart_ID_V1.xsd"/>
+    <xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+    <xsd:import namespace="http://com.oocl.schema.customer.callerid" schemaLocation="../../customer/callerid/CustomerCallerID_Association_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.customer.im" schemaLocation="../im/SkillGroup_V1.xsd"/>
+    <xsd:include schemaLocation="CustomerCall_V1.xsd"/>
+	<xsd:include schemaLocation="CustomerCallVoiceRecording_V1.xsd"/>
+	<xsd:include schemaLocation="RecordingID_V1.xsd"/>
+	<xsd:complexType name="CustomerCallSearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents customer call search criteria</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CallSessionID" type="CallSessionID_V1" minOccurs="0" maxOccurs="unbounded" nillable="true">
+			    <xsd:annotation>
+			        <xsd:documentation>The call session ID of the customer call</xsd:documentation>
+			    </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchStartTime" type="fwdt:FWAbsoluteDateTimeDTO" nillable="false" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The start time of the search range</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchEndTime" type="fwdt:FWAbsoluteDateTimeDTO" nillable="false" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The end time of the search range</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CompanyName" type="common:CompanyName_V1" minOccurs="0" nillable="true" maxOccurs="1">
+			    <xsd:annotation>
+			        <xsd:documentation>Company name of the customer</xsd:documentation>
+			    </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CallHandledOffice" type="common:OfficeCode_V1" minOccurs="0" nillable="true" maxOccurs="unbounded">
+			    <xsd:annotation>
+			        <xsd:documentation>Office location where the call is handled</xsd:documentation>
+			    </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CallEntryOffice" type="common:OfficeCode_V1" minOccurs="0" nillable="true" maxOccurs="unbounded">
+			    <xsd:annotation>
+			        <xsd:documentation>Office location of the call</xsd:documentation>
+			    </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CallHandledSkillGroup" type="im:SkillGroup_V1" minOccurs="0" nillable="true" maxOccurs="unbounded">
+			    <xsd:annotation>
+			        <xsd:documentation>The skill handling the customer call</xsd:documentation>
+			    </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InternalUserID" type="common:UserID_V1" nillable="true" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Domain ID of internal user</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerCallerID" type="callerid:CustomerCallerID_V1" minOccurs="0" nillable="true" maxOccurs="unbounded">
+			    <xsd:annotation>
+			        <xsd:documentation>The customer phone number</xsd:documentation>
+			    </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="InstrumentID" minOccurs="0" maxOccurs="unbounded" nillable="true">
+			    <xsd:annotation>
+			        <xsd:documentation>The instrument ID used by call rep</xsd:documentation>
+			    </xsd:annotation>
+			    <xsd:simpleType>
+			        <xsd:restriction base="xsd:string">
+			            <xsd:maxLength value="8"/>
+			        </xsd:restriction>
+			    </xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CS_ID" type="common:CargoSmart_ID_V1" minOccurs="0" maxOccurs="unbounded" nillable="true">
+			    <xsd:annotation>
+			        <xsd:documentation>The cargo smart ID of the customer</xsd:documentation>
+			    </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SAP_ID" type="common:SAP_ID_V1" minOccurs="0" maxOccurs="unbounded" nillable="true">
+			    <xsd:annotation>
+			        <xsd:documentation>The SAPID of the customer</xsd:documentation>
+			    </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CallNature" type="CustomerCallNature_V1" minOccurs="0" maxOccurs="unbounded" nillable="true">
+			    <xsd:annotation>
+			        <xsd:documentation>The call nature of the customer call</xsd:documentation>
+			    </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RecordingID" type="RecordingID_V1" minOccurs="0" maxOccurs="unbounded" nillable="true">
+			    <xsd:annotation>
+			        <xsd:documentation>The voice record ID of the customer call</xsd:documentation>
+			    </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="VoiceRecordingBookmarkLabel" type="RecordingBookmarkLabel_V1" minOccurs="0" maxOccurs="unbounded" nillable="true">
+			    <xsd:annotation>
+			        <xsd:documentation>The bookmark label of the voice recording</xsd:documentation>
+			    </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerCallRef" type="CustomerCallRef_V1" minOccurs="0" maxOccurs="unbounded" nillable="true">
+			    <xsd:annotation>
+			        <xsd:documentation>The call reference of the customer call</xsd:documentation>
+			    </xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

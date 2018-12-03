@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<!-- Created by Venus 2011-03-07   -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:simpleType name="EmptyContainerAggregateType">
+		<xsd:annotation>
+			<xsd:documentation> Specify the type of aggregate values . </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="ALL"/>
+			<xsd:enumeration value="TOTAL"/>
+			<xsd:enumeration value="MTD_WEEKLY_AVG"/>
+			<xsd:enumeration value="TRADE_TOTAL"/>
+			<xsd:enumeration value="ACTUAL"/>
+			<xsd:enumeration value="FORECAST"/>
+		<!-- Added by Venus 2011-04-10  -->
+			<xsd:enumeration value="FOUR_WEEK_AVG"/>
+			<xsd:enumeration value="TEN_WEEK_AVG"/>
+						
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="GPSDevice">
+		<xsd:annotation>
+			<xsd:documentation>Specify the GPS device to filter equipments </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="ALL"/>
+			<xsd:enumeration value="2G"/>
+			<xsd:enumeration value="3G"/>
+			<xsd:enumeration value="2G_SATELLITE"/>
+			<xsd:enumeration value="3G_SATELLITE"/>
+			<xsd:enumeration value="SATELLITE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="isConditional">
+		<xsd:annotation>
+			<xsd:documentation>Specify whether the container is conditional or not</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+			<xsd:enumeration value="ALL"/>
+			<xsd:enumeration value="Y"/>
+			<xsd:enumeration value="N"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EmptyContainerInventoryGrouping">
+		<xsd:annotation>
+			<xsd:documentation> This specifies the grouping of the empty container report.
+		For Region/Opzone View: 
+		REGION_ZONE_SIZETYPE - Region/Opzone, Size Type 
+		SIZETYPE_REGION_ZONE - Size Type, Region/Opzone
+		For City/Facility View: 					
+		LOCATION_SIZETYPE - Location, Size Type
+		SIZETYPE_LOCATION - Size Type, Location
+		 </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="REGION_ZONE_SIZETYPE"/>
+			<xsd:enumeration value="SIZETYPE_REGION_ZONE"/>
+			<xsd:enumeration value="LOCATION_SIZETYPE"/>
+			<xsd:enumeration value="SIZETYPE_LOCATION"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EmptyContainerInventoryDisplayDetail">
+		<xsd:annotation>
+			<xsd:documentation> Specifies what information to display.  </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="OPENING_BALANCE"/>
+			<xsd:enumeration value="EMPTY_RELEASE"/>
+			<xsd:enumeration value="EMPTY_RETURN"/>
+			<xsd:enumeration value="REPO_IN_REQUEST"/>
+			<xsd:enumeration value="REPO_OUT_REQUEST"/>
+			<xsd:enumeration value="REPO_IN_PLANNED"/>
+			<xsd:enumeration value="REPO_OUT_PLANNED"/>
+			<xsd:enumeration value="ENDING_BALANCE"/>
+			<xsd:enumeration value="IMBALANCE"/>
+			<!-- added by Venus 2011-09-06 2011RC3-->
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EmptyContainerInventoryReportType">
+		<xsd:annotation>
+			<xsd:documentation> This specifies the grouping of the empty container inventroy report, whether to group by Day, Week, Month etc..  </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="DAY"/>
+			<xsd:enumeration value="WEEK"/>
+			<xsd:enumeration value="MONTH"/>
+			<xsd:enumeration value="QUARTER"/>
+			<xsd:enumeration value="YEAR"/>
+			<xsd:enumeration value="DETAIL"/>
+			<xsd:enumeration value="DETAIL_WEEK"/>
+			<xsd:enumeration value="DETAIL_DAY"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EmptyContainerInventoryAggregateByType">
+		<xsd:annotation>
+			<xsd:documentation> This specifies the option to view forecast by Sales Prospect or Booking or Both.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="SALES_PROSPECT"/>
+			<xsd:enumeration value="BOOKING"/>
+			<xsd:enumeration value="BOTH"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ContainerStatusType">
+		<xsd:annotation>
+			<xsd:documentation> This specifies the status of the container</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+			<xsd:enumeration value="ACTIVE"/>
+			<xsd:enumeration value="INACTIVE"/>
+			<xsd:enumeration value="DELETED"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- Added by Venus 2011-10-10 -->
+	<xsd:simpleType name="RestrictedUseNatureType">
+		<xsd:annotation>
+			<xsd:documentation>This specifies different kinds of RU Nature.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="ALL"/>
+			<xsd:enumeration value="FLOW"/>
+			<xsd:enumeration value="GOH"/>
+			<xsd:enumeration value="OFFHIRE"/>
+			<xsd:enumeration value="OTHERS"/>
+			<xsd:enumeration value="SALES"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="InterchangeStatus">
+		<xsd:annotation>
+			<xsd:documentation>This specifies different kinds of interchange log status</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="OPEN"/>
+			<xsd:enumeration value="CONFIRM"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ExportFormat">
+		<xsd:annotation>
+			<xsd:documentation>Specifies the different kind of export format, such as export the result in CSV.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="CSV"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="InventoryDrillDownType">
+		<xsd:annotation>
+			<xsd:documentation> This specifies the drill down types for RU inventory. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="MTA"/>
+			<xsd:enumeration value="MTU"/>
+			<xsd:enumeration value="MNR"/>
+			<xsd:enumeration value="OFFHIRE"/>
+			<xsd:enumeration value="REPO_IN"/>
+			<xsd:enumeration value="MT_RTN"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="InventoryDrillDownEventDateRange">
+		<xsd:annotation>
+			<xsd:documentation> This specifies the date range of event. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="UNDER_14_DAYS"/>
+			<xsd:enumeration value="OVER_14_DAYS"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="InventoryDrillDownDateType">
+		<xsd:annotation>
+			<xsd:documentation> This specifies the date type. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="SUN"/>
+			<xsd:enumeration value="MON"/>
+			<xsd:enumeration value="TUE"/>
+			<xsd:enumeration value="WED"/>
+			<xsd:enumeration value="THU"/>
+			<xsd:enumeration value="FRI"/>
+			<xsd:enumeration value="SAT"/>
+			<xsd:enumeration value="PREVIOUS"/>
+			<xsd:enumeration value="ALL"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="InventoryDrillDownForecastType">
+		<xsd:annotation>
+			<xsd:documentation> This specifies the forecast type of the empty return. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="SHIPMENT"/>
+			<xsd:enumeration value="BOOKING"/>
+			<xsd:enumeration value="PROSPECT"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ccp"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:common="http://com.oocl.schema.common"
+	 xmlns:tnm="http://com.oocl.schema.tnm"
+	 xmlns:customer="http://com.oocl.schema.customer"
+	 xmlns:frm="http://com.oocl.frm.common.date.dto/"
+	 targetNamespace="http://com.oocl.schema.tnm.ccp"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TradeCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TradeLane_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../AgreementReference_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ActionType_V1.xsd"/>
+
+	<!--xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CardinalDirection_V1.xsd"/-->
+	<xsd:include schemaLocation="CCP_Region_V1.xsd"/>
+	<xsd:include schemaLocation="CCP_Territory_V1.xsd"/>
+	<xsd:include schemaLocation="CCP_CustomerInfo_V1.xsd"/>
+
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:element name="CCP_ExceptionRule_V1" type="CCP_ExceptionRule_V1">
+		<xsd:annotation>
+			<xsd:documentation>This is CCP Exception Rules payload</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>	
+	<xsd:complexType name="CCP_ExceptionRule_V1">
+		<xsd:annotation>
+			<xsd:documentation> this is a schema for Cargo Control Party (CCP) Exception Rule </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<!--xsd:element name="ActionType" type="common:ActionTypeName_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents Cargo Control Party (CCP) Exception Rule  Action Type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element-->
+			<xsd:element name="ID" type="common:ID_String_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents Cargo Control Party (CCP)  Exception Rule ID  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeCode" type="tnm:TradeCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents trade code </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeLaneCode" type="tnm:TradeLaneCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents Trade lane code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OriginalDirection" type="common:EntityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents Direction Code </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Territories" type="CCP_Territory_V1" minOccurs="0" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation>This represents Cargo Control Party (CCP) Territory Info (types of FromTerritory and ToTerritory) </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShipmentParties" type="CCP_CustomerInfo_V1" minOccurs="0" maxOccurs="4">
+				<xsd:annotation>
+					<xsd:documentation>This represents To Shipment Parties Info (types of Shipper/Consignee/Forwarder/BookingParty/or empty) </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Agreements" type="tnm:AgreementReference_V1" minOccurs="0" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation>This represents To Agreements Info (types of CSO and ISC/SC) </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Regions" type="CCP_Region_V1" minOccurs="0" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation>This represents Shipment Region Info (types of POR_Region and FND_Region)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CommodityGroupCode" type="common:EntityCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents To Commodity Group Code </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoControlParty" type="CCP_CustomerInfo_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents Cargo Control Party (CCP) control Party Role Code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GroupType" type="common:EntityBriefName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents Customer Profile (CPF) Group Type (needs to be check) </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GroupName" type="common:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents Customer Profile (CPF) Group Name (needs to be check) </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Rating" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents Rating  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Remarks" type="common:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents Remarks  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreatedBy" type="common:EntityName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents created by </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdatedBy" type="common:EntityName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This represents updated by </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="CreateDateTime" type="frm:FWAbsoluteDateTimeDTO">
+			<!--xsd:element name="CreateDateTime" type="xsd:string" minOccurs="0"-->
+				<xsd:annotation>
+					<xsd:documentation>This represents creation date time </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="UpdateDateTime" type="frm:FWAbsoluteDateTimeDTO">
+			<!--xsd:element name="UpdateDateTime" type="xsd:string" minOccurs="0"-->
+				<xsd:annotation>
+					<xsd:documentation>This represents update date time </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

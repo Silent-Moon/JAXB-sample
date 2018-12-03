@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="AB_Metric_V1.xsd"/>
+	<xsd:include schemaLocation="SearchAB_AgreementResult_V1.xsd"/>
+	<xsd:complexType name="MUSearchResultLWRow_V1">
+		<xsd:annotation>
+			<xsd:documentation>Light weight row containing rate data required in rate search UI</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="LightweightRateRow_V1">
+				<xsd:sequence>
+					<xsd:element name="CMTX" type="AB_Metric_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>External reference, it can be CSO number</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="PrevMassUpdateRequestor" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Requestor id of the last mass update</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="PrevMassUpdateUserRefID" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Prev mass update user ref Id</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="PrevMassUpdateRequestStatus" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Prev mass update request status</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+						<xsd:element name="TotalResultsCount" type="xsd:int" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Prev mass update request status</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="MUSVISearchResultLWRow_V1">
+		<xsd:annotation>
+			<xsd:documentation>Light weight row containing rate data required in rate search UI</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="LightweightServiceRow_V1">
+				<xsd:sequence>
+					<xsd:element name="CMTX" type="AB_Metric_V1" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>External reference, it can be CSO number</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="PrevMassUpdateRequestor" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Requestor id of the last mass update</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="PrevMassUpdateUserRefID" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Prev mass update user ref Id</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="PrevMassUpdateRequestStatus" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Prev mass update request status</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="TotalResultsCount" type="xsd:int" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Prev mass update request status</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="MassUpdateSearchResult_V1">
+		<xsd:sequence>
+			<xsd:element name="MUSearchResultRows" type="MUSearchResultLWRow_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="MUSVISearchResultRows" type="MUSVISearchResultLWRow_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="IsSuccessful" type="xsd:boolean"/>
+			<xsd:element name="Exception" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

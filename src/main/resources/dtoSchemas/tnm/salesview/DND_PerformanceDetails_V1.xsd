@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2005 sp1 U (http://www.xmlspy.com) by Rick Vera (OOCL (USA), Inc.) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.salesview" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:framework="http://com.oocl.frm.common.date.dto/" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:eqm="http://com.oocl.schema.eqm" xmlns:shipment="http://com.oocl.schema.shipment" xmlns:salesview="http://com.oocl.schema.tnm.salesview" xmlns:ns1="http://com.oocl.schema.tnm" xmlns:ns2="http://com.oocl.schema.eqm" targetNamespace="http://com.oocl.schema.tnm.salesview" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/BasicOfficeInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.shipment" schemaLocation="../../shipment/BillOfLadingNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/EquipmentNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../Tariff_V1.xsd"/>
+	<xsd:complexType name="DND_PerformanceDetails_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				This will drill down to container level.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ContainerNumber" type="eqm:EquipmentNumber_V1">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					    Container number.
+				   </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BL_Number" type="shipment:BillOfLadingNumber_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Bill of Lading number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OfficeCode" type="common:BasicOfficeInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Office code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ClosingDate" type="framework:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="UsageDays" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="BillableTariffDays" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="BillableAgreementDays" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="IsAdHoc" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The ad hoc indicator (Yes/No) to indicate whether or not it is from an ad hoc agreement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsInvoiceIssued" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="CSO_REF_Number" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

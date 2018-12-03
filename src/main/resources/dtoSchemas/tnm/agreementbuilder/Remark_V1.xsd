@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Kent Williamson (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.agreementbuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm.agreementbuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="AB_SimpleTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="Remark_V1">
+		<xsd:sequence>
+			<xsd:element name="ID" type="common:ID_LongNumeric_V1">
+				<xsd:annotation>
+					<xsd:documentation>System generated ID.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Region" type="common:EntityLocationName_V1">
+				<xsd:annotation>
+					<xsd:documentation>An arbitrary grouping mechanism biz users can enter to make grouping remarks by some related category for easy grouping on the interface.  It could represent any meaningful grouping to the biz, such as office, region, country, trade, etc.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Code" type="RemarkCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Classify Remarks</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Type" type="RemarkType_V1">
+				<xsd:annotation>
+					<xsd:documentation>Indicates if the remark is a disclaimer or standard remark text.  D for disclaimer, S for standard.  App allows only one D per quote, but many S remarks.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Text" type="common:LongBasicDescription_V1">
+				<xsd:annotation>
+					<xsd:documentation>The text of the remark.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

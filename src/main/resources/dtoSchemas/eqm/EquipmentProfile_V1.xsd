@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+  <xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/UpdateResult_V1.xsd"/>
+  <xsd:include schemaLocation="ChassisProfile_V1.xsd"/>
+  <xsd:include schemaLocation="ContainerProfile_V1.xsd"/>
+  <xsd:include schemaLocation="GensetProfile_V1.xsd"/>
+  <xsd:include schemaLocation="ReeferTemperatureSpec_V1.xsd"/>
+  <xsd:include schemaLocation="RestrictedUseLabel_V1.xsd"/>
+  <xsd:include schemaLocation="SpecialAccessory_V1.xsd"/>
+
+  <xsd:complexType name="EquipmentProfile_V1">
+    <xsd:sequence>
+      <xsd:element name="AssetNum" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="AuthorizationNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BookingNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ChassisProfile" type="ChassisProfile_V1" minOccurs="0"/>
+      <xsd:element name="Comment" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ContainerProfile" type="ContainerProfile_V1" minOccurs="0"/>
+      <xsd:element name="ContractLeaseType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ContractNum" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ControlParty" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CreateBy" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CreateDtGmt" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="CreateUserID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CurrCond" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CurrLoc" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CurrStatus" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CurrSubCond" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CurrSubStatus" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DateInServiceGmt" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="EqpCheckDigit" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EqpId" type="xsd:long"/>
+      <xsd:element name="EqpManufacturer" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EqpMonthBuild" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EqpNum" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EqpNumPrefix" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EqpNumSuffix" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EqpOwner" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EqpRemarks" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EqpState" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EqpType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EqpUser" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EqpYearBuild" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EventDateTime" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="EventSubType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EventType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ExtAuthNum" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FacilityCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FinOwner" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="GensetProfile" type="GensetProfile_V1" minOccurs="0"/>
+      <xsd:element name="IsNominated" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LastCreateTerminateDTGmt" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="LastCreateTerminateId" type="xsd:long"/>
+      <xsd:element name="LastCreateTerminateLoc" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LastCreateTerminateProcessStatus" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LastCreateTerminateStatus" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LastCreateTerminateSubStatus" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LastCreateTerminateUpdateChannel" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LastMaintGmt" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="LastMaintType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LastTerminationAuthNum" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LastTerminationDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="LoanReference" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="NextLoc" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="NextMaintGmt" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="NextMaintType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="NominatedBy" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="NominatedDTGmt" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="PcReference" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="PicVersionNum" type="xsd:long"/>
+      <xsd:element name="ReeferTemperatureSpec" type="ReeferTemperatureSpec_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="RestrictedUseLabel" type="RestrictedUseLabel_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="SerialNum" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SizeTypeCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SizeTypeGrp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SizeTypeId" type="xsd:long"/>
+      <xsd:element name="SpecialAccessory" type="SpecialAccessory_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="UpdateBy" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="UpdateClientId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="UpdateDtGmt" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="UpdateResult" type="common:UpdateResult_V1" minOccurs="0"/>
+      <xsd:element name="LoanRemark" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

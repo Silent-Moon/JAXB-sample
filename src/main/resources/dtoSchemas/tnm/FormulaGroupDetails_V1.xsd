@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Prashant Gupta (OOCL (USA) INC) -->
+<!--  Created Oct 10, 2007  -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="FormulaGroupDetails_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the details of the Formula for a particular container size and guideline level, example (Prashant please provide a sample details string and the mean on it</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FormulaGroupDetailID" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Unique id to repesent a formula</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LevelNumber" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Guideline Level:  1 - Sales MD; 2 - Sales; 3 - CSU; 4 - Public.  0 - No level structure defined (e.g. InlandRate)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int">
+						<xsd:totalDigits value="1"/>
+						<xsd:minInclusive value="1"/>
+						<xsd:maxInclusive value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Container20Formula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Formula for 20FT container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Container40Formula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Formula for 40FT container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Container40HFormula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Formula for 20HF container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Container45Formula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Formula for 45FT container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

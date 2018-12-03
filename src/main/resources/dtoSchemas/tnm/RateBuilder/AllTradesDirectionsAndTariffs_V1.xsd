@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Kent Williamson (OOCL (USA) INC) -->
+<!--  Created Oct 10, 2007  -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TradeDirection_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../Tariff_V1.xsd"/>
+	<xsd:complexType name="AllTradesDirectionsAndTariffs_V1">
+		<xsd:annotation>
+			<xsd:documentation>Reference type, returns all Tariffs,Trades and Directions</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AllTariffs" type="tnm:Tariff_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AllTradesDirections" type="tnm:TradeDirection_V1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

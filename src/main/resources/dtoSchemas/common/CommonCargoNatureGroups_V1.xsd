@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="DryCargoNatureGroup_V1">
+		<xsd:annotation>
+			<xsd:documentation>Cargo Natures mapping to "DRY"</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="GC">
+				<xsd:annotation>
+					<xsd:documentation>General Cargo</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DG">
+				<xsd:annotation>
+					<xsd:documentation>Dangerous</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AW">
+				<xsd:annotation>
+					<xsd:documentation>Awkward</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="AD">
+				<xsd:annotation>
+					<xsd:documentation>Awkward Dangerous</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ReeferCargoNatureGroup_V1">
+		<xsd:annotation>
+			<xsd:documentation>Cargo Natures mapping to "Reefer"</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="RF">
+				<xsd:annotation>
+					<xsd:documentation>Reefer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="RD">
+				<xsd:annotation>
+					<xsd:documentation>Reefer Dangerous</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

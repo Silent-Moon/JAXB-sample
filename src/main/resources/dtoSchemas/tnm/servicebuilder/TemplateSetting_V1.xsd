@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="TemplateSetting_V1">
+		<xsd:annotation>
+			<xsd:documentation>Service Template Setting fields</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FieldName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsRequired" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="AllowsMultipleValues" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="IsRequiredEditable" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="IsMultipleValuesEditable" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="LegalAncillaryCodes_V1">
+		<xsd:annotation>
+			<xsd:documentation>Specifies the code(s) of the legal ancillaries.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="VAT">
+				<xsd:annotation>
+					<xsd:documentation>Value Added Tax</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FIN">
+				<xsd:annotation>
+					<xsd:documentation>Exporter Transmission Number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="TIN">
+				<xsd:annotation>
+					<xsd:documentation>Tax Identification Number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="FMC">
+				<xsd:annotation>
+					<xsd:documentation>Federal Maritime Commission Number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="DUNS">
+				<xsd:annotation>
+					<xsd:documentation>Data Universal Numbering System</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="XTN">
+				<xsd:annotation>
+					<xsd:documentation>Exporter Transmission Number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="CHB">
+				<xsd:annotation>
+					<xsd:documentation>Custom House Broker Number</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

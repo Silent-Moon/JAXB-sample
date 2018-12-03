@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="ServiceAction_V1.xsd"/>
+	<xsd:include schemaLocation="CommonRestrictions_V1.xsd"/>
+	<xsd:element name="ServiceResponse_V1" type="ServiceResponse_V1">
+		<xsd:annotation>
+			<xsd:documentation>This represents Service Response for Completed Serive Request</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="ServiceResponse_V1">
+		<xsd:sequence>
+			<xsd:element name="ID" type="ID_String_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Unique ID for Service Response</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Action" type="ServiceResponseAction_V1">
+				<xsd:annotation>
+					<xsd:documentation>This represents the Service Response Action like "Completed"</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

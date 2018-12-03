@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.dashboard" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="NotificationMessage_V1">
+		<xsd:annotation>
+			<xsd:documentation>Schema for items to show on the Notification item</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MessageSubject" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MessageType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ReceivedTime" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="Sender" type="Sender_V1" minOccurs="0"/>
+			<xsd:element name="NotID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Sender_V1">
+		<xsd:annotation>
+			<xsd:documentation>Holding information about source of notification</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="userID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="firstName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="lastName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="clientID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NotificationMessage">
+		<xsd:annotation>
+			<xsd:documentation>Root Element for this message</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Message" type="NotificationMessage_V1" maxOccurs="unbounded"/>
+				<xsd:element name="JVM_Timezone" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

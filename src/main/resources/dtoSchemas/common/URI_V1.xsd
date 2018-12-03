@@ -1,0 +1,15 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="URI_V1">
+		<xsd:annotation>
+			<xsd:documentation>This should not be used to generate classes in the Java Space for usage on pre-11g Oracle App Servers since anyURI is not supported</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:anyURI"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="URI_StringFormat_V1">
+		<xsd:annotation>
+			<xsd:documentation>To be used in java space</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Kristine Sayno (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.salesview" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:framework="http://com.oocl.frm.common.date.dto/" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:common="http://com.oocl.schema.common" xmlns:eqm="http://com.oocl.schema.eqm" xmlns:iris2cp="http://com.oocl.schema.iris2cp" targetNamespace="http://com.oocl.schema.tnm.salesview">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CardinalDirection_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommodityReportGroup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/Currency_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/MonetaryAmount_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/LocationName_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../../eqm/ContainerSizeType_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.iris2cp" schemaLocation="../../iris2cp/CP_CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.iris2cp" schemaLocation="../../iris2cp/CP_HaulageMode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../Trade_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/TariffCode_V1.xsd"/>
+	<xsd:complexType name="RateAgreementDetails_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				This type contain the Rate Detail information.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Trade" type="tnm:Trade_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Trade defines the geographic territories of the shipping scope.  May be within one territory (intra-territory, e.g., Intra-Pacific Trade) or cross-territory (e.g., Asia Europe Trade).
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Direction" type="common:CardinalDirectionCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Direction defines the lateral or vertical movement among ports within a trade.  Possible values are: ‘N’ for North, ‘S’ for South, ‘E’ for East, ‘W’ for West.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Tariff" type="tnm:TariffCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Tariff is an OOCL-defined sub-category of Trade.  OOCL typically assigns a numerical tariff code to group together a set of specific origin countries and a set of destination countries.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateType" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Rate Type identifies whether this rate is a stand-alone Ocean Rate, or includes relevant arbitrary charges as well.
+						Known values (as provided by PRISM application) may include but may not be limited to the following: ARB_DEST_RATE, ARB_ORIG_RATE, CSO_RATE, CSO_UNMATCHED, OCN_RATE, OCN_UNMATCHED, TAR_DEST_RATE, TAR_ORIG_RATE)
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="KPI_Boxes" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						The number of boxes shipped for which this rate has been applied.  This data comes from the Key Performance Index (KPI) shipment history.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Origin" type="common:LocationName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This rate will only cover shipments that originate from cities specified in this column.   Origin defines all the valid places of receipt (POR) for which the current rate agreement is valid.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Destination" type="common:LocationName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						This rate will only cover shipments whose final destination (FND) is one of the cities specified in this column.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Over" type="common:LocationName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Over defines a list of intermediate cities located between the Origin and Destination cities.  OOCL uses the cities listed in the Over column to break down shipping routes into smaller routes for pricing and alternative pricing options for this rate.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OriginVia" type="common:LocationName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Origin Via defines a list of intermediate physical locations (cities, ports, facilities) through which a shipment can pass in its shipment fulfilment route.  Origin Via differs from Destination Via in that these locations are classified as part of the Origin’s geographic territory.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestinationVia" type="common:LocationName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Destination Via defines a list of intermediate physical locations (cities, ports, facilities) through which a shipment can pass in its shipment fulfilment route.  Destination Via differs from Origin Via in that these locations are classified as part of the Destination’s geographic territory.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HaulageMode" type="iris2cp:CP_HaulageMode_V1" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Traffic/Haulage Mode identifies if OOCL or the customer is responsible transporting the cargo to the container yard on the outbound and inbound side.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Equipment" type="eqm:ContainerSizeType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Defines the size and type of containers that will be used to transport the cargo shipment.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNature" type="iris2cp:CP_CargoNatureCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						The primary classification of all cargo shipments. Values may include: values include: ‘GC’ for General Cargo, ‘RF’ for Reefer, ‘DG’ for Dangerous, ‘AW’ for Awkward, ‘RD’ for Reefer Dangerous, ‘AD’ for Awkward Dangerous.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Commodities" type="common:CommodityReportGroup_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					The secondary classification of all cargo shipments.  This is a more specific categorization of the cargo, and there are many possible values.  Examples include ‘Toys’, ‘Electronics’, ‘Commodity A’ (contract grouping code for various commodity types).
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OceanRate" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Defines the basic shipping charge for transporting a unit of shipment.  The unit is usually a shipping container.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EffectiveDate" type="framework:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   Start date of the rate’s effective period.  This column will display a value only if the rate has an effective date that is different from the rate agreement’s effective.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExpiryDate" type="framework:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					   End date of the rate’s effective period.  This column will display a value only if the rate has an effective date that is different from the rate agreement’s effective.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OriginArbitraries" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Specifies the amount of any additional set of charges applicable to the list of cities specified in the “Origins” column.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestinationArbitraries" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+					Specifies the amount of any additional set of charges applicable to the list of cities specified in the “Destinations” column.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OceanAndArbitraries" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Ocean and Arbitraries should be the sum value of ‘Ocean Rate’, ‘Origin Arbitraries’, and ‘Destination Arbitraries’.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalRate" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Sum of the ocean rate, all relevant, arbitrary charges, and all relevant surcharges.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SurchargeSubjectTo" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Defines a list of surcharges applicable to this rate agreement.  The column will display semi-colon delimited list of surcharge codes and their respective surcharge amounts.
+						Known values (as provided by PRISM application) may include but may not be limited to the following: AAM;DCF;DDC;PNC;SUZ;KPS;AMS;ACC;HCR;KPA;BUC, etc.)
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalSurcharge" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Sum value of all applicable surcharges.  This value should equal the sum of all surcharge amounts listed in the ‘Surcharge Subject To’ column.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="KPI_FreightRate" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Freight Rate from the Key Performance Index (KPI) system.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="KPI_Revenue" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Revenue from the Key Performance Index (KPI) system.  KPI Revenue may include additional surcharges and arbitrary charges, so it may be equal or greater than the product of KPI Freight Rate * KPI Boxes.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="KPI_Cost" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Cost from the Key Performance Index (KPI) system.  KPI Cost excludes the empty repositioning costs.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="KPI_NRPO_Contribution" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+							The non-repositioning contribution from the Key Performance Index (KPI) system.  Contribution is defined as KPI Revenue – Cost, excluding container repositioning costs.  This value should equal KPI Revenue – KPI Cost
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="KPI_RPO_Contribution" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						RPO contribution from the Key Performance Index (KPI) system.  Contribution is defined as KPI Revenue – KPI Cost, including container repositioning costs.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="KPI_LastSailDate" type="framework:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Last sail date from the Key Performance Index (KPI) system.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CMTX_TotalCost" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Total standard cost of the agreement as computed by the Contribution Matrix (CMTX) system.   CMTX Total Cost excludes the empty repositioning costs.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CMTX_NRPO_Contribution" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Non-repositioning contribution of the agreement as computed by the Contribution Matrix (CMTX) system.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CMTX_RPO_Contribution" type="common:MonetaryAmount_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">
+						Repositioning contribution of the agreement as computed by the Contribution Matrix (CMTX) system.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

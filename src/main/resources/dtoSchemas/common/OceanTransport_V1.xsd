@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 rel. 3 sp1 (http://www.altova.com) by Jeffrey Feliciano (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="OceanTransport_V1">
+		<xsd:annotation>
+			<xsd:documentation>Ways of moving cargo via ocean means</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Barge"/>
+			<xsd:enumeration value="Feeder"/>
+			<xsd:enumeration value="Vessel"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

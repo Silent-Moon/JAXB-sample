@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Raghu Janardhan (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.common" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="LinerContainerSize_V1">
+		<xsd:annotation>
+			<xsd:documentation>Liner Container Sizes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="20"/>
+			<xsd:enumeration value="40"/>
+			<xsd:enumeration value="45"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OLL_ContainerSize_V1">
+		<xsd:annotation>
+			<xsd:documentation>Logistics Container Sizes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="10"/>
+			<xsd:enumeration value="20"/>
+			<xsd:enumeration value="40"/>
+			<xsd:enumeration value="45"/>
+			<xsd:enumeration value="48"/>
+			<xsd:enumeration value="53"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TMS_ContainerSize_V1">
+		<xsd:annotation>
+			<xsd:documentation>TMS Container Sizes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="10"/>
+			<xsd:enumeration value="20"/>
+			<xsd:enumeration value="40"/>
+			<xsd:enumeration value="45"/>
+			<xsd:enumeration value="48"/>
+			<xsd:enumeration value="53"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IPS_ContainerSize_V1">
+		<xsd:annotation>
+			<xsd:documentation>IPS Container Sizes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="10"/>
+			<xsd:enumeration value="20"/>
+			<xsd:enumeration value="40"/>
+			<xsd:enumeration value="45"/>
+			<xsd:enumeration value="48"/>
+			<xsd:enumeration value="53"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

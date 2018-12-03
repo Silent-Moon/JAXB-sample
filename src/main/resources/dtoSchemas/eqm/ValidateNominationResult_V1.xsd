@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema"  targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:include schemaLocation="ContainerSlotInfo_V1.xsd" />
+	<xsd:include schemaLocation="UsagePlanInfo_V1.xsd" />
+	<xsd:include schemaLocation="Nomination_V1.xsd" />
+	<xsd:complexType name="ValidateNominationResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the validation result of a nomination</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Nomination" type="Nomination_V1"/>
+			<xsd:element name="IsValid" type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

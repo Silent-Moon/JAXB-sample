@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (x64) (http://www.altova.com) by Praveena Alapati (Orient Overseas Container Line Ltd) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../RateTable_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TradeCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CustomerSegment_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CardinalDirection_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/DateRange_V1.xsd"/>
+	<xsd:complexType name="PublishingHistorySearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a rate search request with mandatory and optional search criteria </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RateTable" type="tnm:RateTable_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Rate table name and type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TliNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Piblished" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PublishedDate" type="fwd:FWLocalizedDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="HistoryId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="InlandRateUUID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

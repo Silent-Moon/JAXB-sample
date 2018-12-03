@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by OOCL ISD (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CardinalDirection_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/UpdateResult_V1.xsd"/>
+	<xsd:include schemaLocation="TieredCommodity_V1.xsd"/>
+	<xsd:include schemaLocation="TradeCode_V1.xsd"/>
+	<xsd:complexType name="TieredCommoditySearchCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a commodity group search request with optional search criteria.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TradeCodes" type="TradeCode_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Represents the trade codes. If not specified, it means the search can be for any trade code.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Directions" type="common:CardinalDirectionName_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Represents the direction names. If not specified, it means the search can be for any direction.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchString" type="common:BasicDescription_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>String pattern used for matching commodity group name or description.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RetrieveInUseStatus" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Indicates whether the InUse status of commodity groups needs to be retrieved or not.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TieredCommoditySearchResult_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a commodity group search result containing success indicator, validation errors if any and commodity groups found</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Result" type="common:UpdateResult_V1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Represents information for the success or failure of the search process and list of errors that may have occurred. 
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CommodityGroups" type="TieredCommodity_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Collection of matching commodity groups</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

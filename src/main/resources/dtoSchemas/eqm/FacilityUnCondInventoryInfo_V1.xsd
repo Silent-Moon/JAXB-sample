@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="FacilityUnCondInventoryInfo_V1">
+		<xsd:sequence>
+			<xsd:element name="PickupFacilityCode" type="common:EntityLocationCode_V1"/>
+			<xsd:element name="NumOfUnCondBox" type="xsd:int"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

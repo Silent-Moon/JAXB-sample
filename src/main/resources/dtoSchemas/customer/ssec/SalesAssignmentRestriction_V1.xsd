@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="http://com.oocl.schema.customer.ssec" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ssec="http://com.oocl.schema.customer.ssec" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.customer.ssec" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/Trade_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../../tnm/TradeLane_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/ShipmentBound_V1.xsd"/>
+	<xsd:complexType name="SalesAssignmentRestriction_V1">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				Sales Assignment Restriction is a combination of Trade, Trade Lane, Bound and Cargo Nature Group information, associated to a sales assignment for a given customer.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Trade" type="tnm:Trade_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Trade</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeLane" type="tnm:TradeLane_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Trade Lane</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Bound" type="common:ShipmentBoundCode_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Bound</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNatureGroup" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">Cargo Nature Group. Valid values are Reefer, Dry and All</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Reefer"/>
+						<xsd:enumeration value="Dry"/>
+						<xsd:enumeration value="PCT"/>
+						<xsd:enumeration value="All"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

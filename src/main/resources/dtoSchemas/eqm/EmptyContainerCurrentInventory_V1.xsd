@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2012 rel. 2 (x64) (http://www.altova.com) by OOCL (Orient Overseas Container Line Ltd.) -->
+<!-- Created by Venus 2011-03-07   -->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/Region_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/OpZone_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/BasicLocationInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/Facility_V1.xsd"/>
+	<xsd:include schemaLocation="ContainerSizeType_V1.xsd"/>
+	<xsd:complexType name="EmptyContainerCurrentInventory_V1">
+		<xsd:annotation>
+			<xsd:documentation> This is the XSD storing information for the empty container current inventory. 
+											This is encapsulated in EmptyContainerInventoryResponse.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Year" type="common:Year_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   Year for the empty container inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Week" type="common:Week_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   Week for the empty container inventory. (1-53)  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Region" type="common:Region_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> The region for the empty container current inventory. </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OpZone" type="common:OpZone_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>   The opzone for the empty container current inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="City" type="common:BasicLocationInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The city for the empty container current inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Facility" type="common:Facility_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The facility for the empty container current inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EqpSizeType" type="ContainerSizeType_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The size type for the empty container current inventory </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MTACount" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of containers that are currently empty available</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MNRCount" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of containers that are currently in maintenance and repair</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Added by Venus 2011-09-09 -->
+			<xsd:element name="MTUCount" type="xsd:long">
+				<xsd:annotation>
+					<xsd:documentation>Number of containers that are currently damaged</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--Added by Venus 2012-04-10-->
+			<xsd:element name="UNCOND_MTA_Count" type="xsd:long" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Number of containers that are currently empty unconditionally available</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="COND_MTA_Count" type="xsd:long" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Number of containers that are currently empty conditionally available</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UIL_Count" type="xsd:long" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Number of containers currently under inbound load at the location</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UOL_Count" type="xsd:long" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Number of containers currently under outbound load at the location </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OnHireableCount" type="xsd:long" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Remaining authorized containers to be on-hired at the location </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AvgOutBoundCount" type="xsd:long" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Historical 4 week average MT Release</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AvgImbalanceCount" type="xsd:long" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Historical 4 week average Imbalance </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CurrentMTReleasedCount" type="xsd:long" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Beginning of week to current actual released qty</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CurrentOnhiredCount" type="xsd:long" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Beginning of week to current onhired qty</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CurrentOffhiredCount" type="xsd:long" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Beginning of week to current offhired qty</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CurrentLOT_Count" type="xsd:long" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Beginning of week to current LOT qty</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CurrentLOR_Count" type="xsd:long" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Beginning of week to current LOR qty</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

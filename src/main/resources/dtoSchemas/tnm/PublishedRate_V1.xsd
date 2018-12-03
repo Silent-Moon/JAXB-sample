@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Hsing-Fu Tsai (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" xmlns:eqm="http://com.oocl.schema.eqm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CardinalDirection_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:include schemaLocation="TradeCode_V1.xsd"/>
+	<xsd:complexType name="PublishedRate_V1">
+		<xsd:sequence>
+			<xsd:element name="PublishedRateId" type="common:ID_LongNumeric_V1" minOccurs="0"/>
+			<xsd:element name="Trade" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Bound" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FilingPurpose" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TvrNum" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Basis" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RateNonCntr" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="AmendmentCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SpecialCaseNum" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TliNum" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PublishedInd" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="PublishedBy" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PublishedGmtDate" type="fwd:FWLocalizedDateTimeDTO" minOccurs="0"/>
+			<xsd:element name="Notes" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

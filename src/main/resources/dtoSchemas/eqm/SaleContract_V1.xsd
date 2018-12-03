@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:iodt="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+  <xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+  <xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../dtoSchemas/common/UpdateResult_V1.xsd"/>
+  <xsd:include schemaLocation="ContractHeader_V1.xsd"/>
+  <xsd:include schemaLocation="Equipment_V1.xsd"/>
+  <xsd:include schemaLocation="SaleAuthorization_V1.xsd"/>
+  <xsd:include schemaLocation="SaleEquipmentSummary_V1.xsd"/>
+
+  <xsd:complexType name="SaleContract_V1">
+    <xsd:sequence>
+      <xsd:element name="ActionType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ContainerNumberSeries" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ContractHeader" type="ContractHeader_V1" minOccurs="0"/>
+      <xsd:element name="DeliveryDate" type="iodt:FWAbsoluteDateTimeDTO" minOccurs="0"/>
+      <xsd:element name="Equipments" type="Equipment_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="FreeDay" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="InvoiceNum" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="InvoiceStatus" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ReportEmail" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ReportFreq" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ReportFreqUnit" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ReportTimeZone" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SaleAuthorizations" type="SaleAuthorization_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="SaleDeliveryPriority" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SaleEquipmentSummary" type="SaleEquipmentSummary_V1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="SaleMode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SaleNature" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TimeOfReport" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="UpdateResult" type="common:UpdateResult_V1" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

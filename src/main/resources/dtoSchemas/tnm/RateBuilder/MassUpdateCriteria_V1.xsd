@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by SNT (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.tnm.ratebuilder" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:fwd="http://com.oocl.frm.common.date.dto/" targetNamespace="http://com.oocl.schema.tnm.ratebuilder" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../RateTable_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../TradeCode_V1.xsd"/>	
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../ChargeGroup_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/CommonRestrictions_V1.xsd"/>
+	<xsd:complexType name="MassUpdateCriteria_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents a rate search request with mandatory and optional search criteria </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Trade" type="tnm:TradeCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Trade code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Direction" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Direction</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateTable" type="tnm:RateTable_V1">
+				<xsd:annotation>
+					<xsd:documentation>Represent rate table name and rate type</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RateIDs" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>List of rate IDs that will be mass updated</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="ChargeAdjustment" type="tnm:ChargeGroup_V1" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Adjustment on the pricing charges for the indicated rate level.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChargeAdjustmentType" type="AdjustmentType_V1" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Specifies the type of charge adjustment.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>					
+			<xsd:element name="NewEffectiveDate" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Specifies the new effective date for the updated rate - YYYY-MM-DD format (example '2007-01-30')</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NewExpiryDate" type="fwd:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Specifies the new expiry date for the updated rate - YYYY-MM-DD format (example '2007-01-30'). A null value means the expiry date remains as is thus will not be updated.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="SearchFromDate" type="fwd:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>search from date - YYYY-MM-DD format (example '2007-01-30')</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SearchToDate" type="fwd:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>search to date - YYYY-MM-DD format (example '2007-01-30')</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NewQuoteEffectiveDate" type="fwd:FWLocalizedDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Specifies the new quotation effective date for the updated rate - YYYY-MM-DD HH:mm:ss format (example '2007-01-30 10:00:00')</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="NewQuoteExpiryDate" type="fwd:FWLocalizedDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Specifies the new quotation expiry date for the updated rate - YYYY-MM-DD HH:mm:ss format (example '2007-01-30 23:59:00')</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="UserID" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>User submit the request</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UserTimeZoneName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>User's Local TimeZone name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="AdjustmentType_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents one of 2 possible values used to specify the type of adjustment for mass update.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Amount"/>
+			<xsd:enumeration value="Percent"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="MassUpdateCriteria" type="MassUpdateCriteria_V1">
+			<xsd:annotation>
+				<xsd:documentation>This element is needed for java object creation</xsd:documentation>
+			</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

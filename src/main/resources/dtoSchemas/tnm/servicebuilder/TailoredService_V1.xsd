@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.tnm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:tnm="http://com.oocl.schema.tnm" targetNamespace="http://com.oocl.schema.tnm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="BasicInfo_V1.xsd"/>
+	<xsd:include schemaLocation="CommitmentInfo_V1.xsd"/>
+	<xsd:include schemaLocation="Characteristic_V1.xsd"/>
+	<xsd:include schemaLocation="TailoredSetting_V1.xsd"/>
+	<xsd:complexType name="TailoredService_V1">
+		<xsd:annotation>
+			<xsd:documentation>The list of fields in Tailored Service</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="BasicInfo" type="tnm:BasicInfo_V1" minOccurs="0"/>
+			<xsd:element name="Commitments" type="tnm:CommitmentInfo_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Conditions" type="tnm:Characteristic_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Options" type="tnm:Characteristic_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Notifications" type="tnm:Characteristic_V1" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Settings" type="tnm:TailoredSetting_V1" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

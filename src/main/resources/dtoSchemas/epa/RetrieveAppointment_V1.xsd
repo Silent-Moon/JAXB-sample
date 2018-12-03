@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Windy OR (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.epa" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:framework="http://com.oocl.frm.common.date.dto/" xmlns:shipment="http://com.oocl.schema.shipment" xmlns:ivr="http://com.oocl.schema.ivr" targetNamespace="http://com.oocl.schema.epa" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CommonContainerSizeTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/OpZone_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ShipmentNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.ivr" schemaLocation="../ivr/CallerID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.ivr" schemaLocation="../ivr/CallSessionInfo_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:include schemaLocation="AppointmentID_V1.xsd"/>
+	<xsd:include schemaLocation="EmptyPickupDetails_V1.xsd"/>
+	<xsd:include schemaLocation="ReturnCode_V1.xsd"/>
+	<xsd:simpleType name="BkgInputType">
+		<xsd:annotation>
+			<xsd:documentation>Define the input type for RetrieveAppointment</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BKG"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ApptRefNoType">
+		<xsd:annotation>
+			<xsd:documentation>Define the input type for RetrieveAppointment</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ARN"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="RetrieveAppointmentRequest_V1">
+		<xsd:annotation>
+			<xsd:documentation>Define the event for RetrieveAppointmmentRequest</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Input">
+					<xsd:annotation>
+						<xsd:documentation>Retrieved by booking number or appointment ID</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:choice>
+							<xsd:sequence>
+								<xsd:annotation>
+									<xsd:documentation>Booking number</xsd:documentation>
+								</xsd:annotation>
+								<xsd:element name="BkgInputType" type="BkgInputType"/>
+								<xsd:element name="BkgInputValue" type="common:ShipmentNumber_V1"/>
+							</xsd:sequence>
+							<xsd:sequence>
+								<xsd:annotation>
+									<xsd:documentation>Appointment ID</xsd:documentation>
+								</xsd:annotation>
+								<xsd:element name="ApptRefInputType" type="ApptRefNoType"/>
+								<xsd:element name="ApptRefInputValue" type="AppointmentID_V1"/>
+							</xsd:sequence>
+						</xsd:choice>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Opzone" type="common:OpZone_V1">
+					<xsd:annotation>
+						<xsd:documentation>Opzone</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ContactNumber" type="ivr:CallerID_V1">
+					<xsd:annotation>
+						<xsd:documentation>Contact number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="IsRequireTimeChecking" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Indicator fo external or internal hotline</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="CallSessionInfo" type="ivr:CallSessionInfo_V1" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Call session info</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="RetrieveAppointmentResponse_V1">
+		<xsd:annotation>
+			<xsd:documentation>Define the event for RetrieveAppointmentResponse</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="AppointmentRecords" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Appointment records</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="AppointmentID" type="AppointmentID_V1">
+								<xsd:annotation>
+									<xsd:documentation>Appointment ID</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="BookingNumber" type="common:ShipmentNumber_V1">
+								<xsd:annotation>
+									<xsd:documentation>Booking#</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="ContainerSizeType" type="common:TMS_ContainerSizeTypes_V1">
+								<xsd:annotation>
+									<xsd:documentation>Container size type</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="EmptyPickupDateTime" type="framework:FWAbsoluteDateTimeDTO">
+								<xsd:annotation>
+									<xsd:documentation>Empty pickup datetime</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="EmptyPickupDetails" type="EmptyPickupDetail_V1" maxOccurs="unbounded">
+								<xsd:annotation>
+									<xsd:documentation>Empty pickup details</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="CallSessionInfo" type="ivr:CallSessionInfo_V1" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Call session info</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="IsRequireTimeChecking" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Indicator fo external or internal hotline</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ReturnCode" type="ReturnCode_V1">
+					<xsd:annotation>
+						<xsd:documentation>Return code</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ModifiedDatetimeGMT" type="framework:FWAbsoluteDateTimeDTO">
+					<xsd:annotation>
+						<xsd:documentation>Modified datetime GMT</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

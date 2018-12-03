@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Windy OR (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.epa" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" xmlns:framework="http://com.oocl.frm.common.date.dto/" xmlns:tnm="http://com.oocl.schema.tnm" xmlns:shipment="http://com.oocl.schema.shipment" xmlns:eqm="http://com.oocl.schema.eqm" targetNamespace="http://com.oocl.schema.epa" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/BasicVoyageInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/CargoNature_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/SAP_ID_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/ShipmentNumber_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../common/OpZone_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.eqm" schemaLocation="../eqm/MatchingInfoChangeInfo_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.tnm" schemaLocation="../tnm/TradeCode_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:include schemaLocation="ContainerSlot_V1.xsd"/>
+	<xsd:include schemaLocation="AppointmentID_V1.xsd"/>
+	<xsd:complexType name="BookingInfo_V1">
+		<xsd:annotation>
+			<xsd:documentation>Define the parameters for BookingInfo</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="EmptyPickupOpzone" type="common:OpZone_V1">
+				<xsd:annotation>
+					<xsd:documentation>Empty pickup opzone</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmptyPickupFacility" type="common:EntityLocationCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Empty pickup facility</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerSlots" type="ContainerSlot_V1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Container slots</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FullReturnFacility" type="common:EntityLocationCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Full return facility</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CargoNature" type="common:CargoNatureCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Cargo nature</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Origin" type="common:EntityLocationCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Origin</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Destination" type="common:EntityLocationCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Destination</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CY_ClosingDateTime" type="framework:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>CYClosing datetime</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SVVD" type="common:BasicVoyageInformation_V1">
+				<xsd:annotation>
+					<xsd:documentation>SVVD</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShipperSAP_ID" type="common:SAP_ID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Shipper SAP ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ConsigneeSAP_ID" type="common:SAP_ID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Consignee SAP ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TradeLane" type="tnm:TradeCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>Trade lane</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BookingMatching">
+				<xsd:annotation>
+					<xsd:documentation>Whether to apply booking matching or not</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CommitStatus">
+				<xsd:annotation>
+					<xsd:documentation>Booking status</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="11"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="UpdateBooking_V1">
+		<xsd:annotation>
+			<xsd:documentation>Define the event for BookingUpdate</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ChangeType" type="eqm:ChangeType_V1">
+					<xsd:annotation>
+						<xsd:documentation>Identify whether the message is AmendBooking or UpdateMatching</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="EPA_Action" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Indicate the system action when receiving this message</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="50"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="BookingNumber" type="common:ShipmentNumber_V1">
+					<xsd:annotation>
+						<xsd:documentation>Booking# specified in the message</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="AppointmentID" type="AppointmentID_V1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Appointment ID</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="BookingInfo" type="BookingInfo_V1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Container quantity in the booking</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="NominationConfirmationInfo" type="eqm:NominationConfirmationInfo_V1" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>Usage plan info of the booking</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Action" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Action performed by system</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="2"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ActionParty" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Modified by</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="2"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="ModifiedDatetime" type="framework:FWAbsoluteDateTimeDTO" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Modified datetime</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

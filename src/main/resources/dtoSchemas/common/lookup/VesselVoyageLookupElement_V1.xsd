@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://com.oocl.schema.common.lookup" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://com.oocl.schema.common" targetNamespace="http://com.oocl.schema.common.lookup" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../ArrivalDepartureDateTime_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../BasicVoyageInformation_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../CommonRestrictions_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../ExternalVoyageReference_V1.xsd"/>
+	<xsd:complexType name="VesselVoyageLookupElement_V1">
+		<xsd:annotation>
+			<xsd:documentation>Represents the element of a vessel voyage search result.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="VoyageInformation" type="common:BasicVoyageInformation_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Basic voyage information - Service Loop abbreviation, vessel code, voyage number and direction.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="VesselName" type="common:EntityName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Vessel name.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FacilityName" type="common:EntityLocationName_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Facility name.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ArrivalDepartureDateTime" type="common:ArrivalDepartureDateTime_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Estimated/Actual arrival and departure date time.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ArrivalExternalVoyageReference" type="common:ExternalVoyageReference_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Arrival external voyage reference used for communication amongst different parties based on agreed format.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DepartureExternalVoyageReference" type="common:ExternalVoyageReference_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Departure external voyage reference used for communication amongst different parties based on agreed format.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

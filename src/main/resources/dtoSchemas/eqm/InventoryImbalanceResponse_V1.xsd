@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2012 rel. 2 (x64) (http://www.altova.com) by OOCL (Orient Overseas Container Line Ltd.) -->
+<!-- Created by Venus 2012-04-02-->
+<xsd:schema xmlns="http://com.oocl.schema.eqm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.oocl.schema.eqm" elementFormDefault="qualified">
+	<xsd:include schemaLocation="InventoryImbalance_V1.xsd"/>
+	<xsd:complexType name="InventoryImbalanceResponse_V1">
+		<xsd:annotation>
+			<xsd:documentation> This is the WS response  for retrieving the top 10 imbalance for the repo plan global UI.
+			It consists of two parts:a list of top 10 imbalance for the repo in/out regions/opzones.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="DemandImbalanceList" type="InventoryImbalance_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>A list of top 10 imbalance for the repo in regions/opzones</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SupplyImbalanceList" type="InventoryImbalance_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>A list of top 10 imbalance for the repo out regions/opzones</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Hamilton Sum (OOCL (USA) INC) -->
+<xsd:schema xmlns="http://com.oocl.schema.dashboard.aor" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fwk="http://com.oocl.frm.common.date.dto/" xmlns:cmn="http://com.oocl.schema.common" xmlns:dsh="http://com.oocl.schema.dashboard" targetNamespace="http://com.oocl.schema.dashboard.aor" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://com.oocl.frm.common.date.dto/" schemaLocation="../../../framework/FWIODTDataTypes.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.dashboard" schemaLocation="../ActivityDefinition_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.dashboard" schemaLocation="../DSH_CommonTypes_V1.xsd"/>
+	<xsd:import namespace="http://com.oocl.schema.common" schemaLocation="../../common/NameAndIdentifier_V1.xsd"/>
+	<xsd:include schemaLocation="SkillGroup_V1.xsd"/>
+	<xsd:element name="Activity" type="Activity_V1">
+		<xsd:annotation>
+			<xsd:documentation>Root Element of this type</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="Activity_V1">
+		<xsd:annotation>
+			<xsd:documentation>Complex type defining an activity</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>ActivityID is the primary key for an activity - while code, group name and type are just business keys inherited from its definition</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="Type" type="dsh:ActivityType_V1">
+				<xsd:annotation>
+					<xsd:documentation>Name of activity - a little more verbose than type and code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Group" type="dsh:ActivityGroup_V1">
+				<xsd:annotation>
+					<xsd:documentation>Grouping of activities - for example Shipment, Agreement etc.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Code" type="dsh:ActivityCode_V1">
+				<xsd:annotation>
+					<xsd:documentation>unique abbreviation of activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LastActionType" type="LastUpdateAction_V1">
+				<xsd:annotation>
+					<xsd:documentation>This is used by history view where it shows the last action of the activity.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActivityDueDate" type="fwk:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>When should this activity be completed - Note: This is in GMT and is NOT relative to which office </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Priority" type="dsh:ActivityPriority_V1">
+				<xsd:annotation>
+					<xsd:documentation>Priority of this activity - Currently at the schema level this is limited to 10 levels</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RequestorID" type="dsh:ActivityCreatorID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Identifiying information about the creator of the activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ID" type="dsh:ActivityID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Unique Identifier for an activity - This must be present for all messages sent to Activity organizer - this is based on the assumption that the activity monitor generates unique id per activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EscalationLevel" type="dsh:EscalationLevel_V1">
+				<xsd:annotation>
+					<xsd:documentation>What is the level of escalation now? If this is not an escalation then set level to be 0 - Currently we are limiting levels of escalation to 3. The model can supported unlimited number of levels of escalation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DefinitionID" type="dsh:DefinitionID_V1">
+				<xsd:annotation>
+					<xsd:documentation>Identify of the definition associated with this activity instance.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Status" type="dsh:ActivityStatus_V1">
+				<xsd:annotation>
+					<xsd:documentation>Status of the activity in its lifecycle</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ApplicationPayload" type="dsh:Context_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>XML Chunk complying with the Context definition as specified in the definition</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ShortDescription" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Desription to show on screen</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Remarks" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Remarks captured by user updating this activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="StandardRemarks" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Standard remarks captured by user updating this activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Owner" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>User who has taken ownership of this activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CoOwner" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Usrs the owner has invited to collaborate on this activity. Note: The co-owners may be in a completely different hierarchy than the owner.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Reminder" type="fwk:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Date and Time when the user would like to be reminded of this activity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AssignedTo" type="cmn:NameAndIdentifier_V1" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>All groups user is a member of, that have been selected to handle this activity (Note: Not intended to list ALL groups this was assigned to)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--			<xsd:element name="ReferenceInformation" type="KeyValuePair_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Reference informaiton to be used for grouping or sorting</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element> 
+-->
+			<xsd:element name="Exception" type="dsh:ExceptionInformation_V1"/>
+			<xsd:element name="ReceivedDate" type="fwk:FWAbsoluteDateTimeDTO">
+				<xsd:annotation>
+					<xsd:documentation>This is the date in when the activity was received. Note: This is in GMT and is NOT relative to which office </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpdateDate" type="fwk:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the date in when the activity was last updated. Note: This is in GMT and is NOT relative to which office </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CompletedDate" type="fwk:FWAbsoluteDateTimeDTO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>This is the date when the activity went to completed state. Note: This is in GMT and is NOT relative to which office </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActivityVersion" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>This keeps track of the activity version.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="LastUpdateAction_V1">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ClientUpdate"/>
+			<xsd:enumeration value="ClientTerminate"/>
+			<xsd:enumeration value="Create"/>
+			<xsd:enumeration value="Escalation"/>
+			<xsd:enumeration value="MassUpdate"/>
+			<xsd:enumeration value="OwnerUpdate"/>
+			<xsd:enumeration value="Reassignment"/>
+			<xsd:enumeration value="SourceApplicationUpdate"/>
+			<xsd:enumeration value="SourceApplicationTerminate"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>
